@@ -100,6 +100,6 @@ Read [engineering-checklist.md](references/engineering-checklist.md). For substa
 5. verification commands and results;
 6. unverified items, assumptions, and residual risks.
 
-Use [knowledge-routing.md](references/knowledge-routing.md) for deciding whether a durable discovery belongs in the target project, this kit's curated registry, or upstream documentation. Never copy Microsoft Learn page bodies into the repository.
+Use [knowledge-routing.md](references/knowledge-routing.md) for deciding whether a durable discovery belongs in the target project, this kit's curated registry, or upstream documentation. External projects remain links and annotations; retain adopted document bodies only when redistribution terms have been verified.
 
 When the target project needs a durable design or evidence artifact, start from the matching template under `<reference-root>/docs/coding-agent-kit/templates` and save the completed artifact in the target project's approved documentation area.

@@ -12,7 +12,8 @@ For a task specifically involving Microsoft Agent Framework APIs, architecture, 
 2. Curated topic routes in `docs/coding-agent-kit/catalog/CATALOG.md`.
 3. Matching upstream samples, implementation, tests, schemas, and design documents in this repository.
 4. Official Microsoft Learn pages listed in `docs/coding-agent-kit/catalog/learn-index.json` when local evidence is insufficient or version-sensitive.
-5. Model memory only for general concepts, never as proof that a framework API exists.
+5. Adopted external project routes and retained documents in `docs/coding-agent-kit/knowledge/collection`, with their review and version boundaries.
+6. Model memory only for general concepts, never as proof that a framework API exists.
 
 Use `python tools/coding-agent-kit/indexer/lookup.py "<query>"` to find focused evidence before broad searches. Distinguish documented behavior, source-observed behavior, sample patterns, project decisions, and inference.
 
@@ -22,7 +23,8 @@ Use `python tools/coding-agent-kit/indexer/lookup.py "<query>"` to find focused 
 - Do not change upstream framework code or samples merely to improve the kit's index; change the topic registry or indexer instead.
 - Never mix C# and Python symbols, provider-specific APIs, or examples from incompatible versions.
 - Keep generated catalog files synchronized with `tools/coding-agent-kit/indexer/topics.json` and the indexer. Run the generator after relevant upstream changes.
-- Do not commit Microsoft Learn page bodies. Store only normalized metadata and official URLs.
+- Retain an external document body only after adoption and license verification, under
+  `docs/coding-agent-kit/knowledge/collection/documents`; never copy external project code.
 - Preserve the upstream MIT license, attribution, security policy, and contribution history.
 
 ## Engineering and safety

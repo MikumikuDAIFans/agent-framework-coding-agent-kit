@@ -30,6 +30,10 @@ Broad internet and community research first enters the
 [review queue](external-sources/REVIEW_QUEUE.md) are deliberately separate from the generated catalog.
 Only sources with a completed `adopted` review may be proposed for the curated topic registry.
 
+Adopted external assets are stored in the [collection layer](collection/README.md). Project sources remain
+links with routes and annotations; redistributable documents may be normalized to Markdown with provenance,
+license, date, and hash metadata. The generated collection index is also queried by the lookup tool.
+
 Do not promote a one-off application choice into the topic registry.
 
 ## Upstream knowledge

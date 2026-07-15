@@ -19,20 +19,20 @@ quarantined from the generated topic catalog and must not be cited as API truth.
 
 ## Active review
 
-- Policy `v1.0` is approved and effective.
+- Policy `v1.1` is approved and effective. Coding agents may complete reviews, decisions, and collection.
 - `repo-microsoft-agent-framework-samples` remains the only active source. Its factual investigation is
   preserved and must now be evaluated with the project/code rubric and hard gates.
 - `official-learn-overview` is next and will use the official-document direct-adoption check.
 
-Only one source is `in-review` at a time unless maintainers explicitly split reviews by non-overlapping
-language or topic.
+Reviews may be batched by source class or topic when evidence remains independently traceable. Each source
+still receives its own review file and state decision.
 
 ## Ordered batches
 
 ### Batch A — canonical truth and maturity
 
 1. `repo-microsoft-agent-framework-samples` — `in-review`, factual investigation recorded 2026-07-15;
-   final evaluation pending maintainer-approved policy
+   final evaluation pending application of policy v1.1
 2. `official-learn-overview`
 3. `official-learn-agents`
 4. `official-learn-tools`
@@ -113,4 +113,6 @@ A queue item is complete only when:
 - every evidence requirement and evaluation field defined by the approved policy is complete;
 - the decision, authority, and approved-use boundary satisfy the approved policy;
 - `sources.json` and this queue agree on the resulting state;
-- any proposed promotion to `topics.json` is a separate, reviewable change.
+- the adopted source has a collection action: project route, retained Markdown, or link/annotation only;
+- project routes contain no copied code, and retained documents have verified redistribution metadata;
+- collection manifests and the generated knowledge index pass `collect.py check`.

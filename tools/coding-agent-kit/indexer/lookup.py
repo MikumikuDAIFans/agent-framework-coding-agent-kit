@@ -35,6 +35,10 @@ def load(path: Path) -> dict[str, Any]:
         return json.load(stream)
 
 
+def load_optional(path: Path) -> dict[str, Any]:
+    return load(path) if path.exists() else {"items": []}
+
+
 def choose_topics(query_tokens: list[str], catalog: dict[str, Any], requested: str | None) -> list[dict[str, Any]]:
     topics = catalog["topics"]
     if requested:
@@ -71,12 +75,30 @@ def score_entry(entry: dict[str, Any], query_tokens: list[str], selected_topics:
     return score
 
 
+def score_external(entry: dict[str, Any], query_tokens: list[str], selected_topics: set[str]) -> int:
+    haystack = " ".join(
+        str(entry.get(key, "")) for key in ("title", "route", "design", "limitations", "version")
+    ).lower()
+    score = sum(6 for token in query_tokens if token in haystack)
+    entry_topics = set(entry.get("topics", []))
+    score += 8 * (1 if "all" in entry_topics and selected_topics else len(selected_topics.intersection(entry_topics)))
+    return score
+
+
+def external_language_matches(entry: dict[str, Any], requested: str) -> bool:
+    languages = set(entry.get("languages", []))
+    return requested == "any" or bool(languages.intersection({requested, "any", "language-neutral"}))
+
+
 def main() -> int:
     args = parse_args()
     root = args.root.resolve()
     catalog_dir = root / "docs/coding-agent-kit/catalog"
     catalog = load(catalog_dir / "catalog.json")
     learn = load(catalog_dir / "learn-index.json")
+    collection_dir = root / "docs/coding-agent-kit/knowledge/collection"
+    project_routes = load_optional(collection_dir / "project-routes.json")
+    collected_documents = load_optional(collection_dir / "documents.json")
     query_tokens = tokenize(args.query)
     selected_topics = choose_topics(query_tokens, catalog, args.topic)
     selected_ids = {topic["id"] for topic in selected_topics}
@@ -111,6 +133,32 @@ def main() -> int:
     if not learn_pages:
         learn_pages = [page for page in learn["pages"] if selected_ids.intersection(page["topics"])][:8]
 
+    external_projects = []
+    if args.role in {"any", "design", "sample", "configuration"}:
+        project_scores = [
+            (score_external(item, query_tokens, selected_ids), item)
+            for item in project_routes.get("items", [])
+            if external_language_matches(item, args.language)
+        ]
+        external_projects = [
+            {"score": score, **item}
+            for score, item in sorted(project_scores, key=lambda pair: (-pair[0], pair[1]["id"]))
+            if score
+        ][:10]
+
+    external_documents = []
+    if args.role in {"any", "documentation", "design"}:
+        document_scores = [
+            (score_external(item, query_tokens, selected_ids), item)
+            for item in collected_documents.get("items", [])
+            if external_language_matches(item, args.language)
+        ]
+        external_documents = [
+            {"score": score, **item}
+            for score, item in sorted(document_scores, key=lambda pair: (-pair[0], pair[1]["id"]))
+            if score
+        ][:10]
+
     output = {
         "query": args.query,
         "reference_root": str(root),
@@ -118,6 +166,8 @@ def main() -> int:
         "topics": [{"id": topic["id"], "title": topic["title"], "description": topic["description"]} for topic in selected_topics],
         "curated": curated,
         "official_docs": learn_pages,
+        "external_projects": external_projects,
+        "collected_documents": external_documents,
         "results": results,
     }
     if args.json:
@@ -146,6 +196,25 @@ def main() -> int:
             print(f"- [{page['title']}]({page['url']}){suffix}")
     else:
         print("- No normalized page matched; query Microsoft Learn MCP using the same terms.")
+
+    print("\n## Adopted external project routes")
+    if external_projects:
+        for item in external_projects:
+            print(
+                f"- score {item['score']:>2} · [{item['title']}]({item['url']}) · `{item['version']}` — "
+                f"{item['route']} — {item['limitations']}"
+            )
+    else:
+        print("- No adopted external project route matched.")
+
+    print("\n## Collected external documents")
+    if external_documents:
+        for item in external_documents:
+            print(
+                f"- score {item['score']:>2} · `{item['local_path']}` — {item['title']} — {item['route']}"
+            )
+    else:
+        print("- No collected external document matched.")
 
     print("\n## Ranked repository files")
     if results:

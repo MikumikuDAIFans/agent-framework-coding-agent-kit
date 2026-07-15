@@ -40,6 +40,8 @@ def validate_review_policy(path: Path) -> None:
     text = path.read_text(encoding="utf-8")
     if not re.search(r"(?m)^- Approval status: `approved`$", text):
         FAILURES.append("External source review policy is not approved.")
+    if not re.search(r"(?m)^- Version: `v1\.1`$", text):
+        FAILURES.append("External source review policy must use the autonomous collection rules in v1.1.")
 
     expected = {
         "C": {"C-01": 25, "C-02": 25, "C-03": 20, "C-04": 10, "C-05": 10, "C-06": 5, "C-07": 5},
@@ -59,8 +61,9 @@ def validate_review_policy(path: Path) -> None:
     required_rules = [
         "技术文章的真实 Demo 等级低于 `3`",
         "技术文章超过 24 个月",
-        "官方文档直接入选",
-        "只有 `adopted` 可以提议加入 `topics.json`",
+        "Coding Agent 可独立完成候选发现、事实核对、评分、状态决定和收录",
+        "vendor 外部项目代码",
+        "文档不得保存正文",
     ]
     for rule in required_rules:
         if rule not in text:
@@ -84,10 +87,16 @@ def main() -> int:
         "docs/coding-agent-kit/knowledge/external-sources/REVIEW_QUEUE.md",
         "docs/coding-agent-kit/knowledge/external-sources/review-template.md",
         "docs/coding-agent-kit/knowledge/external-sources/sources.json",
+        "docs/coding-agent-kit/knowledge/collection/README.md",
+        "docs/coding-agent-kit/knowledge/collection/project-routes.json",
+        "docs/coding-agent-kit/knowledge/collection/documents.json",
+        "docs/coding-agent-kit/knowledge/collection/documents/README.md",
+        "docs/coding-agent-kit/knowledge/collection/KNOWLEDGE_INDEX.md",
         "tools/coding-agent-kit/indexer/topics.json",
         "tools/coding-agent-kit/indexer/upstream-base.json",
         "tools/coding-agent-kit/indexer/build_catalog.py",
         "tools/coding-agent-kit/indexer/lookup.py",
+        "tools/coding-agent-kit/knowledge/collect.py",
         "tools/coding-agent-kit/install.py",
     ]
     paths = {path: require(path) for path in required}
@@ -227,6 +236,8 @@ def main() -> int:
     run([sys.executable, "tools/coding-agent-kit/sync_skill.py", "--check"])
     run([sys.executable, "tools/coding-agent-kit/indexer/build_catalog.py", "--check"])
     run([sys.executable, "-m", "unittest", "discover", "tools/coding-agent-kit/indexer/tests"])
+    run([sys.executable, "-m", "unittest", "discover", "tools/coding-agent-kit/knowledge/tests"])
+    run([sys.executable, "tools/coding-agent-kit/knowledge/collect.py", "check"])
     run([sys.executable, "tools/coding-agent-kit/install.py", "--scope", "user", "--dry-run"])
 
     if FAILURES:

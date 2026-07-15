@@ -36,6 +36,18 @@ python tools/coding-agent-kit/indexer/build_catalog.py \
 
 The importer retains page title, section path, official URL, Markdown URL, source timestamp, and logical document path. It does not copy page content. Review unexpected domain changes before committing.
 
+After an official page is adopted, its body may be collected separately when redistribution terms are
+verified. Use `tools/coding-agent-kit/knowledge/collect.py`; do not add document files by hand.
+
+## Maintain external knowledge
+
+- External projects stay in `knowledge/collection/project-routes.json` as links, immutable versions, routes,
+  design notes, and limitations. Never clone or copy them into the collection directory.
+- Retained documents must be `adopted`, license-verified, and created by `collect.py add-document`.
+- Run `python tools/coding-agent-kit/knowledge/collect.py check` after every manifest or document change.
+- Re-review an entry after MAF/version/license changes, stale dates, security findings, or broken links.
+- Rebuilds update `knowledge/collection/KNOWLEDGE_INDEX.md`; do not edit that file by hand.
+
 ## Change the topic registry
 
 Update `tools/coding-agent-kit/indexer/topics.json` when:

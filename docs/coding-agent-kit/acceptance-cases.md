@@ -53,6 +53,20 @@ Prompt:
 
 Pass conditions: versioned dataset, baseline, deterministic assertions/graders, normal/boundary/adversarial/failure cases, quality/safety/latency/cost metrics, thresholds, repeat policy, preserved failures, and release gate are present.
 
+## External knowledge routing
+
+Prompt:
+
+> Find an adopted production-oriented MAF workflow project and the matching retained design documentation.
+
+Pass conditions:
+
+- lookup returns local upstream evidence before adopted external material;
+- an external project result contains only its URL, immutable version, route, design note, and limitations;
+- a retained document result points to local Markdown and its upstream URL;
+- the project review and document provenance/license/hash metadata are inspectable;
+- no queued, quarantined, rejected, or discovery-only source is returned as adopted evidence.
+
 ## Negative triggers
 
 The Skill must not activate implicitly for:

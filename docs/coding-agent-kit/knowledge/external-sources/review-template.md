@@ -10,7 +10,7 @@
 - Package/API coordinates:
 - License:
 - Reviewer and date:
-- Policy version: `v1.0`
+- Policy version: `v1.1`
 - Review track: `code-project | technical-article | official-doc`
 
 ## Direct Microsoft Agent Framework evidence
@@ -79,7 +79,7 @@ Use exactly one table. Delete the other tables.
 
 - Triggered gates:
 - Result:
-- Maintainer approval:
+- Reviewer decision:
 
 ## Decision
 
@@ -87,5 +87,6 @@ Use exactly one table. Delete the other tables.
 - Approved use:
 - Prohibited or unsafe use:
 - Topic-registry promotion proposal:
+- Collection action: `project route | retained Markdown | link and annotation only | none`
 - Re-review trigger:
 - Residual risk:

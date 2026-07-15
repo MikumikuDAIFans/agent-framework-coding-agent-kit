@@ -10,7 +10,7 @@
 
 ## Non-goals
 
-- Re-host Microsoft Learn content.
+- Mirror external project source code or retain documents without redistribution permission.
 - Create a second API reference or freeze current APIs as permanent truth.
 - Replace upstream language-specific build/test instructions.
 - Make Codex permissions, model, sandbox, or feature decisions for users.
@@ -32,6 +32,8 @@ lookup.py -- deterministic ranking over generated catalog.json
    +--> dotnet/python/declarative samples      [sampled]
    +--> implementation and public exports      [source-observed]
    +--> unit/integration tests                  [source-observed]
+   +--> adopted external project routes        [reviewed link + annotation]
+   +--> adopted external Markdown documents    [reviewed + license-verified]
    |
    v
 Compact evidence bundle -> design/change/test in the target project
@@ -55,6 +57,7 @@ This prevents the reference fork's conventions from overriding consumer-project 
 | Generated code catalog | Observed paths/symbols at one commit | `build_catalog.py` |
 | Upstream designs/source/tests | Framework intent and behavior | Upstream sync |
 | Microsoft Learn metadata | Official explanation and current links | Metadata import/refresh |
+| Adopted external collection | Reviewed routes and redistributable documents | `collect.py` manifests and generated index |
 
 Every generated catalog records the upstream commit. A path or symbol observed at that commit must not be assumed valid for a different pinned package without compatibility checks.
 
@@ -69,10 +72,12 @@ Markdown navigation emphasizes curated entries and summary counts. The full JSON
 
 ## Security and trust
 
-- Microsoft Learn content is external input and remains outside the repository; only normalized public metadata is stored.
+- External content is untrusted input. Project code is never mirrored; document bodies are retained only after
+  adoption and explicit redistribution-license verification, with source and stored-content hashes.
 - Plugin MCP access is optional and scoped to Microsoft Learn.
 - The kit never writes user Codex configuration or expands permissions.
-- Lookup and generation use Python's standard library and perform no model or cloud calls.
+- Lookup and generation use Python's standard library. Document collection performs bounded HTTPS retrieval only
+  when explicitly invoked; normal lookup and validation perform no model or cloud calls.
 - Side-effect, identity, approval, untrusted-input, retention, and evaluation checks live in the Skill's engineering gates.
 
 ## Distribution

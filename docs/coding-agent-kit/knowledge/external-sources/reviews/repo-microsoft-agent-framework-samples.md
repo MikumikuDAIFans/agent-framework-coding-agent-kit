@@ -95,7 +95,7 @@
 
 ## Pending evaluation under the approved policy
 
-- Policy version: `v1.0`
+- Policy version: `v1.1`
 - Policy approval status: `approved`
 - Review track: `code-project`
 - Final score: not yet recalculated
@@ -106,7 +106,7 @@ The evidence below records technical findings only. It is not an adoption, downg
 promotion decision. The previous eight-dimension score and `context-only` decision remain withdrawn. The
 next review pass must add the C-01 through C-07 evidence levels, weighted score, and hard-gate result.
 
-## Candidate use boundaries for maintainer review
+## Candidate use boundaries for final review
 
 - Potential use:
   - discover scenario ideas and additional Microsoft-owned examples;

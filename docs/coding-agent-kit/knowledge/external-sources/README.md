@@ -33,9 +33,9 @@ an explanation when their boundary is explicit. All other states are discovery d
 
 ## Review policy
 
-The review mechanism is owned and approved by the project maintainer. Its only normative location is
-[REVIEW_POLICY.md](REVIEW_POLICY.md). Version `v1.0` is effective: projects/code and technical articles use
-separate 100-point rubrics, while official documentation follows the direct-adoption evidence check.
+The normative mechanism is [REVIEW_POLICY.md](REVIEW_POLICY.md). Version `v1.1` authorizes a coding agent to
+complete reviews and collection without per-source maintainer approval. Projects/code and technical articles
+use separate directional 100-point rubrics; official documentation follows the direct-adoption check.
 
 ## Review procedure
 
@@ -48,7 +48,8 @@ separate 100-point rubrics, while official documentation follows the direct-adop
 5. Identify reusable design decisions separately from sample shortcuts.
 6. Record security, reliability, state, observability, evaluation, and deployment gaps.
 7. Save the review under `reviews/<source-id>.md` using [review-template.md](review-template.md).
-8. Update `sources.json` and the queue. Promotion to `topics.json` is a separate reviewed change.
+8. Update `sources.json` and the queue, then collect adopted sources through the
+   [external knowledge collection](../collection/README.md).
 
-Do not copy external page bodies or substantial source code into this repository. Store URLs, metadata,
-small factual annotations, and original review conclusions.
+Never copy external project code. Reviewed documents may be retained as normalized Markdown only when their
+redistribution terms permit it; otherwise store only the link, metadata, and original annotations.

@@ -7,7 +7,8 @@ The local branch is prepared as a derivative of `microsoft/agent-framework`. Pub
 1. Choose the repository owner/name and decide whether GitHub should create it as a fork or a separate derivative repository.
 2. Prefer a GitHub fork when retaining upstream history and regular synchronization is important.
 3. Keep the upstream MIT `LICENSE`, attribution, security policy, code of conduct, and contribution files.
-4. Review `git diff` and confirm no Microsoft Learn page bodies, credentials, local absolute paths, caches, or unrelated upstream changes are present.
+4. Review `git diff` and confirm no credentials, local absolute paths, caches, external project code, unlicensed
+   document bodies, or unrelated upstream changes are present.
 5. Run `python tools/coding-agent-kit/validate.py`.
 6. Commit generated catalog files with their registry/indexer changes.
 

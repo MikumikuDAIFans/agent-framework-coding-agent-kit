@@ -12,6 +12,7 @@ For a topic such as tool approval, session persistence, workflow checkpointing, 
 4. matching implementation and public export paths;
 5. matching unit/integration test paths;
 6. deterministic lookup commands for deeper discovery.
+7. reviewed external project routes and locally retained, license-verified Markdown documents.
 
 Start with the generated [catalog](catalog/CATALOG.md), or query it:
 
@@ -52,6 +53,9 @@ The repository root contains `.codex-plugin/plugin.json` and `.mcp.json`. Plugin
 - `tools/coding-agent-kit/indexer/data/learn-pages.json` contains normalized Microsoft Learn metadata only—no page bodies.
 - `build_catalog.py` scans the current checkout and generates machine-readable and Markdown catalogs.
 - `lookup.py` ranks focused references for a coding task.
+- `tools/coding-agent-kit/knowledge/collect.py` registers project links and converts adopted,
+  redistributable documents to provenance-tracked Markdown.
+- `docs/coding-agent-kit/knowledge/collection/KNOWLEDGE_INDEX.md` is the generated external knowledge route.
 - Generated files under `docs/coding-agent-kit/catalog` are not hand-edited.
 
 See [architecture.md](architecture.md) for component boundaries, [maintenance.md](maintenance.md) for upstream synchronization, and [CONTRIBUTING.md](CONTRIBUTING.md) for contribution rules.
@@ -63,6 +67,8 @@ Run the positive and negative prompts in [acceptance-cases.md](acceptance-cases.
 ```bash
 python tools/coding-agent-kit/indexer/build_catalog.py --check
 python -m unittest discover tools/coding-agent-kit/indexer/tests
+python -m unittest discover tools/coding-agent-kit/knowledge/tests
+python tools/coding-agent-kit/knowledge/collect.py check
 python tools/coding-agent-kit/validate.py
 ```
 
