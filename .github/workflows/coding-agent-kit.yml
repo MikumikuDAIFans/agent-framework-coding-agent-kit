@@ -1,0 +1,38 @@
+name: Coding Agent Kit
+
+on:
+  pull_request:
+    paths:
+      - ".agents/**"
+      - ".codex-plugin/**"
+      - ".mcp.json"
+      - "AGENTS.md"
+      - "docs/coding-agent-kit/**"
+      - "tools/coding-agent-kit/**"
+      - ".github/workflows/coding-agent-kit.yml"
+  push:
+    branches:
+      - "codex/agent-framework-coding-agent-kit"
+    paths:
+      - ".agents/**"
+      - ".codex-plugin/**"
+      - ".mcp.json"
+      - "AGENTS.md"
+      - "docs/coding-agent-kit/**"
+      - "tools/coding-agent-kit/**"
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Validate generated catalogs and kit structure
+        run: python tools/coding-agent-kit/validate.py

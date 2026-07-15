@@ -1,0 +1,1420 @@
+{
+  "schema_version": 1,
+  "source": "https://learn.microsoft.com/zh-cn/agent-framework/",
+  "source_generated_at": "2026-07-09T09:43:27+08:00",
+  "pages": [
+    {
+      "title": ".NET API 参考",
+      "section_path": [
+        "API 参考文档",
+        ".NET API 参考"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/dotnet/api/microsoft.agents.ai",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/dotnet/api/microsoft.agents.ai?accept=text%2Fmarkdown",
+      "doc_path": "api-reference/dotnet/microsoft.agents.ai.md"
+    },
+    {
+      "title": "Python API 参考",
+      "section_path": [
+        "API 参考文档",
+        "Python API 参考"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/python/api/agent-framework-core/agent_framework",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/python/api/agent-framework-core/agent_framework?accept=text%2Fmarkdown",
+      "doc_path": "api-reference/python/agent-framework-core-agent_framework.md"
+    },
+    {
+      "title": "CodeAct",
+      "section_path": [
+        "Agents",
+        "CodeAct"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/code_act",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/code_act?accept=text%2Fmarkdown",
+      "doc_path": "agents/code_act.md"
+    },
+    {
+      "title": "Evaluation",
+      "section_path": [
+        "Agents",
+        "Evaluation"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/evaluation",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/evaluation?accept=text%2Fmarkdown",
+      "doc_path": "agents/evaluation.md"
+    },
+    {
+      "title": "Observability",
+      "section_path": [
+        "Agents",
+        "Observability"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/observability",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/observability?accept=text%2Fmarkdown",
+      "doc_path": "agents/observability.md"
+    },
+    {
+      "title": "A2A",
+      "section_path": [
+        "Agents",
+        "Providers",
+        "A2A"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/providers/agent-to-agent",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/providers/agent-to-agent?accept=text%2Fmarkdown",
+      "doc_path": "agents/providers/agent-to-agent.md"
+    },
+    {
+      "title": "Anthropic",
+      "section_path": [
+        "Agents",
+        "Providers",
+        "Anthropic"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/providers/anthropic",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/providers/anthropic?accept=text%2Fmarkdown",
+      "doc_path": "agents/providers/anthropic.md"
+    },
+    {
+      "title": "Azure OpenAI",
+      "section_path": [
+        "Agents",
+        "Providers",
+        "Azure OpenAI"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/providers/azure-openai",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/providers/azure-openai?accept=text%2Fmarkdown",
+      "doc_path": "agents/providers/azure-openai.md"
+    },
+    {
+      "title": "Copilot Studio",
+      "section_path": [
+        "Agents",
+        "Providers",
+        "Copilot Studio"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/providers/copilot-studio",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/providers/copilot-studio?accept=text%2Fmarkdown",
+      "doc_path": "agents/providers/copilot-studio.md"
+    },
+    {
+      "title": "Foundry Local",
+      "section_path": [
+        "Agents",
+        "Providers",
+        "Foundry Local"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/providers/foundry-local",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/providers/foundry-local?accept=text%2Fmarkdown",
+      "doc_path": "agents/providers/foundry-local.md"
+    },
+    {
+      "title": "GitHub Copilot",
+      "section_path": [
+        "Agents",
+        "Providers",
+        "GitHub Copilot"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/providers/github-copilot",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/providers/github-copilot?accept=text%2Fmarkdown",
+      "doc_path": "agents/providers/github-copilot.md"
+    },
+    {
+      "title": "Microsoft Foundry",
+      "section_path": [
+        "Agents",
+        "Providers",
+        "Microsoft Foundry"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/providers/microsoft-foundry",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/providers/microsoft-foundry?accept=text%2Fmarkdown",
+      "doc_path": "agents/providers/microsoft-foundry.md"
+    },
+    {
+      "title": "Ollama",
+      "section_path": [
+        "Agents",
+        "Providers",
+        "Ollama"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/providers/ollama",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/providers/ollama?accept=text%2Fmarkdown",
+      "doc_path": "agents/providers/ollama.md"
+    },
+    {
+      "title": "OpenAI",
+      "section_path": [
+        "Agents",
+        "Providers",
+        "OpenAI"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/providers/openai",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/providers/openai?accept=text%2Fmarkdown",
+      "doc_path": "agents/providers/openai.md"
+    },
+    {
+      "title": "概述",
+      "section_path": [
+        "Agents",
+        "Providers",
+        "概述"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/providers/",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/providers/?accept=text%2Fmarkdown",
+      "doc_path": "agents/providers/index.md"
+    },
+    {
+      "title": "自定义提供程序",
+      "section_path": [
+        "Agents",
+        "Providers",
+        "自定义提供程序"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/providers/custom",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/providers/custom?accept=text%2Fmarkdown",
+      "doc_path": "agents/providers/custom.md"
+    },
+    {
+      "title": "RAG",
+      "section_path": [
+        "Agents",
+        "RAG"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/rag",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/rag?accept=text%2Fmarkdown",
+      "doc_path": "agents/rag.md"
+    },
+    {
+      "title": "共享状态",
+      "section_path": [
+        "Agents",
+        "中间件",
+        "共享状态"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/middleware/shared-state",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/middleware/shared-state?accept=text%2Fmarkdown",
+      "doc_path": "agents/middleware/shared-state.md"
+    },
+    {
+      "title": "定义中间件",
+      "section_path": [
+        "Agents",
+        "中间件",
+        "定义中间件"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/middleware/defining-middleware",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/middleware/defining-middleware?accept=text%2Fmarkdown",
+      "doc_path": "agents/middleware/defining-middleware.md"
+    },
+    {
+      "title": "异常处理",
+      "section_path": [
+        "Agents",
+        "中间件",
+        "异常处理"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/middleware/exception-handling",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/middleware/exception-handling?accept=text%2Fmarkdown",
+      "doc_path": "agents/middleware/exception-handling.md"
+    },
+    {
+      "title": "智能体与运行范围",
+      "section_path": [
+        "Agents",
+        "中间件",
+        "智能体与运行范围"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/middleware/agent-vs-run-scope",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/middleware/agent-vs-run-scope?accept=text%2Fmarkdown",
+      "doc_path": "agents/middleware/agent-vs-run-scope.md"
+    },
+    {
+      "title": "概述",
+      "section_path": [
+        "Agents",
+        "中间件",
+        "概述"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/middleware/",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/middleware/?accept=text%2Fmarkdown",
+      "doc_path": "agents/middleware/index.md"
+    },
+    {
+      "title": "终止与防护措施",
+      "section_path": [
+        "Agents",
+        "中间件",
+        "终止与防护措施"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/middleware/termination",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/middleware/termination?accept=text%2Fmarkdown",
+      "doc_path": "agents/middleware/termination.md"
+    },
+    {
+      "title": "结果覆盖",
+      "section_path": [
+        "Agents",
+        "中间件",
+        "结果覆盖"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/middleware/result-overrides",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/middleware/result-overrides?accept=text%2Fmarkdown",
+      "doc_path": "agents/middleware/result-overrides.md"
+    },
+    {
+      "title": "聊天级别中间件",
+      "section_path": [
+        "Agents",
+        "中间件",
+        "聊天级别中间件"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/middleware/chat-middleware",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/middleware/chat-middleware?accept=text%2Fmarkdown",
+      "doc_path": "agents/middleware/chat-middleware.md"
+    },
+    {
+      "title": "运行时上下文",
+      "section_path": [
+        "Agents",
+        "中间件",
+        "运行时上下文"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/middleware/runtime-context",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/middleware/runtime-context?accept=text%2Fmarkdown",
+      "doc_path": "agents/middleware/runtime-context.md"
+    },
+    {
+      "title": "代理安全",
+      "section_path": [
+        "Agents",
+        "代理安全"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/safety",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/safety?accept=text%2Fmarkdown",
+      "doc_path": "agents/safety.md"
+    },
+    {
+      "title": "代理安全性 （FIDES）",
+      "section_path": [
+        "Agents",
+        "代理安全性 （FIDES）"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/security",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/security?accept=text%2Fmarkdown",
+      "doc_path": "agents/security.md"
+    },
+    {
+      "title": "后台响应",
+      "section_path": [
+        "Agents",
+        "后台响应"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/background-responses",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/background-responses?accept=text%2Fmarkdown",
+      "doc_path": "agents/background-responses.md"
+    },
+    {
+      "title": "声明性代理",
+      "section_path": [
+        "Agents",
+        "声明性代理"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/declarative",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/declarative?accept=text%2Fmarkdown",
+      "doc_path": "agents/declarative.md"
+    },
+    {
+      "title": "多模态",
+      "section_path": [
+        "Agents",
+        "多模态"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/multimodal",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/multimodal?accept=text%2Fmarkdown",
+      "doc_path": "agents/multimodal.md"
+    },
+    {
+      "title": "Session",
+      "section_path": [
+        "Agents",
+        "对话和内存",
+        "Session"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/conversations/session",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/conversations/session?accept=text%2Fmarkdown",
+      "doc_path": "agents/conversations/session.md"
+    },
+    {
+      "title": "上下文提供程序",
+      "section_path": [
+        "Agents",
+        "对话和内存",
+        "上下文提供程序"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/conversations/context-providers",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/conversations/context-providers?accept=text%2Fmarkdown",
+      "doc_path": "agents/conversations/context-providers.md"
+    },
+    {
+      "title": "压缩",
+      "section_path": [
+        "Agents",
+        "对话和内存",
+        "压缩"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/conversations/compaction",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/conversations/compaction?accept=text%2Fmarkdown",
+      "doc_path": "agents/conversations/compaction.md"
+    },
+    {
+      "title": "存储",
+      "section_path": [
+        "Agents",
+        "对话和内存",
+        "存储"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/conversations/storage",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/conversations/storage?accept=text%2Fmarkdown",
+      "doc_path": "agents/conversations/storage.md"
+    },
+    {
+      "title": "概述",
+      "section_path": [
+        "Agents",
+        "对话和内存",
+        "概述"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/conversations/",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/conversations/?accept=text%2Fmarkdown",
+      "doc_path": "agents/conversations/index.md"
+    },
+    {
+      "title": "Web 搜索",
+      "section_path": [
+        "Agents",
+        "工具",
+        "Web 搜索"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/tools/web-search",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/tools/web-search?accept=text%2Fmarkdown",
+      "doc_path": "agents/tools/web-search.md"
+    },
+    {
+      "title": "代码解释器",
+      "section_path": [
+        "Agents",
+        "工具",
+        "代码解释器"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/tools/code-interpreter",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/tools/code-interpreter?accept=text%2Fmarkdown",
+      "doc_path": "agents/tools/code-interpreter.md"
+    },
+    {
+      "title": "函数工具",
+      "section_path": [
+        "Agents",
+        "工具",
+        "函数工具"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/tools/function-tools",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/tools/function-tools?accept=text%2Fmarkdown",
+      "doc_path": "agents/tools/function-tools.md"
+    },
+    {
+      "title": "工具审批",
+      "section_path": [
+        "Agents",
+        "工具",
+        "工具审批"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/tools/tool-approval",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/tools/tool-approval?accept=text%2Fmarkdown",
+      "doc_path": "agents/tools/tool-approval.md"
+    },
+    {
+      "title": "托管 MCP 工具",
+      "section_path": [
+        "Agents",
+        "工具",
+        "托管 MCP 工具"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/tools/hosted-mcp-tools",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/tools/hosted-mcp-tools?accept=text%2Fmarkdown",
+      "doc_path": "agents/tools/hosted-mcp-tools.md"
+    },
+    {
+      "title": "控制工具可用性",
+      "section_path": [
+        "Agents",
+        "工具",
+        "控制工具可用性"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/tools/controlling-tool-availability",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/tools/controlling-tool-availability?accept=text%2Fmarkdown",
+      "doc_path": "agents/tools/controlling-tool-availability.md"
+    },
+    {
+      "title": "文件搜索",
+      "section_path": [
+        "Agents",
+        "工具",
+        "文件搜索"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/tools/file-search",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/tools/file-search?accept=text%2Fmarkdown",
+      "doc_path": "agents/tools/file-search.md"
+    },
+    {
+      "title": "本地 MCP 工具",
+      "section_path": [
+        "Agents",
+        "工具",
+        "本地 MCP 工具"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/tools/local-mcp-tools",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/tools/local-mcp-tools?accept=text%2Fmarkdown",
+      "doc_path": "agents/tools/local-mcp-tools.md"
+    },
+    {
+      "title": "概述",
+      "section_path": [
+        "Agents",
+        "工具",
+        "概述"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/tools/",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/tools/?accept=text%2Fmarkdown",
+      "doc_path": "agents/tools/index.md"
+    },
+    {
+      "title": "智能体工具包",
+      "section_path": [
+        "Agents",
+        "智能体工具包"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/harness",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/harness?accept=text%2Fmarkdown",
+      "doc_path": "agents/harness.md"
+    },
+    {
+      "title": "智能体技能",
+      "section_path": [
+        "Agents",
+        "智能体技能"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/skills",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/skills?accept=text%2Fmarkdown",
+      "doc_path": "agents/skills.md"
+    },
+    {
+      "title": "智能体管道",
+      "section_path": [
+        "Agents",
+        "智能体管道"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/agent-pipeline",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/agent-pipeline?accept=text%2Fmarkdown",
+      "doc_path": "agents/agent-pipeline.md"
+    },
+    {
+      "title": "概述",
+      "section_path": [
+        "Agents",
+        "概述"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/?accept=text%2Fmarkdown",
+      "doc_path": "agents/index.md"
+    },
+    {
+      "title": "结构化输出",
+      "section_path": [
+        "Agents",
+        "结构化输出"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/structured-outputs",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/structured-outputs?accept=text%2Fmarkdown",
+      "doc_path": "agents/structured-outputs.md"
+    },
+    {
+      "title": "运行智能体",
+      "section_path": [
+        "Agents",
+        "运行智能体"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/running-agents",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/running-agents?accept=text%2Fmarkdown",
+      "doc_path": "agents/running-agents.md"
+    },
+    {
+      "title": "API 参考文档",
+      "section_path": [
+        "DevUI",
+        "API 参考文档"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/devui/api-reference",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/devui/api-reference?accept=text%2Fmarkdown",
+      "doc_path": "devui/api-reference.md"
+    },
+    {
+      "title": "Samples",
+      "section_path": [
+        "DevUI",
+        "Samples"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/devui/samples",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/devui/samples?accept=text%2Fmarkdown",
+      "doc_path": "devui/samples.md"
+    },
+    {
+      "title": "安全性与部署",
+      "section_path": [
+        "DevUI",
+        "安全性与部署"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/devui/security",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/devui/security?accept=text%2Fmarkdown",
+      "doc_path": "devui/security.md"
+    },
+    {
+      "title": "概述",
+      "section_path": [
+        "DevUI",
+        "概述"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/devui/",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/devui/?accept=text%2Fmarkdown",
+      "doc_path": "devui/index.md"
+    },
+    {
+      "title": "目录查找",
+      "section_path": [
+        "DevUI",
+        "目录查找"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/devui/directory-discovery",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/devui/directory-discovery?accept=text%2Fmarkdown",
+      "doc_path": "devui/directory-discovery.md"
+    },
+    {
+      "title": "跟踪和可观测性",
+      "section_path": [
+        "DevUI",
+        "跟踪和可观测性"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/devui/tracing",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/devui/tracing?accept=text%2Fmarkdown",
+      "doc_path": "devui/tracing.md"
+    },
+    {
+      "title": "A2A",
+      "section_path": [
+        "Hosting",
+        "A2A"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/hosting/agent-to-agent",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/hosting/agent-to-agent?accept=text%2Fmarkdown",
+      "doc_path": "hosting/agent-to-agent.md"
+    },
+    {
+      "title": "Foundry 托管智能体",
+      "section_path": [
+        "Hosting",
+        "Foundry 托管智能体"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/hosting/foundry-hosted-agent",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/hosting/foundry-hosted-agent?accept=text%2Fmarkdown",
+      "doc_path": "hosting/foundry-hosted-agent.md"
+    },
+    {
+      "title": "FAQ",
+      "section_path": [
+        "Support",
+        "FAQ"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/support/faq",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/support/faq?accept=text%2Fmarkdown",
+      "doc_path": "support/faq.md"
+    },
+    {
+      "title": "2026 Python重大更改",
+      "section_path": [
+        "Support",
+        "升级指南",
+        "2026 Python重大更改"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/support/upgrade/python-2026-significant-changes",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/support/upgrade/python-2026-significant-changes?accept=text%2Fmarkdown",
+      "doc_path": "support/upgrade/python-2026-significant-changes.md"
+    },
+    {
+      "title": "Python中的工作流 API 和 Request-Response 系统",
+      "section_path": [
+        "Support",
+        "升级指南",
+        "Python中的工作流 API 和 Request-Response 系统"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/support/upgrade/requests-and-responses-upgrade-guide-python",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/support/upgrade/requests-and-responses-upgrade-guide-python?accept=text%2Fmarkdown",
+      "doc_path": "support/upgrade/requests-and-responses-upgrade-guide-python.md"
+    },
+    {
+      "title": "基于 TypedDicts 的Python选项",
+      "section_path": [
+        "Support",
+        "升级指南",
+        "基于 TypedDicts 的Python选项"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/support/upgrade/typed-options-guide-python",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/support/upgrade/typed-options-guide-python?accept=text%2Fmarkdown",
+      "doc_path": "support/upgrade/typed-options-guide-python.md"
+    },
+    {
+      "title": "概述",
+      "section_path": [
+        "Support",
+        "升级指南",
+        "概述"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/support/upgrade/",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/support/upgrade/?accept=text%2Fmarkdown",
+      "doc_path": "support/upgrade/index.md"
+    },
+    {
+      "title": "故障排除",
+      "section_path": [
+        "Support",
+        "故障排除"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/support/troubleshooting",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/support/troubleshooting?accept=text%2Fmarkdown",
+      "doc_path": "support/troubleshooting.md"
+    },
+    {
+      "title": "概述",
+      "section_path": [
+        "Support",
+        "概述"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/support/",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/support/?accept=text%2Fmarkdown",
+      "doc_path": "support/index.md"
+    },
+    {
+      "title": "功能性工作流 API",
+      "section_path": [
+        "Workflows",
+        "Functional",
+        "功能性工作流 API"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/workflows/functional",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/workflows/functional?accept=text%2Fmarkdown",
+      "doc_path": "workflows/functional.md"
+    },
+    {
+      "title": "Observability",
+      "section_path": [
+        "Workflows",
+        "基于图形",
+        "Observability"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/workflows/observability",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/workflows/observability?accept=text%2Fmarkdown",
+      "doc_path": "workflows/observability.md"
+    },
+    {
+      "title": "Handoff",
+      "section_path": [
+        "Workflows",
+        "基于图形",
+        "业务流程",
+        "Handoff"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/workflows/orchestrations/handoff",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/workflows/orchestrations/handoff?accept=text%2Fmarkdown",
+      "doc_path": "workflows/orchestrations/handoff.md"
+    },
+    {
+      "title": "并发程序",
+      "section_path": [
+        "Workflows",
+        "基于图形",
+        "业务流程",
+        "并发程序"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/workflows/orchestrations/concurrent",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/workflows/orchestrations/concurrent?accept=text%2Fmarkdown",
+      "doc_path": "workflows/orchestrations/concurrent.md"
+    },
+    {
+      "title": "概述",
+      "section_path": [
+        "Workflows",
+        "基于图形",
+        "业务流程",
+        "概述"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/workflows/orchestrations/",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/workflows/orchestrations/?accept=text%2Fmarkdown",
+      "doc_path": "workflows/orchestrations/index.md"
+    },
+    {
+      "title": "磁性",
+      "section_path": [
+        "Workflows",
+        "基于图形",
+        "业务流程",
+        "磁性"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/workflows/orchestrations/magentic",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/workflows/orchestrations/magentic?accept=text%2Fmarkdown",
+      "doc_path": "workflows/orchestrations/magentic.md"
+    },
+    {
+      "title": "群聊",
+      "section_path": [
+        "Workflows",
+        "基于图形",
+        "业务流程",
+        "群聊"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/workflows/orchestrations/group-chat",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/workflows/orchestrations/group-chat?accept=text%2Fmarkdown",
+      "doc_path": "workflows/orchestrations/group-chat.md"
+    },
+    {
+      "title": "顺序",
+      "section_path": [
+        "Workflows",
+        "基于图形",
+        "业务流程",
+        "顺序"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/workflows/orchestrations/sequential",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/workflows/orchestrations/sequential?accept=text%2Fmarkdown",
+      "doc_path": "workflows/orchestrations/sequential.md"
+    },
+    {
+      "title": "事件",
+      "section_path": [
+        "Workflows",
+        "基于图形",
+        "事件"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/workflows/events",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/workflows/events?accept=text%2Fmarkdown",
+      "doc_path": "workflows/events.md"
+    },
+    {
+      "title": "人机协同",
+      "section_path": [
+        "Workflows",
+        "基于图形",
+        "人机协同"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/workflows/human-in-the-loop",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/workflows/human-in-the-loop?accept=text%2Fmarkdown",
+      "doc_path": "workflows/human-in-the-loop.md"
+    },
+    {
+      "title": "可视化",
+      "section_path": [
+        "Workflows",
+        "基于图形",
+        "可视化"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/workflows/visualization",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/workflows/visualization?accept=text%2Fmarkdown",
+      "doc_path": "workflows/visualization.md"
+    },
+    {
+      "title": "声明性工作流",
+      "section_path": [
+        "Workflows",
+        "基于图形",
+        "声明性工作流"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/workflows/declarative",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/workflows/declarative?accept=text%2Fmarkdown",
+      "doc_path": "workflows/declarative.md"
+    },
+    {
+      "title": "工作流中的代理",
+      "section_path": [
+        "Workflows",
+        "基于图形",
+        "工作流中的代理"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/workflows/agents-in-workflows",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/workflows/agents-in-workflows?accept=text%2Fmarkdown",
+      "doc_path": "workflows/agents-in-workflows.md"
+    },
+    {
+      "title": "工作流作为代理",
+      "section_path": [
+        "Workflows",
+        "基于图形",
+        "工作流作为代理"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/workflows/as-agents",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/workflows/as-agents?accept=text%2Fmarkdown",
+      "doc_path": "workflows/as-agents.md"
+    },
+    {
+      "title": "工作流生成器和执行",
+      "section_path": [
+        "Workflows",
+        "基于图形",
+        "工作流生成器和执行"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/workflows/workflows",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/workflows/workflows?accept=text%2Fmarkdown",
+      "doc_path": "workflows/workflows.md"
+    },
+    {
+      "title": "执行器",
+      "section_path": [
+        "Workflows",
+        "基于图形",
+        "执行器"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/workflows/executors",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/workflows/executors?accept=text%2Fmarkdown",
+      "doc_path": "workflows/executors.md"
+    },
+    {
+      "title": "检查点和恢复",
+      "section_path": [
+        "Workflows",
+        "基于图形",
+        "检查点和恢复"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/workflows/checkpoints",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/workflows/checkpoints?accept=text%2Fmarkdown",
+      "doc_path": "workflows/checkpoints.md"
+    },
+    {
+      "title": "状态管理",
+      "section_path": [
+        "Workflows",
+        "基于图形",
+        "状态管理"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/workflows/state",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/workflows/state?accept=text%2Fmarkdown",
+      "doc_path": "workflows/state.md"
+    },
+    {
+      "title": "边缘",
+      "section_path": [
+        "Workflows",
+        "基于图形",
+        "边缘"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/workflows/edges",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/workflows/edges?accept=text%2Fmarkdown",
+      "doc_path": "workflows/edges.md"
+    },
+    {
+      "title": "代理执行程序",
+      "section_path": [
+        "Workflows",
+        "基于图形",
+        "高级",
+        "代理执行程序"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/workflows/advanced/agent-executor",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/workflows/advanced/agent-executor?accept=text%2Fmarkdown",
+      "doc_path": "workflows/advanced/agent-executor.md"
+    },
+    {
+      "title": "可重置执行器",
+      "section_path": [
+        "Workflows",
+        "基于图形",
+        "高级",
+        "可重置执行器"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/workflows/advanced/resettable-executors",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/workflows/advanced/resettable-executors?accept=text%2Fmarkdown",
+      "doc_path": "workflows/advanced/resettable-executors.md"
+    },
+    {
+      "title": "子工作流",
+      "section_path": [
+        "Workflows",
+        "基于图形",
+        "高级",
+        "子工作流"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/workflows/advanced/sub-workflows",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/workflows/advanced/sub-workflows?accept=text%2Fmarkdown",
+      "doc_path": "workflows/advanced/sub-workflows.md"
+    },
+    {
+      "title": "执行模式",
+      "section_path": [
+        "Workflows",
+        "基于图形",
+        "高级",
+        "执行模式"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/workflows/advanced/execution-modes",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/workflows/advanced/execution-modes?accept=text%2Fmarkdown",
+      "doc_path": "workflows/advanced/execution-modes.md"
+    },
+    {
+      "title": "概述",
+      "section_path": [
+        "Workflows",
+        "概述"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/workflows/",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/workflows/?accept=text%2Fmarkdown",
+      "doc_path": "workflows/index.md"
+    },
+    {
+      "title": "代理框架",
+      "section_path": [
+        "代理框架"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/overview/",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/overview/?accept=text%2Fmarkdown",
+      "doc_path": "overview/index.md"
+    },
+    {
+      "title": "LLM 基础知识",
+      "section_path": [
+        "代理程序开发历程",
+        "LLM 基础知识"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/journey/llm-fundamentals",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/journey/llm-fundamentals?accept=text%2Fmarkdown",
+      "doc_path": "journey/llm-fundamentals.md"
+    },
+    {
+      "title": "Workflows",
+      "section_path": [
+        "代理程序开发历程",
+        "Workflows"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/journey/workflows",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/journey/workflows?accept=text%2Fmarkdown",
+      "doc_path": "journey/workflows.md"
+    },
+    {
+      "title": "上下文提供程序",
+      "section_path": [
+        "代理程序开发历程",
+        "上下文提供程序"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/journey/adding-context-providers",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/journey/adding-context-providers?accept=text%2Fmarkdown",
+      "doc_path": "journey/adding-context-providers.md"
+    },
+    {
+      "title": "从 LLM 到代理",
+      "section_path": [
+        "代理程序开发历程",
+        "从 LLM 到代理"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/journey/from-llms-to-agents",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/journey/from-llms-to-agents?accept=text%2Fmarkdown",
+      "doc_path": "journey/from-llms-to-agents.md"
+    },
+    {
+      "title": "代理作为工具",
+      "section_path": [
+        "代理程序开发历程",
+        "代理作为工具"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/journey/agents-as-tools",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/journey/agents-as-tools?accept=text%2Fmarkdown",
+      "doc_path": "journey/agents-as-tools.md"
+    },
+    {
+      "title": "代理对代理（A2A）",
+      "section_path": [
+        "代理程序开发历程",
+        "代理对代理（A2A）"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/journey/agent-to-agent",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/journey/agent-to-agent?accept=text%2Fmarkdown",
+      "doc_path": "journey/agent-to-agent.md"
+    },
+    {
+      "title": "概述",
+      "section_path": [
+        "代理程序开发历程",
+        "概述"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/journey/",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/journey/?accept=text%2Fmarkdown",
+      "doc_path": "journey/index.md"
+    },
+    {
+      "title": "添加中间件",
+      "section_path": [
+        "代理程序开发历程",
+        "添加中间件"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/journey/adding-middleware",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/journey/adding-middleware?accept=text%2Fmarkdown",
+      "doc_path": "journey/adding-middleware.md"
+    },
+    {
+      "title": "添加工具",
+      "section_path": [
+        "代理程序开发历程",
+        "添加工具"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/journey/adding-tools",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/journey/adding-tools?accept=text%2Fmarkdown",
+      "doc_path": "journey/adding-tools.md"
+    },
+    {
+      "title": "添加技能",
+      "section_path": [
+        "代理程序开发历程",
+        "添加技能"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/journey/adding-skills",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/journey/adding-skills?accept=text%2Fmarkdown",
+      "doc_path": "journey/adding-skills.md"
+    },
+    {
+      "title": "概述",
+      "section_path": [
+        "开始",
+        "概述"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/get-started/",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/get-started/?accept=text%2Fmarkdown",
+      "doc_path": "get-started/index.md"
+    },
+    {
+      "title": "步骤 1：你的第一个智能体",
+      "section_path": [
+        "开始",
+        "步骤 1：你的第一个智能体"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/get-started/your-first-agent",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/get-started/your-first-agent?accept=text%2Fmarkdown",
+      "doc_path": "get-started/your-first-agent.md"
+    },
+    {
+      "title": "步骤 2：添加工具",
+      "section_path": [
+        "开始",
+        "步骤 2：添加工具"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/get-started/add-tools",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/get-started/add-tools?accept=text%2Fmarkdown",
+      "doc_path": "get-started/add-tools.md"
+    },
+    {
+      "title": "步骤 3：多轮次对话",
+      "section_path": [
+        "开始",
+        "步骤 3：多轮次对话"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/get-started/multi-turn",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/get-started/multi-turn?accept=text%2Fmarkdown",
+      "doc_path": "get-started/multi-turn.md"
+    },
+    {
+      "title": "步骤 4：内存和持久性",
+      "section_path": [
+        "开始",
+        "步骤 4：内存和持久性"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/get-started/memory",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/get-started/memory?accept=text%2Fmarkdown",
+      "doc_path": "get-started/memory.md"
+    },
+    {
+      "title": "步骤 5：工作流",
+      "section_path": [
+        "开始",
+        "步骤 5：工作流"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/get-started/workflows",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/get-started/workflows?accept=text%2Fmarkdown",
+      "doc_path": "get-started/workflows.md"
+    },
+    {
+      "title": "步骤 6：托管代理",
+      "section_path": [
+        "开始",
+        "步骤 6：托管代理"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/get-started/hosting",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/get-started/hosting?accept=text%2Fmarkdown",
+      "doc_path": "get-started/hosting.md"
+    },
+    {
+      "title": "A2A SDK v1",
+      "section_path": [
+        "迁移指南",
+        "A2A SDK v1"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/migration-guide/agent-to-agent-sdk-v1",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/migration-guide/agent-to-agent-sdk-v1?accept=text%2Fmarkdown",
+      "doc_path": "migration-guide/agent-to-agent-sdk-v1.md"
+    },
+    {
+      "title": "概述",
+      "section_path": [
+        "迁移指南",
+        "从 AutoGen",
+        "概述"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/migration-guide/from-autogen/",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/migration-guide/from-autogen/?accept=text%2Fmarkdown",
+      "doc_path": "migration-guide/from-autogen/index.md"
+    },
+    {
+      "title": "概述",
+      "section_path": [
+        "迁移指南",
+        "从 语义内核",
+        "概述"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/migration-guide/from-semantic-kernel/",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/migration-guide/from-semantic-kernel/?accept=text%2Fmarkdown",
+      "doc_path": "migration-guide/from-semantic-kernel/index.md"
+    },
+    {
+      "title": "迁移示例",
+      "section_path": [
+        "迁移指南",
+        "从 语义内核",
+        "迁移示例"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/migration-guide/from-semantic-kernel/samples",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/migration-guide/from-semantic-kernel/samples?accept=text%2Fmarkdown",
+      "doc_path": "migration-guide/from-semantic-kernel/samples.md"
+    },
+    {
+      "title": "概述",
+      "section_path": [
+        "迁移指南",
+        "概述"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/migration-guide/",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/migration-guide/?accept=text%2Fmarkdown",
+      "doc_path": "migration-guide/index.md"
+    },
+    {
+      "title": "A2A 协议",
+      "section_path": [
+        "集成",
+        "A2A 协议"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/integrations/a2a",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/integrations/a2a?accept=text%2Fmarkdown",
+      "doc_path": "integrations/a2a.md"
+    },
+    {
+      "title": "MCP 应用兼容性",
+      "section_path": [
+        "集成",
+        "AG-UI 协议",
+        "MCP 应用兼容性"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/integrations/ag-ui/mcp-apps",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/integrations/ag-ui/mcp-apps?accept=text%2Fmarkdown",
+      "doc_path": "integrations/ag-ui/mcp-apps.md"
+    },
+    {
+      "title": "Workflows",
+      "section_path": [
+        "集成",
+        "AG-UI 协议",
+        "Workflows"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/integrations/ag-ui/workflows",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/integrations/ag-ui/workflows?accept=text%2Fmarkdown",
+      "doc_path": "integrations/ag-ui/workflows.md"
+    },
+    {
+      "title": "人机协同",
+      "section_path": [
+        "集成",
+        "AG-UI 协议",
+        "人机协同"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/integrations/ag-ui/human-in-the-loop",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/integrations/ag-ui/human-in-the-loop?accept=text%2Fmarkdown",
+      "doc_path": "integrations/ag-ui/human-in-the-loop.md"
+    },
+    {
+      "title": "使用 Dojo 进行测试",
+      "section_path": [
+        "集成",
+        "AG-UI 协议",
+        "使用 Dojo 进行测试"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/integrations/ag-ui/testing-with-dojo",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/integrations/ag-ui/testing-with-dojo?accept=text%2Fmarkdown",
+      "doc_path": "integrations/ag-ui/testing-with-dojo.md"
+    },
+    {
+      "title": "入门",
+      "section_path": [
+        "集成",
+        "AG-UI 协议",
+        "入门"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/integrations/ag-ui/getting-started",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/integrations/ag-ui/getting-started?accept=text%2Fmarkdown",
+      "doc_path": "integrations/ag-ui/getting-started.md"
+    },
+    {
+      "title": "前端工具渲染",
+      "section_path": [
+        "集成",
+        "AG-UI 协议",
+        "前端工具渲染"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/integrations/ag-ui/frontend-tools",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/integrations/ag-ui/frontend-tools?accept=text%2Fmarkdown",
+      "doc_path": "integrations/ag-ui/frontend-tools.md"
+    },
+    {
+      "title": "后端工具渲染",
+      "section_path": [
+        "集成",
+        "AG-UI 协议",
+        "后端工具渲染"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/integrations/ag-ui/backend-tool-rendering",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/integrations/ag-ui/backend-tool-rendering?accept=text%2Fmarkdown",
+      "doc_path": "integrations/ag-ui/backend-tool-rendering.md"
+    },
+    {
+      "title": "安全注意事项",
+      "section_path": [
+        "集成",
+        "AG-UI 协议",
+        "安全注意事项"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/integrations/ag-ui/security-considerations",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/integrations/ag-ui/security-considerations?accept=text%2Fmarkdown",
+      "doc_path": "integrations/ag-ui/security-considerations.md"
+    },
+    {
+      "title": "概述",
+      "section_path": [
+        "集成",
+        "AG-UI 协议",
+        "概述"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/integrations/ag-ui/",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/integrations/ag-ui/?accept=text%2Fmarkdown",
+      "doc_path": "integrations/ag-ui/index.md"
+    },
+    {
+      "title": "状态管理",
+      "section_path": [
+        "集成",
+        "AG-UI 协议",
+        "状态管理"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/integrations/ag-ui/state-management",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/integrations/ag-ui/state-management?accept=text%2Fmarkdown",
+      "doc_path": "integrations/ag-ui/state-management.md"
+    },
+    {
+      "title": "Hyperlight CodeAct",
+      "section_path": [
+        "集成",
+        "Hyperlight CodeAct"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/integrations/hyperlight",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/integrations/hyperlight?accept=text%2Fmarkdown",
+      "doc_path": "integrations/hyperlight.md"
+    },
+    {
+      "title": "M365",
+      "section_path": [
+        "集成",
+        "M365"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/integrations/m365",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/integrations/m365?accept=text%2Fmarkdown",
+      "doc_path": "integrations/m365.md"
+    },
+    {
+      "title": "Neo4j GraphRAG 提供程序",
+      "section_path": [
+        "集成",
+        "Neo4j GraphRAG 提供程序"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/integrations/neo4j-graphrag",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/integrations/neo4j-graphrag?accept=text%2Fmarkdown",
+      "doc_path": "integrations/neo4j-graphrag.md"
+    },
+    {
+      "title": "Neo4j 内存提供程序",
+      "section_path": [
+        "集成",
+        "Neo4j 内存提供程序"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/integrations/neo4j-memory",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/integrations/neo4j-memory?accept=text%2Fmarkdown",
+      "doc_path": "integrations/neo4j-memory.md"
+    },
+    {
+      "title": "Purview",
+      "section_path": [
+        "集成",
+        "Purview"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/integrations/purview",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/integrations/purview?accept=text%2Fmarkdown",
+      "doc_path": "integrations/purview.md"
+    },
+    {
+      "title": "兼容 OpenAI 的终结点",
+      "section_path": [
+        "集成",
+        "兼容 OpenAI 的终结点"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/integrations/openai-endpoints",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/integrations/openai-endpoints?accept=text%2Fmarkdown",
+      "doc_path": "integrations/openai-endpoints.md"
+    },
+    {
+      "title": "持久扩展",
+      "section_path": [
+        "集成",
+        "持久扩展"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/integrations/durable-extension",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/integrations/durable-extension?accept=text%2Fmarkdown",
+      "doc_path": "integrations/durable-extension.md"
+    },
+    {
+      "title": "概述",
+      "section_path": [
+        "集成",
+        "概述"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/integrations/",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/integrations/?accept=text%2Fmarkdown",
+      "doc_path": "integrations/index.md"
+    },
+    {
+      "title": "聊天历史记录内存提供程序",
+      "section_path": [
+        "集成",
+        "聊天历史记录内存提供程序"
+      ],
+      "url": "https://learn.microsoft.com/zh-cn/agent-framework/integrations/chat-history-memory-provider",
+      "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/integrations/chat-history-memory-provider?accept=text%2Fmarkdown",
+      "doc_path": "integrations/chat-history-memory-provider.md"
+    }
+  ]
+}

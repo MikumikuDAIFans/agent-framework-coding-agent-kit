@@ -1,5 +1,21 @@
 ![Microsoft Agent Framework](docs/assets/readme-banner.png)
 
+# Agent Framework Coding Agent Kit
+
+This branch layers an open-source coding-agent development kit on top of the complete [`microsoft/agent-framework`](https://github.com/microsoft/agent-framework) repository. It preserves the upstream .NET, Python, declarative, schema, design, test, and sample corpus, then adds:
+
+- a narrowly triggered Microsoft Agent Framework expert skill;
+- deterministic catalogs connecting implementation tasks to documentation, design notes, samples, source, and tests;
+- a query CLI for coding agents;
+- Codex plugin metadata with Microsoft Learn MCP fallback;
+- validation, maintenance, and upstream-sync workflows.
+
+Start with [`docs/coding-agent-kit/README.md`](docs/coding-agent-kit/README.md). The generated navigation lives at [`docs/coding-agent-kit/catalog/CATALOG.md`](docs/coding-agent-kit/catalog/CATALOG.md).
+
+This project is a derivative development branch and is not an official Microsoft distribution. Microsoft Agent Framework remains licensed under the repository's MIT license. Do not open kit-specific issues against upstream unless the issue also reproduces in the upstream framework.
+
+---
+
 # Welcome to Microsoft Agent Framework!
 
 [![Microsoft Foundry Discord](https://dcbadge.limes.pink/api/server/b5zjErwbQM?style=flat)](https://discord.gg/b5zjErwbQM)

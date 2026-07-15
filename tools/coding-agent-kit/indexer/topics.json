@@ -1,0 +1,279 @@
+{
+  "schema_version": 1,
+  "source_roots": [
+    "docs",
+    "dotnet/src",
+    "dotnet/samples",
+    "dotnet/tests",
+    "python/packages",
+    "python/samples",
+    "python/tests",
+    "declarative-agents",
+    "schemas"
+  ],
+  "topics": [
+    {
+      "id": "getting-started",
+      "title": "Getting started",
+      "description": "Installation and progressive first agent, tool, session, memory, workflow, and hosting steps.",
+      "keywords": ["get started", "get-started", "quickstart", "hello agent", "first agent", "installation", "开始"],
+      "path_patterns": ["*/samples/01-get-started/*", "README.md"],
+      "curated": [
+        {"path": "README.md", "role": "documentation", "language": "any", "why": "Upstream framework overview, installation, quickstarts, and sample taxonomy."},
+        {"path": "python/samples/01-get-started", "role": "sample", "language": "python", "why": "Progressive Python tutorial from first agent through hosting."},
+        {"path": "dotnet/samples/01-get-started", "role": "sample", "language": "csharp", "why": "Progressive .NET tutorial from first agent through hosting."}
+      ]
+    },
+    {
+      "id": "agents",
+      "title": "Agents and invocation",
+      "description": "Agent abstractions, lifecycle, run semantics, responses, structured output, and composition.",
+      "keywords": ["agent", "aiagent", "agent run", "agent response", "structured output", "agent lifecycle"],
+      "path_patterns": ["docs/decisions/0001-*", "*/_agents.py", "*/AIAgent*.cs", "*/samples/02-agents/Agents/*"],
+      "curated": [
+        {"path": "docs/decisions/0001-agent-run-response.md", "role": "design", "language": "any", "why": "Core run/response contract and design rationale."},
+        {"path": "python/packages/core/agent_framework/_agents.py", "role": "implementation", "language": "python", "why": "Python core Agent behavior."},
+        {"path": "python/packages/core/agent_framework/__init__.pyi", "role": "public-api", "language": "python", "why": "Python public API surface for type-aware verification."},
+        {"path": "dotnet/src/Microsoft.Agents.AI.Abstractions/AIAgent.cs", "role": "implementation", "language": "csharp", "why": ".NET agent abstraction and invocation contract."},
+        {"path": "dotnet/samples/02-agents/Agents", "role": "sample", "language": "csharp", "why": "Progressive agent feature examples."}
+      ]
+    },
+    {
+      "id": "tools",
+      "title": "Tools and side effects",
+      "description": "Function tools, MCP tools, dynamic tools, schemas, approval, validation, and safe side effects.",
+      "keywords": ["tool", "function tool", "functiontools", "mcp tool", "dynamic tool", "tool schema", "tool call"],
+      "path_patterns": ["docs/decisions/0002-*", "*/_tools.py", "*/tools/*", "*UsingFunctionTools*", "*AsFunctionTool*"],
+      "curated": [
+        {"path": "docs/decisions/0002-agent-tools.md", "role": "design", "language": "any", "why": "Foundational tool abstraction decision."},
+        {"path": "python/packages/core/agent_framework/_tools.py", "role": "implementation", "language": "python", "why": "Python tool contracts and execution helpers."},
+        {"path": "python/samples/02-agents/tools", "role": "sample", "language": "python", "why": "Python tool implementations including code interpreters."},
+        {"path": "dotnet/samples/01-get-started/02_add_tools", "role": "sample", "language": "csharp", "why": "Minimal .NET function-tool composition."},
+        {"path": "dotnet/samples/02-agents/Agents/Agent_Step20_DynamicFunctionTools", "role": "sample", "language": "csharp", "why": "Advanced dynamic tool registration."}
+      ]
+    },
+    {
+      "id": "sessions-context",
+      "title": "Sessions, conversations, context, and compaction",
+      "description": "Session identity, chat history, context providers, conversation persistence, and context reduction.",
+      "keywords": ["session", "conversation", "context provider", "chat history", "compaction", "context middleware"],
+      "path_patterns": ["docs/decisions/*session*", "docs/decisions/*context*", "docs/decisions/*history*", "*/_sessions.py", "*/_compaction.py", "*/conversations/*", "*/context_providers/*"],
+      "curated": [
+        {"path": "docs/decisions/0029-python-agent-session-identity.md", "role": "design", "language": "python", "why": "Python session identity model."},
+        {"path": "docs/decisions/0019-python-context-compaction-strategy.md", "role": "design", "language": "python", "why": "Context compaction strategy and constraints."},
+        {"path": "python/packages/core/agent_framework/_sessions.py", "role": "implementation", "language": "python", "why": "Python session implementation."},
+        {"path": "dotnet/src/Microsoft.Agents.AI.Abstractions/AgentSession.cs", "role": "implementation", "language": "csharp", "why": ".NET session abstraction."},
+        {"path": "python/samples/02-agents/conversations", "role": "sample", "language": "python", "why": "Conversation and persistence usage patterns."}
+      ]
+    },
+    {
+      "id": "memory-rag",
+      "title": "Memory, retrieval, and RAG",
+      "description": "Memory providers, embeddings, vector/graph retrieval, context enrichment, and RAG patterns.",
+      "keywords": ["memory", "rag", "retrieval", "embedding", "vector store", "mem0", "redis", "valkey", "neo4j"],
+      "path_patterns": ["docs/features/vector-stores-and-embeddings/*", "*Memory*", "*/context_providers/*", "*RAG*", "*/mem0/*", "*/redis/*"],
+      "curated": [
+        {"path": "docs/features/vector-stores-and-embeddings/README.md", "role": "design", "language": "any", "why": "Upstream vector store and embedding feature context."},
+        {"path": "python/samples/02-agents/context_providers", "role": "sample", "language": "python", "why": "Provider-backed memory and retrieval examples."},
+        {"path": "dotnet/samples/02-agents/AgentWithMemory", "role": "sample", "language": "csharp", "why": "Progressive .NET memory examples."},
+        {"path": "dotnet/samples/02-agents/AgentWithRAG", "role": "sample", "language": "csharp", "why": "Progressive .NET RAG examples."},
+        {"path": "python/packages/core/agent_framework/_harness/_memory.py", "role": "implementation", "language": "python", "why": "Core harness memory seam."}
+      ]
+    },
+    {
+      "id": "middleware",
+      "title": "Middleware and guardrails",
+      "description": "Agent/function middleware, interception, exception handling, filtering, and context middleware.",
+      "keywords": ["middleware", "filtering", "interceptor", "guardrail", "exception handling"],
+      "path_patterns": ["docs/decisions/*middleware*", "docs/decisions/*filtering*", "*/_middleware.py", "*/middleware/*", "*Middleware*"],
+      "curated": [
+        {"path": "docs/decisions/0007-agent-filtering-middleware.md", "role": "design", "language": "any", "why": "Agent filtering/middleware design."},
+        {"path": "docs/decisions/0016-python-context-middleware.md", "role": "design", "language": "python", "why": "Python context middleware decision."},
+        {"path": "python/packages/core/agent_framework/_middleware.py", "role": "implementation", "language": "python", "why": "Python middleware contracts."},
+        {"path": "python/samples/02-agents/middleware", "role": "sample", "language": "python", "why": "Python middleware patterns."},
+        {"path": "dotnet/samples/02-agents/Agents/Agent_Step11_Middleware", "role": "sample", "language": "csharp", "why": ".NET agent middleware example."}
+      ]
+    },
+    {
+      "id": "providers",
+      "title": "Model and agent providers",
+      "description": "Provider clients, capabilities, configuration, identity, and provider-specific behavior.",
+      "keywords": ["provider", "foundry", "azure openai", "openai", "anthropic", "bedrock", "ollama", "copilot", "gemini"],
+      "path_patterns": ["docs/decisions/0021-provider-*", "*/AgentProviders/*", "*/providers/*", "*/packages/openai/*", "*/packages/foundry/*"],
+      "curated": [
+        {"path": "docs/decisions/0021-provider-leading-clients.md", "role": "design", "language": "any", "why": "Provider-leading client architecture decision."},
+        {"path": "python/samples/02-agents/providers", "role": "sample", "language": "python", "why": "Python provider comparison entry point."},
+        {"path": "dotnet/samples/02-agents/AgentProviders", "role": "sample", "language": "csharp", "why": ".NET provider comparison entry point."},
+        {"path": "python/packages/foundry", "role": "implementation", "language": "python", "why": "Python Foundry provider package."},
+        {"path": "dotnet/src/Microsoft.Agents.AI.Foundry", "role": "implementation", "language": "csharp", "why": ".NET Foundry provider implementation."}
+      ]
+    },
+    {
+      "id": "workflows",
+      "title": "Workflow graph and execution",
+      "description": "Workflow builders, executors, edges, events, state, streaming, and graph execution.",
+      "keywords": ["workflow", "executor", "edge", "workflow builder", "workflow state", "workflow event", "streaming workflow"],
+      "path_patterns": ["*/_workflows/*", "*/Microsoft.Agents.AI.Workflows/*", "*/samples/03-workflows/*"],
+      "curated": [
+        {"path": "python/packages/core/agent_framework/_workflows", "role": "implementation", "language": "python", "why": "Python core workflow engine."},
+        {"path": "dotnet/src/Microsoft.Agents.AI.Workflows", "role": "implementation", "language": "csharp", "why": ".NET workflow engine."},
+        {"path": "python/samples/03-workflows/_start-here", "role": "sample", "language": "python", "why": "Python workflow starting point."},
+        {"path": "dotnet/samples/03-workflows", "role": "sample", "language": "csharp", "why": ".NET workflow examples."},
+        {"path": "dotnet/tests/Microsoft.Agents.AI.Workflows.UnitTests", "role": "test", "language": "csharp", "why": ".NET workflow behavior contracts."}
+      ]
+    },
+    {
+      "id": "orchestration",
+      "title": "Multi-agent orchestration",
+      "description": "Sequential, concurrent, handoff, group chat, magentic, and multi-agent topology patterns.",
+      "keywords": ["orchestration", "sequential", "concurrent", "handoff", "group chat", "magentic", "multi-agent"],
+      "path_patterns": ["*/orchestrations/*", "*WorkflowBuilder.cs", "*/samples/03-workflows/orchestrations/*", "*handoff*", "*group_chat*"],
+      "curated": [
+        {"path": "python/packages/orchestrations", "role": "implementation", "language": "python", "why": "Python orchestration package."},
+        {"path": "python/samples/03-workflows/orchestrations", "role": "sample", "language": "python", "why": "Python orchestration patterns."},
+        {"path": "dotnet/src/Microsoft.Agents.AI.Workflows/SequentialWorkflowBuilder.cs", "role": "implementation", "language": "csharp", "why": "Sequential topology builder."},
+        {"path": "dotnet/src/Microsoft.Agents.AI.Workflows/HandoffWorkflowBuilder.cs", "role": "implementation", "language": "csharp", "why": "Handoff topology builder."},
+        {"path": "dotnet/src/Microsoft.Agents.AI.Workflows/GroupChatWorkflowBuilder.cs", "role": "implementation", "language": "csharp", "why": "Group-chat topology builder."}
+      ]
+    },
+    {
+      "id": "durability",
+      "title": "Durability, checkpointing, and recovery",
+      "description": "Checkpoint, resume, replay, persistence, long-running operations, Durable Task, and durable agents.",
+      "keywords": ["checkpoint", "resume", "replay", "durable", "persistence", "long-running", "recovery"],
+      "path_patterns": ["docs/features/durable-agents/*", "docs/decisions/0009-*", "*checkpoint*", "*DurableTask*", "*/durabletask/*"],
+      "curated": [
+        {"path": "docs/features/durable-agents/README.md", "role": "design", "language": "any", "why": "Durable agents feature architecture."},
+        {"path": "docs/decisions/0009-support-long-running-operations.md", "role": "design", "language": "any", "why": "Long-running operation decision."},
+        {"path": "python/samples/03-workflows/checkpoint", "role": "sample", "language": "python", "why": "Checkpoint and resume samples."},
+        {"path": "dotnet/src/Microsoft.Agents.AI.Workflows/CheckpointManager.cs", "role": "implementation", "language": "csharp", "why": ".NET checkpoint management seam."},
+        {"path": "python/packages/durabletask", "role": "implementation", "language": "python", "why": "Python Durable Task integration."}
+      ]
+    },
+    {
+      "id": "approvals-hitl",
+      "title": "Approvals and human-in-the-loop",
+      "description": "Tool approval, pause/resume, human review, escalation, and authorization boundaries.",
+      "keywords": ["approval", "human in the loop", "human-in-the-loop", "hitl", "pause", "escalation", "userapproval"],
+      "path_patterns": ["docs/decisions/0006-*", "*approval*", "*human-in-the-loop*", "*human_in_loop*", "*HITL*"],
+      "curated": [
+        {"path": "docs/decisions/0006-userapproval.md", "role": "design", "language": "any", "why": "User approval contract and rationale."},
+        {"path": "python/samples/03-workflows/tool-approval", "role": "sample", "language": "python", "why": "Workflow tool-approval patterns."},
+        {"path": "python/samples/03-workflows/human-in-the-loop", "role": "sample", "language": "python", "why": "Human pause/resume patterns."},
+        {"path": "dotnet/samples/02-agents/Agents/Agent_Step01_UsingFunctionToolsWithApprovals", "role": "sample", "language": "csharp", "why": ".NET function-tool approval example."},
+        {"path": "python/packages/core/agent_framework/_harness/_tool_approval.py", "role": "implementation", "language": "python", "why": "Harness approval implementation seam."}
+      ]
+    },
+    {
+      "id": "observability",
+      "title": "Observability and diagnostics",
+      "description": "OpenTelemetry, tracing, metrics, logs, workflow events, and operational diagnostics.",
+      "keywords": ["observability", "opentelemetry", "telemetry", "trace", "tracing", "metrics", "diagnostics"],
+      "path_patterns": ["docs/decisions/0003-*", "*/_telemetry.py", "*/observability/*", "*OpenTelemetry*", "*Telemetry*"],
+      "curated": [
+        {"path": "docs/decisions/0003-agent-opentelemetry-instrumentation.md", "role": "design", "language": "any", "why": "Agent telemetry design decision."},
+        {"path": "python/packages/core/agent_framework/_telemetry.py", "role": "implementation", "language": "python", "why": "Python telemetry implementation."},
+        {"path": "python/samples/02-agents/observability", "role": "sample", "language": "python", "why": "Python observability examples."},
+        {"path": "dotnet/samples/02-agents/AgentOpenTelemetry", "role": "sample", "language": "csharp", "why": ".NET OpenTelemetry examples."},
+        {"path": "dotnet/src/Microsoft.Agents.AI/OpenTelemetryAgent.cs", "role": "implementation", "language": "csharp", "why": ".NET agent instrumentation seam."}
+      ]
+    },
+    {
+      "id": "evaluation",
+      "title": "Evaluation and quality",
+      "description": "Agent/workflow evaluations, datasets, graders, red teaming, benchmarks, and release gates.",
+      "keywords": ["evaluation", "eval", "grader", "benchmark", "red teaming", "quality", "dataset"],
+      "path_patterns": ["docs/decisions/0023-*", "*/_evaluation.py", "*/evaluation/*", "*Evaluation*", "*evals*"],
+      "curated": [
+        {"path": "docs/decisions/0023-foundry-evals-integration.md", "role": "design", "language": "any", "why": "Foundry evaluation integration decision."},
+        {"path": "python/packages/core/agent_framework/_evaluation.py", "role": "implementation", "language": "python", "why": "Python evaluation abstraction."},
+        {"path": "python/samples/02-agents/evaluation", "role": "sample", "language": "python", "why": "Focused Python agent evaluation samples."},
+        {"path": "python/samples/05-end-to-end/evaluation", "role": "sample", "language": "python", "why": "End-to-end evaluation and red-team examples."},
+        {"path": "dotnet/samples/02-agents/Evaluation", "role": "sample", "language": "csharp", "why": ".NET evaluation examples."}
+      ]
+    },
+    {
+      "id": "hosting",
+      "title": "Hosting and deployment",
+      "description": "Hosting abstractions, containers, Azure Functions, Durable Task, Foundry-hosted agents, health and runtime integration.",
+      "keywords": ["hosting", "deployment", "azure functions", "container", "foundry hosted", "aspnet", "hosted agent"],
+      "path_patterns": ["docs/specs/*hosting*", "*/samples/04-hosting/*", "*/packages/hosting*", "*/Microsoft.Agents.AI.Hosting*", "*Foundry.Hosting*"],
+      "curated": [
+        {"path": "docs/specs/002-python-hosting-channels.md", "role": "design", "language": "python", "why": "Python hosting channel specification."},
+        {"path": "python/samples/04-hosting", "role": "sample", "language": "python", "why": "Python hosting taxonomy."},
+        {"path": "dotnet/samples/04-hosting", "role": "sample", "language": "csharp", "why": ".NET hosting taxonomy."},
+        {"path": "python/packages/hosting", "role": "implementation", "language": "python", "why": "Python hosting primitives."},
+        {"path": "dotnet/src/Microsoft.Agents.AI.Hosting", "role": "implementation", "language": "csharp", "why": ".NET hosting primitives."}
+      ]
+    },
+    {
+      "id": "protocols",
+      "title": "Protocols and integrations",
+      "description": "MCP, A2A, AG-UI, ChatKit, tool protocol, and interoperability boundaries.",
+      "keywords": ["mcp", "model context protocol", "a2a", "agent-to-agent", "ag-ui", "agui", "chatkit", "protocol"],
+      "path_patterns": ["docs/decisions/0010-*", "docs/decisions/0029-mcp-*", "*/packages/a2a/*", "*/packages/ag-ui/*", "*/_mcp.py", "*/A2A/*", "*/AGUI/*", "*Mcp*"],
+      "curated": [
+        {"path": "docs/decisions/0010-ag-ui-support.md", "role": "design", "language": "any", "why": "AG-UI integration decision."},
+        {"path": "docs/decisions/0029-mcp-skill-templates-and-direct-references.md", "role": "design", "language": "any", "why": "MCP skill/reference design."},
+        {"path": "python/packages/a2a", "role": "implementation", "language": "python", "why": "Python A2A integration."},
+        {"path": "dotnet/src/Microsoft.Agents.AI.A2A", "role": "implementation", "language": "csharp", "why": ".NET A2A integration."},
+        {"path": "python/samples/02-agents/mcp", "role": "sample", "language": "python", "why": "Python MCP examples."},
+        {"path": "dotnet/samples/02-agents/AGUI", "role": "sample", "language": "csharp", "why": ".NET AG-UI progressive examples."}
+      ]
+    },
+    {
+      "id": "declarative",
+      "title": "Declarative agents and workflows",
+      "description": "YAML/JSON definitions, schemas, loaders, declarative tools, and declarative workflow execution.",
+      "keywords": ["declarative", "yaml agent", "yaml workflow", "schema", "declarative agent", "declarative workflow"],
+      "path_patterns": ["declarative-agents/*", "schemas/*", "*/packages/declarative/*", "*/Declarative/*", "*/samples/*/declarative/*"],
+      "curated": [
+        {"path": "declarative-agents", "role": "sample", "language": "declarative", "why": "Standalone declarative definitions and examples."},
+        {"path": "schemas/durable-agent-entity-state.json", "role": "schema", "language": "declarative", "why": "Machine-readable durable agent state schema."},
+        {"path": "python/packages/declarative", "role": "implementation", "language": "python", "why": "Python declarative implementation."},
+        {"path": "dotnet/src/Microsoft.Agents.AI.Declarative", "role": "implementation", "language": "csharp", "why": ".NET declarative agent implementation."},
+        {"path": "python/samples/03-workflows/declarative", "role": "sample", "language": "python", "why": "Declarative workflow patterns."}
+      ]
+    },
+    {
+      "id": "security",
+      "title": "Security, identity, and trust boundaries",
+      "description": "Prompt-injection defense, identity, permissions, isolation, code execution, secrets, and data boundaries.",
+      "keywords": ["security", "prompt injection", "identity", "permission", "authorization", "isolation", "secret", "code execution"],
+      "path_patterns": ["docs/decisions/0024-prompt-*", "*security*", "SECURITY.md", "TRANSPARENCY_FAQ.md", "*Purview*", "*Hyperlight*", "*CodeAct*"],
+      "curated": [
+        {"path": "docs/decisions/0024-prompt-injection-defense.md", "role": "design", "language": "any", "why": "Prompt-injection defense decision."},
+        {"path": "SECURITY.md", "role": "documentation", "language": "any", "why": "Upstream vulnerability reporting and security boundary."},
+        {"path": "TRANSPARENCY_FAQ.md", "role": "documentation", "language": "any", "why": "Responsible use and third-party system boundaries."},
+        {"path": "python/packages/core/agent_framework/security.py", "role": "implementation", "language": "python", "why": "Python security utilities."},
+        {"path": "python/samples/02-agents/security", "role": "sample", "language": "python", "why": "Security-focused agent samples."}
+      ]
+    },
+    {
+      "id": "migration",
+      "title": "Migration and compatibility",
+      "description": "AutoGen and Semantic Kernel migration, upgrades, public surface compatibility, and behavior preservation.",
+      "keywords": ["migration", "upgrade", "autogen", "semantic kernel", "compatibility", "breaking change", "deprecated"],
+      "path_patterns": ["*/samples/autogen-migration/*", "*/samples/semantic-kernel-migration/*", "*LegacySupport*", "*migration*"],
+      "curated": [
+        {"path": "python/samples/autogen-migration", "role": "sample", "language": "python", "why": "AutoGen-to-MAF migration patterns."},
+        {"path": "python/samples/semantic-kernel-migration", "role": "sample", "language": "python", "why": "Semantic Kernel-to-MAF migration patterns."},
+        {"path": "dotnet/src/LegacySupport", "role": "implementation", "language": "csharp", "why": ".NET compatibility support seam."}
+      ]
+    },
+    {
+      "id": "devui",
+      "title": "DevUI and local debugging",
+      "description": "DevUI registration, discovery, visualization, local interaction, and debugging of agents/workflows.",
+      "keywords": ["devui", "developer ui", "visualization", "visualizer", "debug ui"],
+      "path_patterns": ["*/devui/*", "*DevUI*", "*/visualization/*", "*/_viz.py"],
+      "curated": [
+        {"path": "python/packages/devui", "role": "implementation", "language": "python", "why": "Python DevUI package."},
+        {"path": "python/samples/02-agents/devui", "role": "sample", "language": "python", "why": "Python DevUI agent and workflow examples."},
+        {"path": "dotnet/src/Microsoft.Agents.AI.DevUI", "role": "implementation", "language": "csharp", "why": ".NET DevUI implementation."},
+        {"path": "dotnet/samples/02-agents/DevUI", "role": "sample", "language": "csharp", "why": ".NET DevUI examples."},
+        {"path": "python/packages/core/agent_framework/_workflows/_viz.py", "role": "implementation", "language": "python", "why": "Python workflow visualization seam."}
+      ]
+    }
+  ]
+}

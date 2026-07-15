@@ -1,0 +1,13 @@
+interface:
+  display_name: "Microsoft Agent Framework Expert"
+  short_description: "Route MAF work to matching docs, designs, samples, source, and tests"
+  default_prompt: "Use $maf-expert to handle this Microsoft Agent Framework task with version-aware evidence from the indexed upstream repository."
+policy:
+  allow_implicit_invocation: true
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "microsoft_learn"
+      description: "Current Microsoft Learn documentation for version-sensitive or missing MAF material"
+      transport: "streamable_http"
+      url: "https://learn.microsoft.com/api/mcp"
