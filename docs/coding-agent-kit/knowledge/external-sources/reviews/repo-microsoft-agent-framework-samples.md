@@ -93,17 +93,18 @@
   upstream revision. A full per-sample compatibility matrix was not run because the source does not provide
   stable package coordinates.
 
-## Provisional factual assessment
+## Pending evaluation under the approved policy
 
-- Policy version: `draft-0`
-- Policy approval status: `awaiting-owner-definition`
-- Final score: not assigned
-- Final decision: pending maintainer-approved policy
+- Policy version: `v1.0`
+- Policy approval status: `approved`
+- Review track: `code-project`
+- Final score: not yet recalculated
+- Final decision: pending application of the approved rubric and hard gates
 - Registry state: `in-review`
 
 The evidence below records technical findings only. It is not an adoption, downgrade, rejection, or
-promotion decision. The previous eight-dimension score and `context-only` decision are withdrawn because
-they were produced before the maintainer defined and approved the review policy.
+promotion decision. The previous eight-dimension score and `context-only` decision remain withdrawn. The
+next review pass must add the C-01 through C-07 evidence levels, weighted score, and hard-gate result.
 
 ## Candidate use boundaries for maintainer review
 
@@ -117,9 +118,9 @@ they were produced before the maintainer defined and approved the review policy.
   - do not copy `.csproj` project references, `git@main` requirements, `pip install -U` cells, credential
     diagnostics, or production/security defaults;
   - do not claim a sample is current merely because the repository is Microsoft-owned.
-- Topic-registry promotion: prohibited while the policy is unapproved and the source remains `in-review`.
-  After policy approval, a later review may propose an individual sample path if it has stable coordinates
-  and clear added value over the local upstream corpus.
+- Topic-registry promotion: prohibited while the source remains `in-review`. A later completed review may
+  propose an individual sample path only if it has stable coordinates and clear added value over the local
+  upstream corpus.
 - Re-review trigger: repository publishes pinned releases or CI, replaces machine/placeholder references,
   or a specific sample becomes the canonical official implementation for a topic.
 - Residual risk: individual samples may be newer than, older than, or incompatible with the target MAF

@@ -35,6 +35,38 @@ def run(command: list[str]) -> None:
         FAILURES.append(f"Command failed ({result.returncode}): {' '.join(command)}")
 
 
+def validate_review_policy(path: Path) -> None:
+    """Check the approved dual-track policy without judging evidence quality."""
+    text = path.read_text(encoding="utf-8")
+    if not re.search(r"(?m)^- Approval status: `approved`$", text):
+        FAILURES.append("External source review policy is not approved.")
+
+    expected = {
+        "C": {"C-01": 25, "C-02": 25, "C-03": 20, "C-04": 10, "C-05": 10, "C-06": 5, "C-07": 5},
+        "A": {"A-01": 30, "A-02": 25, "A-03": 15, "A-04": 15, "A-05": 15},
+    }
+    rows = {
+        match.group(1): int(match.group(2))
+        for match in re.finditer(r"(?m)^\| ((?:C|A)-\d{2}) \|[^\n]*?\| (\d+) \|", text)
+    }
+    for track, weights in expected.items():
+        actual = {key: rows.get(key) for key in weights}
+        if actual != weights:
+            FAILURES.append(f"Review policy {track}-track weights are missing or unexpected: {actual}.")
+        if sum(value for value in actual.values() if value is not None) != 100:
+            FAILURES.append(f"Review policy {track}-track weights must total 100.")
+
+    required_rules = [
+        "技术文章的真实 Demo 等级低于 `3`",
+        "技术文章超过 24 个月",
+        "官方文档直接入选",
+        "只有 `adopted` 可以提议加入 `topics.json`",
+    ]
+    for rule in required_rules:
+        if rule not in text:
+            FAILURES.append(f"Review policy is missing required rule: {rule}")
+
+
 def main() -> int:
     required = [
         "AGENTS.md",
@@ -105,6 +137,9 @@ def main() -> int:
         FAILURES.append(f"Microsoft Learn metadata coverage unexpectedly low: {learn.get('page_count', 0)} pages.")
 
     external = load_json(paths["docs/coding-agent-kit/knowledge/external-sources/sources.json"])
+    validate_review_policy(paths["docs/coding-agent-kit/knowledge/external-sources/REVIEW_POLICY.md"])
+    if external.get("policy") != "REVIEW_POLICY.md":
+        FAILURES.append("External source registry must point to REVIEW_POLICY.md.")
     external_items = external.get("items", [])
     if len(external_items) < 50:
         FAILURES.append(f"External source discovery coverage unexpectedly low: {len(external_items)} sources.")
@@ -150,6 +185,8 @@ def main() -> int:
             FAILURES.append(f"External source {source_id} has an unknown class: {item.get('source_class')}.")
         if item.get("review_status") not in allowed_states:
             FAILURES.append(f"External source {source_id} has an unknown review state: {item.get('review_status')}.")
+        if item.get("source_class") == "meta-index" and item.get("review_status") != "discovered":
+            FAILURES.append(f"Discovery-only meta index {source_id} must remain in discovered state.")
         if item.get("priority") not in allowed_priorities:
             FAILURES.append(f"External source {source_id} has an unknown priority: {item.get('priority')}.")
         if not item.get("topics") or not item.get("languages"):

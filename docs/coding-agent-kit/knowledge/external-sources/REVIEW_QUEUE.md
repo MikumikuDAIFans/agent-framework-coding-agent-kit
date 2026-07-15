@@ -11,19 +11,18 @@ Snapshot: 2026-07-15. The machine-readable source of truth is [sources.json](sou
 - Community repositories: 19
 - Community articles: 1
 - Discovery-only meta indexes: 1
-- Current states: 64 `queued`, 1 `in-review`, 0 adopted, 0 context-only, 0 quarantined, 0 rejected
+- Current states: 63 `queued`, 1 `in-review`, 1 `discovered`, 0 adopted, 0 context-only,
+  0 quarantined, 0 rejected
 
 Search breadth is not an endorsement. Until an individual review is committed, every item remains
 quarantined from the generated topic catalog and must not be cited as API truth.
 
 ## Active review
 
-- Current activity: maintainer definition and approval of [REVIEW_POLICY.md](REVIEW_POLICY.md).
-- Source reviews are paused until that policy defines the evaluation method, decision authority, and state
-  transition gates.
-- `repo-microsoft-agent-framework-samples` remains `in-review`: its factual investigation is preserved,
-  but it has no score or final decision.
-- No subsequent source is active. `official-learn-overview` remains first in the queue after policy approval.
+- Policy `v1.0` is approved and effective.
+- `repo-microsoft-agent-framework-samples` remains the only active source. Its factual investigation is
+  preserved and must now be evaluated with the project/code rubric and hard gates.
+- `official-learn-overview` is next and will use the official-document direct-adoption check.
 
 Only one source is `in-review` at a time unless maintainers explicitly split reviews by non-overlapping
 language or topic.
@@ -76,22 +75,24 @@ language or topic.
 
 ### Batch D — focused integrations and teaching material
 
-1. `community-awesome-maf`
-2. `official-community-python-series`
-3. `community-awesome-article-content-strategy`
-4. `official-learn-functional-workflow`
-5. `official-learn-declarative-workflows`
-6. `official-learn-a2a`
-7. `official-learn-rag`
-8. `community-sideseat`
-9. `community-opik`
-10. `community-zep`
-11. `community-maf-getting-started`
-12. `community-maf-boilerplate`
-13. `community-visual-guide`
-14. `community-maf-workshop`
-15. `community-copilot-learning`
-16. `community-loop-engineering`
+1. `official-community-python-series`
+2. `community-awesome-article-content-strategy`
+3. `official-learn-functional-workflow`
+4. `official-learn-declarative-workflows`
+5. `official-learn-a2a`
+6. `official-learn-rag`
+7. `community-sideseat`
+8. `community-opik`
+9. `community-zep`
+10. `community-maf-getting-started`
+11. `community-maf-boilerplate`
+12. `community-visual-guide`
+13. `community-maf-workshop`
+14. `community-copilot-learning`
+15. `community-loop-engineering`
+
+`community-awesome-maf` remains `discovered` as a discovery-only meta index. Its linked primary sources
+may enter the queue independently, but the list itself is not reviewed or promoted.
 
 ### Batch E — remaining breadth and narrow-scope sources
 

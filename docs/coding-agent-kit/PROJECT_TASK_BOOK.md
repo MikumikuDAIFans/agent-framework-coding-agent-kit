@@ -3,13 +3,13 @@
 ## 计划元数据
 
 - Plan ID: `AF-CAK-2026-001`
-- Version: `v2`
+- Version: `v3`
 - Last updated: `2026-07-15 Asia/Shanghai`
 - Canonical progress file: `docs/coding-agent-kit/PROJECT_TASK_BOOK.md`
 - Related handoff file: `none`
 - Current branch: `codex/agent-framework-coding-agent-kit`
-- Current active phase: `Phase 7: 维护者制定并批准审核政策`
-- Execution readiness: `drafting`
+- Current active phase: `Phase 7: 按 v1.0 政策逐项审核来源`
+- Execution readiness: `executing`
 - Lifecycle route: `research/prototype -> review -> curated maintenance`
 - Development method: `source-driven`，叠加 `review/quality`
 - Scale: `Standard`
@@ -136,6 +136,8 @@ agent 的 Microsoft Agent Framework 开发知识系统。对于每个具体开�
   - 外部候选注册表与正式生成目录严格分离。
   - 只有状态为 `adopted` 的来源可被提议加入主题注册表。
   - 外部来源的评分维度、权重、阈值和裁决规则由维护者在 `REVIEW_POLICY.md` 中制定并批准；Coding Agent 不得自行补全。
+  - 审核政策 `v1.0` 已获批准：项目/代码采用 25/25/20/10/10/5/5 权重，文档/文章采用 30/25/15/15/15 权重。
+  - 技术文章必须有真实 Demo，并通过时效与当前 MAF API 门禁；官方文档完成版本快照和冲突检查后直接入选。
   - 审核按单一来源推进；晋升 `topics.json` 是后续独立变更。
   - 不复制外部文章正文或大段第三方代码。
 - Open questions:
@@ -169,16 +171,16 @@ agent 的 Microsoft Agent Framework 开发知识系统。对于每个具体开�
 | --- | --- | --- | --- | --- |
 | 外部来源隔离政策 | README 与状态模型 | 本地链接、人工审查 | done | `knowledge/external-sources/README.md` |
 | 首批候选注册表 | 至少 50 个结构化来源 | JSON、唯一性、枚举验证 | done | `knowledge/external-sources/sources.json` |
-| 审核政策 | 维护者定义评价方法、权限与状态门禁 | 维护者批准清单 | in progress | `REVIEW_POLICY.md` |
+| 审核政策 | 维护者定义双轨百分制、硬门禁与状态映射 | 权重总和、模板和 validator | done | `REVIEW_POLICY.md` v1.0 |
 | 审核队列与模板 | 单来源流程和顺序；评价字段服从已批准政策 | 链接检查、字段审查 | done | `REVIEW_QUEUE.md`、`review-template.md` |
 | 套件验证集成 | validator 检查外部注册表 | `python tools/coding-agent-kit/validate.py` | done | `tools/coding-agent-kit/validate.py` |
-| 首个来源事实调查 | Microsoft samples 技术事实与候选使用边界 | API/版本/许可/测试对照 | done；最终评价待政策批准 | `reviews/repo-microsoft-agent-framework-samples.md` |
+| 首个来源事实调查 | Microsoft samples 技术事实与候选使用边界 | API/版本/许可/测试对照 | done；最终评价待按 v1.0 执行 | `reviews/repo-microsoft-agent-framework-samples.md` |
 | 官方概览审核 | Learn overview 完整 review | 页面日期/成熟度/本地源码对照 | pending | `reviews/official-learn-overview.md` |
 | 审核知识晋升 | 独立 topic registry 变更 | catalog drift 与检索验收 | pending | none |
 
 ## 进度台账
 
-- Overall progress: 原始套件构建完成；65 个外部来源已隔离；首个 Microsoft samples 来源的事实调查已完成，但不评分、不裁决；当前唯一活动是维护者制定并批准审核政策。
+- Overall progress: 原始套件构建完成；65 个外部来源已隔离；双轨百分制审核政策 v1.0 已批准；首个 Microsoft samples 来源的事实调查已完成，下一步按新政策完成评分和裁决。
 - Phase 1: `done`
 - Phase 2: `done`
 - Phase 3: `done`
@@ -188,9 +190,9 @@ agent 的 Microsoft Agent Framework 开发知识系统。对于每个具体开�
 - Phase 7: `in progress`
 - Phase 8: `pending`
 - Phase 9: `pending`
-- Validation status: 审核机制已拆分为维护者控制的独立文档；一致性修改后需要再次运行完整验证。
+- Validation status: 审核政策、模板、队列和 validator 已按 v1.0 同步；本轮完整验证结果记录于提交前命令输出。
 - Residual risks: 搜索不可能证明穷尽；社区内容可能过时、生成、复制或许可不清；外部页面会漂移；当前候选尚无任何 `adopted` 项。
 
 ## 下一步动作
 
-维护者编辑并批准 `docs/coding-agent-kit/knowledge/external-sources/REVIEW_POLICY.md`。在此之前暂停后续来源评分、裁决和知识晋升。
+按 `REVIEW_POLICY.md` v1.0 重新评价 `repo-microsoft-agent-framework-samples`，形成首个双轨百分制裁决样例。

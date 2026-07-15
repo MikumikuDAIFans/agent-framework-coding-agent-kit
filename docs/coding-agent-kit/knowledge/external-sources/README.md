@@ -34,15 +34,15 @@ an explanation when their boundary is explicit. All other states are discovery d
 ## Review policy
 
 The review mechanism is owned and approved by the project maintainer. Its only normative location is
-[REVIEW_POLICY.md](REVIEW_POLICY.md). That document is currently an owner-editable draft and is not yet
-effective. No score, threshold, or adoption decision may be inferred until the maintainer approves it.
+[REVIEW_POLICY.md](REVIEW_POLICY.md). Version `v1.0` is effective: projects/code and technical articles use
+separate 100-point rubrics, while official documentation follows the direct-adoption evidence check.
 
 ## Review procedure
 
 1. Claim exactly one source from [REVIEW_QUEUE.md](REVIEW_QUEUE.md).
 2. Resolve its default branch, current commit, license, release/package coordinates, and direct MAF files.
-3. Apply the currently approved [review policy](REVIEW_POLICY.md). If no policy is approved, collect facts
-   but do not issue a quality score or final adoption decision.
+3. Select the source track and apply the approved [review policy](REVIEW_POLICY.md). A hard gate overrides
+   the numerical score.
 4. Compare every material API pattern with the matching local source/export/tests and current Microsoft
    Learn page.
 5. Identify reusable design decisions separately from sample shortcuts.

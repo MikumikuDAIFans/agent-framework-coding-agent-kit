@@ -10,6 +10,8 @@
 - Package/API coordinates:
 - License:
 - Reviewer and date:
+- Policy version: `v1.0`
+- Review track: `code-project | technical-article | official-doc`
 
 ## Direct Microsoft Agent Framework evidence
 
@@ -40,11 +42,44 @@
 
 ## Evaluation under the approved policy
 
-- Policy version:
-- Policy approval status:
-- Applicable gates/dimensions:
-- Gate results or scores: `Copy the structure from the approved REVIEW_POLICY.md; do not invent it.`
-- Exceptions and approver:
+Use exactly one table. Delete the other tables.
+
+### Project and code track
+
+| ID | Dimension | Weight | Level (0–5) | Weighted score | Evidence |
+| --- | --- | ---: | ---: | ---: | --- |
+| C-01 | Design value | 25 |  |  |  |
+| C-02 | Testing and verification | 25 |  |  |  |
+| C-03 | Production depth | 20 |  |  |  |
+| C-04 | Real MAF dependency | 10 |  |  |  |
+| C-05 | Source/author credibility | 10 |  |  |  |
+| C-06 | Version traceability | 5 |  |  |  |
+| C-07 | Maintenance activity | 5 |  |  |  |
+|  | **Total** | **100** |  |  |  |
+
+### Documentation and technical article track
+
+| ID | Dimension | Weight | Level (0–5) | Weighted score | Evidence |
+| --- | --- | ---: | ---: | ---: | --- |
+| A-01 | Real demo | 30 |  |  |  |
+| A-02 | Design value | 25 |  |  |  |
+| A-03 | Technical recency | 15 |  |  |  |
+| A-04 | Publication date | 15 |  |  |  |
+| A-05 | Source/author credibility | 15 |  |  |  |
+|  | **Total** | **100** |  |  |  |
+
+### Official documentation direct-adoption check
+
+- [ ] Canonical URL, title, review date, and language recorded.
+- [ ] Target package/API version and maturity recorded.
+- [ ] Compared with local upstream source/public API/tests.
+- [ ] Drift, language differences, and implementation gaps recorded.
+
+### Hard gates
+
+- Triggered gates:
+- Result:
+- Maintainer approval:
 
 ## Decision
 
