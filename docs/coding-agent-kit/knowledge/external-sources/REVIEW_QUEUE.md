@@ -11,18 +11,19 @@ Snapshot: 2026-07-15. The machine-readable source of truth is [sources.json](sou
 - Community repositories: 19
 - Community articles: 1
 - Discovery-only meta indexes: 1
-- Current states: 64 `queued`, 0 adopted, 1 context-only, 0 quarantined, 0 rejected
+- Current states: 64 `queued`, 1 `in-review`, 0 adopted, 0 context-only, 0 quarantined, 0 rejected
 
 Search breadth is not an endorsement. Until an individual review is committed, every item remains
 quarantined from the generated topic catalog and must not be cited as API truth.
 
 ## Active review
 
-- Next source: `official-learn-overview`
-- Reason: it defines the canonical framework scope, agents-versus-workflows boundary, maturity, and
-  third-party integration risk that later reviews must use as their conceptual baseline.
-- Review artifact: `reviews/official-learn-overview.md`
-- State: `queued`
+- Current activity: maintainer definition and approval of [REVIEW_POLICY.md](REVIEW_POLICY.md).
+- Source reviews are paused until that policy defines the evaluation method, decision authority, and state
+  transition gates.
+- `repo-microsoft-agent-framework-samples` remains `in-review`: its factual investigation is preserved,
+  but it has no score or final decision.
+- No subsequent source is active. `official-learn-overview` remains first in the queue after policy approval.
 
 Only one source is `in-review` at a time unless maintainers explicitly split reviews by non-overlapping
 language or topic.
@@ -31,7 +32,8 @@ language or topic.
 
 ### Batch A — canonical truth and maturity
 
-1. `repo-microsoft-agent-framework-samples` — `context-only`, reviewed 2026-07-15
+1. `repo-microsoft-agent-framework-samples` — `in-review`, factual investigation recorded 2026-07-15;
+   final evaluation pending maintainer-approved policy
 2. `official-learn-overview`
 3. `official-learn-agents`
 4. `official-learn-tools`
@@ -107,7 +109,7 @@ A queue item is complete only when:
 - the demonstrated API is checked against the local upstream revision and current official docs;
 - license and attribution are explicit;
 - sample shortcuts and production gaps are identified;
-- all eight score dimensions contain evidence;
-- the decision and approved-use boundary are explicit;
+- every evidence requirement and evaluation field defined by the approved policy is complete;
+- the decision, authority, and approved-use boundary satisfy the approved policy;
 - `sources.json` and this queue agree on the resulting state;
 - any proposed promotion to `topics.json` is a separate, reviewable change.

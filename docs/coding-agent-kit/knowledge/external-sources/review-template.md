@@ -38,23 +38,17 @@
 - Conflicts with local upstream source, tests, or Microsoft Learn:
 - Unverified claims:
 
-## Score
+## Evaluation under the approved policy
 
-| Dimension | Score (0-5) | Evidence |
-| --- | ---: | --- |
-| Provenance |  |  |
-| Direct MAF evidence |  |  |
-| Version traceability |  |  |
-| Design value |  |  |
-| Verification |  |  |
-| Production depth |  |  |
-| Reuse clarity |  |  |
-| Maintenance |  |  |
-| **Total** | **/40** |  |
+- Policy version:
+- Policy approval status:
+- Applicable gates/dimensions:
+- Gate results or scores: `Copy the structure from the approved REVIEW_POLICY.md; do not invent it.`
+- Exceptions and approver:
 
 ## Decision
 
-- State: `adopted | context-only | quarantined | rejected`
+- State: `Use a state permitted by the approved REVIEW_POLICY.md`
 - Approved use:
 - Prohibited or unsafe use:
 - Topic-registry promotion proposal:

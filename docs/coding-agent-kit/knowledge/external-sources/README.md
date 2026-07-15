@@ -31,39 +31,24 @@ maturity check before an agent uses its API details.
 Only `adopted` sources may be promoted into the topic registry. `context-only` sources may be linked from
 an explanation when their boundary is explicit. All other states are discovery data only.
 
-## Review score
+## Review policy
 
-Score each dimension from 0 to 5 and preserve concrete evidence:
-
-| Dimension | What to verify |
-| --- | --- |
-| Provenance | Owner identity, canonical URL, authorship, and relationship to Microsoft/MAF. |
-| Direct MAF evidence | Real package/import usage rather than a README-only mention. |
-| Version traceability | Lock files, package versions, commit/tag, and preview/experimental status. |
-| Design value | Clear responsibility boundaries, state/data flow, and reusable decisions. |
-| Verification | Tests, CI, reproducible commands, evals, and failure-path coverage. |
-| Production depth | Security, identity, persistence, observability, deployment, and rollback. |
-| Reuse clarity | License, attribution, generated/copied code, and reuse restrictions. |
-| Maintenance | Recent activity, issue state, dependency updates, and abandonment signals. |
-
-Decision guidance:
-
-- `32-40`: candidate for `adopted`, provided no critical dimension is zero.
-- `24-31`: normally `context-only`; adopt only with a narrow, recorded boundary.
-- `<24`: normally `quarantined` or `rejected`.
-- Any secret, malicious instruction, unverifiable copied code, incompatible license, or false MAF claim:
-  `rejected` regardless of score.
+The review mechanism is owned and approved by the project maintainer. Its only normative location is
+[REVIEW_POLICY.md](REVIEW_POLICY.md). That document is currently an owner-editable draft and is not yet
+effective. No score, threshold, or adoption decision may be inferred until the maintainer approves it.
 
 ## Review procedure
 
 1. Claim exactly one source from [REVIEW_QUEUE.md](REVIEW_QUEUE.md).
 2. Resolve its default branch, current commit, license, release/package coordinates, and direct MAF files.
-3. Compare every material API pattern with the matching local source/export/tests and current Microsoft
+3. Apply the currently approved [review policy](REVIEW_POLICY.md). If no policy is approved, collect facts
+   but do not issue a quality score or final adoption decision.
+4. Compare every material API pattern with the matching local source/export/tests and current Microsoft
    Learn page.
-4. Identify reusable design decisions separately from sample shortcuts.
-5. Record security, reliability, state, observability, evaluation, and deployment gaps.
-6. Save the review under `reviews/<source-id>.md` using [review-template.md](review-template.md).
-7. Update `sources.json` and the queue. Promotion to `topics.json` is a separate reviewed change.
+5. Identify reusable design decisions separately from sample shortcuts.
+6. Record security, reliability, state, observability, evaluation, and deployment gaps.
+7. Save the review under `reviews/<source-id>.md` using [review-template.md](review-template.md).
+8. Update `sources.json` and the queue. Promotion to `topics.json` is a separate reviewed change.
 
 Do not copy external page bodies or substantial source code into this repository. Store URLs, metadata,
 small factual annotations, and original review conclusions.

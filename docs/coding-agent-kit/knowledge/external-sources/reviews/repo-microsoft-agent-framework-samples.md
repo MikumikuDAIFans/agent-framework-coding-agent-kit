@@ -93,36 +93,33 @@
   upstream revision. A full per-sample compatibility matrix was not run because the source does not provide
   stable package coordinates.
 
-## Score
+## Provisional factual assessment
 
-| Dimension | Score (0-5) | Evidence |
-| --- | ---: | --- |
-| Provenance | 5 | Microsoft-owned repository, immutable commit, MIT license. |
-| Direct MAF evidence | 5 | Extensive Python and .NET imports across agents, workflows, integrations, and cases. |
-| Version traceability | 1 | Mixed source-main, preview, unpinned, minimum-only, and placeholder coordinates. |
-| Design value | 3 | Broad scenario and topology value, but limited durable design rationale. |
-| Verification | 1 | No CI; diagnostic scripts instead of a coherent test suite; projects are not directly portable. |
-| Production depth | 2 | Hosting/telemetry cases exist, but production controls and rollback are incomplete. |
-| Reuse clarity | 5 | Clear MIT license; unsafe/placeholder patterns are identifiable. |
-| Maintenance | 4 | Recently maintained and expanded, but coherence lags the breadth of the repository. |
-| **Total** | **26/40** | Strong discovery source, weak implementation authority. |
+- Policy version: `draft-0`
+- Policy approval status: `awaiting-owner-definition`
+- Final score: not assigned
+- Final decision: pending maintainer-approved policy
+- Registry state: `in-review`
 
-## Decision
+The evidence below records technical findings only. It is not an adoption, downgrade, rejection, or
+promotion decision. The previous eight-dimension score and `context-only` decision are withdrawn because
+they were produced before the maintainer defined and approved the review policy.
 
-- State: `context-only`
-- Approved use:
+## Candidate use boundaries for maintainer review
+
+- Potential use:
   - discover scenario ideas and additional Microsoft-owned examples;
   - locate candidate patterns for workflows, DevUI, telemetry, AG-UI, tools, and hosted agents;
   - use an individual sample only after pinning its own commit/dependencies and rechecking the exact API
     against local source, tests, and Microsoft Learn.
-- Prohibited or unsafe use:
+- Known unsafe or unsupported use:
   - do not treat the repository root as a reproducible package-consumer reference;
   - do not copy `.csproj` project references, `git@main` requirements, `pip install -U` cells, credential
     diagnostics, or production/security defaults;
   - do not claim a sample is current merely because the repository is Microsoft-owned.
-- Topic-registry promotion proposal: none. The repository remains an external context index; promote only
-  a later-reviewed individual sample path if it has stable coordinates and clear added value over the local
-  upstream corpus.
+- Topic-registry promotion: prohibited while the policy is unapproved and the source remains `in-review`.
+  After policy approval, a later review may propose an individual sample path if it has stable coordinates
+  and clear added value over the local upstream corpus.
 - Re-review trigger: repository publishes pinned releases or CI, replaces machine/placeholder references,
   or a specific sample becomes the canonical official implementation for a topic.
 - Residual risk: individual samples may be newer than, older than, or incompatible with the target MAF

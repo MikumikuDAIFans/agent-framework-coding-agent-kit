@@ -8,8 +8,8 @@
 - Canonical progress file: `docs/coding-agent-kit/PROJECT_TASK_BOOK.md`
 - Related handoff file: `none`
 - Current branch: `codex/agent-framework-coding-agent-kit`
-- Current active phase: `Phase 7: 逐项来源审核`
-- Execution readiness: `executing`
+- Current active phase: `Phase 7: 维护者制定并批准审核政策`
+- Execution readiness: `drafting`
 - Lifecycle route: `research/prototype -> review -> curated maintenance`
 - Development method: `source-driven`，叠加 `review/quality`
 - Scale: `Standard`
@@ -97,8 +97,8 @@ agent 的 Microsoft Agent Framework 开发知识系统。对于每个具体开�
 ### Phase 7: 逐项来源审核
 
 - Purpose: 每次只审核一个来源，区分可复用设计、示例捷径、版本冲突和生产缺口。
-- Outputs: `reviews/<source-id>.md`、评分、决策和批准使用边界。
-- Completion criteria: 每个目标来源均有不可变快照、直接 MAF 证据、版本/许可、验证和八维评分。
+- Outputs: 维护者批准的 `REVIEW_POLICY.md`；批准后生成 `reviews/<source-id>.md`、评价、决策和批准使用边界。
+- Completion criteria: 维护者先定义并批准审核机制；随后每个目标来源满足该政策规定的证据与决策要求。
 - Validation: 对照本地公开 API、实现、测试、Microsoft Learn 和来源自身测试/CI。
 - Evidence: 已完成的 review 文件与 `sources.json` 状态变化。
 
@@ -125,7 +125,7 @@ agent 的 Microsoft Agent Framework 开发知识系统。对于每个具体开�
   - 当前目录索引包含 4,551 个仓库文件、19 个主题和 133 个 Microsoft Learn 页面元数据。
   - Microsoft Learn 页面正文未提交，现有索引只保留规范化元数据和 URL。
   - 第一轮网络搜索已找到 65 个候选来源：23 个官方文档、7 个官方工程文章、14 个官方仓库、19 个社区仓库、1 个社区文章和 1 个元索引。
-  - `microsoft/Agent-Framework-Samples@5b854b7e` 已完成首个逐项审核，得分 26/40，状态为 `context-only`；其主要问题是混合/移动依赖、不可移植的 .NET 项目引用、无 CI 和不足的生产验证。
+  - `microsoft/Agent-Framework-Samples@5b854b7e` 已完成事实调查，记录了混合/移动依赖、不可移植的 .NET 项目引用、无 CI 和生产验证不足等证据；旧评分和 `context-only` 裁决已撤销，最终评价等待维护者批准审核政策。
   - Microsoft Agent Framework 仍包含版本和成熟度差异；例如 Functional Workflow API 明确标为 experimental。
   - 当前 GitHub CLI 登录尚未完成，因此远程仓库创建和 push 仍未完成。
 - Active assumptions:
@@ -135,7 +135,7 @@ agent 的 Microsoft Agent Framework 开发知识系统。对于每个具体开�
 - Locked decisions:
   - 外部候选注册表与正式生成目录严格分离。
   - 只有状态为 `adopted` 的来源可被提议加入主题注册表。
-  - 每个来源采用八维、40 分审核，并保留明确的 Approved use 与禁止使用边界。
+  - 外部来源的评分维度、权重、阈值和裁决规则由维护者在 `REVIEW_POLICY.md` 中制定并批准；Coding Agent 不得自行补全。
   - 审核按单一来源推进；晋升 `topics.json` 是后续独立变更。
   - 不复制外部文章正文或大段第三方代码。
 - Open questions:
@@ -169,15 +169,16 @@ agent 的 Microsoft Agent Framework 开发知识系统。对于每个具体开�
 | --- | --- | --- | --- | --- |
 | 外部来源隔离政策 | README 与状态模型 | 本地链接、人工审查 | done | `knowledge/external-sources/README.md` |
 | 首批候选注册表 | 至少 50 个结构化来源 | JSON、唯一性、枚举验证 | done | `knowledge/external-sources/sources.json` |
-| 审核队列与模板 | 单来源流程、评分和顺序 | 链接检查、字段审查 | done | `REVIEW_QUEUE.md`、`review-template.md` |
+| 审核政策 | 维护者定义评价方法、权限与状态门禁 | 维护者批准清单 | in progress | `REVIEW_POLICY.md` |
+| 审核队列与模板 | 单来源流程和顺序；评价字段服从已批准政策 | 链接检查、字段审查 | done | `REVIEW_QUEUE.md`、`review-template.md` |
 | 套件验证集成 | validator 检查外部注册表 | `python tools/coding-agent-kit/validate.py` | done | `tools/coding-agent-kit/validate.py` |
-| 首个来源审核 | Microsoft samples 完整 review | API/版本/许可/测试对照 | done | `reviews/repo-microsoft-agent-framework-samples.md` |
+| 首个来源事实调查 | Microsoft samples 技术事实与候选使用边界 | API/版本/许可/测试对照 | done；最终评价待政策批准 | `reviews/repo-microsoft-agent-framework-samples.md` |
 | 官方概览审核 | Learn overview 完整 review | 页面日期/成熟度/本地源码对照 | pending | `reviews/official-learn-overview.md` |
 | 审核知识晋升 | 独立 topic registry 变更 | catalog drift 与检索验收 | pending | none |
 
 ## 进度台账
 
-- Overall progress: 原始套件构建完成；65 个外部来源已隔离；首个 Microsoft samples 来源审核完成并判定为 context-only，下一项为官方 Learn 概览。
+- Overall progress: 原始套件构建完成；65 个外部来源已隔离；首个 Microsoft samples 来源的事实调查已完成，但不评分、不裁决；当前唯一活动是维护者制定并批准审核政策。
 - Phase 1: `done`
 - Phase 2: `done`
 - Phase 3: `done`
@@ -187,9 +188,9 @@ agent 的 Microsoft Agent Framework 开发知识系统。对于每个具体开�
 - Phase 7: `in progress`
 - Phase 8: `pending`
 - Phase 9: `pending`
-- Validation status: 外部来源注册表首次集成验证通过；首个 review 和状态更新后需要再次运行完整验证。
+- Validation status: 审核机制已拆分为维护者控制的独立文档；一致性修改后需要再次运行完整验证。
 - Residual risks: 搜索不可能证明穷尽；社区内容可能过时、生成、复制或许可不清；外部页面会漂移；当前候选尚无任何 `adopted` 项。
 
 ## 下一步动作
 
-运行完整套件验证，然后审核 `official-learn-overview`。
+维护者编辑并批准 `docs/coding-agent-kit/knowledge/external-sources/REVIEW_POLICY.md`。在此之前暂停后续来源评分、裁决和知识晋升。

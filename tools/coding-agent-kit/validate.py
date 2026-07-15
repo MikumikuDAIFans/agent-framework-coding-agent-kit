@@ -48,6 +48,7 @@ def main() -> int:
         "docs/coding-agent-kit/catalog/learn-index.json",
         "docs/coding-agent-kit/catalog/CATALOG.md",
         "docs/coding-agent-kit/knowledge/external-sources/README.md",
+        "docs/coding-agent-kit/knowledge/external-sources/REVIEW_POLICY.md",
         "docs/coding-agent-kit/knowledge/external-sources/REVIEW_QUEUE.md",
         "docs/coding-agent-kit/knowledge/external-sources/review-template.md",
         "docs/coding-agent-kit/knowledge/external-sources/sources.json",
@@ -153,15 +154,12 @@ def main() -> int:
             FAILURES.append(f"External source {source_id} has an unknown priority: {item.get('priority')}.")
         if not item.get("topics") or not item.get("languages"):
             FAILURES.append(f"External source {source_id} must declare topics and languages.")
-        if item.get("review_status") in {"adopted", "context-only", "quarantined", "rejected"}:
+        if item.get("review_status") in {"in-review", "adopted", "context-only", "quarantined", "rejected"}:
             review_path = item.get("review")
             if not review_path:
                 FAILURES.append(f"Reviewed external source {source_id} must point to its review artifact.")
             elif not (paths["docs/coding-agent-kit/knowledge/external-sources/sources.json"].parent / review_path).exists():
                 FAILURES.append(f"External source {source_id} review artifact does not exist: {review_path}.")
-            score = item.get("review_score")
-            if not isinstance(score, int) or not 0 <= score <= 40:
-                FAILURES.append(f"Reviewed external source {source_id} must have an integer review score from 0 to 40.")
 
     scan_roots = [ROOT / ".agents", ROOT / ".codex-plugin", ROOT / "docs/coding-agent-kit", ROOT / "tools/coding-agent-kit"]
     machine_path = re.compile(r"(?:[A-Za-z]:\\Users\\|/home/[^/]+/|/Users/[^/]+/)")
