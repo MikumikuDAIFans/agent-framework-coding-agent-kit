@@ -47,6 +47,10 @@ def main() -> int:
         "docs/coding-agent-kit/catalog/catalog.json",
         "docs/coding-agent-kit/catalog/learn-index.json",
         "docs/coding-agent-kit/catalog/CATALOG.md",
+        "docs/coding-agent-kit/knowledge/external-sources/README.md",
+        "docs/coding-agent-kit/knowledge/external-sources/REVIEW_QUEUE.md",
+        "docs/coding-agent-kit/knowledge/external-sources/review-template.md",
+        "docs/coding-agent-kit/knowledge/external-sources/sources.json",
         "tools/coding-agent-kit/indexer/topics.json",
         "tools/coding-agent-kit/indexer/upstream-base.json",
         "tools/coding-agent-kit/indexer/build_catalog.py",
@@ -98,6 +102,66 @@ def main() -> int:
     learn = load_json(paths["docs/coding-agent-kit/catalog/learn-index.json"])
     if int(learn.get("page_count", 0)) < 100:
         FAILURES.append(f"Microsoft Learn metadata coverage unexpectedly low: {learn.get('page_count', 0)} pages.")
+
+    external = load_json(paths["docs/coding-agent-kit/knowledge/external-sources/sources.json"])
+    external_items = external.get("items", [])
+    if len(external_items) < 50:
+        FAILURES.append(f"External source discovery coverage unexpectedly low: {len(external_items)} sources.")
+    allowed_classes = {
+        "official-doc",
+        "official-engineering",
+        "official-repository",
+        "community-repository",
+        "community-article",
+        "meta-index",
+    }
+    allowed_states = {"discovered", "queued", "in-review", "adopted", "context-only", "quarantined", "rejected"}
+    allowed_priorities = {"P0", "P1", "P2", "P3"}
+    seen_ids: set[str] = set()
+    seen_urls: set[str] = set()
+    required_external_fields = {
+        "id",
+        "name",
+        "url",
+        "source_class",
+        "authority",
+        "topics",
+        "languages",
+        "review_status",
+        "priority",
+        "why",
+    }
+    for item in external_items:
+        missing = required_external_fields - item.keys()
+        source_id = item.get("id", "<missing-id>")
+        if missing:
+            FAILURES.append(f"External source {source_id} is missing fields: {', '.join(sorted(missing))}.")
+        if source_id in seen_ids:
+            FAILURES.append(f"Duplicate external source id: {source_id}.")
+        seen_ids.add(source_id)
+        url = item.get("url", "")
+        if url in seen_urls:
+            FAILURES.append(f"Duplicate external source URL: {url}.")
+        seen_urls.add(url)
+        if not url.startswith("https://"):
+            FAILURES.append(f"External source {source_id} must use an HTTPS URL.")
+        if item.get("source_class") not in allowed_classes:
+            FAILURES.append(f"External source {source_id} has an unknown class: {item.get('source_class')}.")
+        if item.get("review_status") not in allowed_states:
+            FAILURES.append(f"External source {source_id} has an unknown review state: {item.get('review_status')}.")
+        if item.get("priority") not in allowed_priorities:
+            FAILURES.append(f"External source {source_id} has an unknown priority: {item.get('priority')}.")
+        if not item.get("topics") or not item.get("languages"):
+            FAILURES.append(f"External source {source_id} must declare topics and languages.")
+        if item.get("review_status") in {"adopted", "context-only", "quarantined", "rejected"}:
+            review_path = item.get("review")
+            if not review_path:
+                FAILURES.append(f"Reviewed external source {source_id} must point to its review artifact.")
+            elif not (paths["docs/coding-agent-kit/knowledge/external-sources/sources.json"].parent / review_path).exists():
+                FAILURES.append(f"External source {source_id} review artifact does not exist: {review_path}.")
+            score = item.get("review_score")
+            if not isinstance(score, int) or not 0 <= score <= 40:
+                FAILURES.append(f"Reviewed external source {source_id} must have an integer review score from 0 to 40.")
 
     scan_roots = [ROOT / ".agents", ROOT / ".codex-plugin", ROOT / "docs/coding-agent-kit", ROOT / "tools/coding-agent-kit"]
     machine_path = re.compile(r"(?:[A-Za-z]:\\Users\\|/home/[^/]+/|/Users/[^/]+/)")

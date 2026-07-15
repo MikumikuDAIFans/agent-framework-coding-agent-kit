@@ -24,6 +24,12 @@ The kit should retain only knowledge that improves coding-agent retrieval across
 - retrieval/evidence guidance;
 - kit architecture, maintenance, and distribution decisions.
 
+Broad internet and community research first enters the
+[external source review layer](external-sources/README.md). Its
+[candidate registry](external-sources/sources.json) and
+[review queue](external-sources/REVIEW_QUEUE.md) are deliberately separate from the generated catalog.
+Only sources with a completed `adopted` review may be proposed for the curated topic registry.
+
 Do not promote a one-off application choice into the topic registry.
 
 ## Upstream knowledge
