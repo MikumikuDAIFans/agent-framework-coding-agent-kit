@@ -27,9 +27,9 @@ def parse_args() -> argparse.Namespace:
 def destination(args: argparse.Namespace) -> Path:
     if args.scope == "user":
         codex_home = Path(os.environ.get("CODEX_HOME", Path.home() / ".codex"))
-        return codex_home / "skills/maf-expert"
+        return (codex_home / "skills/maf-expert").resolve()
     target = (args.target or Path.cwd()).resolve()
-    return target / ".agents/skills/maf-expert"
+    return (target / ".agents/skills/maf-expert").resolve()
 
 
 def main() -> int:
@@ -41,6 +41,8 @@ def main() -> int:
         raise SystemExit(f"Skill source is missing: {SOURCE}")
     if not catalog.exists():
         raise SystemExit(f"Reference root does not contain the generated catalog: {catalog}")
+    if target == SOURCE.resolve():
+        raise SystemExit("Refusing to install onto the kit's own Skill source.")
 
     print(f"Skill source: {SOURCE}")
     print(f"Destination: {target}")
@@ -52,8 +54,12 @@ def main() -> int:
     if target.exists():
         if not args.force:
             raise SystemExit("Destination exists. Review it, then rerun with --force to preserve a backup and replace it.")
-        stamp = datetime.now().strftime("%Y%m%d-%H%M%S")
+        stamp = datetime.now().strftime("%Y%m%d-%H%M%S-%f")
         backup = target.with_name(f"{target.name}.backup-{stamp}")
+        suffix = 1
+        while backup.exists():
+            backup = target.with_name(f"{target.name}.backup-{stamp}-{suffix}")
+            suffix += 1
         target.rename(backup)
         print(f"Preserved existing Skill: {backup}")
 

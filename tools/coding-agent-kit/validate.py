@@ -237,6 +237,7 @@ def main() -> int:
     run([sys.executable, "tools/coding-agent-kit/indexer/build_catalog.py", "--check"])
     run([sys.executable, "-m", "unittest", "discover", "tools/coding-agent-kit/indexer/tests"])
     run([sys.executable, "-m", "unittest", "discover", "tools/coding-agent-kit/knowledge/tests"])
+    run([sys.executable, "-m", "unittest", "discover", "tools/coding-agent-kit/tests"])
     run([sys.executable, "tools/coding-agent-kit/knowledge/collect.py", "check"])
     run([sys.executable, "tools/coding-agent-kit/install.py", "--scope", "user", "--dry-run"])
 

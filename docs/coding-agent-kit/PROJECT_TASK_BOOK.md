@@ -10,7 +10,7 @@
 - Related execution launch: `docs/coding-agent-kit/EXECUTION_LAUNCH.md`
 - Current branch: `codex/agent-framework-coding-agent-kit`
 - Current active phase: `Phase 1: 因 upstream 漂移重开基线同步；完成后返回 Phase 7`
-- Execution readiness: `approved for execution`
+- Execution readiness: `executing`
 - Lifecycle route: `research/prototype -> review -> curated maintenance`
 - Development method: `source-driven`，叠加 `review/quality`
 - Scale: `Full`
@@ -133,9 +133,9 @@ agent 的 Microsoft Agent Framework 开发知识系统。对于每个具体开�
   - `microsoft/Agent-Framework-Samples@5b854b7e` 已完成事实调查，记录了混合/移动依赖、不可移植的 .NET 项目引用、无 CI 和生产验证不足等证据；最终评价等待应用 v1.1 政策。
   - Microsoft Agent Framework 仍包含版本和成熟度差异；例如 Functional Workflow API 明确标为 experimental。
   - GitHub CLI 已登录账号 `MikumikuDAIFans`，具有 `repo` 和 `workflow` 权限；目标公开仓库尚不存在，当前也没有 `origin` remote。
-  - 本机 Git 当前自动提交身份为 `unknown <zhangjiayang@santint.com>`；公开推送前必须确认有意采用的提交身份，不擅自修改全局 Git 配置。
+  - 既有 kit 提交使用自动身份 `unknown <zhangjiayang@santint.com>`；本仓库后续提交已局部配置为经 GitHub API 核验的 `Displace_Asher <101958750+MikumikuDAIFans@users.noreply.github.com>`，全局 Git 配置未修改。
   - `upstream/main` 当前远端 HEAD 为 `5ab8877ba55b4778d778cf51450eafe483194708`，高于目录锁定基线 `c47f20d9a28d18b0a3f284c8a8365ff72f2e35b1`；正式审核前必须先评估并同步基线。
-  - 工作树存在用户既有的 `tools/coding-agent-kit/install.py` 未提交修改，内容涉及安装目标规范化、自安装保护和备份名冲突保护；启动执行时必须保留并独立验证。
+  - 用户既有的 `tools/coding-agent-kit/install.py` 修改已保留并审查，覆盖安装目标规范化、自安装保护和备份名冲突保护；新增 3 个隔离回归测试并接入总 validator，全部通过。
 - Active assumptions:
   - 首批 65 个来源足以建立审核方法，但不是最终穷尽列表。
   - Microsoft/Azure-Samples 归属可以作为 provenance 证据，但仍需逐项验证版本和工程质量。
@@ -168,6 +168,7 @@ agent 的 Microsoft Agent Framework 开发知识系统。对于每个具体开�
   - `docs/coding-agent-kit/knowledge/external-sources/review-template.md`: 单来源审核合同。
   - `tools/coding-agent-kit/indexer/topics.json`: 仅接收审核晋升后的稳定入口。
   - `tools/coding-agent-kit/knowledge/collect.py`: 项目路由注册、文档下载转换、哈希与清单校验。
+  - `tools/coding-agent-kit/tests/test_install.py`: 安装目标、自安装拒绝和备份冲突回归测试。
   - `docs/coding-agent-kit/knowledge/collection/KNOWLEDGE_INDEX.md`: 项目与文档的生成式路由入口。
   - `tools/coding-agent-kit/validate.py`: 套件与外部注册表结构验证。
 - Required commands:
@@ -190,6 +191,7 @@ agent 的 Microsoft Agent Framework 开发知识系统。对于每个具体开�
 | 审核政策 | Coding Agent 自主执行的双轨评分、门禁与收录规则 | 权重总和、模板和 validator | done | `REVIEW_POLICY.md` v1.1 |
 | 审核队列与模板 | 单来源流程和顺序；评价字段服从已批准政策 | 链接检查、字段审查 | done | `REVIEW_QUEUE.md`、`review-template.md` |
 | 套件验证集成 | validator 检查外部注册表 | `python tools/coding-agent-kit/validate.py` | done | `tools/coding-agent-kit/validate.py` |
+| 安装器用户修改闭环 | 规范化目标、自安装拒绝、无冲突备份 | 3 个隔离单测、安装 dry-run、总 validator | done | `tools/coding-agent-kit/install.py`、`tools/coding-agent-kit/tests/test_install.py` |
 | 收录工具链 | 项目只存路由；文档可转 Markdown；生成统一知识目录 | collection 单测、哈希和索引 check | done | `tools/coding-agent-kit/knowledge/collect.py`、`knowledge/collection` |
 | 检索整合 | lookup 同时返回本地上游、官方页面、项目路由和收录文档 | lookup 单测与 JSON/文本输出 | done | `tools/coding-agent-kit/indexer/lookup.py` |
 | 首个来源事实调查 | Microsoft samples 技术事实与候选使用边界 | API/版本/许可/测试对照 | done；最终评价待按 v1.1 执行 | `reviews/repo-microsoft-agent-framework-samples.md` |
@@ -233,9 +235,9 @@ agent 的 Microsoft Agent Framework 开发知识系统。对于每个具体开�
 - Phase 7: `in progress`
 - Phase 8: `pending`
 - Phase 9: `pending`
-- Validation status: 2026-07-17 全量 validator 通过；启动前边界为上游基线漂移和用户既有 `install.py` 修改，均已写入启动包。
+- Validation status: 2026-07-17 安装器 3 个回归测试、安装 dry-run 与全量 validator 通过；`install.py` 边界已关闭，下一项硬边界为上游基线漂移。
 - Residual risks: 搜索不能证明穷尽；外部内容会漂移或存在许可/安全问题；网络与无凭据验证可能受限；当前候选尚无任何 `adopted` 项。
 
 ## 下一步动作
 
-保留并审查 `install.py` 用户修改，随后同步 `upstream/main` 与目录基线，再开始 `repo-microsoft-agent-framework-samples` 的最终评价。
+fetch 并同步 `upstream/main`，重建目录基线并验证 kit overlay，再开始 `repo-microsoft-agent-framework-samples` 的最终评价。
