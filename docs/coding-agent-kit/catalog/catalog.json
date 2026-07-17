@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
   "upstream_repository": "https://github.com/microsoft/agent-framework",
-  "upstream_commit": "c47f20d9a28d18b0a3f284c8a8365ff72f2e35b1",
-  "entry_count": 4551,
-  "classified_entry_count": 4444,
+  "upstream_commit": "5ab8877ba55b4778d778cf51450eafe483194708",
+  "entry_count": 4582,
+  "classified_entry_count": 4474,
   "topics": [
     {
       "id": "getting-started",
@@ -111,22 +111,22 @@
         {
           "role": "implementation",
           "language": "python",
-          "count": 128
+          "count": 129
         },
         {
           "role": "sample",
           "language": "csharp",
-          "count": 244
+          "count": 258
         },
         {
           "role": "sample",
           "language": "python",
-          "count": 94
+          "count": 102
         },
         {
           "role": "test",
           "language": "csharp",
-          "count": 469
+          "count": 470
         },
         {
           "role": "test",
@@ -200,7 +200,7 @@
         {
           "role": "sample",
           "language": "csharp",
-          "count": 37
+          "count": 39
         },
         {
           "role": "sample",
@@ -288,7 +288,7 @@
         {
           "role": "sample",
           "language": "python",
-          "count": 34
+          "count": 35
         },
         {
           "role": "test",
@@ -369,12 +369,12 @@
         {
           "role": "sample",
           "language": "csharp",
-          "count": 67
+          "count": 71
         },
         {
           "role": "sample",
           "language": "python",
-          "count": 40
+          "count": 41
         },
         {
           "role": "test",
@@ -456,7 +456,7 @@
         {
           "role": "sample",
           "language": "python",
-          "count": 25
+          "count": 26
         },
         {
           "role": "test",
@@ -537,7 +537,7 @@
         {
           "role": "sample",
           "language": "csharp",
-          "count": 165
+          "count": 166
         },
         {
           "role": "sample",
@@ -626,7 +626,7 @@
         {
           "role": "test",
           "language": "csharp",
-          "count": 203
+          "count": 204
         },
         {
           "role": "test",
@@ -710,7 +710,7 @@
         {
           "role": "test",
           "language": "python",
-          "count": 11
+          "count": 12
         }
       ]
     },
@@ -853,12 +853,12 @@
         {
           "role": "implementation",
           "language": "csharp",
-          "count": 13
+          "count": 14
         },
         {
           "role": "implementation",
           "language": "python",
-          "count": 2
+          "count": 3
         },
         {
           "role": "sample",
@@ -878,7 +878,7 @@
         {
           "role": "test",
           "language": "python",
-          "count": 12
+          "count": 13
         }
       ]
     },
@@ -947,12 +947,12 @@
         {
           "role": "sample",
           "language": "csharp",
-          "count": 11
+          "count": 12
         },
         {
           "role": "sample",
           "language": "python",
-          "count": 9
+          "count": 11
         },
         {
           "role": "test",
@@ -1110,7 +1110,7 @@
         {
           "role": "implementation",
           "language": "python",
-          "count": 23
+          "count": 19
         },
         {
           "role": "sample",
@@ -1130,7 +1130,7 @@
         {
           "role": "test",
           "language": "python",
-          "count": 12
+          "count": 10
         }
       ]
     },
@@ -1211,7 +1211,7 @@
         {
           "role": "sample",
           "language": "python",
-          "count": 58
+          "count": 62
         },
         {
           "role": "test",
@@ -1221,7 +1221,7 @@
         {
           "role": "test",
           "language": "python",
-          "count": 51
+          "count": 52
         }
       ]
     },
@@ -1304,7 +1304,7 @@
         {
           "role": "test",
           "language": "csharp",
-          "count": 162
+          "count": 163
         },
         {
           "role": "test",
@@ -1946,7 +1946,7 @@
     },
     {
       "path": "docs/decisions/0023-foundry-evals-integration.md",
-      "title": "Agent Evaluation Architecture with Azure AI Foundry Integration",
+      "title": "Agent Evaluation Architecture with Microsoft Foundry Integration",
       "role": "design",
       "language": "language-neutral",
       "topics": [
@@ -2172,7 +2172,7 @@
     },
     {
       "path": "docs/specs/002-python-hosting-channels.md",
-      "title": "Python hosting core and pluggable channels",
+      "title": "Python protocol helpers and optional execution state",
       "role": "design",
       "language": "language-neutral",
       "topics": [
@@ -5305,6 +5305,48 @@
       ]
     },
     {
+      "path": "dotnet/samples/02-agents/AgentWithMemory/AgentWithMemory_Step06_MemoryUsingAgentMemory/AgentWithMemory_Step06_MemoryUsingAgentMemory.csproj",
+      "title": "Agent With Memory Step06 Memory Using Agent Memory",
+      "role": "sample",
+      "language": "csharp",
+      "topics": [
+        "memory-rag"
+      ],
+      "symbols": []
+    },
+    {
+      "path": "dotnet/samples/02-agents/AgentWithMemory/AgentWithMemory_Step06_MemoryUsingAgentMemory/ProductCatalog.cs",
+      "title": "Product Catalog",
+      "role": "sample",
+      "language": "csharp",
+      "topics": [
+        "memory-rag"
+      ],
+      "symbols": [
+        "ProductCatalog"
+      ]
+    },
+    {
+      "path": "dotnet/samples/02-agents/AgentWithMemory/AgentWithMemory_Step06_MemoryUsingAgentMemory/Program.cs",
+      "title": "Program",
+      "role": "sample",
+      "language": "csharp",
+      "topics": [
+        "memory-rag"
+      ],
+      "symbols": []
+    },
+    {
+      "path": "dotnet/samples/02-agents/AgentWithMemory/AgentWithMemory_Step06_MemoryUsingAgentMemory/README.md",
+      "title": "Agent with Memory Using AgentMemory — Shopping Assistant",
+      "role": "sample",
+      "language": "csharp",
+      "topics": [
+        "memory-rag"
+      ],
+      "symbols": []
+    },
+    {
       "path": "dotnet/samples/02-agents/AgentWithMemory/README.md",
       "title": "README",
       "role": "sample",
@@ -6228,6 +6270,164 @@
       ]
     },
     {
+      "path": "dotnet/samples/02-agents/Harness/BuildYourOwnClaw/Claw_Step03_ScalingCapabilities/Claw_Step03_ScalingCapabilities.csproj",
+      "title": "Claw Step03 Scaling Capabilities",
+      "role": "sample",
+      "language": "csharp",
+      "topics": [
+        "agents"
+      ],
+      "symbols": []
+    },
+    {
+      "path": "dotnet/samples/02-agents/Harness/BuildYourOwnClaw/Claw_Step03_ScalingCapabilities/FoundrySkills.cs",
+      "title": "Foundry Skills",
+      "role": "sample",
+      "language": "csharp",
+      "topics": [
+        "agents",
+        "providers"
+      ],
+      "symbols": [
+        "FoundrySkills"
+      ]
+    },
+    {
+      "path": "dotnet/samples/02-agents/Harness/BuildYourOwnClaw/Claw_Step03_ScalingCapabilities/Program.cs",
+      "title": "Program",
+      "role": "sample",
+      "language": "csharp",
+      "topics": [
+        "agents"
+      ],
+      "symbols": []
+    },
+    {
+      "path": "dotnet/samples/02-agents/Harness/BuildYourOwnClaw/Claw_Step03_ScalingCapabilities/README.md",
+      "title": "Scaling its capabilities (Post 3) — .NET",
+      "role": "sample",
+      "language": "csharp",
+      "topics": [
+        "agents"
+      ],
+      "symbols": []
+    },
+    {
+      "path": "dotnet/samples/02-agents/Harness/BuildYourOwnClaw/Claw_Step03_ScalingCapabilities/ResearchAgent.cs",
+      "title": "Research Agent",
+      "role": "sample",
+      "language": "csharp",
+      "topics": [
+        "agents"
+      ],
+      "symbols": [
+        "ResearchAgent"
+      ]
+    },
+    {
+      "path": "dotnet/samples/02-agents/Harness/BuildYourOwnClaw/Claw_Step03_ScalingCapabilities/skills/risk-scoring/references/risk-bands.md",
+      "title": "Risk-scoring guide (illustrative)",
+      "role": "sample",
+      "language": "csharp",
+      "topics": [
+        "agents"
+      ],
+      "symbols": []
+    },
+    {
+      "path": "dotnet/samples/02-agents/Harness/BuildYourOwnClaw/Claw_Step03_ScalingCapabilities/skills/risk-scoring/scripts/risk_score.py",
+      "title": "risk score",
+      "role": "sample",
+      "language": "csharp",
+      "topics": [
+        "agents"
+      ],
+      "symbols": [
+        "risk_score"
+      ]
+    },
+    {
+      "path": "dotnet/samples/02-agents/Harness/BuildYourOwnClaw/Claw_Step03_ScalingCapabilities/skills/risk-scoring/SKILL.md",
+      "title": "SKILL",
+      "role": "sample",
+      "language": "csharp",
+      "topics": [
+        "agents"
+      ],
+      "symbols": []
+    },
+    {
+      "path": "dotnet/samples/02-agents/Harness/BuildYourOwnClaw/Claw_Step03_ScalingCapabilities/skills/valuation/references/valuation-guide.md",
+      "title": "Valuation guide (illustrative)",
+      "role": "sample",
+      "language": "csharp",
+      "topics": [
+        "agents"
+      ],
+      "symbols": []
+    },
+    {
+      "path": "dotnet/samples/02-agents/Harness/BuildYourOwnClaw/Claw_Step03_ScalingCapabilities/skills/valuation/scripts/valuation_metrics.py",
+      "title": "valuation metrics",
+      "role": "sample",
+      "language": "csharp",
+      "topics": [
+        "agents",
+        "observability"
+      ],
+      "symbols": [
+        "valuation_metrics"
+      ]
+    },
+    {
+      "path": "dotnet/samples/02-agents/Harness/BuildYourOwnClaw/Claw_Step03_ScalingCapabilities/skills/valuation/SKILL.md",
+      "title": "SKILL",
+      "role": "sample",
+      "language": "csharp",
+      "topics": [
+        "agents"
+      ],
+      "symbols": []
+    },
+    {
+      "path": "dotnet/samples/02-agents/Harness/BuildYourOwnClaw/Claw_Step03_ScalingCapabilities/StockTools.cs",
+      "title": "Stock Tools",
+      "role": "sample",
+      "language": "csharp",
+      "topics": [
+        "agents",
+        "tools"
+      ],
+      "symbols": [
+        "StockTools"
+      ]
+    },
+    {
+      "path": "dotnet/samples/02-agents/Harness/BuildYourOwnClaw/Claw_Step03_ScalingCapabilities/SubprocessScriptRunner.cs",
+      "title": "Subprocess Script Runner",
+      "role": "sample",
+      "language": "csharp",
+      "topics": [
+        "agents"
+      ],
+      "symbols": [
+        "SubprocessScriptRunner"
+      ]
+    },
+    {
+      "path": "dotnet/samples/02-agents/Harness/BuildYourOwnClaw/Claw_Step03_ScalingCapabilities/TradingTools.cs",
+      "title": "Trading Tools",
+      "role": "sample",
+      "language": "csharp",
+      "topics": [
+        "agents",
+        "tools"
+      ],
+      "symbols": [
+        "TradingTools"
+      ]
+    },
+    {
       "path": "dotnet/samples/02-agents/Harness/ConsoleReactiveComponents/AnsiEscapes.cs",
       "title": "Ansi Escapes",
       "role": "sample",
@@ -6890,7 +7090,7 @@
     },
     {
       "path": "dotnet/samples/02-agents/Harness/Harness_Step01_Research/README.md",
-      "title": "Required: Your Azure AI Foundry OpenAI endpoint",
+      "title": "Required: Your Microsoft Foundry OpenAI endpoint",
       "role": "sample",
       "language": "csharp",
       "topics": [
@@ -6977,7 +7177,7 @@
     },
     {
       "path": "dotnet/samples/02-agents/Harness/Harness_Step03_DataProcessing/README.md",
-      "title": "Required: Your Azure AI Foundry OpenAI endpoint",
+      "title": "Required: Your Microsoft Foundry OpenAI endpoint",
       "role": "sample",
       "language": "csharp",
       "topics": [
@@ -25476,6 +25676,18 @@
       ]
     },
     {
+      "path": "dotnet/src/Microsoft.Agents.AI/Harness/ToolApproval/ToolAutoApprovalRuleContext.cs",
+      "title": "Tool Auto Approval Rule Context",
+      "role": "implementation",
+      "language": "csharp",
+      "topics": [
+        "approvals-hitl"
+      ],
+      "symbols": [
+        "ToolAutoApprovalRuleContext"
+      ]
+    },
+    {
       "path": "dotnet/src/Microsoft.Agents.AI/LoggingAgent.cs",
       "title": "Logging Agent",
       "role": "implementation",
@@ -33648,6 +33860,20 @@
       ]
     },
     {
+      "path": "dotnet/tests/Microsoft.Agents.AI.Workflows.Declarative.UnitTests/ObjectModel/InvokeAzureAgentExecutorTest.cs",
+      "title": "Invoke Azure Agent Executor Test",
+      "role": "test",
+      "language": "csharp",
+      "topics": [
+        "workflows",
+        "agents",
+        "declarative"
+      ],
+      "symbols": [
+        "InvokeAzureAgentExecutorTest"
+      ]
+    },
+    {
       "path": "dotnet/tests/Microsoft.Agents.AI.Workflows.Declarative.UnitTests/ObjectModel/InvokeFunctionToolExecutorTest.cs",
       "title": "Invoke Function Tool Executor Test",
       "role": "test",
@@ -35986,8 +36212,8 @@
       ]
     },
     {
-      "path": "dotnet/tests/Microsoft.Agents.AI.Workflows.UnitTests/WorkflowSessionResolveTypeLenientTests.cs",
-      "title": "Workflow Session Resolve Type Lenient Tests",
+      "path": "dotnet/tests/Microsoft.Agents.AI.Workflows.UnitTests/WorkflowSessionTests.cs",
+      "title": "Workflow Session Tests",
       "role": "test",
       "language": "csharp",
       "topics": [
@@ -35996,7 +36222,7 @@
         "workflows"
       ],
       "symbols": [
-        "WorkflowSessionResolveTypeLenientTests"
+        "WorkflowSessionTests"
       ]
     },
     {
@@ -37182,6 +37408,19 @@
       ]
     },
     {
+      "path": "python/packages/ag-ui/tests/ag_ui/test_handoff_replay.py",
+      "title": "test handoff replay",
+      "role": "test",
+      "language": "python",
+      "topics": [
+        "orchestration",
+        "protocols"
+      ],
+      "symbols": [
+        "test_handoff_replay"
+      ]
+    },
+    {
       "path": "python/packages/ag-ui/tests/ag_ui/test_helpers.py",
       "title": "test helpers",
       "role": "test",
@@ -38073,6 +38312,18 @@
       ]
     },
     {
+      "path": "python/packages/azurefunctions/agent_framework_azurefunctions/_hitl_context.py",
+      "title": "hitl context",
+      "role": "implementation",
+      "language": "python",
+      "topics": [
+        "approvals-hitl"
+      ],
+      "symbols": [
+        "_hitl_context"
+      ]
+    },
+    {
       "path": "python/packages/azurefunctions/agent_framework_azurefunctions/_orchestration.py",
       "title": "orchestration",
       "role": "implementation",
@@ -38083,6 +38334,18 @@
       ],
       "symbols": [
         "_orchestration"
+      ]
+    },
+    {
+      "path": "python/packages/azurefunctions/agent_framework_azurefunctions/_routes.py",
+      "title": "routes",
+      "role": "implementation",
+      "language": "python",
+      "topics": [
+        "agents"
+      ],
+      "symbols": [
+        "_routes"
       ]
     },
     {
@@ -38339,6 +38602,18 @@
       ]
     },
     {
+      "path": "python/packages/azurefunctions/tests/test_hitl_context.py",
+      "title": "test hitl context",
+      "role": "test",
+      "language": "python",
+      "topics": [
+        "approvals-hitl"
+      ],
+      "symbols": [
+        "test_hitl_context"
+      ]
+    },
+    {
       "path": "python/packages/azurefunctions/tests/test_multi_agent.py",
       "title": "test multi agent",
       "role": "test",
@@ -38360,6 +38635,16 @@
       ],
       "symbols": [
         "test_orchestration"
+      ]
+    },
+    {
+      "path": "python/packages/azurefunctions/tests/test_routes.py",
+      "title": "test routes",
+      "role": "test",
+      "language": "python",
+      "topics": [],
+      "symbols": [
+        "test_routes"
       ]
     },
     {
@@ -43934,18 +44219,6 @@
       "symbols": []
     },
     {
-      "path": "python/packages/hosting-responses/agent_framework_hosting_responses/_channel.py",
-      "title": "channel",
-      "role": "implementation",
-      "language": "python",
-      "topics": [
-        "hosting"
-      ],
-      "symbols": [
-        "_channel"
-      ]
-    },
-    {
       "path": "python/packages/hosting-responses/agent_framework_hosting_responses/_parsing.py",
       "title": "parsing",
       "role": "implementation",
@@ -43978,15 +44251,15 @@
       "symbols": []
     },
     {
-      "path": "python/packages/hosting-responses/tests/hosting_responses/test_channel.py",
-      "title": "test channel",
+      "path": "python/packages/hosting-responses/tests/hosting_responses/test_http_round_trip.py",
+      "title": "test http round trip",
       "role": "test",
       "language": "python",
       "topics": [
         "hosting"
       ],
       "symbols": [
-        "test_channel"
+        "test_http_round_trip"
       ]
     },
     {
@@ -44012,15 +44285,27 @@
       "symbols": []
     },
     {
-      "path": "python/packages/hosting-telegram/agent_framework_hosting_telegram/_channel.py",
-      "title": "channel",
+      "path": "python/packages/hosting-telegram/agent_framework_hosting_telegram/_parsing.py",
+      "title": "parsing",
       "role": "implementation",
       "language": "python",
       "topics": [
         "hosting"
       ],
       "symbols": [
-        "_channel"
+        "_parsing"
+      ]
+    },
+    {
+      "path": "python/packages/hosting-telegram/agent_framework_hosting_telegram/_rendering.py",
+      "title": "rendering",
+      "role": "implementation",
+      "language": "python",
+      "topics": [
+        "hosting"
+      ],
+      "symbols": [
+        "_rendering"
       ]
     },
     {
@@ -44044,15 +44329,27 @@
       "symbols": []
     },
     {
-      "path": "python/packages/hosting-telegram/tests/hosting_telegram/test_channel.py",
-      "title": "test channel",
+      "path": "python/packages/hosting-telegram/tests/hosting_telegram/test_parsing.py",
+      "title": "test parsing",
       "role": "test",
       "language": "python",
       "topics": [
         "hosting"
       ],
       "symbols": [
-        "test_channel"
+        "test_parsing"
+      ]
+    },
+    {
+      "path": "python/packages/hosting-telegram/tests/hosting_telegram/test_rendering.py",
+      "title": "test rendering",
+      "role": "test",
+      "language": "python",
+      "topics": [
+        "hosting"
+      ],
+      "symbols": [
+        "test_rendering"
       ]
     },
     {
@@ -44066,63 +44363,15 @@
       "symbols": []
     },
     {
-      "path": "python/packages/hosting/agent_framework_hosting/_host.py",
-      "title": "host",
+      "path": "python/packages/hosting/agent_framework_hosting/_state.py",
+      "title": "state",
       "role": "implementation",
       "language": "python",
       "topics": [
         "hosting"
       ],
       "symbols": [
-        "_host"
-      ]
-    },
-    {
-      "path": "python/packages/hosting/agent_framework_hosting/_isolation.py",
-      "title": "isolation",
-      "role": "implementation",
-      "language": "python",
-      "topics": [
-        "hosting"
-      ],
-      "symbols": [
-        "_isolation"
-      ]
-    },
-    {
-      "path": "python/packages/hosting/agent_framework_hosting/_persistence.py",
-      "title": "persistence",
-      "role": "implementation",
-      "language": "python",
-      "topics": [
-        "hosting"
-      ],
-      "symbols": [
-        "_persistence"
-      ]
-    },
-    {
-      "path": "python/packages/hosting/agent_framework_hosting/_state_store.py",
-      "title": "state store",
-      "role": "implementation",
-      "language": "python",
-      "topics": [
-        "hosting"
-      ],
-      "symbols": [
-        "_state_store"
-      ]
-    },
-    {
-      "path": "python/packages/hosting/agent_framework_hosting/_types.py",
-      "title": "types",
-      "role": "implementation",
-      "language": "python",
-      "topics": [
-        "hosting"
-      ],
-      "symbols": [
-        "_types"
+        "_state"
       ]
     },
     {
@@ -44168,51 +44417,15 @@
       "symbols": []
     },
     {
-      "path": "python/packages/hosting/tests/hosting/test_host.py",
-      "title": "test host",
+      "path": "python/packages/hosting/tests/hosting/test_state.py",
+      "title": "test state",
       "role": "test",
       "language": "python",
       "topics": [
         "hosting"
       ],
       "symbols": [
-        "test_host"
-      ]
-    },
-    {
-      "path": "python/packages/hosting/tests/hosting/test_host_disk.py",
-      "title": "test host disk",
-      "role": "test",
-      "language": "python",
-      "topics": [
-        "hosting"
-      ],
-      "symbols": [
-        "test_host_disk"
-      ]
-    },
-    {
-      "path": "python/packages/hosting/tests/hosting/test_isolation.py",
-      "title": "test isolation",
-      "role": "test",
-      "language": "python",
-      "topics": [
-        "hosting"
-      ],
-      "symbols": [
-        "test_isolation"
-      ]
-    },
-    {
-      "path": "python/packages/hosting/tests/hosting/test_types.py",
-      "title": "test types",
-      "role": "test",
-      "language": "python",
-      "topics": [
-        "hosting"
-      ],
-      "symbols": [
-        "test_types"
+        "test_state"
       ]
     },
     {
@@ -46496,6 +46709,19 @@
       "symbols": []
     },
     {
+      "path": "python/samples/02-agents/context_providers/cross_session_observer.py",
+      "title": "cross session observer",
+      "role": "sample",
+      "language": "python",
+      "topics": [
+        "sessions-context",
+        "memory-rag"
+      ],
+      "symbols": [
+        "cross_session_observer"
+      ]
+    },
+    {
       "path": "python/samples/02-agents/context_providers/file_access_data_processing/data_processing.py",
       "title": "data processing",
       "role": "sample",
@@ -47165,6 +47391,18 @@
       ]
     },
     {
+      "path": "python/samples/02-agents/harness/build_your_own_claw/claw_step03_scaling_capabilities.py",
+      "title": "claw step03 scaling capabilities",
+      "role": "sample",
+      "language": "python",
+      "topics": [
+        "agents"
+      ],
+      "symbols": [
+        "claw_step03_scaling_capabilities"
+      ]
+    },
+    {
       "path": "python/samples/02-agents/harness/build_your_own_claw/README.md",
       "title": "Build your own claw and agent harness — Python samples",
       "role": "sample",
@@ -47173,6 +47411,83 @@
         "agents"
       ],
       "symbols": []
+    },
+    {
+      "path": "python/samples/02-agents/harness/build_your_own_claw/skills/risk-scoring/references/risk-bands.md",
+      "title": "Risk-scoring guide (illustrative)",
+      "role": "sample",
+      "language": "python",
+      "topics": [
+        "agents"
+      ],
+      "symbols": []
+    },
+    {
+      "path": "python/samples/02-agents/harness/build_your_own_claw/skills/risk-scoring/scripts/risk_score.py",
+      "title": "risk score",
+      "role": "sample",
+      "language": "python",
+      "topics": [
+        "agents"
+      ],
+      "symbols": [
+        "risk_score"
+      ]
+    },
+    {
+      "path": "python/samples/02-agents/harness/build_your_own_claw/skills/risk-scoring/SKILL.md",
+      "title": "SKILL",
+      "role": "sample",
+      "language": "python",
+      "topics": [
+        "agents"
+      ],
+      "symbols": []
+    },
+    {
+      "path": "python/samples/02-agents/harness/build_your_own_claw/skills/valuation/references/valuation-guide.md",
+      "title": "Valuation guide (illustrative)",
+      "role": "sample",
+      "language": "python",
+      "topics": [
+        "agents"
+      ],
+      "symbols": []
+    },
+    {
+      "path": "python/samples/02-agents/harness/build_your_own_claw/skills/valuation/scripts/valuation_metrics.py",
+      "title": "valuation metrics",
+      "role": "sample",
+      "language": "python",
+      "topics": [
+        "agents",
+        "observability"
+      ],
+      "symbols": [
+        "valuation_metrics"
+      ]
+    },
+    {
+      "path": "python/samples/02-agents/harness/build_your_own_claw/skills/valuation/SKILL.md",
+      "title": "SKILL",
+      "role": "sample",
+      "language": "python",
+      "topics": [
+        "agents"
+      ],
+      "symbols": []
+    },
+    {
+      "path": "python/samples/02-agents/harness/build_your_own_claw/subprocess_script_runner.py",
+      "title": "subprocess script runner",
+      "role": "sample",
+      "language": "python",
+      "topics": [
+        "agents"
+      ],
+      "symbols": [
+        "subprocess_script_runner"
+      ]
     },
     {
       "path": "python/samples/02-agents/harness/console/__init__.py",
@@ -47812,6 +48127,18 @@
       ]
     },
     {
+      "path": "python/samples/02-agents/middleware/message_injection_middleware.py",
+      "title": "message injection middleware",
+      "role": "sample",
+      "language": "python",
+      "topics": [
+        "middleware"
+      ],
+      "symbols": [
+        "message_injection_middleware"
+      ]
+    },
+    {
       "path": "python/samples/02-agents/middleware/middleware_termination.py",
       "title": "middleware termination",
       "role": "sample",
@@ -48010,6 +48337,18 @@
       ],
       "symbols": [
         "foundry_tracing"
+      ]
+    },
+    {
+      "path": "python/samples/02-agents/observability/microsoft_opentelemetry_distro.py",
+      "title": "microsoft opentelemetry distro",
+      "role": "sample",
+      "language": "python",
+      "topics": [
+        "observability"
+      ],
+      "symbols": [
+        "microsoft_opentelemetry_distro"
       ]
     },
     {
@@ -51361,50 +51700,6 @@
       "symbols": []
     },
     {
-      "path": "python/samples/04-hosting/af-hosting/local_multi_channel/app.py",
-      "title": "app",
-      "role": "sample",
-      "language": "python",
-      "topics": [
-        "hosting"
-      ],
-      "symbols": [
-        "app"
-      ]
-    },
-    {
-      "path": "python/samples/04-hosting/af-hosting/local_multi_channel/call_server.py",
-      "title": "call server",
-      "role": "sample",
-      "language": "python",
-      "topics": [
-        "hosting"
-      ],
-      "symbols": [
-        "call_server"
-      ]
-    },
-    {
-      "path": "python/samples/04-hosting/af-hosting/local_multi_channel/pyproject.toml",
-      "title": "pyproject",
-      "role": "sample",
-      "language": "python",
-      "topics": [
-        "hosting"
-      ],
-      "symbols": []
-    },
-    {
-      "path": "python/samples/04-hosting/af-hosting/local_multi_channel/README.md",
-      "title": "local_multi_channel — Responses + Telegram, shared history, cross-channel sessions",
-      "role": "sample",
-      "language": "python",
-      "topics": [
-        "hosting"
-      ],
-      "symbols": []
-    },
-    {
       "path": "python/samples/04-hosting/af-hosting/local_responses/app.py",
       "title": "app",
       "role": "sample",
@@ -51452,7 +51747,7 @@
     },
     {
       "path": "python/samples/04-hosting/af-hosting/local_responses/README.md",
-      "title": "local_responses — Responses-only with a settings-altering hook",
+      "title": "local_responses — Responses helpers with native FastAPI routes",
       "role": "sample",
       "language": "python",
       "topics": [
@@ -51496,7 +51791,7 @@
     },
     {
       "path": "python/samples/04-hosting/af-hosting/local_responses_workflow/README.md",
-      "title": "local_responses_workflow — workflow target with run-hook prep + checkpoints",
+      "title": "local_responses_workflow — Responses helpers with a workflow target",
       "role": "sample",
       "language": "python",
       "topics": [
@@ -51517,6 +51812,18 @@
       ]
     },
     {
+      "path": "python/samples/04-hosting/af-hosting/local_telegram/polling_app.py",
+      "title": "polling app",
+      "role": "sample",
+      "language": "python",
+      "topics": [
+        "hosting"
+      ],
+      "symbols": [
+        "polling_app"
+      ]
+    },
+    {
       "path": "python/samples/04-hosting/af-hosting/local_telegram/pyproject.toml",
       "title": "pyproject",
       "role": "sample",
@@ -51528,7 +51835,7 @@
     },
     {
       "path": "python/samples/04-hosting/af-hosting/local_telegram/README.md",
-      "title": "local_telegram — Telegram bot with `@tool`, file-backed history, slash commands",
+      "title": "local_telegram - Telegram helpers with aiogram polling or webhooks",
       "role": "sample",
       "language": "python",
       "topics": [
@@ -51538,7 +51845,7 @@
     },
     {
       "path": "python/samples/04-hosting/af-hosting/README.md",
-      "title": "Multi-channel hosting samples",
+      "title": "Agent Framework hosting helper samples",
       "role": "sample",
       "language": "python",
       "topics": [
@@ -53337,7 +53644,40 @@
     },
     {
       "path": "python/samples/04-hosting/foundry-hosted-agents/responses/12_foundry_toolbox_mcp_skills/README.md",
-      "title": "What this sample demonstrates",
+      "title": "Agent with Foundry Toolbox MCP Skills (Responses Protocol)",
+      "role": "sample",
+      "language": "python",
+      "topics": [
+        "protocols",
+        "hosting"
+      ],
+      "symbols": []
+    },
+    {
+      "path": "python/samples/04-hosting/foundry-hosted-agents/responses/12_foundry_toolbox_mcp_skills/skills/escalation-policy/SKILL.md",
+      "title": "Contoso Outdoors Escalation Policy",
+      "role": "sample",
+      "language": "python",
+      "topics": [
+        "hosting",
+        "protocols"
+      ],
+      "symbols": []
+    },
+    {
+      "path": "python/samples/04-hosting/foundry-hosted-agents/responses/12_foundry_toolbox_mcp_skills/skills/support-style/SKILL.md",
+      "title": "Contoso Outdoors Support Style",
+      "role": "sample",
+      "language": "python",
+      "topics": [
+        "hosting",
+        "protocols"
+      ],
+      "symbols": []
+    },
+    {
+      "path": "python/samples/04-hosting/foundry-hosted-agents/responses/12_foundry_toolbox_mcp_skills/toolbox.yaml",
+      "title": "toolbox",
       "role": "sample",
       "language": "python",
       "topics": [
@@ -54284,6 +54624,18 @@
       "language": "python",
       "topics": [],
       "symbols": []
+    },
+    {
+      "path": "python/tests/samples/end_to_end/test_chatkit_attachment_store.py",
+      "title": "test chatkit attachment store",
+      "role": "sample",
+      "language": "python",
+      "topics": [
+        "protocols"
+      ],
+      "symbols": [
+        "test_chatkit_attachment_store"
+      ]
     },
     {
       "path": "python/tests/samples/getting_started/test_agent_samples.py",

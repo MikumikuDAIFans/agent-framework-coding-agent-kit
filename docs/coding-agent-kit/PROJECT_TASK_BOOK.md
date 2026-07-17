@@ -9,7 +9,7 @@
 - Related handoff file: `none`
 - Related execution launch: `docs/coding-agent-kit/EXECUTION_LAUNCH.md`
 - Current branch: `codex/agent-framework-coding-agent-kit`
-- Current active phase: `Phase 1: 因 upstream 漂移重开基线同步；完成后返回 Phase 7`
+- Current active phase: `Phase 7: 按 v1.1 政策并行审核与收录`
 - Execution readiness: `executing`
 - Lifecycle route: `research/prototype -> review -> curated maintenance`
 - Development method: `source-driven`，叠加 `review/quality`
@@ -126,15 +126,15 @@ agent 的 Microsoft Agent Framework 开发知识系统。对于每个具体开�
 ## 决策记录
 
 - Verified facts:
-  - 本地上游基线为 `c47f20d9a28d18b0a3f284c8a8365ff72f2e35b1`。
-  - 当前目录索引包含 4,551 个仓库文件、19 个主题和 133 个 Microsoft Learn 页面元数据。
+  - 本地上游基线已从 `c47f20d9a28d18b0a3f284c8a8365ff72f2e35b1` 同步到 `5ab8877ba55b4778d778cf51450eafe483194708`，保留真实上游历史并形成 merge commit `5eea8bb52301a702c9db7dd6bd318e060adef942`。
+  - 当前目录索引包含 4,582 个仓库文件、19 个主题和 133 个 Microsoft Learn 页面元数据。
   - Microsoft Learn 页面正文未提交，现有索引只保留规范化元数据和 URL。
   - 第一轮网络搜索已找到 65 个候选来源：23 个官方文档、7 个官方工程文章、14 个官方仓库、19 个社区仓库、1 个社区文章和 1 个元索引。
   - `microsoft/Agent-Framework-Samples@5b854b7e` 已完成事实调查，记录了混合/移动依赖、不可移植的 .NET 项目引用、无 CI 和生产验证不足等证据；最终评价等待应用 v1.1 政策。
   - Microsoft Agent Framework 仍包含版本和成熟度差异；例如 Functional Workflow API 明确标为 experimental。
   - GitHub CLI 已登录账号 `MikumikuDAIFans`，具有 `repo` 和 `workflow` 权限；目标公开仓库尚不存在，当前也没有 `origin` remote。
   - 既有 kit 提交使用自动身份 `unknown <zhangjiayang@santint.com>`；本仓库后续提交已局部配置为经 GitHub API 核验的 `Displace_Asher <101958750+MikumikuDAIFans@users.noreply.github.com>`，全局 Git 配置未修改。
-  - `upstream/main` 当前远端 HEAD 为 `5ab8877ba55b4778d778cf51450eafe483194708`，高于目录锁定基线 `c47f20d9a28d18b0a3f284c8a8365ff72f2e35b1`；正式审核前必须先评估并同步基线。
+  - `upstream/main` 与目录锁定基线均为 `5ab8877ba55b4778d778cf51450eafe483194708`；GitHub API SHA、祖先关系、非 shallow 历史和对象连通性均已核验，upstream push URL 已设为 `DISABLED`。
   - 用户既有的 `tools/coding-agent-kit/install.py` 修改已保留并审查，覆盖安装目标规范化、自安装保护和备份名冲突保护；新增 3 个隔离回归测试并接入总 validator，全部通过。
 - Active assumptions:
   - 首批 65 个来源足以建立审核方法，但不是最终穷尽列表。
@@ -226,7 +226,7 @@ agent 的 Microsoft Agent Framework 开发知识系统。对于每个具体开�
 ## 进度台账
 
 - Overall progress: 原始套件、65 个候选来源、审核政策和收录工具已就绪；最终计划审计通过并获准执行，剩余工作为上游同步、64 个来源审核闭环、知识晋升、维护自动化和 GitHub 公开交付。
-- Phase 1: `in progress`（原始基线已完成；因 `upstream/main` 前移而重开同步与目录验证）
+- Phase 1: `done`（已同步 `5ab8877...`、重建 catalog 并通过目录与对象完整性验证）
 - Phase 2: `done`
 - Phase 3: `done`
 - Phase 4: `done`
@@ -235,9 +235,9 @@ agent 的 Microsoft Agent Framework 开发知识系统。对于每个具体开�
 - Phase 7: `in progress`
 - Phase 8: `pending`
 - Phase 9: `pending`
-- Validation status: 2026-07-17 安装器 3 个回归测试、安装 dry-run 与全量 validator 通过；`install.py` 边界已关闭，下一项硬边界为上游基线漂移。
+- Validation status: 2026-07-17 上游对象/祖先验证、4,582-file catalog 重建与 6 个 indexer 测试通过；安装器 3 个回归测试、安装 dry-run 与此前全量 validator 通过。
 - Residual risks: 搜索不能证明穷尽；外部内容会漂移或存在许可/安全问题；网络与无凭据验证可能受限；当前候选尚无任何 `adopted` 项。
 
 ## 下一步动作
 
-fetch 并同步 `upstream/main`，重建目录基线并验证 kit overlay，再开始 `repo-microsoft-agent-framework-samples` 的最终评价。
+完成并集成首批来源终态 review，对照 `5ab8877...` 复核结论后串行更新注册表、队列与 collection。
