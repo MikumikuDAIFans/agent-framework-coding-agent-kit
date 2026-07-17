@@ -3,16 +3,17 @@
 ## 计划元数据
 
 - Plan ID: `AF-CAK-2026-001`
-- Version: `v4`
-- Last updated: `2026-07-15 Asia/Shanghai`
+- Version: `v5`
+- Last updated: `2026-07-17 Asia/Shanghai`
 - Canonical progress file: `docs/coding-agent-kit/PROJECT_TASK_BOOK.md`
 - Related handoff file: `none`
+- Related execution launch: `docs/coding-agent-kit/EXECUTION_LAUNCH.md`
 - Current branch: `codex/agent-framework-coding-agent-kit`
-- Current active phase: `Phase 7: 按 v1.1 政策自主审核与收录`
-- Execution readiness: `executing`
+- Current active phase: `Phase 1: 因 upstream 漂移重开基线同步；完成后返回 Phase 7`
+- Execution readiness: `approved for execution`
 - Lifecycle route: `research/prototype -> review -> curated maintenance`
 - Development method: `source-driven`，叠加 `review/quality`
-- Scale: `Standard`
+- Scale: `Full`
 
 ## 目标
 
@@ -131,11 +132,15 @@ agent 的 Microsoft Agent Framework 开发知识系统。对于每个具体开�
   - 第一轮网络搜索已找到 65 个候选来源：23 个官方文档、7 个官方工程文章、14 个官方仓库、19 个社区仓库、1 个社区文章和 1 个元索引。
   - `microsoft/Agent-Framework-Samples@5b854b7e` 已完成事实调查，记录了混合/移动依赖、不可移植的 .NET 项目引用、无 CI 和生产验证不足等证据；最终评价等待应用 v1.1 政策。
   - Microsoft Agent Framework 仍包含版本和成熟度差异；例如 Functional Workflow API 明确标为 experimental。
-  - 当前 GitHub CLI 登录尚未完成，因此远程仓库创建和 push 仍未完成。
+  - GitHub CLI 已登录账号 `MikumikuDAIFans`，具有 `repo` 和 `workflow` 权限；目标公开仓库尚不存在，当前也没有 `origin` remote。
+  - 本机 Git 当前自动提交身份为 `unknown <zhangjiayang@santint.com>`；公开推送前必须确认有意采用的提交身份，不擅自修改全局 Git 配置。
+  - `upstream/main` 当前远端 HEAD 为 `5ab8877ba55b4778d778cf51450eafe483194708`，高于目录锁定基线 `c47f20d9a28d18b0a3f284c8a8365ff72f2e35b1`；正式审核前必须先评估并同步基线。
+  - 工作树存在用户既有的 `tools/coding-agent-kit/install.py` 未提交修改，内容涉及安装目标规范化、自安装保护和备份名冲突保护；启动执行时必须保留并独立验证。
 - Active assumptions:
   - 首批 65 个来源足以建立审核方法，但不是最终穷尽列表。
   - Microsoft/Azure-Samples 归属可以作为 provenance 证据，但仍需逐项验证版本和工程质量。
   - 社区仓库的星数和活跃度只用于排序，不用于证明 API 正确。
+  - 公共网页和 GitHub 仓库在执行期间可访问；需要凭据、费用或云资源的案例允许只做静态/本地可重复验证并明确记录 `not-run`。
 - Locked decisions:
   - 外部候选注册表与正式生成目录严格分离。
   - 只有状态为 `adopted` 的来源可被提议加入主题注册表。
@@ -147,8 +152,7 @@ agent 的 Microsoft Agent Framework 开发知识系统。对于每个具体开�
   - Change record 2026-07-15: 上述授权和收录方式取代“逐项维护者批准”和“禁止保存所有文档正文”的旧决定；原因是用户明确全权委托并要求文档知识库化。
 - Open questions:
   - 哪些社区仓库能在无云凭据条件下完成可重复的最小验证，需要逐项确认。
-  - Phase 9 是否需要接入定时网络刷新仍待后续维护阶段决定；当前工具只在显式调用时下载。
-  - GitHub 公开仓库创建与 push 仍等待本机 GitHub CLI 授权。
+  - Phase 9 的定时执行载体由执行阶段自行选择，但至少必须交付可手动运行、可在 CI/automation 中复用的漂移检查入口。
 
 ## 关键制品与环境
 
@@ -157,6 +161,8 @@ agent 的 Microsoft Agent Framework 开发知识系统。对于每个具体开�
   - `docs/coding-agent-kit/knowledge/external-sources/README.md`
   - `docs/coding-agent-kit/knowledge/external-sources/REVIEW_QUEUE.md`
   - `docs/coding-agent-kit/knowledge/collection/README.md`
+  - `docs/coding-agent-kit/FINAL_PLAN_AUDIT.md`
+  - `docs/coding-agent-kit/EXECUTION_LAUNCH.md`
 - Important code or output artifacts:
   - `docs/coding-agent-kit/knowledge/external-sources/sources.json`: 外部来源候选真源。
   - `docs/coding-agent-kit/knowledge/external-sources/review-template.md`: 单来源审核合同。
@@ -188,23 +194,48 @@ agent 的 Microsoft Agent Framework 开发知识系统。对于每个具体开�
 | 检索整合 | lookup 同时返回本地上游、官方页面、项目路由和收录文档 | lookup 单测与 JSON/文本输出 | done | `tools/coding-agent-kit/indexer/lookup.py` |
 | 首个来源事实调查 | Microsoft samples 技术事实与候选使用边界 | API/版本/许可/测试对照 | done；最终评价待按 v1.1 执行 | `reviews/repo-microsoft-agent-framework-samples.md` |
 | 官方概览审核 | Learn overview 完整 review | 页面日期/成熟度/本地源码对照 | pending | `reviews/official-learn-overview.md` |
-| 审核知识晋升 | 独立 topic registry 变更 | catalog drift 与检索验收 | pending | none |
+| 全部候选审核闭环 | 64 个可审核来源进入终态；1 个 meta-index 保持 discovery-only | 注册表/队列计数、逐来源 review、政策门禁 | pending | `sources.json`、`reviews/` |
+| 审核知识晋升 | 每个 adopted 来源具有项目路由、Markdown 文档或合法的 link/annotation-only 结果 | collection check、catalog drift 与检索验收 | pending | `knowledge/collection` |
+| 持续维护入口 | 链接、版本、许可证、归档和 API 漂移检查，可供手动及 CI/automation 调用 | 单测、fixture、无网络 check 与受控网络 smoke test | pending | Phase 9 输出 |
+| GitHub 公开交付 | 公共仓库、`origin`、fetch-only `upstream`、已推送分支和仓库说明 | `gh repo view`、remote 审计、远端 commit 对照 | pending | GitHub URL |
+
+## 最终完成定义
+
+- 64 个可审核候选来源不再处于 `queued` 或 `in-review`，每项都有独立审核文件、版本坐标、证据、评分/官方直入检查、终态和收录动作；唯一 meta-index 保持 `discovered`。
+- 所有 `adopted` 项目只进入 `project-routes.json`，不复制外部代码；所有本地文档正文均有明确再分发许可、来源坐标、抓取时间和 SHA-256。
+- `KNOWLEDGE_INDEX.md`、`lookup.py` 和必要的 `topics.json` 路由能把开发问题连接到同版本的官方说明、设计、样例、实现、测试和外部参考。
+- Phase 9 交付可重复的链接/版本/许可证/归档/API 漂移检查与再审核状态更新路径；联网检查失败不得被误报为通过。
+- 全部必需验证通过，所有 `not-run`、失败、许可限制和残余风险逐项可见；任务书与注册表计数一致。
+- 公开 GitHub 仓库 `MikumikuDAIFans/agent-framework-coding-agent-kit` 已创建并配置为 `origin`，`upstream` 禁止推送，目标分支及最终提交已推送且可核对。
+
+## 最终审计门禁
+
+| Gate | Result | Evidence / boundary |
+| --- | --- | --- |
+| Scope and authority | pass | 用户已授权 Coding Agent 独立审核、收录和常规实现决策；高风险/有成本操作仍需停止。 |
+| Canonical plan integrity | pass | 本文件是唯一进度真源；历史阶段、锁定决策、执行追踪和唯一下一步均保留。 |
+| Review and collection design | pass | `REVIEW_POLICY.md` v1.1、队列、模板、collection manifests、哈希和 lookup 已就绪。 |
+| Verification baseline | pass | 2026-07-17 `validate.py` 通过：4,551 files、133 Learn pages、19 topics、6 indexer tests、11 collection tests。 |
+| Upstream compatibility | pass-with-boundary | 远端 HEAD 已前移到 `5ab8877...`；执行必须先做基线同步与目录漂移验证。 |
+| Worktree integrity | pass-with-boundary | `install.py` 有用户既有修改；不得覆盖，需单独审查、测试和有意提交。 |
+| Release/publishing | pass-with-boundary | `gh` 已登录但目标仓库及 `origin` 不存在，Git 提交身份仍需确认；作为最终交付步骤完成，禁止推送 `upstream`。 |
+| Full-planning capability | pass-with-boundary | `construction-plan-system` 当前不可用；以本任务书、最终审计、执行追踪和启动包作为补偿控制，无未缓解 P0/P1 风险。 |
 
 ## 进度台账
 
-- Overall progress: 原始套件和 65 个候选来源已就绪；v1.1 已授权 Coding Agent 自主审核；项目路由、文档转换、来源哈希、知识目录和 lookup 接入均已准备，下一步开始正式审核与收录。
-- Phase 1: `done`
+- Overall progress: 原始套件、65 个候选来源、审核政策和收录工具已就绪；最终计划审计通过并获准执行，剩余工作为上游同步、64 个来源审核闭环、知识晋升、维护自动化和 GitHub 公开交付。
+- Phase 1: `in progress`（原始基线已完成；因 `upstream/main` 前移而重开同步与目录验证）
 - Phase 2: `done`
 - Phase 3: `done`
 - Phase 4: `done`
-- Phase 5: `done`（GitHub 远程发布仍为外部认证边界）
+- Phase 5: `in progress`（本地发布准备完成；公开仓库、origin 和 push 待最终交付）
 - Phase 6: `done`
 - Phase 7: `in progress`
 - Phase 8: `pending`
 - Phase 9: `pending`
-- Validation status: v1.1 政策、收录清单、转换工具、lookup 和 validator 已同步；本轮完整验证结果记录于提交前命令输出。
-- Residual risks: 搜索不可能证明穷尽；社区内容可能过时、生成、复制或许可不清；外部页面会漂移；当前候选尚无任何 `adopted` 项。
+- Validation status: 2026-07-17 全量 validator 通过；启动前边界为上游基线漂移和用户既有 `install.py` 修改，均已写入启动包。
+- Residual risks: 搜索不能证明穷尽；外部内容会漂移或存在许可/安全问题；网络与无凭据验证可能受限；当前候选尚无任何 `adopted` 项。
 
 ## 下一步动作
 
-按 `REVIEW_POLICY.md` v1.1 完成 `repo-microsoft-agent-framework-samples` 的最终评价，并按结论写入项目路由或拒绝原因。
+保留并审查 `install.py` 用户修改，随后同步 `upstream/main` 与目录基线，再开始 `repo-microsoft-agent-framework-samples` 的最终评价。
