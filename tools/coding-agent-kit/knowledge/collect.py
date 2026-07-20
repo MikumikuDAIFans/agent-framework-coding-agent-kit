@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Collect adopted external project routes and redistributable documents."""
+"""Collect adopted external routes, link references, and redistributable documents."""
 
 from __future__ import annotations
 
@@ -207,9 +207,14 @@ def adopted_source(root: Path, source_id: str) -> dict[str, Any]:
     return source
 
 
-def collection_paths(root: Path) -> tuple[Path, Path, Path]:
+def collection_paths(root: Path) -> tuple[Path, Path, Path, Path]:
     base = root / "docs/coding-agent-kit/knowledge/collection"
-    return base / "project-routes.json", base / "documents.json", base / "KNOWLEDGE_INDEX.md"
+    return (
+        base / "project-routes.json",
+        base / "link-references.json",
+        base / "documents.json",
+        base / "KNOWLEDGE_INDEX.md",
+    )
 
 
 def upsert(items: list[dict[str, Any]], entry: dict[str, Any]) -> None:
@@ -222,7 +227,7 @@ def table_cell(value: Any) -> str:
     return normalize_space(str(value)).replace("|", "\\|")
 
 
-def render_index(projects: dict[str, Any], documents: dict[str, Any]) -> str:
+def render_index(projects: dict[str, Any], links: dict[str, Any], documents: dict[str, Any]) -> str:
     lines = [
         "# Adopted external knowledge",
         "",
@@ -240,6 +245,16 @@ def render_index(projects: dict[str, Any], documents: dict[str, Any]) -> str:
             )
     else:
         lines.append("- No adopted project routes.")
+    lines.extend(["", "## Link and annotation references", ""])
+    if links.get("items"):
+        lines.extend(["| Reference | Topics | Route | Annotation | Boundaries |", "| --- | --- | --- | --- | --- |"])
+        for item in links["items"]:
+            lines.append(
+                f"| [{table_cell(item['title'])}]({item['url']}) | {', '.join(item['topics'])} | "
+                f"{table_cell(item['route'])} | {table_cell(item['annotation'])} | {table_cell(item['limitations'])} |"
+            )
+    else:
+        lines.append("- No adopted link-only references.")
     lines.extend(["", "## Collected documents", ""])
     if documents.get("items"):
         lines.extend(["| Document | Topics | Source | Retrieved | Route |", "| --- | --- | --- | --- | --- |"])
@@ -254,8 +269,12 @@ def render_index(projects: dict[str, Any], documents: dict[str, Any]) -> str:
 
 
 def rebuild_index(root: Path) -> None:
-    projects_path, documents_path, index_path = collection_paths(root)
-    index_path.write_text(render_index(load_json(projects_path), load_json(documents_path)), encoding="utf-8", newline="\n")
+    projects_path, links_path, documents_path, index_path = collection_paths(root)
+    index_path.write_text(
+        render_index(load_json(projects_path), load_json(links_path), load_json(documents_path)),
+        encoding="utf-8",
+        newline="\n",
+    )
 
 
 def add_project(args: argparse.Namespace) -> None:
@@ -264,7 +283,7 @@ def add_project(args: argparse.Namespace) -> None:
     if source["source_class"] not in {"official-repository", "community-repository"}:
         raise ValueError("Project routes require a repository source class.")
     require_immutable_version(args.version)
-    projects_path, _, _ = collection_paths(root)
+    projects_path, _, _, _ = collection_paths(root)
     registry = load_json(projects_path)
     entry = {
         "id": args.source_id,
@@ -284,6 +303,34 @@ def add_project(args: argparse.Namespace) -> None:
     write_json(projects_path, registry)
     rebuild_index(root)
     print(f"Registered project route: {args.source_id}")
+
+
+def add_link(args: argparse.Namespace) -> None:
+    """Register an adopted document/article as a URL plus original annotation only."""
+    root = args.root.resolve()
+    source = adopted_source(root, args.source_id)
+    if source["source_class"] not in {"official-doc", "official-engineering", "community-article"}:
+        raise ValueError("Link-only references require a documentation or article source class.")
+    _, links_path, _, _ = collection_paths(root)
+    registry = load_json(links_path)
+    entry = {
+        "id": args.source_id,
+        "source_id": args.source_id,
+        "title": source["name"],
+        "url": source["url"],
+        "review": f"docs/coding-agent-kit/knowledge/external-sources/{source['review']}",
+        "source_class": source["source_class"],
+        "topics": source["topics"],
+        "languages": source["languages"],
+        "route": normalize_space(args.route),
+        "annotation": normalize_space(args.annotation),
+        "limitations": normalize_space(args.limitations),
+        "collected_at": utc_now(),
+    }
+    upsert(registry["items"], entry)
+    write_json(links_path, registry)
+    rebuild_index(root)
+    print(f"Registered link-only reference: {args.source_id}")
 
 
 def add_document(args: argparse.Namespace) -> None:
@@ -335,7 +382,7 @@ def add_document(args: argparse.Namespace) -> None:
     local_path.parent.mkdir(parents=True, exist_ok=True)
     local_path.write_text(stored, encoding="utf-8", newline="\n")
 
-    _, documents_path, _ = collection_paths(root)
+    _, _, documents_path, _ = collection_paths(root)
     registry = load_json(documents_path)
     entry = {
         "id": args.source_id,
@@ -364,20 +411,29 @@ def add_document(args: argparse.Namespace) -> None:
 
 def check(root: Path) -> list[str]:
     failures: list[str] = []
-    projects_path, documents_path, index_path = collection_paths(root)
+    projects_path, links_path, documents_path, index_path = collection_paths(root)
     collection_root = projects_path.parent
     projects = load_json(projects_path)
+    links = load_json(links_path)
     documents = load_json(documents_path)
     sources = source_map(root)
     topic_ids = {item["id"] for item in load_json(root / "tools/coding-agent-kit/indexer/topics.json")["topics"]}
     seen: set[str] = set()
 
-    for kind, registry in (("project", projects), ("document", documents)):
+    collection_source_ids: dict[str, str] = {}
+    for kind, registry in (("project", projects), ("link", links), ("document", documents)):
         if registry.get("schema_version") != 1 or not isinstance(registry.get("items"), list):
             failures.append(f"Invalid {kind} collection registry schema.")
             continue
         for item in registry["items"]:
             source_id = item.get("source_id", "")
+            if source_id in collection_source_ids:
+                failures.append(
+                    f"Adopted source {source_id} appears in multiple collection forms: "
+                    f"{collection_source_ids[source_id]} and {kind}."
+                )
+            else:
+                collection_source_ids[source_id] = kind
             item_id = f"{kind}:{item.get('id', '')}"
             if item_id in seen:
                 failures.append(f"Duplicate collection id: {item_id}")
@@ -387,9 +443,34 @@ def check(root: Path) -> list[str]:
                 failures.append(f"Collection entry {item_id} does not reference an adopted source.")
             elif item.get("url", item.get("source_url")) != source.get("url"):
                 failures.append(f"Collection entry {item_id} does not preserve its registered source URL.")
+            elif item.get("title") != source.get("name"):
+                failures.append(f"Collection entry {item_id} does not preserve its registered title.")
+            if source:
+                if item.get("topics") != source.get("topics"):
+                    failures.append(f"Collection entry {item_id} does not preserve its registered topics.")
+                if item.get("languages") != source.get("languages"):
+                    failures.append(f"Collection entry {item_id} does not preserve its registered languages.")
             review = root / item.get("review", "")
             if not item.get("review") or not review.is_file():
                 failures.append(f"Collection entry {item_id} has no valid review artifact.")
+            elif source:
+                expected_review = PurePosixPath(
+                    f"docs/coding-agent-kit/knowledge/external-sources/{source.get('review', '')}"
+                ).as_posix()
+                if PurePosixPath(item["review"]).as_posix() != expected_review:
+                    failures.append(f"Collection entry {item_id} does not preserve its registered review path.")
+                action_match = re.search(
+                    r"(?m)^- Collection action: `([^`]+)`", review.read_text(encoding="utf-8")
+                )
+                expected_action = {
+                    "project": "project route",
+                    "link": "link and annotation only",
+                    "document": "retained Markdown",
+                }[kind]
+                if not action_match or action_match.group(1) != expected_action:
+                    failures.append(
+                        f"Collection entry {item_id} conflicts with review collection action {expected_action}."
+                    )
             unknown_topics = set(item.get("topics", [])) - topic_ids - {"all"}
             if unknown_topics:
                 failures.append(f"Collection entry {item_id} has unknown topics: {sorted(unknown_topics)}")
@@ -399,6 +480,8 @@ def check(root: Path) -> list[str]:
             if kind == "project" and ("local_path" in item or "content" in item):
                 failures.append(f"Project route {item_id} must not contain copied project content.")
             if kind == "project":
+                if source and source.get("source_class") not in {"official-repository", "community-repository"}:
+                    failures.append(f"Project route {item_id} has an incompatible source class.")
                 for key in ("url", "version", "design", "limitations"):
                     if not item.get(key):
                         failures.append(f"Project route {item_id} is missing {key}.")
@@ -407,6 +490,26 @@ def check(root: Path) -> list[str]:
                     require_immutable_version(item.get("version", ""))
                 except ValueError as error:
                     failures.append(str(error))
+                if source and item.get("version") != source.get("reviewed_commit"):
+                    failures.append(f"Project route {item_id} version does not match reviewed_commit.")
+            if kind == "link":
+                if source and source.get("source_class") not in {"official-doc", "official-engineering", "community-article"}:
+                    failures.append(f"Link reference {item_id} has an incompatible source class.")
+                for key in ("url", "annotation", "limitations", "source_class"):
+                    if not item.get(key):
+                        failures.append(f"Link reference {item_id} is missing {key}.")
+                try:
+                    require_https(item.get("url", ""))
+                except ValueError as error:
+                    failures.append(str(error))
+                if source and item.get("source_class") != source.get("source_class"):
+                    failures.append(f"Link reference {item_id} does not preserve its registered source class.")
+            if kind == "document" and source and source.get("source_class") not in {
+                "official-doc",
+                "official-engineering",
+                "community-article",
+            }:
+                failures.append(f"Collected document {item_id} has an incompatible source class.")
 
     for item in documents.get("items", []):
         path_text = item.get("local_path", "")
@@ -434,12 +537,18 @@ def check(root: Path) -> list[str]:
         except ValueError as error:
             failures.append(str(error))
 
-    expected_index = render_index(projects, documents)
+    for source_id, source in sources.items():
+        if source.get("review_status") == "adopted" and source_id not in collection_source_ids:
+            failures.append(f"Adopted source {source_id} has no collection result.")
+        if source.get("review_status") != "adopted" and source_id in collection_source_ids:
+            failures.append(f"Non-adopted source {source_id} must not appear in the collection.")
+
+    expected_index = render_index(projects, links, documents)
     actual_index = index_path.read_text(encoding="utf-8") if index_path.exists() else None
     if actual_index != expected_index:
         failures.append("Collected knowledge index is out of date.")
 
-    allowed_root_files = {"README.md", "project-routes.json", "documents.json", "KNOWLEDGE_INDEX.md"}
+    allowed_root_files = {"README.md", "project-routes.json", "link-references.json", "documents.json", "KNOWLEDGE_INDEX.md"}
     for path in collection_root.rglob("*"):
         if not path.is_file():
             continue
@@ -461,6 +570,9 @@ def parse_args() -> argparse.Namespace:
     check_parser = subparsers.add_parser("check", help="Validate collection manifests and generated index.")
     add_common(check_parser)
 
+    rebuild_parser = subparsers.add_parser("rebuild", help="Regenerate the collection knowledge index.")
+    add_common(rebuild_parser)
+
     project = subparsers.add_parser("add-project", help="Register an adopted project link and route.")
     add_common(project)
     project.add_argument("--source-id", required=True)
@@ -468,6 +580,13 @@ def parse_args() -> argparse.Namespace:
     project.add_argument("--route", required=True)
     project.add_argument("--design", required=True)
     project.add_argument("--limitations", required=True)
+
+    link = subparsers.add_parser("add-link", help="Register an adopted document/article as link and annotation only.")
+    add_common(link)
+    link.add_argument("--source-id", required=True)
+    link.add_argument("--route", required=True)
+    link.add_argument("--annotation", required=True)
+    link.add_argument("--limitations", required=True)
 
     document = subparsers.add_parser("add-document", help="Download/convert an adopted document to Markdown.")
     add_common(document)
@@ -490,8 +609,13 @@ def main() -> int:
     try:
         if args.command == "add-project":
             add_project(args)
+        elif args.command == "add-link":
+            add_link(args)
         elif args.command == "add-document":
             add_document(args)
+        elif args.command == "rebuild":
+            rebuild_index(args.root.resolve())
+            print("Rebuilt external knowledge index.")
         else:
             failures = check(args.root.resolve())
             if failures:

@@ -87,6 +87,26 @@ class CollectionTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 collect.add_document(args)
 
+    def test_link_only_reference_is_indexed_without_document_body(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = self.make_root(Path(directory), "official-doc")
+            (root / "docs/coding-agent-kit/knowledge/external-sources/reviews/source.md").write_text(
+                "# Review\n\n- Collection action: `link and annotation only`\n", encoding="utf-8"
+            )
+            args = argparse.Namespace(
+                root=root,
+                source_id="source",
+                route="Use for current agent concepts.",
+                annotation="Authoritative overview paired with local source and tests.",
+                limitations="Moving page; recheck APIs against the pinned revision.",
+            )
+            collect.add_link(args)
+            registry = collect.load_json(root / "docs/coding-agent-kit/knowledge/collection/link-references.json")
+            self.assertEqual(registry["items"][0]["source_id"], "source")
+            self.assertFalse((root / "docs/coding-agent-kit/knowledge/collection/documents/source.md").exists())
+            self.assertIn("Link and annotation references", (root / "docs/coding-agent-kit/knowledge/collection/KNOWLEDGE_INDEX.md").read_text(encoding="utf-8"))
+            self.assertEqual(collect.check(root), [])
+
     def test_document_manifest_and_hash_are_validated(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             root = self.make_root(Path(directory), "official-doc")
@@ -119,6 +139,26 @@ class CollectionTests(unittest.TestCase):
             copied.write_text("print('copied')", encoding="utf-8")
             self.assertTrue(any("Unexpected file" in failure for failure in collect.check(root)))
 
+    def test_collection_detects_link_metadata_drift(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = self.make_root(Path(directory), "official-doc")
+            review = root / "docs/coding-agent-kit/knowledge/external-sources/reviews/source.md"
+            review.write_text("# Review\n\n- Collection action: `link and annotation only`\n", encoding="utf-8")
+            collect.add_link(
+                argparse.Namespace(
+                    root=root,
+                    source_id="source",
+                    route="Use for agents.",
+                    annotation="Official design explanation.",
+                    limitations="Moving page.",
+                )
+            )
+            manifest = root / "docs/coding-agent-kit/knowledge/collection/link-references.json"
+            value = collect.load_json(manifest)
+            value["items"][0]["topics"] = ["workflows"]
+            collect.write_json(manifest, value)
+            self.assertTrue(any("registered topics" in failure for failure in collect.check(root)))
+
     @staticmethod
     def make_root(root: Path, source_class: str) -> Path:
         external = root / "docs/coding-agent-kit/knowledge/external-sources"
@@ -128,30 +168,35 @@ class CollectionTests(unittest.TestCase):
         collection.mkdir(parents=True)
         topics.mkdir(parents=True)
         (external / "reviews").mkdir()
-        (external / "reviews/source.md").write_text("review", encoding="utf-8")
+        collection_action = "project route" if source_class.endswith("repository") else "retained Markdown"
+        (external / "reviews/source.md").write_text(
+            f"# Review\n\n- Collection action: `{collection_action}`\n", encoding="utf-8"
+        )
+        source = {
+            "id": "source",
+            "name": "Source",
+            "url": "https://example.com/source",
+            "source_class": source_class,
+            "topics": ["agents"],
+            "languages": ["python"],
+            "review_status": "adopted",
+            "review": "reviews/source.md",
+        }
+        if source_class.endswith("repository"):
+            source["reviewed_commit"] = "abc123"
         (external / "sources.json").write_text(
             json.dumps(
                 {
-                    "items": [
-                        {
-                            "id": "source",
-                            "name": "Source",
-                            "url": "https://example.com/source",
-                            "source_class": source_class,
-                            "topics": ["agents"],
-                            "languages": ["python"],
-                            "review_status": "adopted",
-                            "review": "reviews/source.md",
-                        }
-                    ]
+                    "items": [source]
                 }
             ),
             encoding="utf-8",
         )
         (collection / "project-routes.json").write_text('{"schema_version":1,"items":[]}', encoding="utf-8")
+        (collection / "link-references.json").write_text('{"schema_version":1,"items":[]}', encoding="utf-8")
         (collection / "documents.json").write_text('{"schema_version":1,"items":[]}', encoding="utf-8")
         (collection / "KNOWLEDGE_INDEX.md").write_text(
-            collect.render_index({"items": []}, {"items": []}), encoding="utf-8"
+            collect.render_index({"items": []}, {"items": []}, {"items": []}), encoding="utf-8"
         )
         (topics / "topics.json").write_text(
             json.dumps({"topics": [{"id": "agents"}]}), encoding="utf-8"

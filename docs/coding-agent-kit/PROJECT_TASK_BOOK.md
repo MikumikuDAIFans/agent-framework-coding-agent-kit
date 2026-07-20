@@ -4,12 +4,12 @@
 
 - Plan ID: `AF-CAK-2026-001`
 - Version: `v5`
-- Last updated: `2026-07-17 Asia/Shanghai`
+- Last updated: `2026-07-20 Asia/Shanghai`
 - Canonical progress file: `docs/coding-agent-kit/PROJECT_TASK_BOOK.md`
 - Related handoff file: `none`
 - Related execution launch: `docs/coding-agent-kit/EXECUTION_LAUNCH.md`
 - Current branch: `codex/agent-framework-coding-agent-kit`
-- Current active phase: `Phase 7: 按 v1.1 政策并行审核与收录`
+- Current active phase: `Phase 5: 最终验证与 GitHub 公开发布`
 - Execution readiness: `executing`
 - Lifecycle route: `research/prototype -> review -> curated maintenance`
 - Development method: `source-driven`，叠加 `review/quality`
@@ -111,7 +111,7 @@ agent 的 Microsoft Agent Framework 开发知识系统。对于每个具体开�
 
 - Purpose: 将真正稳定、跨项目有价值的来源接入 coding agent 的主题检索。
 - Outputs: 项目路由、文档清单/Markdown、生成的知识目录、`lookup.py` 外部结果和必要的主题入口。
-- Completion criteria: 只有 `adopted` 来源被收录；项目无代码副本，文档有再分发许可和哈希。
+- Completion criteria: 只有 `adopted` 来源被收录；项目无代码副本；文档有再分发许可和哈希，或明确进入 link/annotation-only 清单。
 - Validation: `collect.py check`、目录重生成、漂移检查和代表性检索案例。
 - Evidence: `knowledge/collection`、lookup 结果、topic registry 变更和验收记录。
 
@@ -130,7 +130,10 @@ agent 的 Microsoft Agent Framework 开发知识系统。对于每个具体开�
   - 当前目录索引包含 4,582 个仓库文件、19 个主题和 133 个 Microsoft Learn 页面元数据。
   - Microsoft Learn 页面正文未提交，现有索引只保留规范化元数据和 URL。
   - 第一轮网络搜索已找到 65 个候选来源：23 个官方文档、7 个官方工程文章、14 个官方仓库、19 个社区仓库、1 个社区文章和 1 个元索引。
-  - `microsoft/Agent-Framework-Samples@5b854b7e` 已完成事实调查，记录了混合/移动依赖、不可移植的 .NET 项目引用、无 CI 和生产验证不足等证据；最终评价等待应用 v1.1 政策。
+  - 64 个可审核来源均已完成独立终态审核：42 adopted、5 context-only、5 quarantined、12 rejected；唯一 meta-index 保持 discovered。
+  - 42 个 adopted 来源已全部合法收录：12 个不可变提交项目路由、30 个 link/annotation-only 文档或文章、0 个未获再分发许可的正文副本。
+  - Phase 9 已交付默认离线、fixture 重放和显式 `--network` 三种模式；离线未执行的网络检查保持 `not-run`，不伪装为 pass。
+  - 三个代表性 lookup smoke 均同时返回本地仓库证据、官方文档、外部项目路由和 link-only 参考；覆盖 workflow/orchestration、memory/observability 与 A2A/AG-UI。
   - Microsoft Agent Framework 仍包含版本和成熟度差异；例如 Functional Workflow API 明确标为 experimental。
   - GitHub CLI 已登录账号 `MikumikuDAIFans`，具有 `repo` 和 `workflow` 权限；目标公开仓库尚不存在，当前也没有 `origin` remote。
   - 既有 kit 提交使用自动身份 `unknown <zhangjiayang@santint.com>`；本仓库后续提交已局部配置为经 GitHub API 核验的 `Displace_Asher <101958750+MikumikuDAIFans@users.noreply.github.com>`，全局 Git 配置未修改。
@@ -151,8 +154,7 @@ agent 的 Microsoft Agent Framework 开发知识系统。对于每个具体开�
   - 许可证允许再分发的文档可下载并转换为 Markdown；否则只保存链接和原创注释。
   - Change record 2026-07-15: 上述授权和收录方式取代“逐项维护者批准”和“禁止保存所有文档正文”的旧决定；原因是用户明确全权委托并要求文档知识库化。
 - Open questions:
-  - 哪些社区仓库能在无云凭据条件下完成可重复的最小验证，需要逐项确认。
-  - Phase 9 的定时执行载体由执行阶段自行选择，但至少必须交付可手动运行、可在 CI/automation 中复用的漂移检查入口。
+  - 无。
 
 ## 关键制品与环境
 
@@ -168,15 +170,18 @@ agent 的 Microsoft Agent Framework 开发知识系统。对于每个具体开�
   - `docs/coding-agent-kit/knowledge/external-sources/review-template.md`: 单来源审核合同。
   - `tools/coding-agent-kit/indexer/topics.json`: 仅接收审核晋升后的稳定入口。
   - `tools/coding-agent-kit/knowledge/collect.py`: 项目路由注册、文档下载转换、哈希与清单校验。
+  - `tools/coding-agent-kit/knowledge/maintenance.py`: 链接、归档、版本、许可和 API 漂移检查及再审核信号。
   - `tools/coding-agent-kit/tests/test_install.py`: 安装目标、自安装拒绝和备份冲突回归测试。
-  - `docs/coding-agent-kit/knowledge/collection/KNOWLEDGE_INDEX.md`: 项目与文档的生成式路由入口。
+  - `docs/coding-agent-kit/knowledge/collection/KNOWLEDGE_INDEX.md`: 项目、link-only 参考与文档的生成式路由入口。
   - `tools/coding-agent-kit/validate.py`: 套件与外部注册表结构验证。
 - Required commands:
   - `python tools/coding-agent-kit/validate.py`
   - `python tools/coding-agent-kit/indexer/build_catalog.py --check`
   - `python -m unittest discover tools/coding-agent-kit/indexer/tests`
   - `python -m unittest discover tools/coding-agent-kit/knowledge/tests`
+  - `python -m unittest discover tools/coding-agent-kit/tests`
   - `python tools/coding-agent-kit/knowledge/collect.py check`
+  - `python tools/coding-agent-kit/knowledge/maintenance.py`
 - Environment baseline:
   - Windows PowerShell；Python 3.11+；Git worktree。
   - 分支 `codex/agent-framework-coding-agent-kit`，Microsoft 上游远程名为 `upstream`。
@@ -194,11 +199,11 @@ agent 的 Microsoft Agent Framework 开发知识系统。对于每个具体开�
 | 安装器用户修改闭环 | 规范化目标、自安装拒绝、无冲突备份 | 3 个隔离单测、安装 dry-run、总 validator | done | `tools/coding-agent-kit/install.py`、`tools/coding-agent-kit/tests/test_install.py` |
 | 收录工具链 | 项目只存路由；文档可转 Markdown；生成统一知识目录 | collection 单测、哈希和索引 check | done | `tools/coding-agent-kit/knowledge/collect.py`、`knowledge/collection` |
 | 检索整合 | lookup 同时返回本地上游、官方页面、项目路由和收录文档 | lookup 单测与 JSON/文本输出 | done | `tools/coding-agent-kit/indexer/lookup.py` |
-| 首个来源事实调查 | Microsoft samples 技术事实与候选使用边界 | API/版本/许可/测试对照 | done；最终评价待按 v1.1 执行 | `reviews/repo-microsoft-agent-framework-samples.md` |
-| 官方概览审核 | Learn overview 完整 review | 页面日期/成熟度/本地源码对照 | pending | `reviews/official-learn-overview.md` |
-| 全部候选审核闭环 | 64 个可审核来源进入终态；1 个 meta-index 保持 discovery-only | 注册表/队列计数、逐来源 review、政策门禁 | pending | `sources.json`、`reviews/` |
-| 审核知识晋升 | 每个 adopted 来源具有项目路由、Markdown 文档或合法的 link/annotation-only 结果 | collection check、catalog drift 与检索验收 | pending | `knowledge/collection` |
-| 持续维护入口 | 链接、版本、许可证、归档和 API 漂移检查，可供手动及 CI/automation 调用 | 单测、fixture、无网络 check 与受控网络 smoke test | pending | Phase 9 输出 |
+| 首个来源事实调查 | Microsoft samples 技术事实与候选使用边界 | API/版本/许可/测试对照 | done；终态 quarantined | `reviews/repo-microsoft-agent-framework-samples.md` |
+| 官方概览审核 | Learn overview 完整 review | 页面日期/成熟度/本地源码对照 | done；终态 adopted | `reviews/official-learn-overview.md` |
+| 全部候选审核闭环 | 64 个可审核来源进入终态；1 个 meta-index 保持 discovery-only | 注册表/队列计数、逐来源 review、政策门禁 | done | `sources.json`、`reviews/` |
+| 审核知识晋升 | 每个 adopted 来源具有项目路由、Markdown 文档或合法的 link/annotation-only 结果 | collection check、catalog drift 与检索验收 | done | `knowledge/collection` |
+| 持续维护入口 | 链接、版本、许可证、归档和 API 漂移检查，可供手动及 CI/automation 调用 | 单测、fixture、无网络 check 与受控网络 smoke test | done | `knowledge/MAINTENANCE.md`、`maintenance.py` |
 | GitHub 公开交付 | 公共仓库、`origin`、fetch-only `upstream`、已推送分支和仓库说明 | `gh repo view`、remote 审计、远端 commit 对照 | pending | GitHub URL |
 
 ## 最终完成定义
@@ -217,27 +222,27 @@ agent 的 Microsoft Agent Framework 开发知识系统。对于每个具体开�
 | Scope and authority | pass | 用户已授权 Coding Agent 独立审核、收录和常规实现决策；高风险/有成本操作仍需停止。 |
 | Canonical plan integrity | pass | 本文件是唯一进度真源；历史阶段、锁定决策、执行追踪和唯一下一步均保留。 |
 | Review and collection design | pass | `REVIEW_POLICY.md` v1.1、队列、模板、collection manifests、哈希和 lookup 已就绪。 |
-| Verification baseline | pass | 2026-07-17 `validate.py` 通过：4,551 files、133 Learn pages、19 topics、6 indexer tests、11 collection tests。 |
-| Upstream compatibility | pass-with-boundary | 远端 HEAD 已前移到 `5ab8877...`；执行必须先做基线同步与目录漂移验证。 |
-| Worktree integrity | pass-with-boundary | `install.py` 有用户既有修改；不得覆盖，需单独审查、测试和有意提交。 |
-| Release/publishing | pass-with-boundary | `gh` 已登录但目标仓库及 `origin` 不存在，Git 提交身份仍需确认；作为最终交付步骤完成，禁止推送 `upstream`。 |
+| Verification baseline | pass | 2026-07-20 `validate.py` 通过：4,582 files、133 Learn pages、19 topics、8 indexer tests、24 knowledge tests、3 installer tests。 |
+| Upstream compatibility | pass | 本地基线、catalog 与 upstream/main 均锁定 `5ab8877...`，真实历史和对象连通性已验证。 |
+| Worktree integrity | pass | `install.py` 用户修改已保留、审查、测试并有意提交于 `74349c341`。 |
+| Release/publishing | pass-with-boundary | 本地 Git 身份已确认且 upstream push 已禁用；目标仓库、origin 和 push 仍待最终交付。 |
 | Full-planning capability | pass-with-boundary | `construction-plan-system` 当前不可用；以本任务书、最终审计、执行追踪和启动包作为补偿控制，无未缓解 P0/P1 风险。 |
 
 ## 进度台账
 
-- Overall progress: 原始套件、65 个候选来源、审核政策和收录工具已就绪；最终计划审计通过并获准执行，剩余工作为上游同步、64 个来源审核闭环、知识晋升、维护自动化和 GitHub 公开交付。
+- Overall progress: 上游同步、64 个来源终态审核、42 个 adopted 来源收录、检索整合和 Phase 9 维护入口均已完成并通过本地验证；仅剩最终提交、GitHub 公开发布与远端核验。
 - Phase 1: `done`（已同步 `5ab8877...`、重建 catalog 并通过目录与对象完整性验证）
 - Phase 2: `done`
 - Phase 3: `done`
 - Phase 4: `done`
 - Phase 5: `in progress`（本地发布准备完成；公开仓库、origin 和 push 待最终交付）
 - Phase 6: `done`
-- Phase 7: `in progress`
-- Phase 8: `pending`
-- Phase 9: `pending`
-- Validation status: 2026-07-17 上游对象/祖先验证、4,582-file catalog 重建与 6 个 indexer 测试通过；安装器 3 个回归测试、安装 dry-run 与此前全量 validator 通过。
-- Residual risks: 搜索不能证明穷尽；外部内容会漂移或存在许可/安全问题；网络与无凭据验证可能受限；当前候选尚无任何 `adopted` 项。
+- Phase 7: `done`
+- Phase 8: `done`
+- Phase 9: `done`
+- Validation status: 2026-07-20 catalog check、8 个 indexer 测试、24 个 knowledge 测试、3 个 installer 测试、collection check、3 个代表性 lookup、离线 maintenance 和全量 validator 已通过。Learn 受控网络 smoke 首次 15 秒超时为 `failed`；30 秒重试后 link/collection/license 检查通过，API 兼容性正确保持 `needs-review`，未写成 pass。
+- Residual risks: 搜索不能证明穷尽；外部内容会漂移；30 个 link-only 来源没有本地正文快照；需要云凭据、费用或生产资源的运行验证按政策保持 `not-run`，由静态/本地证据替代。
 
 ## 下一步动作
 
-完成并集成首批来源终态 review，对照 `5ab8877...` 复核结论后串行更新注册表、队列与 collection。
+运行最终硬验证与检索 smoke，提交全部计划内变更，然后创建并核验公共 GitHub 仓库。

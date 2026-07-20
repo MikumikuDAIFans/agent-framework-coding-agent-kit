@@ -1,4 +1,249 @@
 {
   "schema_version": 1,
-  "items": []
+  "items": [
+    {
+      "id": "community-agent-base",
+      "source_id": "community-agent-base",
+      "title": "danielscholl/agent-base",
+      "url": "https://github.com/danielscholl/agent-base",
+      "review": "docs/coding-agent-kit/knowledge/external-sources/reviews/community-agent-base.md",
+      "topics": [
+        "observability",
+        "hosting",
+        "security"
+      ],
+      "languages": [
+        "python"
+      ],
+      "collected_at": "2026-07-20T00:00:00Z",
+      "version": "13733a71c1736ab87c02802118320583db866ef4",
+      "route": "Version-bounded design and code-navigation reference.",
+      "design": "Detailed ADR/spec corpus and clear seams for provider, skills, memory and middleware.",
+      "limitations": "Do not copy/vendor source; do not infer current API compatibility; do not run credentialed or costly paths without authorization. Uses public Context/ContextProvider and client surfaces from an early beta; target revision changed multiple Python names, so route is architectural and tests are not proof of current API."
+    },
+    {
+      "id": "community-agenteval",
+      "source_id": "community-agenteval",
+      "title": "AgentEvalHQ/AgentEval",
+      "url": "https://github.com/AgentEvalHQ/AgentEval",
+      "review": "docs/coding-agent-kit/knowledge/external-sources/reviews/community-agenteval.md",
+      "topics": [
+        "evaluation",
+        "observability"
+      ],
+      "languages": [
+        "python",
+        "csharp"
+      ],
+      "collected_at": "2026-07-20T00:00:00Z",
+      "version": "404ee133c7ba7e1c6b7f3460f52efc40c7ebde83",
+      "route": "Version-bounded design and code-navigation reference.",
+      "design": "Deep reusable evaluation abstractions, adapters, reports, datasets and benchmark composition.",
+      "limitations": "Do not copy/vendor source; do not infer current API compatibility; do not run credentialed or costly paths without authorization. Pins the same 1.13 generation as target revision and documents breaking-change checks; preview Foundry/Harness remain sample-only."
+    },
+    {
+      "id": "community-conference-assistant",
+      "source_id": "community-conference-assistant",
+      "title": "luisquintanilla/dotnet-ai-conference-assistant",
+      "url": "https://github.com/luisquintanilla/dotnet-ai-conference-assistant",
+      "review": "docs/coding-agent-kit/knowledge/external-sources/reviews/community-conference-assistant.md",
+      "topics": [
+        "agents",
+        "memory-rag",
+        "hosting"
+      ],
+      "languages": [
+        "csharp"
+      ],
+      "collected_at": "2026-07-20T00:00:00Z",
+      "version": "f1042022a7e3b680768e8292053e286600cf5a86",
+      "route": "Version-bounded design and code-navigation reference.",
+      "design": "Coherent end-to-end application with ingestion, retrieval, specialized agents, workflow and MCP boundaries.",
+      "limitations": "Do not copy/vendor source; do not infer current API compatibility; do not run credentialed or costly paths without authorization. rc4 public .NET surface predates target 1.13; retain architecture, verify all constructor/hosting symbols."
+    },
+    {
+      "id": "community-opendeepwiki",
+      "source_id": "community-opendeepwiki",
+      "title": "AIDotNet/OpenDeepWiki",
+      "url": "https://github.com/AIDotNet/OpenDeepWiki",
+      "review": "docs/coding-agent-kit/knowledge/external-sources/reviews/community-opendeepwiki.md",
+      "topics": [
+        "memory-rag",
+        "tools",
+        "hosting"
+      ],
+      "languages": [
+        "csharp",
+        "typescript"
+      ],
+      "collected_at": "2026-07-20T00:00:00Z",
+      "version": "2940a6eb5e90447d57273883330c48b05ab8dfdd",
+      "route": "Version-bounded design and code-navigation reference.",
+      "design": "Large real application showing repository ingestion, retrieval and multi-provider boundaries.",
+      "limitations": "Do not copy/vendor source; do not infer current API compatibility; do not run credentialed or costly paths without authorization. Stable core 1.7 patterns are near-current but target is 1.13; Anthropic/AzureAI previews require separate checks."
+    },
+    {
+      "id": "community-opik",
+      "source_id": "community-opik",
+      "title": "comet-ml/opik",
+      "url": "https://github.com/comet-ml/opik",
+      "review": "docs/coding-agent-kit/knowledge/external-sources/reviews/community-opik.md",
+      "topics": [
+        "evaluation",
+        "observability"
+      ],
+      "languages": [
+        "python",
+        "typescript"
+      ],
+      "collected_at": "2026-07-20T00:00:00Z",
+      "version": "9e207b4693948fd276e659098195155f490a3785",
+      "route": "Version-bounded design and code-navigation reference.",
+      "design": "Production observability platform and a low-coupling OTLP export pattern.",
+      "limitations": "Do not copy/vendor source; do not infer current API compatibility; do not run credentialed or costly paths without authorization. MAF route relies on standard OpenTelemetry rather than a pinned MAF adapter; docs currently show Agent/OpenAIChatClient and .NET ChatClientAgent, which must be checked at target revision."
+    },
+    {
+      "id": "community-taskagent",
+      "source_id": "community-taskagent",
+      "title": "cristofima/TaskAgent-AgenticAI",
+      "url": "https://github.com/cristofima/TaskAgent-AgenticAI",
+      "review": "docs/coding-agent-kit/knowledge/external-sources/reviews/community-taskagent.md",
+      "topics": [
+        "hosting",
+        "sessions-context",
+        "observability",
+        "security"
+      ],
+      "languages": [
+        "csharp"
+      ],
+      "collected_at": "2026-07-20T00:00:00Z",
+      "version": "4a998448f6b173b366f36a9512ea77c9c355e341",
+      "route": "Version-bounded design and code-navigation reference.",
+      "design": "Strong clean-architecture separation, persistent chat store and explicit streaming/event mapping.",
+      "limitations": "Do not copy/vendor source; do not infer current API compatibility; do not run credentialed or costly paths without authorization. Architecture is reusable; the Nov-2025 preview AG-UI and agent APIs are stale against target 1.13 and must not be copied literally."
+    },
+    {
+      "id": "community-zep",
+      "source_id": "community-zep",
+      "title": "getzep/zep",
+      "url": "https://github.com/getzep/zep",
+      "review": "docs/coding-agent-kit/knowledge/external-sources/reviews/community-zep.md",
+      "topics": [
+        "memory-rag"
+      ],
+      "languages": [
+        "python"
+      ],
+      "collected_at": "2026-07-20T00:00:00Z",
+      "version": "175dd66e0254085ef6347b5763addb19e777611f",
+      "route": "Version-bounded design and code-navigation reference.",
+      "design": "Focused adapter with explicit identity/state ownership, graceful-degradation semantics and parameter exposure controls.",
+      "limitations": "Do not copy/vendor source; do not infer current API compatibility; do not run credentialed or costly paths without authorization. Targets >=1.8.1 and explicitly audits framework session/state limitations; verify target 1.13 provider hooks before reuse."
+    },
+    {
+      "id": "repo-azure-interview-coach",
+      "source_id": "repo-azure-interview-coach",
+      "title": "Azure-Samples/interview-coach-agent-framework",
+      "url": "https://github.com/Azure-Samples/interview-coach-agent-framework",
+      "review": "docs/coding-agent-kit/knowledge/external-sources/reviews/repo-azure-interview-coach.md",
+      "topics": [
+        "agents",
+        "tools",
+        "hosting",
+        "protocols"
+      ],
+      "languages": [
+        "csharp"
+      ],
+      "collected_at": "2026-07-20T00:00:00Z",
+      "version": "d9557897274996c2d0f869bfafe0aba7e53393c0",
+      "route": "service boundaries, handoff application, MCP/AG-UI/hosting composition.",
+      "design": "clear host/agent/MCP/UI/service-default decomposition and a concrete handoff-driven application.",
+      "limitations": "assuming sample auth, evaluation, resilience or rollout is complete. exact cloud behavior and dependency resolution were not locally run."
+    },
+    {
+      "id": "repo-azure-travel-agents",
+      "source_id": "repo-azure-travel-agents",
+      "title": "Azure-Samples/azure-ai-travel-agents",
+      "url": "https://github.com/Azure-Samples/azure-ai-travel-agents",
+      "review": "docs/coding-agent-kit/knowledge/external-sources/reviews/repo-azure-travel-agents.md",
+      "topics": [
+        "orchestration",
+        "protocols",
+        "hosting"
+      ],
+      "languages": [
+        "typescript",
+        "python",
+        "csharp"
+      ],
+      "collected_at": "2026-07-20T00:00:00Z",
+      "version": "a66e229c4bd4aeb4eb9b9460e2ec6d1701f142c1",
+      "route": "MAF Python service/MCP/workflow/degradation-test architecture at pinned commit.",
+      "design": "enterprise-style separation of UI, API implementation, MCP servers, containers and infrastructure; useful comparison without conflating framework-specific packages.",
+      "limitations": "treating other-framework packages as MAF patterns or using the open dependency range unpinned. exact clean build and cloud deployment were not reproduced."
+    },
+    {
+      "id": "repo-microsoft-agent-framework",
+      "source_id": "repo-microsoft-agent-framework",
+      "title": "microsoft/agent-framework",
+      "url": "https://github.com/microsoft/agent-framework",
+      "review": "docs/coding-agent-kit/knowledge/external-sources/reviews/repo-microsoft-agent-framework.md",
+      "topics": [
+        "all"
+      ],
+      "languages": [
+        "csharp",
+        "python",
+        "declarative"
+      ],
+      "collected_at": "2026-07-20T00:00:00Z",
+      "version": "5ab8877ba55b4778d778cf51450eafe483194708",
+      "route": "exact-revision implementation, design, samples and tests through catalog routes.",
+      "design": "source, tests, decisions and samples permit a four-way evidence bundle for exact symbols.",
+      "limitations": "assuming all features are GA or samples are production defaults. live main and published packages can diverge from this source snapshot."
+    },
+    {
+      "id": "repo-microsoft-agent-governance-toolkit",
+      "source_id": "repo-microsoft-agent-governance-toolkit",
+      "title": "microsoft/agent-governance-toolkit",
+      "url": "https://github.com/microsoft/agent-governance-toolkit",
+      "review": "docs/coding-agent-kit/knowledge/external-sources/reviews/repo-microsoft-agent-governance-toolkit.md",
+      "topics": [
+        "security",
+        "observability",
+        "tools"
+      ],
+      "languages": [
+        "python",
+        "csharp"
+      ],
+      "collected_at": "2026-07-20T00:00:00Z",
+      "version": "d00ccdbf31258db917495ca65fa2ecd9e64461b9",
+      "route": "route MAF middleware/governance/security design to the immutable .NET integration and its tests, then verify target package compatibility and deployment policy semantics.",
+      "design": "a thin adapter maps MAF run/tool surfaces into a framework-neutral policy kernel; deny decisions fail closed before inner execution; audit events are emitted; extension methods avoid application-specific middleware duplication.",
+      "limitations": "do not copy external code; do not claim the toolkit alone provides compliance; do not use example identity/policy/audit defaults without threat modeling and tests. broad governance claims can be over-applied without verifying enforcement coverage and fail-closed behavior in the target host."
+    },
+    {
+      "id": "repo-microsoft-spec-to-agents",
+      "source_id": "repo-microsoft-spec-to-agents",
+      "title": "microsoft/spec-to-agents",
+      "url": "https://github.com/microsoft/spec-to-agents",
+      "review": "docs/coding-agent-kit/knowledge/external-sources/reviews/repo-microsoft-spec-to-agents.md",
+      "topics": [
+        "orchestration",
+        "workflows",
+        "tools"
+      ],
+      "languages": [
+        "python"
+      ],
+      "collected_at": "2026-07-20T00:00:00Z",
+      "version": "f40268fa5573ce42a6403eb0edb48997eb24532a",
+      "route": "route workflow/HITL/tool/CI/deployment questions to the immutable commit, then map APIs against target `5ab8877...` and local tests.",
+      "design": "specs describe the intended workflow; implementation uses typed executors and bidirectional coordinator edges; HITL is an explicit protocol; external capabilities are separated into tools; tests cover both workflow behavior and tool contracts.",
+      "limitations": "do not copy external code; do not silently upgrade beta syntax; do not treat mocked tests as live-provider proof. deployment completeness may obscure missing tenant, eval, retry, and rollback decisions."
+    }
+  ]
 }

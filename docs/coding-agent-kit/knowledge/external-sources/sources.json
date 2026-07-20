@@ -3,72 +3,1426 @@
   "snapshot_date": "2026-07-15",
   "policy": "REVIEW_POLICY.md",
   "items": [
-    {"id":"official-learn-hub","name":"Microsoft Agent Framework documentation","url":"https://learn.microsoft.com/en-us/agent-framework/","source_class":"official-doc","authority":"microsoft","topics":["getting-started"],"languages":["any"],"review_status":"queued","priority":"P0","why":"Canonical documentation navigation and lifecycle entry point."},
-    {"id":"official-learn-overview","name":"Microsoft Agent Framework overview","url":"https://learn.microsoft.com/en-us/agent-framework/overview/","source_class":"official-doc","authority":"microsoft","topics":["getting-started","agents","workflows"],"languages":["any"],"review_status":"queued","priority":"P0","why":"Canonical scope, agents-versus-workflows guidance, maturity, and risk boundary."},
-    {"id":"official-learn-get-started","name":"Get started with Agent Framework","url":"https://learn.microsoft.com/en-us/agent-framework/get-started/","source_class":"official-doc","authority":"microsoft","topics":["getting-started"],"languages":["csharp","python"],"review_status":"queued","priority":"P0","why":"Progressive official path from first agent through hosting."},
-    {"id":"official-learn-agents","name":"Agents overview","url":"https://learn.microsoft.com/en-us/agent-framework/agents/","source_class":"official-doc","authority":"microsoft","topics":["agents"],"languages":["csharp","python"],"review_status":"queued","priority":"P0","why":"Agent concepts, invocation model, and provider-neutral starting point."},
-    {"id":"official-learn-tools","name":"Agent tools overview","url":"https://learn.microsoft.com/en-us/agent-framework/agents/tools/","source_class":"official-doc","authority":"microsoft","topics":["tools","approvals-hitl"],"languages":["csharp","python"],"review_status":"queued","priority":"P0","why":"Official function, hosted, MCP, and approval tool routes."},
-    {"id":"official-learn-conversations","name":"Conversations and memory overview","url":"https://learn.microsoft.com/en-us/agent-framework/agents/conversations/","source_class":"official-doc","authority":"microsoft","topics":["sessions-context","memory-rag"],"languages":["csharp","python"],"review_status":"queued","priority":"P0","why":"Session, storage, context-provider, and compaction ownership."},
-    {"id":"official-learn-middleware","name":"Agent middleware overview","url":"https://learn.microsoft.com/en-us/agent-framework/agents/middleware/","source_class":"official-doc","authority":"microsoft","topics":["middleware"],"languages":["csharp","python"],"review_status":"queued","priority":"P0","why":"Interception scopes, runtime context, errors, and termination."},
-    {"id":"official-learn-rag","name":"Retrieval-augmented generation","url":"https://learn.microsoft.com/en-us/agent-framework/agents/rag","source_class":"official-doc","authority":"microsoft","topics":["memory-rag"],"languages":["csharp","python"],"review_status":"queued","priority":"P1","why":"Official retrieval composition patterns and supported integrations."},
-    {"id":"official-learn-observability","name":"Agent observability","url":"https://learn.microsoft.com/en-us/agent-framework/agents/observability","source_class":"official-doc","authority":"microsoft","topics":["observability"],"languages":["csharp","python"],"review_status":"queued","priority":"P0","why":"Canonical telemetry and tracing guidance."},
-    {"id":"official-learn-evaluation","name":"Agent evaluation","url":"https://learn.microsoft.com/en-us/agent-framework/agents/evaluation","source_class":"official-doc","authority":"microsoft","topics":["evaluation"],"languages":["csharp","python"],"review_status":"queued","priority":"P0","why":"Official evaluation abstractions and integration routes."},
-    {"id":"official-learn-security","name":"Agent security","url":"https://learn.microsoft.com/en-us/agent-framework/agents/security","source_class":"official-doc","authority":"microsoft","topics":["security"],"languages":["any"],"review_status":"queued","priority":"P0","why":"Official trust-boundary and prompt-injection guidance."},
-    {"id":"official-learn-workflows","name":"Workflows overview","url":"https://learn.microsoft.com/en-us/agent-framework/workflows/","source_class":"official-doc","authority":"microsoft","topics":["workflows","orchestration","durability"],"languages":["csharp","python"],"review_status":"queued","priority":"P0","why":"Canonical workflow model, API choices, and execution semantics."},
-    {"id":"official-learn-workflow-builder","name":"Workflow builder and execution","url":"https://learn.microsoft.com/en-us/agent-framework/workflows/workflows","source_class":"official-doc","authority":"microsoft","topics":["workflows"],"languages":["csharp","python"],"review_status":"queued","priority":"P0","why":"Graph construction and execution API reference path."},
-    {"id":"official-learn-functional-workflow","name":"Functional Workflow API","url":"https://learn.microsoft.com/en-us/agent-framework/workflows/functional","source_class":"official-doc","authority":"microsoft","topics":["workflows"],"languages":["python"],"review_status":"queued","priority":"P1","why":"Plain-async Python workflow API; explicitly experimental and version-sensitive."},
-    {"id":"official-learn-declarative-workflows","name":"Declarative workflows","url":"https://learn.microsoft.com/en-us/agent-framework/workflows/declarative","source_class":"official-doc","authority":"microsoft","topics":["declarative","workflows"],"languages":["csharp","python","declarative"],"review_status":"queued","priority":"P1","why":"YAML workflow schema, portability, and programmatic comparison."},
-    {"id":"official-learn-integrations","name":"Agent Framework integrations","url":"https://learn.microsoft.com/en-us/agent-framework/integrations/","source_class":"official-doc","authority":"microsoft","topics":["protocols","hosting","providers"],"languages":["any"],"review_status":"queued","priority":"P1","why":"Canonical map for A2A, AG-UI, Durable Task, M365, memory, and security integrations."},
-    {"id":"official-learn-a2a","name":"A2A integration","url":"https://learn.microsoft.com/en-us/agent-framework/integrations/a2a","source_class":"official-doc","authority":"microsoft","topics":["protocols"],"languages":["csharp","python"],"review_status":"queued","priority":"P1","why":"Official remote-agent hosting and consumption boundary."},
-    {"id":"official-learn-agui","name":"AG-UI integration","url":"https://learn.microsoft.com/en-us/agent-framework/integrations/ag-ui/","source_class":"official-doc","authority":"microsoft","topics":["protocols","approvals-hitl","security"],"languages":["csharp","python","typescript"],"review_status":"queued","priority":"P1","why":"Frontend protocol, state, tool rendering, HITL, testing, and security routes."},
-    {"id":"official-learn-durable-extension","name":"Durable extension","url":"https://learn.microsoft.com/en-us/agent-framework/integrations/durable-extension","source_class":"official-doc","authority":"microsoft","topics":["durability","hosting"],"languages":["csharp","python"],"review_status":"queued","priority":"P0","why":"Durable execution, persistence, and hosting integration."},
-    {"id":"official-learn-migration-autogen","name":"Migration from AutoGen","url":"https://learn.microsoft.com/en-us/agent-framework/migration-guide/from-autogen/","source_class":"official-doc","authority":"microsoft","topics":["migration"],"languages":["python"],"review_status":"queued","priority":"P1","why":"Canonical concept and API migration path from AutoGen."},
-    {"id":"official-learn-migration-sk","name":"Migration from Semantic Kernel","url":"https://learn.microsoft.com/en-us/agent-framework/migration-guide/from-semantic-kernel/","source_class":"official-doc","authority":"microsoft","topics":["migration"],"languages":["csharp","python"],"review_status":"queued","priority":"P1","why":"Canonical concept and API migration path from Semantic Kernel."},
-    {"id":"official-dotnet-api","name":"Microsoft.Agents.AI .NET API reference","url":"https://learn.microsoft.com/en-us/dotnet/api/microsoft.agents.ai","source_class":"official-doc","authority":"microsoft","topics":["agents"],"languages":["csharp"],"review_status":"queued","priority":"P0","why":"Published .NET public API reference; must be paired with package version."},
-    {"id":"official-python-api","name":"agent_framework Python API reference","url":"https://learn.microsoft.com/en-us/python/api/agent-framework-core/agent_framework","source_class":"official-doc","authority":"microsoft","topics":["agents"],"languages":["python"],"review_status":"queued","priority":"P0","why":"Published Python public API reference; must be paired with package version."},
-    {"id":"official-blog-hub","name":"Microsoft Agent Framework engineering blog","url":"https://devblogs.microsoft.com/agent-framework/","source_class":"official-engineering","authority":"microsoft","topics":["getting-started"],"languages":["any"],"review_status":"queued","priority":"P1","why":"Official release, feature, protocol, and production guidance stream."},
-    {"id":"official-blog-introduction","name":"Introducing Microsoft Agent Framework (Preview)","url":"https://devblogs.microsoft.com/dotnet/introducing-microsoft-agent-framework-preview/","source_class":"official-engineering","authority":"microsoft","topics":["agents","workflows","orchestration"],"languages":["csharp"],"review_status":"queued","priority":"P1","why":"Original .NET architecture and composition explanation; preview-era APIs require drift review."},
-    {"id":"official-blog-durable-workflows","name":"Durable Workflows in Microsoft Agent Framework","url":"https://devblogs.microsoft.com/dotnet/durable-workflows-in-microsoft-agent-framework/","source_class":"official-engineering","authority":"microsoft","topics":["durability","workflows","hosting"],"languages":["csharp"],"review_status":"queued","priority":"P0","why":"End-to-end progression from in-memory workflow to durable Azure Functions hosting."},
-    {"id":"official-blog-orchestration-1","name":"Agent Framework orchestration patterns reach 1.0","url":"https://devblogs.microsoft.com/agent-framework/agent-frameworks-orchestration-patterns-reach-1-0/","source_class":"official-engineering","authority":"microsoft","topics":["orchestration","workflows"],"languages":["csharp","python"],"review_status":"queued","priority":"P0","why":"Current maturity and supported orchestration pattern announcement."},
-    {"id":"official-blog-hosted-agents","name":"From local to production with Foundry Hosted Agents","url":"https://devblogs.microsoft.com/agent-framework/from-local-to-production-deploy-your-microsoft-agent-framework-agent-with-foundry-hosted-agents/","source_class":"official-engineering","authority":"microsoft","topics":["hosting","providers"],"languages":["csharp","python"],"review_status":"queued","priority":"P0","why":"Official local-to-hosted deployment path and operational boundary."},
-    {"id":"official-blog-a2a-v1","name":"A2A v1 in Microsoft Agent Framework for .NET","url":"https://devblogs.microsoft.com/agent-framework/a2a-v1-is-here-cross-platform-agent-communication-in-microsoft-agent-framework-for-net/","source_class":"official-engineering","authority":"microsoft","topics":["protocols","hosting"],"languages":["csharp"],"review_status":"queued","priority":"P1","why":"Stable A2A v1 hosting and client patterns for .NET."},
-    {"id":"official-community-python-series","name":"Learn how to build agents and workflows in Python","url":"https://techcommunity.microsoft.com/blog/azuredevcommunityblog/learn-how-to-build-agents-and-workflows-in-python/4502144","source_class":"official-engineering","authority":"microsoft","topics":["getting-started","agents","workflows"],"languages":["python"],"review_status":"queued","priority":"P1","why":"Microsoft developer-community six-part Python learning series."},
-
-    {"id":"repo-microsoft-agent-framework","name":"microsoft/agent-framework","url":"https://github.com/microsoft/agent-framework","source_class":"official-repository","authority":"microsoft","topics":["all"],"languages":["csharp","python","declarative"],"review_status":"queued","priority":"P0","why":"Canonical source, tests, designs, samples, schemas, issues, and release history."},
-    {"id":"repo-microsoft-agent-framework-samples","name":"microsoft/Agent-Framework-Samples","url":"https://github.com/microsoft/Agent-Framework-Samples","source_class":"official-repository","authority":"microsoft","topics":["getting-started","tools","memory-rag","orchestration","workflows"],"languages":["csharp","python"],"review_status":"in-review","priority":"P0","why":"Factual investigation is complete, including version, portability, CI, safety, and production-gap findings; final evaluation awaits application of policy v1.1.","review":"reviews/repo-microsoft-agent-framework-samples.md","reviewed_commit":"5b854b7e1c3838f17f41bcf2412ef79d7662db37"},
-    {"id":"repo-microsoft-ai-agents-beginners","name":"microsoft/ai-agents-for-beginners","url":"https://github.com/microsoft/ai-agents-for-beginners","source_class":"official-repository","authority":"microsoft","topics":["getting-started","agents","tools","orchestration"],"languages":["python","csharp"],"review_status":"queued","priority":"P1","why":"Large beginner curriculum containing a dedicated Microsoft Agent Framework lesson and samples."},
-    {"id":"repo-azure-interview-coach","name":"Azure-Samples/interview-coach-agent-framework","url":"https://github.com/Azure-Samples/interview-coach-agent-framework","source_class":"official-repository","authority":"microsoft","topics":["agents","tools","hosting","protocols"],"languages":["csharp"],"review_status":"queued","priority":"P0","why":"Current end-to-end C# application specifically built on Agent Framework."},
-    {"id":"repo-azure-travel-agents","name":"Azure-Samples/azure-ai-travel-agents","url":"https://github.com/Azure-Samples/azure-ai-travel-agents","source_class":"official-repository","authority":"microsoft","topics":["orchestration","protocols","hosting"],"languages":["typescript","python","csharp"],"review_status":"queued","priority":"P1","why":"Enterprise multi-framework comparison deployed on Azure Container Apps; MAF portion needs isolation."},
-    {"id":"repo-azure-multi-agent-workshop","name":"Azure-Samples/multi-agent-orchestration-workshop","url":"https://github.com/Azure-Samples/multi-agent-orchestration-workshop","source_class":"official-repository","authority":"microsoft","topics":["orchestration","hosting","observability"],"languages":["csharp"],"review_status":"queued","priority":"P0","why":"MAF, Foundry, and Aspire workshop for multi-agent orchestration patterns."},
-    {"id":"repo-azure-maf-workshop-ko","name":"Azure-Samples/maf-workshop-in-a-day-ko","url":"https://github.com/Azure-Samples/maf-workshop-in-a-day-ko","source_class":"official-repository","authority":"microsoft","topics":["getting-started","agents","workflows"],"languages":["python","csharp","korean"],"review_status":"queued","priority":"P2","why":"Full workshop corpus; Korean language and high fork-to-star ratio require provenance review."},
-    {"id":"repo-microsoft-azure-trust-agents","name":"microsoft/azure-trust-agents","url":"https://github.com/microsoft/azure-trust-agents","source_class":"official-repository","authority":"microsoft","topics":["security","orchestration","approvals-hitl"],"languages":["python"],"review_status":"queued","priority":"P1","why":"Financial-compliance multi-agent hackathon with trust and governance scenarios."},
-    {"id":"repo-microsoft-claims-processing","name":"microsoft/claims-processing-hack","url":"https://github.com/microsoft/claims-processing-hack","source_class":"official-repository","authority":"microsoft","topics":["orchestration","protocols","approvals-hitl"],"languages":["python"],"review_status":"queued","priority":"P1","why":"Insurance claims workflow, MCP, and human review scenario."},
-    {"id":"repo-microsoft-spec-to-agents","name":"microsoft/spec-to-agents","url":"https://github.com/microsoft/spec-to-agents","source_class":"official-repository","authority":"microsoft","topics":["orchestration","workflows","tools"],"languages":["python"],"review_status":"queued","priority":"P1","why":"Compact multi-agent event-planning workflow with explicit tool and workflow specifications."},
-    {"id":"repo-microsoft-agent-governance-toolkit","name":"microsoft/agent-governance-toolkit","url":"https://github.com/microsoft/agent-governance-toolkit","source_class":"official-repository","authority":"microsoft","topics":["security","observability","tools"],"languages":["python","csharp"],"review_status":"queued","priority":"P1","why":"Governance, zero-trust, sandboxing, and reliability integration material that references MAF."},
-    {"id":"repo-dotnet-docs-maui","name":"dotnet/docs-maui Agent Framework guide","url":"https://github.com/dotnet/docs-maui/blob/main/docs/ai/agent-framework.md","source_class":"official-repository","authority":"microsoft","topics":["getting-started","agents"],"languages":["csharp"],"review_status":"queued","priority":"P2","why":"Official .NET MAUI documentation page using Agent Framework; narrow client-app scope."},
-    {"id":"repo-office-m365-agent-samples","name":"OfficeDev/microsoft-365-agents-toolkit-samples","url":"https://github.com/OfficeDev/microsoft-365-agents-toolkit-samples","source_class":"official-repository","authority":"microsoft","topics":["protocols","hosting"],"languages":["csharp","typescript"],"review_status":"queued","priority":"P2","why":"Microsoft 365 proxy-agent and interoperability samples; not all projects use MAF."},
-    {"id":"repo-eshoplite","name":"Azure-Samples/eShopLite","url":"https://github.com/Azure-Samples/eShopLite","source_class":"official-repository","authority":"microsoft","topics":["agents","tools","hosting"],"languages":["csharp"],"review_status":"queued","priority":"P2","why":"Larger .NET application candidate where MAF usage must be separated from unrelated application architecture."},
-
-    {"id":"community-awesome-maf","name":"webmaxru/awesome-microsoft-agent-framework","url":"https://github.com/webmaxru/awesome-microsoft-agent-framework","source_class":"meta-index","authority":"community","topics":["all"],"languages":["any"],"review_status":"discovered","priority":"P0","why":"Discovery-only index; linked primary sources must be audited independently."},
-    {"id":"community-rwjdk-samples","name":"rwjdk/MicrosoftAgentFrameworkSamples","url":"https://github.com/rwjdk/MicrosoftAgentFrameworkSamples","source_class":"community-repository","authority":"community","topics":["agents","tools","providers","workflows"],"languages":["csharp"],"review_status":"queued","priority":"P0","why":"Actively maintained C# sample collection with substantial direct MAF code."},
-    {"id":"community-maf-getting-started","name":"NikiforovAll/maf-getting-started","url":"https://github.com/NikiforovAll/maf-getting-started","source_class":"community-repository","authority":"community","topics":["getting-started","tools","workflows"],"languages":["csharp"],"review_status":"queued","priority":"P1","why":"Runnable .NET presentation series; repository currently lacks detected license metadata."},
-    {"id":"community-taskagent","name":"cristofima/TaskAgent-AgenticAI","url":"https://github.com/cristofima/TaskAgent-AgenticAI","source_class":"community-repository","authority":"community","topics":["hosting","sessions-context","observability","security"],"languages":["csharp"],"review_status":"queued","priority":"P0","why":"Open-source .NET reference architecture focused on SSE streaming, persistence, observability, and security."},
-    {"id":"community-agent-base","name":"danielscholl/agent-base","url":"https://github.com/danielscholl/agent-base","source_class":"community-repository","authority":"community","topics":["observability","hosting","security"],"languages":["python"],"review_status":"queued","priority":"P0","why":"Architecture and ADR-rich base project with explicit MAF observability integration."},
-    {"id":"community-conference-assistant","name":"luisquintanilla/dotnet-ai-conference-assistant","url":"https://github.com/luisquintanilla/dotnet-ai-conference-assistant","source_class":"community-repository","authority":"community","topics":["agents","memory-rag","hosting"],"languages":["csharp"],"review_status":"queued","priority":"P1","why":"End-to-end .NET assistant with a documented application architecture."},
-    {"id":"community-opendeepwiki","name":"AIDotNet/OpenDeepWiki","url":"https://github.com/AIDotNet/OpenDeepWiki","source_class":"community-repository","authority":"community","topics":["memory-rag","tools","hosting"],"languages":["csharp","typescript"],"review_status":"queued","priority":"P1","why":"Large production-style C# application that directly references Microsoft.Agents.AI."},
-    {"id":"community-agenteval","name":"AgentEvalHQ/AgentEval","url":"https://github.com/AgentEvalHQ/AgentEval","source_class":"community-repository","authority":"community","topics":["evaluation","observability"],"languages":["python","csharp"],"review_status":"queued","priority":"P1","why":"Evaluation platform with documented Microsoft Agent Framework integration."},
-    {"id":"community-opik","name":"comet-ml/opik","url":"https://github.com/comet-ml/opik","source_class":"community-repository","authority":"community","topics":["evaluation","observability"],"languages":["python","typescript"],"review_status":"queued","priority":"P1","why":"Mature observability/evaluation project surfaced by direct MAF references; integration depth must be isolated."},
-    {"id":"community-zep","name":"getzep/zep","url":"https://github.com/getzep/zep","source_class":"community-repository","authority":"community","topics":["memory-rag"],"languages":["python"],"review_status":"queued","priority":"P1","why":"Memory integration examples discovered through MAF package/import search."},
-    {"id":"community-engram","name":"lumetra-io/engram-agent-framework","url":"https://github.com/lumetra-io/engram-agent-framework","source_class":"community-repository","authority":"community","topics":["memory-rag","middleware"],"languages":["python"],"review_status":"queued","priority":"P0","why":"Purpose-built Agent Framework memory and middleware integration."},
-    {"id":"community-sideseat","name":"sideseat/sideseat Agent Framework sample","url":"https://github.com/sideseat/sideseat/tree/main/misc/samples/python/agent-framework","source_class":"community-repository","authority":"community","topics":["observability","evaluation"],"languages":["python"],"review_status":"queued","priority":"P1","why":"Narrow integration sample with explicit Agent Framework package coordinates."},
-    {"id":"community-a2a-travel","name":"zhuohanl/multi-agent-travel-planner-a2a-interop","url":"https://github.com/zhuohanl/multi-agent-travel-planner-a2a-interop","source_class":"community-repository","authority":"community","topics":["protocols","orchestration"],"languages":["python"],"review_status":"queued","priority":"P0","why":"Cross-framework A2A interoperability scenario with direct MAF dependency."},
-    {"id":"community-graphrag-neo4j","name":"iLoveAgents/agent-framework-graphrag-neo4j","url":"https://github.com/iLoveAgents/agent-framework-graphrag-neo4j","source_class":"community-repository","authority":"community","topics":["memory-rag"],"languages":["python"],"review_status":"queued","priority":"P0","why":"Focused MAF and Neo4j GraphRAG integration candidate."},
-    {"id":"community-agui-template","name":"xxyckiki/MAF-AGUI-Azure-Template","url":"https://github.com/xxyckiki/MAF-AGUI-Azure-Template","source_class":"community-repository","authority":"community","topics":["protocols","hosting","approvals-hitl"],"languages":["python","typescript"],"review_status":"queued","priority":"P0","why":"MAF plus AG-UI Azure template with explicit package dependency."},
-    {"id":"community-maf-boilerplate","name":"HakjunMIN/maf-boilerplate","url":"https://github.com/HakjunMIN/maf-boilerplate","source_class":"community-repository","authority":"community","topics":["getting-started","memory-rag","hosting"],"languages":["python"],"review_status":"queued","priority":"P1","why":"Boilerplate with an agentic-RAG specification; generated-code and completeness risk require review."},
-    {"id":"community-visual-guide","name":"verdenmax/agent-framework-visual-guide","url":"https://github.com/verdenmax/agent-framework-visual-guide","source_class":"community-repository","authority":"community","topics":["getting-started","agents","workflows"],"languages":["python"],"review_status":"queued","priority":"P1","why":"Visual, code-backed learning guide discovered through direct symbol search."},
-    {"id":"community-maf-workshop","name":"antoniosql/maf-workshop","url":"https://github.com/antoniosql/maf-workshop","source_class":"community-repository","authority":"community","topics":["getting-started","providers","workflows"],"languages":["python"],"review_status":"queued","priority":"P1","why":"Workshop with explicit Azure and MAF dependency files."},
-    {"id":"community-copilot-learning","name":"kinfey/Learn-MAF-With-GitHubCopilotAgent","url":"https://github.com/kinfey/Learn-MAF-With-GitHubCopilotAgent","source_class":"community-repository","authority":"community","topics":["getting-started","providers"],"languages":["csharp","python"],"review_status":"queued","priority":"P1","why":"Learning project combining MAF and GitHub Copilot Agent; version and generated-code boundaries need review."},
-    {"id":"community-loop-engineering","name":"akshaykokane/loop-engineering-with-microsoft-agent-framework","url":"https://github.com/akshaykokane/loop-engineering-with-microsoft-agent-framework","source_class":"community-repository","authority":"community","topics":["workflows","evaluation","tools"],"languages":["csharp"],"review_status":"queued","priority":"P1","why":"Direct MAF implementation of iterative/loop engineering patterns."},
-    {"id":"community-awesome-article-content-strategy","name":"Multi-agent content strategy tutorial","url":"https://techcommunity.microsoft.com/blog/educatordeveloperblog/creating-a-fun-multi-agent-content-strategy-system-with-microsoft-agent-framewor/4495105","source_class":"community-article","authority":"microsoft-community","topics":["orchestration","tools","evaluation"],"languages":["python"],"review_status":"queued","priority":"P1","why":"Detailed multi-agent roles, external tool use, refinement loop, and rubric-driven evaluation tutorial."}
+    {
+      "id": "official-learn-hub",
+      "name": "Microsoft Agent Framework documentation",
+      "url": "https://learn.microsoft.com/en-us/agent-framework/",
+      "source_class": "official-doc",
+      "authority": "microsoft",
+      "topics": [
+        "getting-started"
+      ],
+      "languages": [
+        "any"
+      ],
+      "review_status": "adopted",
+      "priority": "P0",
+      "why": "Canonical documentation navigation and lifecycle entry point.",
+      "review": "reviews/official-learn-hub.md",
+      "reviewed_at": "2026-07-17",
+      "collection_action": "link and annotation only"
+    },
+    {
+      "id": "official-learn-overview",
+      "name": "Microsoft Agent Framework overview",
+      "url": "https://learn.microsoft.com/en-us/agent-framework/overview/",
+      "source_class": "official-doc",
+      "authority": "microsoft",
+      "topics": [
+        "getting-started",
+        "agents",
+        "workflows"
+      ],
+      "languages": [
+        "any"
+      ],
+      "review_status": "adopted",
+      "priority": "P0",
+      "why": "Canonical scope, agents-versus-workflows guidance, maturity, and risk boundary.",
+      "review": "reviews/official-learn-overview.md",
+      "reviewed_at": "2026-07-17",
+      "collection_action": "link and annotation only"
+    },
+    {
+      "id": "official-learn-get-started",
+      "name": "Get started with Agent Framework",
+      "url": "https://learn.microsoft.com/en-us/agent-framework/get-started/",
+      "source_class": "official-doc",
+      "authority": "microsoft",
+      "topics": [
+        "getting-started"
+      ],
+      "languages": [
+        "csharp",
+        "python"
+      ],
+      "review_status": "adopted",
+      "priority": "P0",
+      "why": "Progressive official path from first agent through hosting.",
+      "review": "reviews/official-learn-get-started.md",
+      "reviewed_at": "2026-07-17",
+      "collection_action": "link and annotation only"
+    },
+    {
+      "id": "official-learn-agents",
+      "name": "Agents overview",
+      "url": "https://learn.microsoft.com/en-us/agent-framework/agents/",
+      "source_class": "official-doc",
+      "authority": "microsoft",
+      "topics": [
+        "agents"
+      ],
+      "languages": [
+        "csharp",
+        "python"
+      ],
+      "review_status": "adopted",
+      "priority": "P0",
+      "why": "Agent concepts, invocation model, and provider-neutral starting point.",
+      "review": "reviews/official-learn-agents.md",
+      "reviewed_at": "2026-07-17",
+      "collection_action": "link and annotation only"
+    },
+    {
+      "id": "official-learn-tools",
+      "name": "Agent tools overview",
+      "url": "https://learn.microsoft.com/en-us/agent-framework/agents/tools/",
+      "source_class": "official-doc",
+      "authority": "microsoft",
+      "topics": [
+        "tools",
+        "approvals-hitl"
+      ],
+      "languages": [
+        "csharp",
+        "python"
+      ],
+      "review_status": "adopted",
+      "priority": "P0",
+      "why": "Official function, hosted, MCP, and approval tool routes.",
+      "review": "reviews/official-learn-tools.md",
+      "reviewed_at": "2026-07-17",
+      "collection_action": "link and annotation only"
+    },
+    {
+      "id": "official-learn-conversations",
+      "name": "Conversations and memory overview",
+      "url": "https://learn.microsoft.com/en-us/agent-framework/agents/conversations/",
+      "source_class": "official-doc",
+      "authority": "microsoft",
+      "topics": [
+        "sessions-context",
+        "memory-rag"
+      ],
+      "languages": [
+        "csharp",
+        "python"
+      ],
+      "review_status": "adopted",
+      "priority": "P0",
+      "why": "Session, storage, context-provider, and compaction ownership.",
+      "review": "reviews/official-learn-conversations.md",
+      "reviewed_at": "2026-07-17",
+      "collection_action": "link and annotation only"
+    },
+    {
+      "id": "official-learn-middleware",
+      "name": "Agent middleware overview",
+      "url": "https://learn.microsoft.com/en-us/agent-framework/agents/middleware/",
+      "source_class": "official-doc",
+      "authority": "microsoft",
+      "topics": [
+        "middleware"
+      ],
+      "languages": [
+        "csharp",
+        "python"
+      ],
+      "review_status": "adopted",
+      "priority": "P0",
+      "why": "Interception scopes, runtime context, errors, and termination.",
+      "review": "reviews/official-learn-middleware.md",
+      "reviewed_at": "2026-07-17",
+      "collection_action": "link and annotation only"
+    },
+    {
+      "id": "official-learn-rag",
+      "name": "Retrieval-augmented generation",
+      "url": "https://learn.microsoft.com/en-us/agent-framework/agents/rag",
+      "source_class": "official-doc",
+      "authority": "microsoft",
+      "topics": [
+        "memory-rag"
+      ],
+      "languages": [
+        "csharp",
+        "python"
+      ],
+      "review_status": "adopted",
+      "priority": "P1",
+      "why": "Official retrieval composition patterns and supported integrations.",
+      "review": "reviews/official-learn-rag.md",
+      "reviewed_at": "2026-07-17",
+      "collection_action": "link and annotation only"
+    },
+    {
+      "id": "official-learn-observability",
+      "name": "Agent observability",
+      "url": "https://learn.microsoft.com/en-us/agent-framework/agents/observability",
+      "source_class": "official-doc",
+      "authority": "microsoft",
+      "topics": [
+        "observability"
+      ],
+      "languages": [
+        "csharp",
+        "python"
+      ],
+      "review_status": "adopted",
+      "priority": "P0",
+      "why": "Canonical telemetry and tracing guidance.",
+      "review": "reviews/official-learn-observability.md",
+      "reviewed_at": "2026-07-17",
+      "collection_action": "link and annotation only"
+    },
+    {
+      "id": "official-learn-evaluation",
+      "name": "Agent evaluation",
+      "url": "https://learn.microsoft.com/en-us/agent-framework/agents/evaluation",
+      "source_class": "official-doc",
+      "authority": "microsoft",
+      "topics": [
+        "evaluation"
+      ],
+      "languages": [
+        "csharp",
+        "python"
+      ],
+      "review_status": "adopted",
+      "priority": "P0",
+      "why": "Official evaluation abstractions and integration routes.",
+      "review": "reviews/official-learn-evaluation.md",
+      "reviewed_at": "2026-07-17",
+      "collection_action": "link and annotation only"
+    },
+    {
+      "id": "official-learn-security",
+      "name": "Agent security",
+      "url": "https://learn.microsoft.com/en-us/agent-framework/agents/security",
+      "source_class": "official-doc",
+      "authority": "microsoft",
+      "topics": [
+        "security"
+      ],
+      "languages": [
+        "any"
+      ],
+      "review_status": "adopted",
+      "priority": "P0",
+      "why": "Official trust-boundary and prompt-injection guidance.",
+      "review": "reviews/official-learn-security.md",
+      "reviewed_at": "2026-07-17",
+      "collection_action": "link and annotation only"
+    },
+    {
+      "id": "official-learn-workflows",
+      "name": "Workflows overview",
+      "url": "https://learn.microsoft.com/en-us/agent-framework/workflows/",
+      "source_class": "official-doc",
+      "authority": "microsoft",
+      "topics": [
+        "workflows",
+        "orchestration",
+        "durability"
+      ],
+      "languages": [
+        "csharp",
+        "python"
+      ],
+      "review_status": "adopted",
+      "priority": "P0",
+      "why": "Canonical workflow model, API choices, and execution semantics.",
+      "review": "reviews/official-learn-workflows.md",
+      "reviewed_at": "2026-07-17",
+      "collection_action": "link and annotation only"
+    },
+    {
+      "id": "official-learn-workflow-builder",
+      "name": "Workflow builder and execution",
+      "url": "https://learn.microsoft.com/en-us/agent-framework/workflows/workflows",
+      "source_class": "official-doc",
+      "authority": "microsoft",
+      "topics": [
+        "workflows"
+      ],
+      "languages": [
+        "csharp",
+        "python"
+      ],
+      "review_status": "adopted",
+      "priority": "P0",
+      "why": "Graph construction and execution API reference path.",
+      "review": "reviews/official-learn-workflow-builder.md",
+      "reviewed_at": "2026-07-17",
+      "collection_action": "link and annotation only"
+    },
+    {
+      "id": "official-learn-functional-workflow",
+      "name": "Functional Workflow API",
+      "url": "https://learn.microsoft.com/en-us/agent-framework/workflows/functional",
+      "source_class": "official-doc",
+      "authority": "microsoft",
+      "topics": [
+        "workflows"
+      ],
+      "languages": [
+        "python"
+      ],
+      "review_status": "adopted",
+      "priority": "P1",
+      "why": "Plain-async Python workflow API; explicitly experimental and version-sensitive.",
+      "review": "reviews/official-learn-functional-workflow.md",
+      "reviewed_at": "2026-07-17",
+      "collection_action": "link and annotation only"
+    },
+    {
+      "id": "official-learn-declarative-workflows",
+      "name": "Declarative workflows",
+      "url": "https://learn.microsoft.com/en-us/agent-framework/workflows/declarative",
+      "source_class": "official-doc",
+      "authority": "microsoft",
+      "topics": [
+        "declarative",
+        "workflows"
+      ],
+      "languages": [
+        "csharp",
+        "python",
+        "declarative"
+      ],
+      "review_status": "adopted",
+      "priority": "P1",
+      "why": "YAML workflow schema, portability, and programmatic comparison.",
+      "review": "reviews/official-learn-declarative-workflows.md",
+      "reviewed_at": "2026-07-17",
+      "collection_action": "link and annotation only"
+    },
+    {
+      "id": "official-learn-integrations",
+      "name": "Agent Framework integrations",
+      "url": "https://learn.microsoft.com/en-us/agent-framework/integrations/",
+      "source_class": "official-doc",
+      "authority": "microsoft",
+      "topics": [
+        "protocols",
+        "hosting",
+        "providers"
+      ],
+      "languages": [
+        "any"
+      ],
+      "review_status": "adopted",
+      "priority": "P1",
+      "why": "Canonical map for A2A, AG-UI, Durable Task, M365, memory, and security integrations.",
+      "review": "reviews/official-learn-integrations.md",
+      "reviewed_at": "2026-07-17",
+      "collection_action": "link and annotation only"
+    },
+    {
+      "id": "official-learn-a2a",
+      "name": "A2A integration",
+      "url": "https://learn.microsoft.com/en-us/agent-framework/integrations/a2a",
+      "source_class": "official-doc",
+      "authority": "microsoft",
+      "topics": [
+        "protocols"
+      ],
+      "languages": [
+        "csharp",
+        "python"
+      ],
+      "review_status": "adopted",
+      "priority": "P1",
+      "why": "Official remote-agent hosting and consumption boundary.",
+      "review": "reviews/official-learn-a2a.md",
+      "reviewed_at": "2026-07-17",
+      "collection_action": "link and annotation only"
+    },
+    {
+      "id": "official-learn-agui",
+      "name": "AG-UI integration",
+      "url": "https://learn.microsoft.com/en-us/agent-framework/integrations/ag-ui/",
+      "source_class": "official-doc",
+      "authority": "microsoft",
+      "topics": [
+        "protocols",
+        "approvals-hitl",
+        "security"
+      ],
+      "languages": [
+        "csharp",
+        "python",
+        "typescript"
+      ],
+      "review_status": "adopted",
+      "priority": "P1",
+      "why": "Frontend protocol, state, tool rendering, HITL, testing, and security routes.",
+      "review": "reviews/official-learn-agui.md",
+      "reviewed_at": "2026-07-17",
+      "collection_action": "link and annotation only"
+    },
+    {
+      "id": "official-learn-durable-extension",
+      "name": "Durable extension",
+      "url": "https://learn.microsoft.com/en-us/agent-framework/integrations/durable-extension",
+      "source_class": "official-doc",
+      "authority": "microsoft",
+      "topics": [
+        "durability",
+        "hosting"
+      ],
+      "languages": [
+        "csharp",
+        "python"
+      ],
+      "review_status": "adopted",
+      "priority": "P0",
+      "why": "Durable execution, persistence, and hosting integration.",
+      "review": "reviews/official-learn-durable-extension.md",
+      "reviewed_at": "2026-07-17",
+      "collection_action": "link and annotation only"
+    },
+    {
+      "id": "official-learn-migration-autogen",
+      "name": "Migration from AutoGen",
+      "url": "https://learn.microsoft.com/en-us/agent-framework/migration-guide/from-autogen/",
+      "source_class": "official-doc",
+      "authority": "microsoft",
+      "topics": [
+        "migration"
+      ],
+      "languages": [
+        "python"
+      ],
+      "review_status": "adopted",
+      "priority": "P1",
+      "why": "Canonical concept and API migration path from AutoGen.",
+      "review": "reviews/official-learn-migration-autogen.md",
+      "reviewed_at": "2026-07-17",
+      "collection_action": "link and annotation only"
+    },
+    {
+      "id": "official-learn-migration-sk",
+      "name": "Migration from Semantic Kernel",
+      "url": "https://learn.microsoft.com/en-us/agent-framework/migration-guide/from-semantic-kernel/",
+      "source_class": "official-doc",
+      "authority": "microsoft",
+      "topics": [
+        "migration"
+      ],
+      "languages": [
+        "csharp",
+        "python"
+      ],
+      "review_status": "adopted",
+      "priority": "P1",
+      "why": "Canonical concept and API migration path from Semantic Kernel.",
+      "review": "reviews/official-learn-migration-sk.md",
+      "reviewed_at": "2026-07-17",
+      "collection_action": "link and annotation only"
+    },
+    {
+      "id": "official-dotnet-api",
+      "name": "Microsoft.Agents.AI .NET API reference",
+      "url": "https://learn.microsoft.com/en-us/dotnet/api/microsoft.agents.ai",
+      "source_class": "official-doc",
+      "authority": "microsoft",
+      "topics": [
+        "agents"
+      ],
+      "languages": [
+        "csharp"
+      ],
+      "review_status": "adopted",
+      "priority": "P0",
+      "why": "Published .NET public API reference; must be paired with package version.",
+      "review": "reviews/official-dotnet-api.md",
+      "reviewed_at": "2026-07-17",
+      "collection_action": "link and annotation only"
+    },
+    {
+      "id": "official-python-api",
+      "name": "agent_framework Python API reference",
+      "url": "https://learn.microsoft.com/en-us/python/api/agent-framework-core/agent_framework",
+      "source_class": "official-doc",
+      "authority": "microsoft",
+      "topics": [
+        "agents"
+      ],
+      "languages": [
+        "python"
+      ],
+      "review_status": "adopted",
+      "priority": "P0",
+      "why": "Published Python public API reference; must be paired with package version.",
+      "review": "reviews/official-python-api.md",
+      "reviewed_at": "2026-07-17",
+      "collection_action": "link and annotation only"
+    },
+    {
+      "id": "official-blog-hub",
+      "name": "Microsoft Agent Framework engineering blog",
+      "url": "https://devblogs.microsoft.com/agent-framework/",
+      "source_class": "official-engineering",
+      "authority": "microsoft",
+      "topics": [
+        "getting-started"
+      ],
+      "languages": [
+        "any"
+      ],
+      "review_status": "rejected",
+      "priority": "P1",
+      "why": "Official release, feature, protocol, and production guidance stream.",
+      "review": "reviews/official-blog-hub.md",
+      "reviewed_at": "2026-07-17",
+      "collection_action": "none",
+      "review_score": 61
+    },
+    {
+      "id": "official-blog-introduction",
+      "name": "Introducing Microsoft Agent Framework (Preview)",
+      "url": "https://devblogs.microsoft.com/dotnet/introducing-microsoft-agent-framework-preview/",
+      "source_class": "official-engineering",
+      "authority": "microsoft",
+      "topics": [
+        "agents",
+        "workflows",
+        "orchestration"
+      ],
+      "languages": [
+        "csharp"
+      ],
+      "review_status": "adopted",
+      "priority": "P1",
+      "why": "Original .NET architecture and composition explanation; preview-era APIs require drift review.",
+      "review": "reviews/official-blog-introduction.md",
+      "reviewed_at": "2026-07-17",
+      "collection_action": "link and annotation only",
+      "review_score": 80
+    },
+    {
+      "id": "official-blog-durable-workflows",
+      "name": "Durable Workflows in Microsoft Agent Framework",
+      "url": "https://devblogs.microsoft.com/dotnet/durable-workflows-in-microsoft-agent-framework/",
+      "source_class": "official-engineering",
+      "authority": "microsoft",
+      "topics": [
+        "durability",
+        "workflows",
+        "hosting"
+      ],
+      "languages": [
+        "csharp"
+      ],
+      "review_status": "adopted",
+      "priority": "P0",
+      "why": "End-to-end progression from in-memory workflow to durable Azure Functions hosting.",
+      "review": "reviews/official-blog-durable-workflows.md",
+      "reviewed_at": "2026-07-17",
+      "collection_action": "link and annotation only",
+      "review_score": 100
+    },
+    {
+      "id": "official-blog-orchestration-1",
+      "name": "Agent Framework orchestration patterns reach 1.0",
+      "url": "https://devblogs.microsoft.com/agent-framework/agent-frameworks-orchestration-patterns-reach-1-0/",
+      "source_class": "official-engineering",
+      "authority": "microsoft",
+      "topics": [
+        "orchestration",
+        "workflows"
+      ],
+      "languages": [
+        "csharp",
+        "python"
+      ],
+      "review_status": "adopted",
+      "priority": "P0",
+      "why": "Current maturity and supported orchestration pattern announcement.",
+      "review": "reviews/official-blog-orchestration-1.md",
+      "reviewed_at": "2026-07-17",
+      "collection_action": "link and annotation only",
+      "review_score": 100
+    },
+    {
+      "id": "official-blog-hosted-agents",
+      "name": "From local to production with Foundry Hosted Agents",
+      "url": "https://devblogs.microsoft.com/agent-framework/from-local-to-production-deploy-your-microsoft-agent-framework-agent-with-foundry-hosted-agents/",
+      "source_class": "official-engineering",
+      "authority": "microsoft",
+      "topics": [
+        "hosting",
+        "providers"
+      ],
+      "languages": [
+        "csharp",
+        "python"
+      ],
+      "review_status": "adopted",
+      "priority": "P0",
+      "why": "Official local-to-hosted deployment path and operational boundary.",
+      "review": "reviews/official-blog-hosted-agents.md",
+      "reviewed_at": "2026-07-17",
+      "collection_action": "link and annotation only",
+      "review_score": 100
+    },
+    {
+      "id": "official-blog-a2a-v1",
+      "name": "A2A v1 in Microsoft Agent Framework for .NET",
+      "url": "https://devblogs.microsoft.com/agent-framework/a2a-v1-is-here-cross-platform-agent-communication-in-microsoft-agent-framework-for-net/",
+      "source_class": "official-engineering",
+      "authority": "microsoft",
+      "topics": [
+        "protocols",
+        "hosting"
+      ],
+      "languages": [
+        "csharp"
+      ],
+      "review_status": "adopted",
+      "priority": "P1",
+      "why": "Stable A2A v1 hosting and client patterns for .NET.",
+      "review": "reviews/official-blog-a2a-v1.md",
+      "reviewed_at": "2026-07-17",
+      "collection_action": "link and annotation only",
+      "review_score": 100
+    },
+    {
+      "id": "official-community-python-series",
+      "name": "Learn how to build agents and workflows in Python",
+      "url": "https://techcommunity.microsoft.com/blog/azuredevcommunityblog/learn-how-to-build-agents-and-workflows-in-python/4502144",
+      "source_class": "official-engineering",
+      "authority": "microsoft",
+      "topics": [
+        "getting-started",
+        "agents",
+        "workflows"
+      ],
+      "languages": [
+        "python"
+      ],
+      "review_status": "adopted",
+      "priority": "P1",
+      "why": "Microsoft developer-community six-part Python learning series.",
+      "review": "reviews/official-community-python-series.md",
+      "reviewed_at": "2026-07-17",
+      "collection_action": "link and annotation only",
+      "review_score": 95
+    },
+    {
+      "id": "repo-microsoft-agent-framework",
+      "name": "microsoft/agent-framework",
+      "url": "https://github.com/microsoft/agent-framework",
+      "source_class": "official-repository",
+      "authority": "microsoft",
+      "topics": [
+        "all"
+      ],
+      "languages": [
+        "csharp",
+        "python",
+        "declarative"
+      ],
+      "review_status": "adopted",
+      "priority": "P0",
+      "why": "Canonical source, tests, designs, samples, schemas, issues, and release history.",
+      "review": "reviews/repo-microsoft-agent-framework.md",
+      "reviewed_at": "2026-07-17",
+      "collection_action": "project route",
+      "reviewed_commit": "5ab8877ba55b4778d778cf51450eafe483194708",
+      "review_score": 100
+    },
+    {
+      "id": "repo-microsoft-agent-framework-samples",
+      "name": "microsoft/Agent-Framework-Samples",
+      "url": "https://github.com/microsoft/Agent-Framework-Samples",
+      "source_class": "official-repository",
+      "authority": "microsoft",
+      "topics": [
+        "getting-started",
+        "tools",
+        "memory-rag",
+        "orchestration",
+        "workflows"
+      ],
+      "languages": [
+        "csharp",
+        "python"
+      ],
+      "review_status": "quarantined",
+      "priority": "P0",
+      "why": "Factual investigation is complete, including version, portability, CI, safety, and production-gap findings; final evaluation awaits application of policy v1.1.",
+      "review": "reviews/repo-microsoft-agent-framework-samples.md",
+      "reviewed_commit": "5b854b7e1c3838f17f41bcf2412ef79d7662db37",
+      "reviewed_at": "2026-07-17",
+      "collection_action": "none",
+      "review_score": 58
+    },
+    {
+      "id": "repo-microsoft-ai-agents-beginners",
+      "name": "microsoft/ai-agents-for-beginners",
+      "url": "https://github.com/microsoft/ai-agents-for-beginners",
+      "source_class": "official-repository",
+      "authority": "microsoft",
+      "topics": [
+        "getting-started",
+        "agents",
+        "tools",
+        "orchestration"
+      ],
+      "languages": [
+        "python",
+        "csharp"
+      ],
+      "review_status": "context-only",
+      "priority": "P1",
+      "why": "Large beginner curriculum containing a dedicated Microsoft Agent Framework lesson and samples.",
+      "review": "reviews/repo-microsoft-ai-agents-beginners.md",
+      "reviewed_at": "2026-07-17",
+      "collection_action": "none",
+      "reviewed_commit": "ad068048e785ecc3f05d663e7c4ba18a55e72972",
+      "review_score": 66
+    },
+    {
+      "id": "repo-azure-interview-coach",
+      "name": "Azure-Samples/interview-coach-agent-framework",
+      "url": "https://github.com/Azure-Samples/interview-coach-agent-framework",
+      "source_class": "official-repository",
+      "authority": "microsoft",
+      "topics": [
+        "agents",
+        "tools",
+        "hosting",
+        "protocols"
+      ],
+      "languages": [
+        "csharp"
+      ],
+      "review_status": "adopted",
+      "priority": "P0",
+      "why": "Current end-to-end C# application specifically built on Agent Framework.",
+      "review": "reviews/repo-azure-interview-coach.md",
+      "reviewed_at": "2026-07-17",
+      "collection_action": "project route",
+      "reviewed_commit": "d9557897274996c2d0f869bfafe0aba7e53393c0",
+      "review_score": 86
+    },
+    {
+      "id": "repo-azure-travel-agents",
+      "name": "Azure-Samples/azure-ai-travel-agents",
+      "url": "https://github.com/Azure-Samples/azure-ai-travel-agents",
+      "source_class": "official-repository",
+      "authority": "microsoft",
+      "topics": [
+        "orchestration",
+        "protocols",
+        "hosting"
+      ],
+      "languages": [
+        "typescript",
+        "python",
+        "csharp"
+      ],
+      "review_status": "adopted",
+      "priority": "P1",
+      "why": "Enterprise multi-framework comparison deployed on Azure Container Apps; MAF portion needs isolation.",
+      "review": "reviews/repo-azure-travel-agents.md",
+      "reviewed_at": "2026-07-17",
+      "collection_action": "project route",
+      "reviewed_commit": "a66e229c4bd4aeb4eb9b9460e2ec6d1701f142c1",
+      "review_score": 94
+    },
+    {
+      "id": "repo-azure-multi-agent-workshop",
+      "name": "Azure-Samples/multi-agent-orchestration-workshop",
+      "url": "https://github.com/Azure-Samples/multi-agent-orchestration-workshop",
+      "source_class": "official-repository",
+      "authority": "microsoft",
+      "topics": [
+        "orchestration",
+        "hosting",
+        "observability"
+      ],
+      "languages": [
+        "csharp"
+      ],
+      "review_status": "quarantined",
+      "priority": "P0",
+      "why": "MAF, Foundry, and Aspire workshop for multi-agent orchestration patterns.",
+      "review": "reviews/repo-azure-multi-agent-workshop.md",
+      "reviewed_at": "2026-07-17",
+      "collection_action": "none",
+      "reviewed_commit": "4095e86d52e644e691ee19d0076741104dd8111c",
+      "review_score": 61
+    },
+    {
+      "id": "repo-azure-maf-workshop-ko",
+      "name": "Azure-Samples/maf-workshop-in-a-day-ko",
+      "url": "https://github.com/Azure-Samples/maf-workshop-in-a-day-ko",
+      "source_class": "official-repository",
+      "authority": "microsoft",
+      "topics": [
+        "getting-started",
+        "agents",
+        "workflows"
+      ],
+      "languages": [
+        "python",
+        "csharp",
+        "korean"
+      ],
+      "review_status": "quarantined",
+      "priority": "P2",
+      "why": "Full workshop corpus; Korean language and high fork-to-star ratio require provenance review.",
+      "review": "reviews/repo-azure-maf-workshop-ko.md",
+      "reviewed_at": "2026-07-17",
+      "collection_action": "none",
+      "reviewed_commit": "8c79b3c6552e5271f80e834e28cf40565e93d4f1",
+      "review_score": 57
+    },
+    {
+      "id": "repo-microsoft-azure-trust-agents",
+      "name": "microsoft/azure-trust-agents",
+      "url": "https://github.com/microsoft/azure-trust-agents",
+      "source_class": "official-repository",
+      "authority": "microsoft",
+      "topics": [
+        "security",
+        "orchestration",
+        "approvals-hitl"
+      ],
+      "languages": [
+        "python"
+      ],
+      "review_status": "rejected",
+      "priority": "P1",
+      "why": "Financial-compliance multi-agent hackathon with trust and governance scenarios.",
+      "review": "reviews/repo-microsoft-azure-trust-agents.md",
+      "reviewed_at": "2026-07-17",
+      "collection_action": "none",
+      "reviewed_commit": "55b1641b640195b1a45640214f30294cc0d973c9",
+      "review_score": 60
+    },
+    {
+      "id": "repo-microsoft-claims-processing",
+      "name": "microsoft/claims-processing-hack",
+      "url": "https://github.com/microsoft/claims-processing-hack",
+      "source_class": "official-repository",
+      "authority": "microsoft",
+      "topics": [
+        "orchestration",
+        "protocols",
+        "approvals-hitl"
+      ],
+      "languages": [
+        "python"
+      ],
+      "review_status": "rejected",
+      "priority": "P1",
+      "why": "Insurance claims workflow, MCP, and human review scenario.",
+      "review": "reviews/repo-microsoft-claims-processing.md",
+      "reviewed_at": "2026-07-17",
+      "collection_action": "none",
+      "reviewed_commit": "5327acd85e0b65e013ec470bef1f367ae18a459a",
+      "review_score": 52
+    },
+    {
+      "id": "repo-microsoft-spec-to-agents",
+      "name": "microsoft/spec-to-agents",
+      "url": "https://github.com/microsoft/spec-to-agents",
+      "source_class": "official-repository",
+      "authority": "microsoft",
+      "topics": [
+        "orchestration",
+        "workflows",
+        "tools"
+      ],
+      "languages": [
+        "python"
+      ],
+      "review_status": "adopted",
+      "priority": "P1",
+      "why": "Compact multi-agent event-planning workflow with explicit tool and workflow specifications.",
+      "review": "reviews/repo-microsoft-spec-to-agents.md",
+      "reviewed_at": "2026-07-17",
+      "collection_action": "project route",
+      "reviewed_commit": "f40268fa5573ce42a6403eb0edb48997eb24532a",
+      "review_score": 85
+    },
+    {
+      "id": "repo-microsoft-agent-governance-toolkit",
+      "name": "microsoft/agent-governance-toolkit",
+      "url": "https://github.com/microsoft/agent-governance-toolkit",
+      "source_class": "official-repository",
+      "authority": "microsoft",
+      "topics": [
+        "security",
+        "observability",
+        "tools"
+      ],
+      "languages": [
+        "python",
+        "csharp"
+      ],
+      "review_status": "adopted",
+      "priority": "P1",
+      "why": "Governance, zero-trust, sandboxing, and reliability integration material that references MAF.",
+      "review": "reviews/repo-microsoft-agent-governance-toolkit.md",
+      "reviewed_at": "2026-07-17",
+      "collection_action": "project route",
+      "reviewed_commit": "d00ccdbf31258db917495ca65fa2ecd9e64461b9",
+      "review_score": 96
+    },
+    {
+      "id": "repo-dotnet-docs-maui",
+      "name": "dotnet/docs-maui Agent Framework guide",
+      "url": "https://github.com/dotnet/docs-maui/blob/main/docs/ai/agent-framework.md",
+      "source_class": "official-repository",
+      "authority": "microsoft",
+      "topics": [
+        "getting-started",
+        "agents"
+      ],
+      "languages": [
+        "csharp"
+      ],
+      "review_status": "rejected",
+      "priority": "P2",
+      "why": "Official .NET MAUI documentation page using Agent Framework; narrow client-app scope.",
+      "review": "reviews/repo-dotnet-docs-maui.md",
+      "reviewed_at": "2026-07-17",
+      "collection_action": "none",
+      "reviewed_commit": "e75fa6a805d14c89b18a8a51199e05a007082b41",
+      "review_score": 47
+    },
+    {
+      "id": "repo-office-m365-agent-samples",
+      "name": "OfficeDev/microsoft-365-agents-toolkit-samples",
+      "url": "https://github.com/OfficeDev/microsoft-365-agents-toolkit-samples",
+      "source_class": "official-repository",
+      "authority": "microsoft",
+      "topics": [
+        "protocols",
+        "hosting"
+      ],
+      "languages": [
+        "csharp",
+        "typescript"
+      ],
+      "review_status": "context-only",
+      "priority": "P2",
+      "why": "Microsoft 365 proxy-agent and interoperability samples; not all projects use MAF.",
+      "review": "reviews/repo-office-m365-agent-samples.md",
+      "reviewed_at": "2026-07-17",
+      "collection_action": "link and annotation only",
+      "reviewed_commit": "31201f60982d6acf6fc4afa411eecccc6abae717",
+      "review_score": 76
+    },
+    {
+      "id": "repo-eshoplite",
+      "name": "Azure-Samples/eShopLite",
+      "url": "https://github.com/Azure-Samples/eShopLite",
+      "source_class": "official-repository",
+      "authority": "microsoft",
+      "topics": [
+        "agents",
+        "tools",
+        "hosting"
+      ],
+      "languages": [
+        "csharp"
+      ],
+      "review_status": "context-only",
+      "priority": "P2",
+      "why": "Larger .NET application candidate where MAF usage must be separated from unrelated application architecture.",
+      "review": "reviews/repo-eshoplite.md",
+      "reviewed_at": "2026-07-17",
+      "collection_action": "link and annotation only",
+      "reviewed_commit": "f6349114992b233daf92c0ff7ccba0e151e1deff",
+      "review_score": 74
+    },
+    {
+      "id": "community-awesome-maf",
+      "name": "webmaxru/awesome-microsoft-agent-framework",
+      "url": "https://github.com/webmaxru/awesome-microsoft-agent-framework",
+      "source_class": "meta-index",
+      "authority": "community",
+      "topics": [
+        "all"
+      ],
+      "languages": [
+        "any"
+      ],
+      "review_status": "discovered",
+      "priority": "P0",
+      "why": "Discovery-only index; linked primary sources must be audited independently."
+    },
+    {
+      "id": "community-rwjdk-samples",
+      "name": "rwjdk/MicrosoftAgentFrameworkSamples",
+      "url": "https://github.com/rwjdk/MicrosoftAgentFrameworkSamples",
+      "source_class": "community-repository",
+      "authority": "community",
+      "topics": [
+        "agents",
+        "tools",
+        "providers",
+        "workflows"
+      ],
+      "languages": [
+        "csharp"
+      ],
+      "review_status": "context-only",
+      "priority": "P0",
+      "why": "Actively maintained C# sample collection with substantial direct MAF code.",
+      "review": "reviews/community-rwjdk-samples.md",
+      "reviewed_at": "2026-07-17",
+      "collection_action": "link and annotation only",
+      "reviewed_commit": "b6f2234323ebd714248c71bd82b0380a4db4f241",
+      "review_score": 66
+    },
+    {
+      "id": "community-maf-getting-started",
+      "name": "NikiforovAll/maf-getting-started",
+      "url": "https://github.com/NikiforovAll/maf-getting-started",
+      "source_class": "community-repository",
+      "authority": "community",
+      "topics": [
+        "getting-started",
+        "tools",
+        "workflows"
+      ],
+      "languages": [
+        "csharp"
+      ],
+      "review_status": "quarantined",
+      "priority": "P1",
+      "why": "Runnable .NET presentation series; repository currently lacks detected license metadata.",
+      "review": "reviews/community-maf-getting-started.md",
+      "reviewed_at": "2026-07-17",
+      "collection_action": "none",
+      "reviewed_commit": "f38e4378d404e8be2d1a28aad8e9e9d254721c4e",
+      "review_score": 60
+    },
+    {
+      "id": "community-taskagent",
+      "name": "cristofima/TaskAgent-AgenticAI",
+      "url": "https://github.com/cristofima/TaskAgent-AgenticAI",
+      "source_class": "community-repository",
+      "authority": "community",
+      "topics": [
+        "hosting",
+        "sessions-context",
+        "observability",
+        "security"
+      ],
+      "languages": [
+        "csharp"
+      ],
+      "review_status": "adopted",
+      "priority": "P0",
+      "why": "Open-source .NET reference architecture focused on SSE streaming, persistence, observability, and security.",
+      "review": "reviews/community-taskagent.md",
+      "reviewed_at": "2026-07-17",
+      "collection_action": "project route",
+      "reviewed_commit": "4a998448f6b173b366f36a9512ea77c9c355e341",
+      "review_score": 91
+    },
+    {
+      "id": "community-agent-base",
+      "name": "danielscholl/agent-base",
+      "url": "https://github.com/danielscholl/agent-base",
+      "source_class": "community-repository",
+      "authority": "community",
+      "topics": [
+        "observability",
+        "hosting",
+        "security"
+      ],
+      "languages": [
+        "python"
+      ],
+      "review_status": "adopted",
+      "priority": "P0",
+      "why": "Architecture and ADR-rich base project with explicit MAF observability integration.",
+      "review": "reviews/community-agent-base.md",
+      "reviewed_at": "2026-07-17",
+      "collection_action": "project route",
+      "reviewed_commit": "13733a71c1736ab87c02802118320583db866ef4",
+      "review_score": 87
+    },
+    {
+      "id": "community-conference-assistant",
+      "name": "luisquintanilla/dotnet-ai-conference-assistant",
+      "url": "https://github.com/luisquintanilla/dotnet-ai-conference-assistant",
+      "source_class": "community-repository",
+      "authority": "community",
+      "topics": [
+        "agents",
+        "memory-rag",
+        "hosting"
+      ],
+      "languages": [
+        "csharp"
+      ],
+      "review_status": "adopted",
+      "priority": "P1",
+      "why": "End-to-end .NET assistant with a documented application architecture.",
+      "review": "reviews/community-conference-assistant.md",
+      "reviewed_at": "2026-07-17",
+      "collection_action": "project route",
+      "reviewed_commit": "f1042022a7e3b680768e8292053e286600cf5a86",
+      "review_score": 88
+    },
+    {
+      "id": "community-opendeepwiki",
+      "name": "AIDotNet/OpenDeepWiki",
+      "url": "https://github.com/AIDotNet/OpenDeepWiki",
+      "source_class": "community-repository",
+      "authority": "community",
+      "topics": [
+        "memory-rag",
+        "tools",
+        "hosting"
+      ],
+      "languages": [
+        "csharp",
+        "typescript"
+      ],
+      "review_status": "adopted",
+      "priority": "P1",
+      "why": "Large production-style C# application that directly references Microsoft.Agents.AI.",
+      "review": "reviews/community-opendeepwiki.md",
+      "reviewed_at": "2026-07-17",
+      "collection_action": "project route",
+      "reviewed_commit": "2940a6eb5e90447d57273883330c48b05ab8dfdd",
+      "review_score": 93
+    },
+    {
+      "id": "community-agenteval",
+      "name": "AgentEvalHQ/AgentEval",
+      "url": "https://github.com/AgentEvalHQ/AgentEval",
+      "source_class": "community-repository",
+      "authority": "community",
+      "topics": [
+        "evaluation",
+        "observability"
+      ],
+      "languages": [
+        "python",
+        "csharp"
+      ],
+      "review_status": "adopted",
+      "priority": "P1",
+      "why": "Evaluation platform with documented Microsoft Agent Framework integration.",
+      "review": "reviews/community-agenteval.md",
+      "reviewed_at": "2026-07-17",
+      "collection_action": "project route",
+      "reviewed_commit": "404ee133c7ba7e1c6b7f3460f52efc40c7ebde83",
+      "review_score": 100
+    },
+    {
+      "id": "community-opik",
+      "name": "comet-ml/opik",
+      "url": "https://github.com/comet-ml/opik",
+      "source_class": "community-repository",
+      "authority": "community",
+      "topics": [
+        "evaluation",
+        "observability"
+      ],
+      "languages": [
+        "python",
+        "typescript"
+      ],
+      "review_status": "adopted",
+      "priority": "P1",
+      "why": "Mature observability/evaluation project surfaced by direct MAF references; integration depth must be isolated.",
+      "review": "reviews/community-opik.md",
+      "reviewed_at": "2026-07-17",
+      "collection_action": "project route",
+      "reviewed_commit": "9e207b4693948fd276e659098195155f490a3785",
+      "review_score": 86
+    },
+    {
+      "id": "community-zep",
+      "name": "getzep/zep",
+      "url": "https://github.com/getzep/zep",
+      "source_class": "community-repository",
+      "authority": "community",
+      "topics": [
+        "memory-rag"
+      ],
+      "languages": [
+        "python"
+      ],
+      "review_status": "adopted",
+      "priority": "P1",
+      "why": "Memory integration examples discovered through MAF package/import search.",
+      "review": "reviews/community-zep.md",
+      "reviewed_at": "2026-07-17",
+      "collection_action": "project route",
+      "reviewed_commit": "175dd66e0254085ef6347b5763addb19e777611f",
+      "review_score": 100
+    },
+    {
+      "id": "community-engram",
+      "name": "lumetra-io/engram-agent-framework",
+      "url": "https://github.com/lumetra-io/engram-agent-framework",
+      "source_class": "community-repository",
+      "authority": "community",
+      "topics": [
+        "memory-rag",
+        "middleware"
+      ],
+      "languages": [
+        "python"
+      ],
+      "review_status": "quarantined",
+      "priority": "P0",
+      "why": "Purpose-built Agent Framework memory and middleware integration.",
+      "review": "reviews/community-engram.md",
+      "reviewed_at": "2026-07-17",
+      "collection_action": "none",
+      "reviewed_commit": "0504f9f5a895eaec798e481758f9dc0fbea0c8b8",
+      "review_score": 60
+    },
+    {
+      "id": "community-sideseat",
+      "name": "sideseat/sideseat Agent Framework sample",
+      "url": "https://github.com/sideseat/sideseat/tree/main/misc/samples/python/agent-framework",
+      "source_class": "community-repository",
+      "authority": "community",
+      "topics": [
+        "observability",
+        "evaluation"
+      ],
+      "languages": [
+        "python"
+      ],
+      "review_status": "context-only",
+      "priority": "P1",
+      "why": "Narrow integration sample with explicit Agent Framework package coordinates.",
+      "review": "reviews/community-sideseat.md",
+      "reviewed_at": "2026-07-17",
+      "collection_action": "link and annotation only",
+      "reviewed_commit": "c40efef761da8af0e63dc5103afd1e0f01d0cc18",
+      "review_score": 67
+    },
+    {
+      "id": "community-a2a-travel",
+      "name": "zhuohanl/multi-agent-travel-planner-a2a-interop",
+      "url": "https://github.com/zhuohanl/multi-agent-travel-planner-a2a-interop",
+      "source_class": "community-repository",
+      "authority": "community",
+      "topics": [
+        "protocols",
+        "orchestration"
+      ],
+      "languages": [
+        "python"
+      ],
+      "review_status": "rejected",
+      "priority": "P0",
+      "why": "Cross-framework A2A interoperability scenario with direct MAF dependency.",
+      "review": "reviews/community-a2a-travel.md",
+      "reviewed_at": "2026-07-17",
+      "collection_action": "none",
+      "reviewed_commit": "61bbe36cc8ef4433b4715ccf8147c74a3f8d04bb",
+      "review_score": 85
+    },
+    {
+      "id": "community-graphrag-neo4j",
+      "name": "iLoveAgents/agent-framework-graphrag-neo4j",
+      "url": "https://github.com/iLoveAgents/agent-framework-graphrag-neo4j",
+      "source_class": "community-repository",
+      "authority": "community",
+      "topics": [
+        "memory-rag"
+      ],
+      "languages": [
+        "python"
+      ],
+      "review_status": "rejected",
+      "priority": "P0",
+      "why": "Focused MAF and Neo4j GraphRAG integration candidate.",
+      "review": "reviews/community-graphrag-neo4j.md",
+      "reviewed_at": "2026-07-17",
+      "collection_action": "none",
+      "reviewed_commit": "c29e6590ff257ba41137c5129b2f91ecc908a7e4",
+      "review_score": 48
+    },
+    {
+      "id": "community-agui-template",
+      "name": "xxyckiki/MAF-AGUI-Azure-Template",
+      "url": "https://github.com/xxyckiki/MAF-AGUI-Azure-Template",
+      "source_class": "community-repository",
+      "authority": "community",
+      "topics": [
+        "protocols",
+        "hosting",
+        "approvals-hitl"
+      ],
+      "languages": [
+        "python",
+        "typescript"
+      ],
+      "review_status": "rejected",
+      "priority": "P0",
+      "why": "MAF plus AG-UI Azure template with explicit package dependency.",
+      "review": "reviews/community-agui-template.md",
+      "reviewed_at": "2026-07-17",
+      "collection_action": "none",
+      "reviewed_commit": "8da9c9e8e219eb510f633297efc63a7f127aac29",
+      "review_score": 79
+    },
+    {
+      "id": "community-maf-boilerplate",
+      "name": "HakjunMIN/maf-boilerplate",
+      "url": "https://github.com/HakjunMIN/maf-boilerplate",
+      "source_class": "community-repository",
+      "authority": "community",
+      "topics": [
+        "getting-started",
+        "memory-rag",
+        "hosting"
+      ],
+      "languages": [
+        "python"
+      ],
+      "review_status": "rejected",
+      "priority": "P1",
+      "why": "Boilerplate with an agentic-RAG specification; generated-code and completeness risk require review.",
+      "review": "reviews/community-maf-boilerplate.md",
+      "reviewed_at": "2026-07-17",
+      "collection_action": "none",
+      "reviewed_commit": "5b21471e7765bf9207c737dc5ea955a262766f9e",
+      "review_score": 77
+    },
+    {
+      "id": "community-visual-guide",
+      "name": "verdenmax/agent-framework-visual-guide",
+      "url": "https://github.com/verdenmax/agent-framework-visual-guide",
+      "source_class": "community-repository",
+      "authority": "community",
+      "topics": [
+        "getting-started",
+        "agents",
+        "workflows"
+      ],
+      "languages": [
+        "python"
+      ],
+      "review_status": "rejected",
+      "priority": "P1",
+      "why": "Visual, code-backed learning guide discovered through direct symbol search.",
+      "review": "reviews/community-visual-guide.md",
+      "reviewed_at": "2026-07-17",
+      "collection_action": "none",
+      "reviewed_commit": "aef1d4009ee3d3e4bc6cc00562568d6bc1e66447",
+      "review_score": 52
+    },
+    {
+      "id": "community-maf-workshop",
+      "name": "antoniosql/maf-workshop",
+      "url": "https://github.com/antoniosql/maf-workshop",
+      "source_class": "community-repository",
+      "authority": "community",
+      "topics": [
+        "getting-started",
+        "providers",
+        "workflows"
+      ],
+      "languages": [
+        "python"
+      ],
+      "review_status": "rejected",
+      "priority": "P1",
+      "why": "Workshop with explicit Azure and MAF dependency files.",
+      "review": "reviews/community-maf-workshop.md",
+      "reviewed_at": "2026-07-17",
+      "collection_action": "none",
+      "reviewed_commit": "4e9467066cac049d82bf88db0e26fb3754b8ba17",
+      "review_score": 50
+    },
+    {
+      "id": "community-copilot-learning",
+      "name": "kinfey/Learn-MAF-With-GitHubCopilotAgent",
+      "url": "https://github.com/kinfey/Learn-MAF-With-GitHubCopilotAgent",
+      "source_class": "community-repository",
+      "authority": "community",
+      "topics": [
+        "getting-started",
+        "providers"
+      ],
+      "languages": [
+        "csharp",
+        "python"
+      ],
+      "review_status": "rejected",
+      "priority": "P1",
+      "why": "Learning project combining MAF and GitHub Copilot Agent; version and generated-code boundaries need review.",
+      "review": "reviews/community-copilot-learning.md",
+      "reviewed_at": "2026-07-17",
+      "collection_action": "none",
+      "reviewed_commit": "ce82bc9125ad1bdf2ee5f67550347dbe873be00f",
+      "review_score": 48
+    },
+    {
+      "id": "community-loop-engineering",
+      "name": "akshaykokane/loop-engineering-with-microsoft-agent-framework",
+      "url": "https://github.com/akshaykokane/loop-engineering-with-microsoft-agent-framework",
+      "source_class": "community-repository",
+      "authority": "community",
+      "topics": [
+        "workflows",
+        "evaluation",
+        "tools"
+      ],
+      "languages": [
+        "csharp"
+      ],
+      "review_status": "rejected",
+      "priority": "P1",
+      "why": "Direct MAF implementation of iterative/loop engineering patterns.",
+      "review": "reviews/community-loop-engineering.md",
+      "reviewed_at": "2026-07-17",
+      "collection_action": "none",
+      "reviewed_commit": "ee451db4c8b8786ed297946a679d6904e7a816b5",
+      "review_score": 42
+    },
+    {
+      "id": "community-awesome-article-content-strategy",
+      "name": "Multi-agent content strategy tutorial",
+      "url": "https://techcommunity.microsoft.com/blog/educatordeveloperblog/creating-a-fun-multi-agent-content-strategy-system-with-microsoft-agent-framewor/4495105",
+      "source_class": "community-article",
+      "authority": "microsoft-community",
+      "topics": [
+        "orchestration",
+        "tools",
+        "evaluation"
+      ],
+      "languages": [
+        "python"
+      ],
+      "review_status": "adopted",
+      "priority": "P1",
+      "why": "Detailed multi-agent roles, external tool use, refinement loop, and rubric-driven evaluation tutorial.",
+      "review": "reviews/community-awesome-article-content-strategy.md",
+      "reviewed_at": "2026-07-17",
+      "collection_action": "link and annotation only",
+      "review_score": 92
+    }
   ]
 }

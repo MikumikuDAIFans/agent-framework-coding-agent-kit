@@ -30,9 +30,12 @@ def load_json(path: Path) -> dict:
 
 
 def run(command: list[str]) -> None:
-    result = subprocess.run(command, cwd=ROOT, text=True)
+    result = subprocess.run(command, cwd=ROOT, text=True, capture_output=True)
     if result.returncode:
         FAILURES.append(f"Command failed ({result.returncode}): {' '.join(command)}")
+        output = "\n".join(part.strip() for part in (result.stdout, result.stderr) if part.strip())
+        if output:
+            FAILURES.append(output)
 
 
 def validate_review_policy(path: Path) -> None:
@@ -89,6 +92,7 @@ def main() -> int:
         "docs/coding-agent-kit/knowledge/external-sources/sources.json",
         "docs/coding-agent-kit/knowledge/collection/README.md",
         "docs/coding-agent-kit/knowledge/collection/project-routes.json",
+        "docs/coding-agent-kit/knowledge/collection/link-references.json",
         "docs/coding-agent-kit/knowledge/collection/documents.json",
         "docs/coding-agent-kit/knowledge/collection/documents/README.md",
         "docs/coding-agent-kit/knowledge/collection/KNOWLEDGE_INDEX.md",
@@ -97,6 +101,7 @@ def main() -> int:
         "tools/coding-agent-kit/indexer/build_catalog.py",
         "tools/coding-agent-kit/indexer/lookup.py",
         "tools/coding-agent-kit/knowledge/collect.py",
+        "tools/coding-agent-kit/knowledge/maintenance.py",
         "tools/coding-agent-kit/install.py",
     ]
     paths = {path: require(path) for path in required}
@@ -150,8 +155,8 @@ def main() -> int:
     if external.get("policy") != "REVIEW_POLICY.md":
         FAILURES.append("External source registry must point to REVIEW_POLICY.md.")
     external_items = external.get("items", [])
-    if len(external_items) < 50:
-        FAILURES.append(f"External source discovery coverage unexpectedly low: {len(external_items)} sources.")
+    if len(external_items) < 65:
+        FAILURES.append(f"External source registry lost approved coverage: found {len(external_items)}, expected at least 65.")
     allowed_classes = {
         "official-doc",
         "official-engineering",
@@ -164,6 +169,8 @@ def main() -> int:
     allowed_priorities = {"P0", "P1", "P2", "P3"}
     seen_ids: set[str] = set()
     seen_urls: set[str] = set()
+    terminal_states = {"adopted", "context-only", "quarantined", "rejected"}
+    state_counts: dict[str, int] = {state: 0 for state in allowed_states}
     required_external_fields = {
         "id",
         "name",
@@ -194,8 +201,12 @@ def main() -> int:
             FAILURES.append(f"External source {source_id} has an unknown class: {item.get('source_class')}.")
         if item.get("review_status") not in allowed_states:
             FAILURES.append(f"External source {source_id} has an unknown review state: {item.get('review_status')}.")
+        else:
+            state_counts[item["review_status"]] += 1
         if item.get("source_class") == "meta-index" and item.get("review_status") != "discovered":
             FAILURES.append(f"Discovery-only meta index {source_id} must remain in discovered state.")
+        if item.get("source_class") != "meta-index" and item.get("review_status") not in terminal_states:
+            FAILURES.append(f"Reviewable external source {source_id} must be terminal, not {item.get('review_status')}.")
         if item.get("priority") not in allowed_priorities:
             FAILURES.append(f"External source {source_id} has an unknown priority: {item.get('priority')}.")
         if not item.get("topics") or not item.get("languages"):
@@ -206,6 +217,75 @@ def main() -> int:
                 FAILURES.append(f"Reviewed external source {source_id} must point to its review artifact.")
             elif not (paths["docs/coding-agent-kit/knowledge/external-sources/sources.json"].parent / review_path).exists():
                 FAILURES.append(f"External source {source_id} review artifact does not exist: {review_path}.")
+            else:
+                review_file = paths["docs/coding-agent-kit/knowledge/external-sources/sources.json"].parent / review_path
+                review_text = review_file.read_text(encoding="utf-8")
+                for heading in (
+                    "## Snapshot",
+                    "## Direct Microsoft Agent Framework evidence",
+                    "## Verification",
+                    "### Hard gates",
+                    "## Decision",
+                ):
+                    if heading not in review_text:
+                        FAILURES.append(f"Review {review_path} is missing required section: {heading}.")
+                state_match = re.search(r"(?m)^- State: `([^`]+)`", review_text)
+                if not state_match:
+                    FAILURES.append(f"Review {review_path} has no parseable decision state.")
+                elif state_match.group(1) != item.get("review_status"):
+                    FAILURES.append(
+                        f"External source {source_id} registry/review state mismatch: "
+                        f"{item.get('review_status')} != {state_match.group(1)}."
+                    )
+                action_match = re.search(r"(?m)^- Collection action: `([^`]+)`", review_text)
+                if not action_match:
+                    FAILURES.append(f"Review {review_path} has no parseable collection action.")
+                elif action_match.group(1) != item.get("collection_action"):
+                    FAILURES.append(
+                        f"External source {source_id} registry/review collection action mismatch: "
+                        f"{item.get('collection_action')} != {action_match.group(1)}."
+                    )
+                reviewed_at = item.get("reviewed_at", "")
+                if not re.fullmatch(r"20\d{2}-\d{2}-\d{2}", reviewed_at) or reviewed_at not in review_text:
+                    FAILURES.append(f"External source {source_id} must preserve its review date in reviewed_at.")
+                if item.get("review_status") == "adopted":
+                    allowed_actions = (
+                        {"project route"}
+                        if item.get("source_class") in {"official-repository", "community-repository"}
+                        else {"retained Markdown", "link and annotation only"}
+                    )
+                    if item.get("collection_action") not in allowed_actions:
+                        FAILURES.append(
+                            f"Adopted source {source_id} has incompatible collection action: "
+                            f"{item.get('collection_action')}."
+                        )
+                if item.get("source_class") in {"official-repository", "community-repository"}:
+                    reviewed_commit = item.get("reviewed_commit", "")
+                    if not re.fullmatch(r"[0-9a-f]{40}", reviewed_commit):
+                        FAILURES.append(f"Repository source {source_id} must record a 40-character reviewed_commit.")
+                    elif reviewed_commit not in review_text:
+                        FAILURES.append(f"Repository source {source_id} reviewed_commit is absent from its review.")
+                total_match = re.search(
+                    r"(?m)^\|[^\n]*?\*\*Total\*\*\s*\|\s*\*\*100\*\*\s*\|\s*\|\s*\*\*(\d+)\*\*",
+                    review_text,
+                )
+                if item.get("source_class") != "official-doc":
+                    if not total_match:
+                        FAILURES.append(f"Scored review {review_path} has no parseable total.")
+                    elif item.get("review_score") != int(total_match.group(1)):
+                        FAILURES.append(
+                            f"External source {source_id} review_score does not match review total {total_match.group(1)}."
+                        )
+                elif "review_score" in item:
+                    FAILURES.append(f"Official-doc source {source_id} must use the direct-adoption check, not review_score.")
+
+    meta_indexes = [item for item in external_items if item.get("source_class") == "meta-index"]
+    if len(meta_indexes) != 1 or state_counts["discovered"] != 1:
+        FAILURES.append("Exactly one discovery-only meta index must remain discovered.")
+    if len(external_items) - len(meta_indexes) < 64:
+        FAILURES.append("External source registry must retain at least 64 independently reviewable sources.")
+    if state_counts["queued"] or state_counts["in-review"]:
+        FAILURES.append("No reviewable external source may remain queued or in-review.")
 
     scan_roots = [ROOT / ".agents", ROOT / ".codex-plugin", ROOT / "docs/coding-agent-kit", ROOT / "tools/coding-agent-kit"]
     machine_path = re.compile(r"(?:[A-Za-z]:\\Users\\|/home/[^/]+/|/Users/[^/]+/)")
@@ -239,6 +319,7 @@ def main() -> int:
     run([sys.executable, "-m", "unittest", "discover", "tools/coding-agent-kit/knowledge/tests"])
     run([sys.executable, "-m", "unittest", "discover", "tools/coding-agent-kit/tests"])
     run([sys.executable, "tools/coding-agent-kit/knowledge/collect.py", "check"])
+    run([sys.executable, "tools/coding-agent-kit/knowledge/maintenance.py"])
     run([sys.executable, "tools/coding-agent-kit/install.py", "--scope", "user", "--dry-run"])
 
     if FAILURES:

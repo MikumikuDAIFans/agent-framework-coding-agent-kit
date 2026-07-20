@@ -1,0 +1,587 @@
+{
+  "schema_version": 1,
+  "items": [
+    {
+      "id": "community-awesome-article-content-strategy",
+      "source_id": "community-awesome-article-content-strategy",
+      "title": "Multi-agent content strategy tutorial",
+      "url": "https://techcommunity.microsoft.com/blog/educatordeveloperblog/creating-a-fun-multi-agent-content-strategy-system-with-microsoft-agent-framewor/4495105",
+      "review": "docs/coding-agent-kit/knowledge/external-sources/reviews/community-awesome-article-content-strategy.md",
+      "topics": [
+        "orchestration",
+        "tools",
+        "evaluation"
+      ],
+      "languages": [
+        "python"
+      ],
+      "collected_at": "2026-07-20T00:00:00Z",
+      "source_class": "community-article",
+      "route": "design reference for deterministic multi-agent refinement, rubric grounding and graceful external-data degradation.",
+      "annotation": "role specialization, competing feedback channels, explicit weighted rubrics, a maximum iteration count, and three-tier degradation for external trend data.",
+      "limitations": "do not treat simulated platform scores as validated metrics; do not copy article/demo bodies; do not expose tokens or enable sensitive telemetry by default. article and demo are not redistributable into the kit under verified terms; provider calls and behavioral quality remain not-run."
+    },
+    {
+      "id": "official-blog-a2a-v1",
+      "source_id": "official-blog-a2a-v1",
+      "title": "A2A v1 in Microsoft Agent Framework for .NET",
+      "url": "https://devblogs.microsoft.com/agent-framework/a2a-v1-is-here-cross-platform-agent-communication-in-microsoft-agent-framework-for-net/",
+      "review": "docs/coding-agent-kit/knowledge/external-sources/reviews/official-blog-a2a-v1.md",
+      "topics": [
+        "protocols",
+        "hosting"
+      ],
+      "languages": [
+        "csharp"
+      ],
+      "collected_at": "2026-07-20T00:00:00Z",
+      "source_class": "official-engineering",
+      "route": "A2A v1 client/host design route paired with local source/tests.",
+      "annotation": "wrap a remote endpoint behind `AIAgent`; keep discovery, server registration, transport mapping and Agent Card publication explicit; select bindings deliberately.",
+      "limitations": "assuming protocol stability implies SDK GA or trusting arbitrary cards/endpoints. external endpoint trust and transport policy are application concerns."
+    },
+    {
+      "id": "official-blog-durable-workflows",
+      "source_id": "official-blog-durable-workflows",
+      "title": "Durable Workflows in Microsoft Agent Framework",
+      "url": "https://devblogs.microsoft.com/dotnet/durable-workflows-in-microsoft-agent-framework/",
+      "review": "docs/coding-agent-kit/knowledge/external-sources/reviews/official-blog-durable-workflows.md",
+      "topics": [
+        "durability",
+        "workflows",
+        "hosting"
+      ],
+      "languages": [
+        "csharp"
+      ],
+      "collected_at": "2026-07-20T00:00:00Z",
+      "source_class": "official-engineering",
+      "route": "durable workflow design route paired with target source/tests.",
+      "annotation": "preserve the workflow definition while swapping execution runtime; stable executor IDs and typed edges form persistence/compatibility coordinates; checkpoint completed parallel branches.",
+      "limitations": "treating simulated side effects as replay-safe or assuming GA/package versions. distributed replay and failure semantics require exact-version tests."
+    },
+    {
+      "id": "official-blog-hosted-agents",
+      "source_id": "official-blog-hosted-agents",
+      "title": "From local to production with Foundry Hosted Agents",
+      "url": "https://devblogs.microsoft.com/agent-framework/from-local-to-production-deploy-your-microsoft-agent-framework-agent-with-foundry-hosted-agents/",
+      "review": "docs/coding-agent-kit/knowledge/external-sources/reviews/official-blog-hosted-agents.md",
+      "topics": [
+        "hosting",
+        "providers"
+      ],
+      "languages": [
+        "csharp",
+        "python"
+      ],
+      "collected_at": "2026-07-20T00:00:00Z",
+      "source_class": "official-engineering",
+      "route": "hosting architecture and route to exact-version samples/docs.",
+      "annotation": "container/runtime separation, Entra workload identity, per-session isolation, versioned immutable deployments, weighted rollout/rollback, scale-to-zero, persistent session filesystem and injected telemetry.",
+      "limitations": "treating preview integration or service limits as permanent; deploying without identity/network/cost review. service behavior can change independently of the SDK commit."
+    },
+    {
+      "id": "official-blog-introduction",
+      "source_id": "official-blog-introduction",
+      "title": "Introducing Microsoft Agent Framework (Preview)",
+      "url": "https://devblogs.microsoft.com/dotnet/introducing-microsoft-agent-framework-preview/",
+      "review": "docs/coding-agent-kit/knowledge/external-sources/reviews/official-blog-introduction.md",
+      "topics": [
+        "agents",
+        "workflows",
+        "orchestration"
+      ],
+      "languages": [
+        "csharp"
+      ],
+      "collected_at": "2026-07-20T00:00:00Z",
+      "source_class": "official-engineering",
+      "route": "conceptual architecture and locating the matching upstream hello-agent sample.",
+      "annotation": "agents separate reasoning/context/tools; workflows provide explicit structure; `IChatClient` is the provider seam; agents and workflows are composable.",
+      "limitations": "copying preview package commands, token handling, or production defaults without current verification. readers may mistake launch-era preview maturity for current status."
+    },
+    {
+      "id": "official-blog-orchestration-1",
+      "source_id": "official-blog-orchestration-1",
+      "title": "Agent Framework orchestration patterns reach 1.0",
+      "url": "https://devblogs.microsoft.com/agent-framework/agent-frameworks-orchestration-patterns-reach-1-0/",
+      "review": "docs/coding-agent-kit/knowledge/external-sources/reviews/official-blog-orchestration-1.md",
+      "topics": [
+        "orchestration",
+        "workflows"
+      ],
+      "languages": [
+        "csharp",
+        "python"
+      ],
+      "collected_at": "2026-07-20T00:00:00Z",
+      "source_class": "official-engineering",
+      "route": "orchestration selection, bounded Magentic composition and maturity coordinates.",
+      "annotation": "orchestration builders are higher-level constructors over ordinary workflows; choose deterministic sequential/concurrent patterns when routing must stay fixed; use explicit bounds for manager-driven patterns.",
+      "limitations": "production Code Interpreter, unbounded autonomous loops, or cross-language API-name substitution. GA builder does not make a particular prompt/tool topology safe."
+    },
+    {
+      "id": "official-community-python-series",
+      "source_id": "official-community-python-series",
+      "title": "Learn how to build agents and workflows in Python",
+      "url": "https://techcommunity.microsoft.com/blog/azuredevcommunityblog/learn-how-to-build-agents-and-workflows-in-python/4502144",
+      "review": "docs/coding-agent-kit/knowledge/external-sources/reviews/official-community-python-series.md",
+      "topics": [
+        "getting-started",
+        "agents",
+        "workflows"
+      ],
+      "languages": [
+        "python"
+      ],
+      "collected_at": "2026-07-20T00:00:00Z",
+      "source_class": "official-engineering",
+      "route": "topic-oriented learning route and discovery of separately pinned demos.",
+      "annotation": "coherent learning route from one agent through state, observability/evaluation and HITL workflows; demos connect explanation to code.",
+      "limitations": "treating recordings/slides as API proof or using unpinned demo code in production. a moving linked repository may no longer reproduce the recorded sessions."
+    },
+    {
+      "id": "official-dotnet-api",
+      "source_id": "official-dotnet-api",
+      "title": "Microsoft.Agents.AI .NET API reference",
+      "url": "https://learn.microsoft.com/en-us/dotnet/api/microsoft.agents.ai",
+      "review": "docs/coding-agent-kit/knowledge/external-sources/reviews/official-dotnet-api.md",
+      "topics": [
+        "agents"
+      ],
+      "languages": [
+        "csharp"
+      ],
+      "collected_at": "2026-07-20T00:00:00Z",
+      "source_class": "official-doc",
+      "route": "primary official explanation and routing source for **agents**, always paired with target revision/package coordinates and matching source/tests.",
+      "annotation": "Authoritative published namespace/type/member lookup when paired with an explicit package view/version.",
+      "limitations": "Do not cite an unversioned API page as proof a member exists in a pinned package; never mix extension methods from optional provider packages. Microsoft Learn is a moving publication surface; this review does not freeze its body, examples, provider matrix, or API-reference latest view."
+    },
+    {
+      "id": "official-learn-a2a",
+      "source_id": "official-learn-a2a",
+      "title": "A2A integration",
+      "url": "https://learn.microsoft.com/en-us/agent-framework/integrations/a2a",
+      "review": "docs/coding-agent-kit/knowledge/external-sources/reviews/official-learn-a2a.md",
+      "topics": [
+        "protocols"
+      ],
+      "languages": [
+        "csharp",
+        "python"
+      ],
+      "collected_at": "2026-07-20T00:00:00Z",
+      "source_class": "official-doc",
+      "route": "primary official explanation and routing source for **protocols**, always paired with target revision/package coordinates and matching source/tests.",
+      "annotation": "Canonical client/server boundary for exposing agents remotely, resolving agent cards, consuming remote agents, and wrapping them as tools.",
+      "limitations": "Do not trust remote agent cards/content, omit authentication/authorization, forward secrets by default, or assume retries and task resumption are idempotent. Microsoft Learn is a moving publication surface; this review does not freeze its body, examples, provider matrix, or API-reference latest view."
+    },
+    {
+      "id": "official-learn-agents",
+      "source_id": "official-learn-agents",
+      "title": "Agents overview",
+      "url": "https://learn.microsoft.com/en-us/agent-framework/agents/",
+      "review": "docs/coding-agent-kit/knowledge/external-sources/reviews/official-learn-agents.md",
+      "topics": [
+        "agents"
+      ],
+      "languages": [
+        "csharp",
+        "python"
+      ],
+      "collected_at": "2026-07-20T00:00:00Z",
+      "source_class": "official-doc",
+      "route": "primary official explanation and routing source for **agents**, always paired with target revision/package coordinates and matching source/tests.",
+      "annotation": "Canonical provider-neutral agent abstraction, run/stream model, tools, session use, and provider routing.",
+      "limitations": "Do not mix language symbols or assume all provider agents implement identical hosted tools, state, or streaming semantics. Microsoft Learn is a moving publication surface; this review does not freeze its body, examples, provider matrix, or API-reference latest view."
+    },
+    {
+      "id": "official-learn-agui",
+      "source_id": "official-learn-agui",
+      "title": "AG-UI integration",
+      "url": "https://learn.microsoft.com/en-us/agent-framework/integrations/ag-ui/",
+      "review": "docs/coding-agent-kit/knowledge/external-sources/reviews/official-learn-agui.md",
+      "topics": [
+        "protocols",
+        "approvals-hitl",
+        "security"
+      ],
+      "languages": [
+        "csharp",
+        "python",
+        "typescript"
+      ],
+      "collected_at": "2026-07-20T00:00:00Z",
+      "source_class": "official-doc",
+      "route": "primary official explanation and routing source for **protocols, approvals-hitl, security**, always paired with target revision/package coordinates and matching source/tests.",
+      "annotation": "Canonical UI protocol route for streaming, backend/frontend tools, shared state, HITL, workflow exposure, testing, and MCP Apps.",
+      "limitations": "Do not let frontend state or tool results bypass server authorization; protect approvals against replay/forgery and validate all client events. Microsoft Learn is a moving publication surface; this review does not freeze its body, examples, provider matrix, or API-reference latest view."
+    },
+    {
+      "id": "official-learn-conversations",
+      "source_id": "official-learn-conversations",
+      "title": "Conversations and memory overview",
+      "url": "https://learn.microsoft.com/en-us/agent-framework/agents/conversations/",
+      "review": "docs/coding-agent-kit/knowledge/external-sources/reviews/official-learn-conversations.md",
+      "topics": [
+        "sessions-context",
+        "memory-rag"
+      ],
+      "languages": [
+        "csharp",
+        "python"
+      ],
+      "collected_at": "2026-07-20T00:00:00Z",
+      "source_class": "official-doc",
+      "route": "primary official explanation and routing source for **sessions-context, memory-rag**, always paired with target revision/package coordinates and matching source/tests.",
+      "annotation": "Separates run input from session identity/history, context providers, compaction, storage, serialization, and restore.",
+      "limitations": "Do not use in-memory storage as a production durability contract or omit retention, tenant isolation, encryption, concurrency, and schema migration. Microsoft Learn is a moving publication surface; this review does not freeze its body, examples, provider matrix, or API-reference latest view."
+    },
+    {
+      "id": "official-learn-declarative-workflows",
+      "source_id": "official-learn-declarative-workflows",
+      "title": "Declarative workflows",
+      "url": "https://learn.microsoft.com/en-us/agent-framework/workflows/declarative",
+      "review": "docs/coding-agent-kit/knowledge/external-sources/reviews/official-learn-declarative-workflows.md",
+      "topics": [
+        "declarative",
+        "workflows"
+      ],
+      "languages": [
+        "csharp",
+        "python",
+        "declarative"
+      ],
+      "collected_at": "2026-07-20T00:00:00Z",
+      "source_class": "official-doc",
+      "route": "primary official explanation and routing source for **declarative, workflows**, always paired with target revision/package coordinates and matching source/tests.",
+      "annotation": "Canonical schema-driven workflow route, expression/state model, action taxonomy, portability boundaries, and testing guidance.",
+      "limitations": "Do not execute untrusted declarative definitions or assume embedded expressions/tools are sandboxed, authorized, or portable. Microsoft Learn is a moving publication surface; this review does not freeze its body, examples, provider matrix, or API-reference latest view."
+    },
+    {
+      "id": "official-learn-durable-extension",
+      "source_id": "official-learn-durable-extension",
+      "title": "Durable extension",
+      "url": "https://learn.microsoft.com/en-us/agent-framework/integrations/durable-extension",
+      "review": "docs/coding-agent-kit/knowledge/external-sources/reviews/official-learn-durable-extension.md",
+      "topics": [
+        "durability",
+        "hosting"
+      ],
+      "languages": [
+        "csharp",
+        "python"
+      ],
+      "collected_at": "2026-07-20T00:00:00Z",
+      "source_class": "official-doc",
+      "route": "primary official explanation and routing source for **durability, hosting**, always paired with target revision/package coordinates and matching source/tests.",
+      "annotation": "End-to-end route from in-process workflows to durable orchestration, persisted state, activities, HITL, Azure Functions hosting, and deployment.",
+      "limitations": "Do not assume exactly-once activities; side effects need retry safety, idempotency, stable request IDs, authorization, retention, quotas, and rollback. Microsoft Learn is a moving publication surface; this review does not freeze its body, examples, provider matrix, or API-reference latest view."
+    },
+    {
+      "id": "official-learn-evaluation",
+      "source_id": "official-learn-evaluation",
+      "title": "Agent evaluation",
+      "url": "https://learn.microsoft.com/en-us/agent-framework/agents/evaluation",
+      "review": "docs/coding-agent-kit/knowledge/external-sources/reviews/official-learn-evaluation.md",
+      "topics": [
+        "evaluation"
+      ],
+      "languages": [
+        "csharp",
+        "python"
+      ],
+      "collected_at": "2026-07-20T00:00:00Z",
+      "source_class": "official-doc",
+      "route": "primary official explanation and routing source for **evaluation**, always paired with target revision/package coordinates and matching source/tests.",
+      "annotation": "Strong design route for local deterministic checks, expected outputs/tool calls, repetitions, conversation splitters, workflow evaluation, and optional cloud judges.",
+      "limitations": "Do not equate one LLM-judge score with release readiness; define dataset, baseline, threshold, repetitions, failure preservation, cost, and privacy. Microsoft Learn is a moving publication surface; this review does not freeze its body, examples, provider matrix, or API-reference latest view."
+    },
+    {
+      "id": "official-learn-functional-workflow",
+      "source_id": "official-learn-functional-workflow",
+      "title": "Functional Workflow API",
+      "url": "https://learn.microsoft.com/en-us/agent-framework/workflows/functional",
+      "review": "docs/coding-agent-kit/knowledge/external-sources/reviews/official-learn-functional-workflow.md",
+      "topics": [
+        "workflows"
+      ],
+      "languages": [
+        "python"
+      ],
+      "collected_at": "2026-07-20T00:00:00Z",
+      "source_class": "official-doc",
+      "route": "primary official explanation and routing source for **workflows**, always paired with target revision/package coordinates and matching source/tests.",
+      "annotation": "Plain async composition with `@workflow`, optional `@step` caching/checkpointing, streaming, HITL request/resume, and workflow-as-agent.",
+      "limitations": "Do not expose it as stable public architecture, copy it to C#, or place non-idempotent side effects in replayable undecorated functions. Microsoft Learn is a moving publication surface; this review does not freeze its body, examples, provider matrix, or API-reference latest view."
+    },
+    {
+      "id": "official-learn-get-started",
+      "source_id": "official-learn-get-started",
+      "title": "Get started with Agent Framework",
+      "url": "https://learn.microsoft.com/en-us/agent-framework/get-started/",
+      "review": "docs/coding-agent-kit/knowledge/external-sources/reviews/official-learn-get-started.md",
+      "topics": [
+        "getting-started"
+      ],
+      "languages": [
+        "csharp",
+        "python"
+      ],
+      "collected_at": "2026-07-20T00:00:00Z",
+      "source_class": "official-doc",
+      "route": "primary official explanation and routing source for **getting-started**, always paired with target revision/package coordinates and matching source/tests.",
+      "annotation": "Useful learning order: first agent, tools, sessions, memory, workflows, harness, then hosting.",
+      "limitations": "Do not infer deployment, persistence, tenant isolation, retries, or security controls from tutorial progression. Microsoft Learn is a moving publication surface; this review does not freeze its body, examples, provider matrix, or API-reference latest view."
+    },
+    {
+      "id": "official-learn-hub",
+      "source_id": "official-learn-hub",
+      "title": "Microsoft Agent Framework documentation",
+      "url": "https://learn.microsoft.com/en-us/agent-framework/",
+      "review": "docs/coding-agent-kit/knowledge/external-sources/reviews/official-learn-hub.md",
+      "topics": [
+        "getting-started"
+      ],
+      "languages": [
+        "any"
+      ],
+      "collected_at": "2026-07-20T00:00:00Z",
+      "source_class": "official-doc",
+      "route": "primary official explanation and routing source for **getting-started**, always paired with target revision/package coordinates and matching source/tests.",
+      "annotation": "Canonical route map from first agent through tools, conversations, workflows, integrations, migration, and API reference.",
+      "limitations": "Do not cite the hub as an API contract, package-version guarantee, or production-readiness proof. Microsoft Learn is a moving publication surface; this review does not freeze its body, examples, provider matrix, or API-reference latest view."
+    },
+    {
+      "id": "official-learn-integrations",
+      "source_id": "official-learn-integrations",
+      "title": "Agent Framework integrations",
+      "url": "https://learn.microsoft.com/en-us/agent-framework/integrations/",
+      "review": "docs/coding-agent-kit/knowledge/external-sources/reviews/official-learn-integrations.md",
+      "topics": [
+        "protocols",
+        "hosting",
+        "providers"
+      ],
+      "languages": [
+        "any"
+      ],
+      "collected_at": "2026-07-20T00:00:00Z",
+      "source_class": "official-doc",
+      "route": "primary official explanation and routing source for **protocols, hosting, providers**, always paired with target revision/package coordinates and matching source/tests.",
+      "annotation": "Canonical discovery map for A2A, AG-UI, Durable Task, DevUI, memory/vector stores, security, and hosted/provider integrations.",
+      "limitations": "Do not adopt a connector without separate package, license, data-flow, identity, support, and operational review. Microsoft Learn is a moving publication surface; this review does not freeze its body, examples, provider matrix, or API-reference latest view."
+    },
+    {
+      "id": "official-learn-middleware",
+      "source_id": "official-learn-middleware",
+      "title": "Agent middleware overview",
+      "url": "https://learn.microsoft.com/en-us/agent-framework/agents/middleware/",
+      "review": "docs/coding-agent-kit/knowledge/external-sources/reviews/official-learn-middleware.md",
+      "topics": [
+        "middleware"
+      ],
+      "languages": [
+        "csharp",
+        "python"
+      ],
+      "collected_at": "2026-07-20T00:00:00Z",
+      "source_class": "official-doc",
+      "route": "primary official explanation and routing source for **middleware**, always paired with target revision/package coordinates and matching source/tests.",
+      "annotation": "Authoritative interception model for agent/run scopes, chat/tool calls, runtime context, result overrides, termination, and exception handling.",
+      "limitations": "Do not swallow failures, mutate shared state unsafely, leak prompts/tool payloads to telemetry, or assume middleware replaces authorization. Microsoft Learn is a moving publication surface; this review does not freeze its body, examples, provider matrix, or API-reference latest view."
+    },
+    {
+      "id": "official-learn-migration-autogen",
+      "source_id": "official-learn-migration-autogen",
+      "title": "Migration from AutoGen",
+      "url": "https://learn.microsoft.com/en-us/agent-framework/migration-guide/from-autogen/",
+      "review": "docs/coding-agent-kit/knowledge/external-sources/reviews/official-learn-migration-autogen.md",
+      "topics": [
+        "migration"
+      ],
+      "languages": [
+        "python"
+      ],
+      "collected_at": "2026-07-20T00:00:00Z",
+      "source_class": "official-doc",
+      "route": "primary official explanation and routing source for **migration**, always paired with target revision/package coordinates and matching source/tests.",
+      "annotation": "Systematic mapping for agents, messages, tools, teams/orchestration, sessions, middleware, and workflow-based redesign.",
+      "limitations": "Do not mechanically rename APIs or migrate persisted state without characterization tests, package pinning, rollback, and semantic comparison. Microsoft Learn is a moving publication surface; this review does not freeze its body, examples, provider matrix, or API-reference latest view."
+    },
+    {
+      "id": "official-learn-migration-sk",
+      "source_id": "official-learn-migration-sk",
+      "title": "Migration from Semantic Kernel",
+      "url": "https://learn.microsoft.com/en-us/agent-framework/migration-guide/from-semantic-kernel/",
+      "review": "docs/coding-agent-kit/knowledge/external-sources/reviews/official-learn-migration-sk.md",
+      "topics": [
+        "migration"
+      ],
+      "languages": [
+        "csharp",
+        "python"
+      ],
+      "collected_at": "2026-07-20T00:00:00Z",
+      "source_class": "official-doc",
+      "route": "primary official explanation and routing source for **migration**, always paired with target revision/package coordinates and matching source/tests.",
+      "annotation": "Canonical mapping of chat clients, agents, tools, sessions, streaming, plugins, and options from Semantic Kernel to MAF.",
+      "limitations": "Do not migrate by symbol substitution alone or retain obsolete persisted state/provider configuration without tests and rollback. Microsoft Learn is a moving publication surface; this review does not freeze its body, examples, provider matrix, or API-reference latest view."
+    },
+    {
+      "id": "official-learn-observability",
+      "source_id": "official-learn-observability",
+      "title": "Agent observability",
+      "url": "https://learn.microsoft.com/en-us/agent-framework/agents/observability",
+      "review": "docs/coding-agent-kit/knowledge/external-sources/reviews/official-learn-observability.md",
+      "topics": [
+        "observability"
+      ],
+      "languages": [
+        "csharp",
+        "python"
+      ],
+      "collected_at": "2026-07-20T00:00:00Z",
+      "source_class": "official-doc",
+      "route": "primary official explanation and routing source for **observability**, always paired with target revision/package coordinates and matching source/tests.",
+      "annotation": "Canonical tracing route for agents, model calls, tools, workflows, and exporters.",
+      "limitations": "Do not record secrets, raw private prompts, tool payloads, or identity data without explicit redaction and retention controls. Microsoft Learn is a moving publication surface; this review does not freeze its body, examples, provider matrix, or API-reference latest view."
+    },
+    {
+      "id": "official-learn-overview",
+      "source_id": "official-learn-overview",
+      "title": "Microsoft Agent Framework overview",
+      "url": "https://learn.microsoft.com/en-us/agent-framework/overview/",
+      "review": "docs/coding-agent-kit/knowledge/external-sources/reviews/official-learn-overview.md",
+      "topics": [
+        "getting-started",
+        "agents",
+        "workflows"
+      ],
+      "languages": [
+        "any"
+      ],
+      "collected_at": "2026-07-20T00:00:00Z",
+      "source_class": "official-doc",
+      "route": "primary official explanation and routing source for **getting-started, agents, workflows**, always paired with target revision/package coordinates and matching source/tests.",
+      "annotation": "Authoritative scope and the key choice between an open-ended agent and an explicit workflow; also states that deterministic functions should be preferred when sufficient.",
+      "limitations": "Do not treat third-party providers, model names, credentials, or quickstart snippets as production defaults. Microsoft Learn is a moving publication surface; this review does not freeze its body, examples, provider matrix, or API-reference latest view."
+    },
+    {
+      "id": "official-learn-rag",
+      "source_id": "official-learn-rag",
+      "title": "Retrieval-augmented generation",
+      "url": "https://learn.microsoft.com/en-us/agent-framework/agents/rag",
+      "review": "docs/coding-agent-kit/knowledge/external-sources/reviews/official-learn-rag.md",
+      "topics": [
+        "memory-rag"
+      ],
+      "languages": [
+        "csharp",
+        "python"
+      ],
+      "collected_at": "2026-07-20T00:00:00Z",
+      "source_class": "official-doc",
+      "route": "primary official explanation and routing source for **memory-rag**, always paired with target revision/package coordinates and matching source/tests.",
+      "annotation": "Useful separation between retrieval, context injection, search-as-tool, and connector-backed vector storage.",
+      "limitations": "Do not treat retrieved content as trusted instructions; require provenance, access control, tenant filtering, prompt-injection defenses, and evaluation. Microsoft Learn is a moving publication surface; this review does not freeze its body, examples, provider matrix, or API-reference latest view."
+    },
+    {
+      "id": "official-learn-security",
+      "source_id": "official-learn-security",
+      "title": "Agent security",
+      "url": "https://learn.microsoft.com/en-us/agent-framework/agents/security",
+      "review": "docs/coding-agent-kit/knowledge/external-sources/reviews/official-learn-security.md",
+      "topics": [
+        "security"
+      ],
+      "languages": [
+        "any"
+      ],
+      "collected_at": "2026-07-20T00:00:00Z",
+      "source_class": "official-doc",
+      "route": "primary official explanation and routing source for **security**, always paired with target revision/package coordinates and matching source/tests.",
+      "annotation": "Documents deterministic integrity/confidentiality labels and enforcement before sensitive tool execution, complementing general prompt-injection guidance.",
+      "limitations": "Do not market experimental FIDES as complete isolation, substitute it for authorization/sandboxing, or silently propagate labels across unsupported boundaries. Microsoft Learn is a moving publication surface; this review does not freeze its body, examples, provider matrix, or API-reference latest view."
+    },
+    {
+      "id": "official-learn-tools",
+      "source_id": "official-learn-tools",
+      "title": "Agent tools overview",
+      "url": "https://learn.microsoft.com/en-us/agent-framework/agents/tools/",
+      "review": "docs/coding-agent-kit/knowledge/external-sources/reviews/official-learn-tools.md",
+      "topics": [
+        "tools",
+        "approvals-hitl"
+      ],
+      "languages": [
+        "csharp",
+        "python"
+      ],
+      "collected_at": "2026-07-20T00:00:00Z",
+      "source_class": "official-doc",
+      "route": "primary official explanation and routing source for **tools, approvals-hitl**, always paired with target revision/package coordinates and matching source/tests.",
+      "annotation": "Canonical taxonomy and provider-support boundaries for function, hosted, MCP, agent-as-tool, and approval-gated tools.",
+      "limitations": "Do not copy credential examples or expose side-effecting tools without typed validation, authorization, idempotency, timeout, cancellation, audit, and approval. Microsoft Learn is a moving publication surface; this review does not freeze its body, examples, provider matrix, or API-reference latest view."
+    },
+    {
+      "id": "official-learn-workflow-builder",
+      "source_id": "official-learn-workflow-builder",
+      "title": "Workflow builder and execution",
+      "url": "https://learn.microsoft.com/en-us/agent-framework/workflows/workflows",
+      "review": "docs/coding-agent-kit/knowledge/external-sources/reviews/official-learn-workflow-builder.md",
+      "topics": [
+        "workflows"
+      ],
+      "languages": [
+        "csharp",
+        "python"
+      ],
+      "collected_at": "2026-07-20T00:00:00Z",
+      "source_class": "official-doc",
+      "route": "primary official explanation and routing source for **workflows**, always paired with target revision/package coordinates and matching source/tests.",
+      "annotation": "Explains graph construction, execution, streaming/non-streaming results, and bulk-synchronous superstep barriers.",
+      "limitations": "Do not infer race freedom inside an executor, exactly-once delivery, unlimited fan-out, or production persistence from builder examples. Microsoft Learn is a moving publication surface; this review does not freeze its body, examples, provider matrix, or API-reference latest view."
+    },
+    {
+      "id": "official-learn-workflows",
+      "source_id": "official-learn-workflows",
+      "title": "Workflows overview",
+      "url": "https://learn.microsoft.com/en-us/agent-framework/workflows/",
+      "review": "docs/coding-agent-kit/knowledge/external-sources/reviews/official-learn-workflows.md",
+      "topics": [
+        "workflows",
+        "orchestration",
+        "durability"
+      ],
+      "languages": [
+        "csharp",
+        "python"
+      ],
+      "collected_at": "2026-07-20T00:00:00Z",
+      "source_class": "official-doc",
+      "route": "primary official explanation and routing source for **workflows, orchestration, durability**, always paired with target revision/package coordinates and matching source/tests.",
+      "annotation": "Canonical choice between graph workflows and Python functional workflows, with executors, edges, events, checkpointing, and HITL.",
+      "limitations": "Do not assume agentic orchestration provides deterministic business rules, unbounded loop safety, compensation, or exactly-once side effects. Microsoft Learn is a moving publication surface; this review does not freeze its body, examples, provider matrix, or API-reference latest view."
+    },
+    {
+      "id": "official-python-api",
+      "source_id": "official-python-api",
+      "title": "agent_framework Python API reference",
+      "url": "https://learn.microsoft.com/en-us/python/api/agent-framework-core/agent_framework",
+      "review": "docs/coding-agent-kit/knowledge/external-sources/reviews/official-python-api.md",
+      "topics": [
+        "agents"
+      ],
+      "languages": [
+        "python"
+      ],
+      "collected_at": "2026-07-20T00:00:00Z",
+      "source_class": "official-doc",
+      "route": "primary official explanation and routing source for **agents**, always paired with target revision/package coordinates and matching source/tests.",
+      "annotation": "Authoritative published module/class/function lookup when paired with an explicit package version.",
+      "limitations": "Do not import private underscored modules based on generated docs or assume experimental exports have stable signatures. Microsoft Learn is a moving publication surface; this review does not freeze its body, examples, provider matrix, or API-reference latest view."
+    }
+  ]
+}

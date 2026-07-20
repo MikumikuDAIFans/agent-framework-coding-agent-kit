@@ -77,7 +77,8 @@ def score_entry(entry: dict[str, Any], query_tokens: list[str], selected_topics:
 
 def score_external(entry: dict[str, Any], query_tokens: list[str], selected_topics: set[str]) -> int:
     haystack = " ".join(
-        str(entry.get(key, "")) for key in ("title", "route", "design", "limitations", "version")
+        str(entry.get(key, ""))
+        for key in ("title", "route", "design", "annotation", "limitations", "version", "source_class")
     ).lower()
     score = sum(6 for token in query_tokens if token in haystack)
     entry_topics = set(entry.get("topics", []))
@@ -98,6 +99,7 @@ def main() -> int:
     learn = load(catalog_dir / "learn-index.json")
     collection_dir = root / "docs/coding-agent-kit/knowledge/collection"
     project_routes = load_optional(collection_dir / "project-routes.json")
+    link_references = load_optional(collection_dir / "link-references.json")
     collected_documents = load_optional(collection_dir / "documents.json")
     query_tokens = tokenize(args.query)
     selected_topics = choose_topics(query_tokens, catalog, args.topic)
@@ -159,6 +161,19 @@ def main() -> int:
             if score
         ][:10]
 
+    external_links = []
+    if args.role in {"any", "documentation", "design"}:
+        link_scores = [
+            (score_external(item, query_tokens, selected_ids), item)
+            for item in link_references.get("items", [])
+            if external_language_matches(item, args.language)
+        ]
+        external_links = [
+            {"score": score, **item}
+            for score, item in sorted(link_scores, key=lambda pair: (-pair[0], pair[1]["id"]))
+            if score
+        ][:10]
+
     output = {
         "query": args.query,
         "reference_root": str(root),
@@ -167,6 +182,7 @@ def main() -> int:
         "curated": curated,
         "official_docs": learn_pages,
         "external_projects": external_projects,
+        "external_link_references": external_links,
         "collected_documents": external_documents,
         "results": results,
     }
@@ -206,6 +222,16 @@ def main() -> int:
             )
     else:
         print("- No adopted external project route matched.")
+
+    print("\n## Adopted external link references")
+    if external_links:
+        for item in external_links:
+            print(
+                f"- score {item['score']:>2} · [{item['title']}]({item['url']}) · "
+                f"{item['route']} · {item['annotation']} · {item['limitations']}"
+            )
+    else:
+        print("- No adopted external link reference matched.")
 
     print("\n## Collected external documents")
     if external_documents:
