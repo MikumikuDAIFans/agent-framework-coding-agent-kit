@@ -9,8 +9,8 @@
 - Related handoff file: `none`
 - Related execution launch: `docs/coding-agent-kit/EXECUTION_LAUNCH.md`
 - Current branch: `codex/agent-framework-coding-agent-kit`
-- Current active phase: `Phase 5: 最终验证与 GitHub 公开发布`
-- Execution readiness: `executing`
+- Current active phase: `none（计划已完成）`
+- Execution readiness: `completed`
 - Lifecycle route: `research/prototype -> review -> curated maintenance`
 - Development method: `source-driven`，叠加 `review/quality`
 - Scale: `Full`
@@ -135,10 +135,11 @@ agent 的 Microsoft Agent Framework 开发知识系统。对于每个具体开�
   - Phase 9 已交付默认离线、fixture 重放和显式 `--network` 三种模式；离线未执行的网络检查保持 `not-run`，不伪装为 pass。
   - 三个代表性 lookup smoke 均同时返回本地仓库证据、官方文档、外部项目路由和 link-only 参考；覆盖 workflow/orchestration、memory/observability 与 A2A/AG-UI。
   - Microsoft Agent Framework 仍包含版本和成熟度差异；例如 Functional Workflow API 明确标为 experimental。
-  - GitHub CLI 已登录账号 `MikumikuDAIFans`，具有 `repo` 和 `workflow` 权限；目标公开仓库尚不存在，当前也没有 `origin` remote。
+  - GitHub CLI 已登录账号 `MikumikuDAIFans`，具有 `repo` 和 `workflow` 权限，公开发布身份已核验。
   - 既有 kit 提交使用自动身份 `unknown <zhangjiayang@santint.com>`；本仓库后续提交已局部配置为经 GitHub API 核验的 `Displace_Asher <101958750+MikumikuDAIFans@users.noreply.github.com>`，全局 Git 配置未修改。
   - `upstream/main` 与目录锁定基线均为 `5ab8877ba55b4778d778cf51450eafe483194708`；GitHub API SHA、祖先关系、非 shallow 历史和对象连通性均已核验，upstream push URL 已设为 `DISABLED`。
   - 用户既有的 `tools/coding-agent-kit/install.py` 修改已保留并审查，覆盖安装目标规范化、自安装保护和备份名冲突保护；新增 3 个隔离回归测试并接入总 validator，全部通过。
+  - 公共仓库 `MikumikuDAIFans/agent-framework-coding-agent-kit` 已创建，`origin/main` 已发布完整历史与 Git LFS 对象；首次发布提交为 `d284b49b9ebf07f042149bf43ddc1bfa836e5ec6`。
 - Active assumptions:
   - 首批 65 个来源足以建立审核方法，但不是最终穷尽列表。
   - Microsoft/Azure-Samples 归属可以作为 provenance 证据，但仍需逐项验证版本和工程质量。
@@ -204,7 +205,7 @@ agent 的 Microsoft Agent Framework 开发知识系统。对于每个具体开�
 | 全部候选审核闭环 | 64 个可审核来源进入终态；1 个 meta-index 保持 discovery-only | 注册表/队列计数、逐来源 review、政策门禁 | done | `sources.json`、`reviews/` |
 | 审核知识晋升 | 每个 adopted 来源具有项目路由、Markdown 文档或合法的 link/annotation-only 结果 | collection check、catalog drift 与检索验收 | done | `knowledge/collection` |
 | 持续维护入口 | 链接、版本、许可证、归档和 API 漂移检查，可供手动及 CI/automation 调用 | 单测、fixture、无网络 check 与受控网络 smoke test | done | `knowledge/MAINTENANCE.md`、`maintenance.py` |
-| GitHub 公开交付 | 公共仓库、`origin`、fetch-only `upstream`、已推送分支和仓库说明 | `gh repo view`、remote 审计、远端 commit 对照 | pending | GitHub URL |
+| GitHub 公开交付 | 公共仓库、`origin`、fetch-only `upstream`、已推送分支和仓库说明 | `gh repo view`、remote 审计、远端 commit 对照 | done | `https://github.com/MikumikuDAIFans/agent-framework-coding-agent-kit` |
 
 ## 最终完成定义
 
@@ -225,17 +226,17 @@ agent 的 Microsoft Agent Framework 开发知识系统。对于每个具体开�
 | Verification baseline | pass | 2026-07-20 `validate.py` 通过：4,582 files、133 Learn pages、19 topics、8 indexer tests、24 knowledge tests、3 installer tests。 |
 | Upstream compatibility | pass | 本地基线、catalog 与 upstream/main 均锁定 `5ab8877...`，真实历史和对象连通性已验证。 |
 | Worktree integrity | pass | `install.py` 用户修改已保留、审查、测试并有意提交于 `74349c341`。 |
-| Release/publishing | pass-with-boundary | 本地 Git 身份已确认且 upstream push 已禁用；目标仓库、origin 和 push 仍待最终交付。 |
+| Release/publishing | pass | 公共 origin 已创建并发布，Git LFS 对象完整；upstream push 保持 `DISABLED`，远端 main 与发布提交已核对。 |
 | Full-planning capability | pass-with-boundary | `construction-plan-system` 当前不可用；以本任务书、最终审计、执行追踪和启动包作为补偿控制，无未缓解 P0/P1 风险。 |
 
 ## 进度台账
 
-- Overall progress: 上游同步、64 个来源终态审核、42 个 adopted 来源收录、检索整合和 Phase 9 维护入口均已完成并通过本地验证；仅剩最终提交、GitHub 公开发布与远端核验。
+- Overall progress: 上游同步、64 个来源终态审核、42 个 adopted 来源收录、检索整合、Phase 9 维护入口、全量验证和 GitHub 公开发布均已完成。
 - Phase 1: `done`（已同步 `5ab8877...`、重建 catalog 并通过目录与对象完整性验证）
 - Phase 2: `done`
 - Phase 3: `done`
 - Phase 4: `done`
-- Phase 5: `in progress`（本地发布准备完成；公开仓库、origin 和 push 待最终交付）
+- Phase 5: `done`
 - Phase 6: `done`
 - Phase 7: `done`
 - Phase 8: `done`
@@ -245,4 +246,4 @@ agent 的 Microsoft Agent Framework 开发知识系统。对于每个具体开�
 
 ## 下一步动作
 
-运行最终硬验证与检索 smoke，提交全部计划内变更，然后创建并核验公共 GitHub 仓库。
+无；计划已完成。后续维护从 `knowledge/MAINTENANCE.md` 的离线、fixture 或受控网络入口开始。
