@@ -713,7 +713,7 @@ dependencies = [
 [package.metadata]
 requires-dist = [
     { name = "agent-framework-core", editable = "packages/core" },
-    { name = "hyperlight-sandbox", specifier = ">=0.4.0,<0.5" },
+    { name = "hyperlight-sandbox", specifier = ">=0.4.0,<0.6" },
     { name = "hyperlight-sandbox-backend-wasm", marker = "(python_full_version < '3.14' and platform_machine == 'x86_64' and sys_platform == 'linux') or (python_full_version < '3.14' and platform_machine == 'AMD64' and sys_platform == 'win32')", specifier = ">=0.4.0,<0.5" },
     { name = "hyperlight-sandbox-python-guest", specifier = ">=0.4.0,<0.6" },
 ]
@@ -3420,11 +3420,11 @@ wheels = [
 
 [[package]]
 name = "hyperlight-sandbox"
-version = "0.4.0"
+version = "0.5.0"
 source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/de/5e/14c69eac7e1c74fbd556c6f890729a3d232d32d65cd9f8cfde72c0534e61/hyperlight_sandbox-0.4.0.tar.gz", hash = "sha256:90d7b91d4d8e17054e282b0daed55c261392a748dafc57e6416d3184cdac910b", size = 9262, upload-time = "2026-05-02T00:00:02.866Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/95/1f/553cf5301fdea4ed582ed7894387ccd51d2f420283ba6ed09b939a979db6/hyperlight_sandbox-0.5.0.tar.gz", hash = "sha256:582411532a8257a8a31a95fc1265864863e30066a3fe38adec7075228dea23aa", size = 9336, upload-time = "2026-06-24T14:10:29.597Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/fa/e3/b8c106a274c08a30261105afa5511e0ec55960e86b2f6c51e3095e96647c/hyperlight_sandbox-0.4.0-py3-none-any.whl", hash = "sha256:7ae44d2448ed6ecadb368373c7e45eb395521e7774c86a1cbc1ef9cdfc25cd2a", size = 5723, upload-time = "2026-05-02T00:00:03.811Z" },
+    { url = "https://files.pythonhosted.org/packages/19/38/ce119672ac7b84053ca907c2aa2facd633f0dae0f7212db4e76188e95e7c/hyperlight_sandbox-0.5.0-py3-none-any.whl", hash = "sha256:cb0e5d6545adbc451eb3a534ea679a035e95b9112fe99a6f8bd168bd8c073de5", size = 5760, upload-time = "2026-06-24T14:10:28.681Z" },
 ]
 
 [[package]]
