@@ -55,4 +55,3 @@
 - Collection action: `link and annotation only`
 - Re-review trigger: hosting GA, protocol/service contract change, or 12 months.
 - Residual risk: service behavior can change independently of the SDK commit.
-

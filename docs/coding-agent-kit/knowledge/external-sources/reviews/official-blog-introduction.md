@@ -55,4 +55,3 @@
 - Collection action: `link and annotation only`
 - Re-review trigger: removal of mapped agent symbols or a major MAF version.
 - Residual risk: readers may mistake launch-era preview maturity for current status.
-

@@ -57,4 +57,3 @@
 - Collection action: `none`
 - Re-review trigger: complete labs receive CI, tests and pinned/resolved package evidence.
 - Residual risk: polished workshop structure can mask runtime/API drift.
-

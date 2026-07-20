@@ -56,4 +56,3 @@
 - Collection action: `link and annotation only`
 - Re-review trigger: DurableTask API/maturity or persisted-state compatibility changes.
 - Residual risk: distributed replay and failure semantics require exact-version tests.
-

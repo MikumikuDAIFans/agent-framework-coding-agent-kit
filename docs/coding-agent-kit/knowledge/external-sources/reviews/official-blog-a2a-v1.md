@@ -55,4 +55,3 @@
 - Collection action: `link and annotation only`
 - Re-review trigger: A2A package GA/breaking change, protocol revision, or security guidance change.
 - Residual risk: external endpoint trust and transport policy are application concerns.
-

@@ -59,4 +59,3 @@
 - Collection action: `project route`
 - Re-review trigger: upstream baseline changes from `5ab8877...`.
 - Residual risk: live main and published packages can diverge from this source snapshot.
-

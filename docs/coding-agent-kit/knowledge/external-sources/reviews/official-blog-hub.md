@@ -56,4 +56,3 @@
 - Collection action: `none`
 - Re-review trigger: index becomes a versioned, runnable engineering artifact (unlikely).
 - Residual risk: moving content can silently change the visible summaries.
-

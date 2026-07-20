@@ -55,4 +55,3 @@
 - Collection action: `link and annotation only`
 - Re-review trigger: orchestration package major version or stability reversal.
 - Residual risk: GA builder does not make a particular prompt/tool topology safe.
-
