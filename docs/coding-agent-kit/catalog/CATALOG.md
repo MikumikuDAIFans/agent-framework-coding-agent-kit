@@ -12,6 +12,9 @@ Use `python tools/coding-agent-kit/indexer/lookup.py "<query>"` for ranked task-
 
 - [Getting started](#getting-started) (`getting-started`)
 - [Agents and invocation](#agents) (`agents`)
+- [Agent Skills](#agent-skills) (`agent-skills`)
+- [Agent Harness and autonomous loops](#agent-harness) (`agent-harness`)
+- [CodeAct and sandboxed code execution](#codeact) (`codeact`)
 - [Tools and side effects](#tools) (`tools`)
 - [Sessions, conversations, context, and compaction](#sessions-context) (`sessions-context`)
 - [Memory, retrieval, and RAG](#memory-rag) (`memory-rag`)
@@ -100,12 +103,12 @@ Query: `python tools/coding-agent-kit/indexer/lookup.py "agent aiagent agent run
 
 | Role | Language | Files |
 | --- | --- | ---: |
-| design | language-neutral | 7 |
-| implementation | csharp | 366 |
-| implementation | python | 129 |
-| sample | csharp | 258 |
-| sample | python | 102 |
-| test | csharp | 470 |
+| design | language-neutral | 6 |
+| implementation | csharp | 295 |
+| implementation | python | 114 |
+| sample | csharp | 141 |
+| sample | python | 34 |
+| test | csharp | 432 |
 | test | python | 18 |
 
 ### Additional high-signal files
@@ -114,8 +117,8 @@ Query: `python tools/coding-agent-kit/indexer/lookup.py "agent aiagent agent run
 - `design` / `language-neutral` — [Create/Get Agent API](../../../docs/decisions/0011-create-get-agent-api.md) (`docs/decisions/0011-create-get-agent-api.md`)
 - `sample` / `python` — [azure ai agent](../../../python/packages/lab/gaia/samples/azure_ai_agent.py) (`python/packages/lab/gaia/samples/azure_ai_agent.py`)
 - `sample` / `python` — [openai agent](../../../python/packages/lab/gaia/samples/openai_agent.py) (`python/packages/lab/gaia/samples/openai_agent.py`)
-- `sample` / `csharp` — [Agent Step01 File Based Skills](../../../dotnet/samples/02-agents/AgentSkills/Agent_Step01_FileBasedSkills/Agent_Step01_FileBasedSkills.csproj) (`dotnet/samples/02-agents/AgentSkills/Agent_Step01_FileBasedSkills/Agent_Step01_FileBasedSkills.csproj`)
-- `sample` / `csharp` — [Program](../../../dotnet/samples/02-agents/AgentSkills/Agent_Step01_FileBasedSkills/Program.cs) (`dotnet/samples/02-agents/AgentSkills/Agent_Step01_FileBasedSkills/Program.cs`)
+- `sample` / `csharp` — [Agent Step01 Using Function Tools With Approvals](../../../dotnet/samples/02-agents/Agents/Agent_Step01_UsingFunctionToolsWithApprovals/Agent_Step01_UsingFunctionToolsWithApprovals.csproj) (`dotnet/samples/02-agents/Agents/Agent_Step01_UsingFunctionToolsWithApprovals/Agent_Step01_UsingFunctionToolsWithApprovals.csproj`)
+- `sample` / `csharp` — [Program](../../../dotnet/samples/02-agents/Agents/Agent_Step01_UsingFunctionToolsWithApprovals/Program.cs) (`dotnet/samples/02-agents/Agents/Agent_Step01_UsingFunctionToolsWithApprovals/Program.cs`)
 - `implementation` / `python` — [Anthropic Package (agent-framework-anthropic)](../../../python/packages/anthropic/AGENTS.md) (`python/packages/anthropic/AGENTS.md`)
 - `implementation` / `python` — [init](../../../python/packages/anthropic/agent_framework_anthropic/__init__.py) (`python/packages/anthropic/agent_framework_anthropic/__init__.py`)
 - `implementation` / `csharp` — [A2 AAgent](../../../dotnet/src/Microsoft.Agents.AI.A2A/A2AAgent.cs) (`dotnet/src/Microsoft.Agents.AI.A2A/A2AAgent.cs`)
@@ -124,6 +127,149 @@ Query: `python tools/coding-agent-kit/indexer/lookup.py "agent aiagent agent run
 - `test` / `python` — [test 02 multi agent](../../../python/packages/azurefunctions/tests/integration_tests/test_02_multi_agent.py) (`python/packages/azurefunctions/tests/integration_tests/test_02_multi_agent.py`)
 - `test` / `csharp` — [Agent Conformance.Integration Tests](../../../dotnet/tests/AgentConformance.IntegrationTests/AgentConformance.IntegrationTests.csproj) (`dotnet/tests/AgentConformance.IntegrationTests/AgentConformance.IntegrationTests.csproj`)
 - `test` / `csharp` — [Agent Tests](../../../dotnet/tests/AgentConformance.IntegrationTests/AgentTests.cs) (`dotnet/tests/AgentConformance.IntegrationTests/AgentTests.cs`)
+
+## Agent Skills
+<a id="agent-skills"></a>
+
+File, code, class, and MCP-backed skills; progressive disclosure; scripts, resources, filtering, caching, and approvals.
+
+Query: `python tools/coding-agent-kit/indexer/lookup.py "agent skill agent skills skill.md" --topic agent-skills`
+
+### Curated starting points
+
+| Role | Language | Reference | Why |
+| --- | --- | --- | --- |
+| design | any | [`docs/decisions/0021-agent-skills-design.md`](../../../docs/decisions/0021-agent-skills-design.md) | Multi-source Agent Skills architecture and trust boundaries. |
+| implementation | python | [`python/packages/core/agent_framework/_skills.py`](../../../python/packages/core/agent_framework/_skills.py) | Python Agent Skills contracts, loaders, and providers. |
+| sample | python | [`python/samples/02-agents/skills`](../../../python/samples/02-agents/skills) | File, code, class, mixed, MCP, filtering, and approval examples. |
+| implementation | csharp | [`dotnet/src/Microsoft.Agents.AI/Skills`](../../../dotnet/src/Microsoft.Agents.AI/Skills) | .NET skill sources, loaders, decorators, scripts, and resources. |
+| sample | csharp | [`dotnet/samples/02-agents/AgentSkills`](../../../dotnet/samples/02-agents/AgentSkills) | .NET Agent Skills composition and execution examples. |
+| test | python | [`python/packages/core/tests/core/test_skills.py`](../../../python/packages/core/tests/core/test_skills.py) | Python skill behavior and validation contracts. |
+| test | csharp | [`dotnet/tests/Microsoft.Agents.AI.UnitTests/AgentSkills`](../../../dotnet/tests/Microsoft.Agents.AI.UnitTests/AgentSkills) | .NET skill loading, filtering, caching, and script contracts. |
+
+### Official Microsoft Learn
+
+- No page matched automatically; use Microsoft Learn MCP with the topic keywords.
+
+### Indexed coverage
+
+| Role | Language | Files |
+| --- | --- | ---: |
+| design | language-neutral | 1 |
+| implementation | csharp | 42 |
+| sample | csharp | 55 |
+| sample | python | 38 |
+| test | csharp | 28 |
+
+### Additional high-signal files
+
+- `design` / `language-neutral` — [Agent Skills: Multi-Source Architecture](../../../docs/decisions/0021-agent-skills-design.md) (`docs/decisions/0021-agent-skills-design.md`)
+- `sample` / `python` — [SKILL](../../../python/samples/02-agents/harness/build_your_own_claw/skills/risk-scoring/SKILL.md) (`python/samples/02-agents/harness/build_your_own_claw/skills/risk-scoring/SKILL.md`)
+- `sample` / `python` — [Risk-scoring guide (illustrative)](../../../python/samples/02-agents/harness/build_your_own_claw/skills/risk-scoring/references/risk-bands.md) (`python/samples/02-agents/harness/build_your_own_claw/skills/risk-scoring/references/risk-bands.md`)
+- `sample` / `csharp` — [Agent Step26 Foundry Toolbox Mcp Skills](../../../dotnet/samples/02-agents/AgentProviders/foundry/Agent_Step26_FoundryToolboxMcpSkills/Agent_Step26_FoundryToolboxMcpSkills.csproj) (`dotnet/samples/02-agents/AgentProviders/foundry/Agent_Step26_FoundryToolboxMcpSkills/Agent_Step26_FoundryToolboxMcpSkills.csproj`)
+- `sample` / `csharp` — [Program](../../../dotnet/samples/02-agents/AgentProviders/foundry/Agent_Step26_FoundryToolboxMcpSkills/Program.cs) (`dotnet/samples/02-agents/AgentProviders/foundry/Agent_Step26_FoundryToolboxMcpSkills/Program.cs`)
+- `implementation` / `csharp` — [Agent Mcp Skill](../../../dotnet/src/Microsoft.Agents.AI.Mcp/Skills/AgentMcpSkill.cs) (`dotnet/src/Microsoft.Agents.AI.Mcp/Skills/AgentMcpSkill.cs`)
+- `implementation` / `csharp` — [Agent Mcp Skill Resource](../../../dotnet/src/Microsoft.Agents.AI.Mcp/Skills/AgentMcpSkillResource.cs) (`dotnet/src/Microsoft.Agents.AI.Mcp/Skills/AgentMcpSkillResource.cs`)
+- `test` / `csharp` — [Agent Skills Hosted Agent Tests](../../../dotnet/tests/Foundry.Hosting.IntegrationTests/AgentSkillsHostedAgentTests.cs) (`dotnet/tests/Foundry.Hosting.IntegrationTests/AgentSkillsHostedAgentTests.cs`)
+- `test` / `csharp` — [Agent Skills Hosted Agent Fixture](../../../dotnet/tests/Foundry.Hosting.IntegrationTests/Fixtures/AgentSkillsHostedAgentFixture.cs) (`dotnet/tests/Foundry.Hosting.IntegrationTests/Fixtures/AgentSkillsHostedAgentFixture.cs`)
+
+## Agent Harness and autonomous loops
+<a id="agent-harness"></a>
+
+Harness agents, planning and loops, file access and memory, background agents, modes, approvals, and long-running coding-agent patterns.
+
+Query: `python tools/coding-agent-kit/indexer/lookup.py "agent harness harness agent harnessagent" --topic agent-harness`
+
+### Curated starting points
+
+| Role | Language | Reference | Why |
+| --- | --- | --- | --- |
+| implementation | python | [`python/packages/core/agent_framework/_harness`](../../../python/packages/core/agent_framework/_harness) | Python harness composition, memory, file access, planning, approvals, and loops. |
+| sample | python | [`python/samples/02-agents/harness`](../../../python/samples/02-agents/harness) | Progressive Python harness and build-your-own-claw examples. |
+| test | python | [`python/packages/core/tests/core/test_harness_agent.py`](../../../python/packages/core/tests/core/test_harness_agent.py) | Python harness composition and run contracts. |
+| implementation | csharp | [`dotnet/src/Microsoft.Agents.AI.Harness`](../../../dotnet/src/Microsoft.Agents.AI.Harness) | .NET high-level HarnessAgent implementation. |
+| implementation | csharp | [`dotnet/src/Microsoft.Agents.AI/Harness`](../../../dotnet/src/Microsoft.Agents.AI/Harness) | .NET harness providers for files, memory, modes, loops, approvals, and background agents. |
+| sample | csharp | [`dotnet/samples/02-agents/Harness`](../../../dotnet/samples/02-agents/Harness) | Progressive .NET harness and build-your-own-claw examples. |
+| test | csharp | [`dotnet/tests/Microsoft.Agents.AI.Harness.UnitTests`](../../../dotnet/tests/Microsoft.Agents.AI.Harness.UnitTests) | .NET HarnessAgent option and behavior contracts. |
+
+### Official Microsoft Learn
+
+- No page matched automatically; use Microsoft Learn MCP with the topic keywords.
+
+### Indexed coverage
+
+| Role | Language | Files |
+| --- | --- | ---: |
+| implementation | csharp | 56 |
+| implementation | python | 11 |
+| sample | csharp | 96 |
+| sample | python | 47 |
+| test | csharp | 24 |
+
+### Additional high-signal files
+
+- `sample` / `python` — [Harness Agent Samples](../../../python/samples/02-agents/harness/README.md) (`python/samples/02-agents/harness/README.md`)
+- `sample` / `python` — [Build your own claw and agent harness — Python samples](../../../python/samples/02-agents/harness/build_your_own_claw/README.md) (`python/samples/02-agents/harness/build_your_own_claw/README.md`)
+- `sample` / `csharp` — [Claw Step01 Meet Your Claw](../../../dotnet/samples/02-agents/Harness/BuildYourOwnClaw/Claw_Step01_MeetYourClaw/Claw_Step01_MeetYourClaw.csproj) (`dotnet/samples/02-agents/Harness/BuildYourOwnClaw/Claw_Step01_MeetYourClaw/Claw_Step01_MeetYourClaw.csproj`)
+- `sample` / `csharp` — [Program](../../../dotnet/samples/02-agents/Harness/BuildYourOwnClaw/Claw_Step01_MeetYourClaw/Program.cs) (`dotnet/samples/02-agents/Harness/BuildYourOwnClaw/Claw_Step01_MeetYourClaw/Program.cs`)
+- `implementation` / `python` — [init](../../../python/packages/core/agent_framework/_harness/__init__.py) (`python/packages/core/agent_framework/_harness/__init__.py`)
+- `implementation` / `python` — [agent](../../../python/packages/core/agent_framework/_harness/_agent.py) (`python/packages/core/agent_framework/_harness/_agent.py`)
+- `implementation` / `csharp` — [Harness Agent](../../../dotnet/src/Microsoft.Agents.AI.Harness/HarnessAgent.cs) (`dotnet/src/Microsoft.Agents.AI.Harness/HarnessAgent.cs`)
+- `implementation` / `csharp` — [Harness Agent Options](../../../dotnet/src/Microsoft.Agents.AI.Harness/HarnessAgentOptions.cs) (`dotnet/src/Microsoft.Agents.AI.Harness/HarnessAgentOptions.cs`)
+- `test` / `csharp` — [Harness Agent Options Tests](../../../dotnet/tests/Microsoft.Agents.AI.Harness.UnitTests/HarnessAgentOptionsTests.cs) (`dotnet/tests/Microsoft.Agents.AI.Harness.UnitTests/HarnessAgentOptionsTests.cs`)
+- `test` / `csharp` — [Harness Agent Tests](../../../dotnet/tests/Microsoft.Agents.AI.Harness.UnitTests/HarnessAgentTests.cs) (`dotnet/tests/Microsoft.Agents.AI.Harness.UnitTests/HarnessAgentTests.cs`)
+
+## CodeAct and sandboxed code execution
+<a id="codeact"></a>
+
+CodeAct providers, local and Hyperlight/Monty execution, validation, mounts, resource limits, approvals, isolation, and hosted execution.
+
+Query: `python tools/coding-agent-kit/indexer/lookup.py "codeact code act localcodeact" --topic codeact`
+
+### Curated starting points
+
+| Role | Language | Reference | Why |
+| --- | --- | --- | --- |
+| design | any | [`docs/decisions/0024-codeact-integration.md`](../../../docs/decisions/0024-codeact-integration.md) | Backend-specific CodeAct provider design and execution-tool boundary. |
+| implementation | python | [`python/packages/monty`](../../../python/packages/monty) | Python Monty CodeAct provider and sandbox bridge. |
+| test | python | [`python/packages/monty/tests/monty`](../../../python/packages/monty/tests/monty) | Python CodeAct unit and integration behavior. |
+| implementation | csharp | [`dotnet/src/Microsoft.Agents.AI.LocalCodeAct`](../../../dotnet/src/Microsoft.Agents.AI.LocalCodeAct) | .NET local CodeAct validation and process execution. |
+| implementation | csharp | [`dotnet/src/Microsoft.Agents.AI.Hyperlight`](../../../dotnet/src/Microsoft.Agents.AI.Hyperlight) | .NET Hyperlight-isolated CodeAct provider. |
+| sample | csharp | [`dotnet/samples/02-agents/AgentWithCodeAct`](../../../dotnet/samples/02-agents/AgentWithCodeAct) | Progressive CodeAct composition, tool, and manual wiring examples. |
+| test | csharp | [`dotnet/tests/Microsoft.Agents.AI.LocalCodeAct.UnitTests`](../../../dotnet/tests/Microsoft.Agents.AI.LocalCodeAct.UnitTests) | Validation, mounts, limits, and execution contracts. |
+
+### Official Microsoft Learn
+
+- [CodeAct](https://learn.microsoft.com/zh-cn/agent-framework/agents/code_act) — Agents / CodeAct
+- [Hyperlight CodeAct](https://learn.microsoft.com/zh-cn/agent-framework/integrations/hyperlight) — 集成 / Hyperlight CodeAct
+
+### Indexed coverage
+
+| Role | Language | Files |
+| --- | --- | ---: |
+| design | language-neutral | 1 |
+| implementation | csharp | 30 |
+| implementation | python | 17 |
+| sample | csharp | 15 |
+| sample | python | 11 |
+| test | csharp | 17 |
+| test | python | 4 |
+
+### Additional high-signal files
+
+- `design` / `language-neutral` — [CodeAct integration through backend-specific context providers and an `execute_code` tool](../../../docs/decisions/0024-codeact-integration.md) (`docs/decisions/0024-codeact-integration.md`)
+- `sample` / `python` — [monty code act](../../../python/samples/02-agents/context_providers/code_act/monty_code_act.py) (`python/samples/02-agents/context_providers/code_act/monty_code_act.py`)
+- `sample` / `python` — [What this sample demonstrates](../../../python/samples/04-hosting/container/hyperlight_codeact/README.md) (`python/samples/04-hosting/container/hyperlight_codeact/README.md`)
+- `sample` / `csharp` — [Agent With Code Act Step01 Interpreter](../../../dotnet/samples/02-agents/AgentWithCodeAct/AgentWithCodeAct_Step01_Interpreter/AgentWithCodeAct_Step01_Interpreter.csproj) (`dotnet/samples/02-agents/AgentWithCodeAct/AgentWithCodeAct_Step01_Interpreter/AgentWithCodeAct_Step01_Interpreter.csproj`)
+- `sample` / `csharp` — [Program](../../../dotnet/samples/02-agents/AgentWithCodeAct/AgentWithCodeAct_Step01_Interpreter/Program.cs) (`dotnet/samples/02-agents/AgentWithCodeAct/AgentWithCodeAct_Step01_Interpreter/Program.cs`)
+- `implementation` / `python` — [init](../../../python/packages/core/agent_framework/hyperlight/__init__.py) (`python/packages/core/agent_framework/hyperlight/__init__.py`)
+- `implementation` / `python` — [agent-framework-hyperlight](../../../python/packages/hyperlight/README.md) (`python/packages/hyperlight/README.md`)
+- `implementation` / `csharp` — [Allowed Domain](../../../dotnet/src/Microsoft.Agents.AI.Hyperlight/AllowedDomain.cs) (`dotnet/src/Microsoft.Agents.AI.Hyperlight/AllowedDomain.cs`)
+- `implementation` / `csharp` — [Code Act Approval Mode](../../../dotnet/src/Microsoft.Agents.AI.Hyperlight/CodeActApprovalMode.cs) (`dotnet/src/Microsoft.Agents.AI.Hyperlight/CodeActApprovalMode.cs`)
+- `test` / `python` — [test hyperlight namespace](../../../python/packages/core/tests/core/test_hyperlight_namespace.py) (`python/packages/core/tests/core/test_hyperlight_namespace.py`)
+- `test` / `python` — [test hyperlight codeact](../../../python/packages/hyperlight/tests/hyperlight/test_hyperlight_codeact.py) (`python/packages/hyperlight/tests/hyperlight/test_hyperlight_codeact.py`)
+- `test` / `csharp` — [Code Act End To End Tests](../../../dotnet/tests/Microsoft.Agents.AI.Hyperlight.IntegrationTests/CodeActEndToEndTests.cs) (`dotnet/tests/Microsoft.Agents.AI.Hyperlight.IntegrationTests/CodeActEndToEndTests.cs`)
+- `test` / `csharp` — [Microsoft.Agents.AI.Hyperlight.Integration Tests](../../../dotnet/tests/Microsoft.Agents.AI.Hyperlight.IntegrationTests/Microsoft.Agents.AI.Hyperlight.IntegrationTests.csproj) (`dotnet/tests/Microsoft.Agents.AI.Hyperlight.IntegrationTests/Microsoft.Agents.AI.Hyperlight.IntegrationTests.csproj`)
 
 ## Tools and side effects
 <a id="tools"></a>
@@ -159,9 +305,9 @@ Query: `python tools/coding-agent-kit/indexer/lookup.py "tool function tool func
 | --- | --- | ---: |
 | design | language-neutral | 2 |
 | implementation | csharp | 26 |
-| implementation | python | 18 |
-| sample | csharp | 39 |
-| sample | python | 28 |
+| implementation | python | 17 |
+| sample | csharp | 24 |
+| sample | python | 27 |
 | test | csharp | 20 |
 | test | python | 15 |
 
@@ -169,8 +315,8 @@ Query: `python tools/coding-agent-kit/indexer/lookup.py "tool function tool func
 
 - `design` / `language-neutral` — [These are optional elements. Feel free to remove any of them.](../../../docs/decisions/0002-agent-tools.md) (`docs/decisions/0002-agent-tools.md`)
 - `design` / `language-neutral` — [Foundry Toolbox Support in FoundryChatClient](../../../docs/decisions/0025-foundry-toolbox-support.md) (`docs/decisions/0025-foundry-toolbox-support.md`)
-- `sample` / `python` — [tool call display](../../../python/samples/02-agents/harness/console/observers/tool_call_display.py) (`python/samples/02-agents/harness/console/observers/tool_call_display.py`)
 - `sample` / `python` — [Tools](../../../python/samples/02-agents/tools/README.md) (`python/samples/02-agents/tools/README.md`)
+- `sample` / `python` — [agent as tool with session propagation](../../../python/samples/02-agents/tools/agent_as_tool_with_session_propagation.py) (`python/samples/02-agents/tools/agent_as_tool_with_session_propagation.py`)
 - `sample` / `csharp` — [A2 AAgent As Function Tools](../../../dotnet/samples/02-agents/A2A/A2AAgent_AsFunctionTools/A2AAgent_AsFunctionTools.csproj) (`dotnet/samples/02-agents/A2A/A2AAgent_AsFunctionTools/A2AAgent_AsFunctionTools.csproj`)
 - `sample` / `csharp` — [Program](../../../dotnet/samples/02-agents/A2A/A2AAgent_AsFunctionTools/Program.cs) (`dotnet/samples/02-agents/A2A/A2AAgent_AsFunctionTools/Program.cs`)
 - `implementation` / `python` — [tools](../../../python/packages/core/agent_framework/_tools.py) (`python/packages/core/agent_framework/_tools.py`)
@@ -214,8 +360,7 @@ Query: `python tools/coding-agent-kit/indexer/lookup.py "session conversation co
 | design | language-neutral | 7 |
 | implementation | csharp | 40 |
 | implementation | python | 2 |
-| sample | csharp | 1 |
-| sample | python | 35 |
+| sample | python | 34 |
 | test | csharp | 75 |
 | test | python | 3 |
 
@@ -225,7 +370,6 @@ Query: `python tools/coding-agent-kit/indexer/lookup.py "session conversation co
 - `design` / `language-neutral` — [Context Compaction Strategy for Long-Running Agents](../../../docs/decisions/0019-python-context-compaction-strategy.md) (`docs/decisions/0019-python-context-compaction-strategy.md`)
 - `sample` / `python` — [Context Compaction Samples](../../../python/samples/02-agents/compaction/README.md) (`python/samples/02-agents/compaction/README.md`)
 - `sample` / `python` — [advanced](../../../python/samples/02-agents/compaction/advanced.py) (`python/samples/02-agents/compaction/advanced.py`)
-- `sample` / `csharp` — [Session Command Handler](../../../dotnet/samples/02-agents/Harness/Harness_Shared_Console/Commands/SessionCommandHandler.cs) (`dotnet/samples/02-agents/Harness/Harness_Shared_Console/Commands/SessionCommandHandler.cs`)
 - `implementation` / `python` — [compaction](../../../python/packages/core/agent_framework/_compaction.py) (`python/packages/core/agent_framework/_compaction.py`)
 - `implementation` / `python` — [sessions](../../../python/packages/core/agent_framework/_sessions.py) (`python/packages/core/agent_framework/_sessions.py`)
 - `implementation` / `csharp` — [A2 AAgent Session](../../../dotnet/src/Microsoft.Agents.AI.A2A/A2AAgentSession.cs) (`dotnet/src/Microsoft.Agents.AI.A2A/A2AAgentSession.cs`)
@@ -323,11 +467,11 @@ Query: `python tools/coding-agent-kit/indexer/lookup.py "middleware filtering in
 | Role | Language | Files |
 | --- | --- | ---: |
 | design | language-neutral | 2 |
-| implementation | csharp | 3 |
+| implementation | csharp | 2 |
 | implementation | python | 2 |
 | sample | csharp | 6 |
-| sample | python | 26 |
-| test | csharp | 2 |
+| sample | python | 20 |
+| test | csharp | 1 |
 | test | python | 6 |
 
 ### Additional high-signal files
@@ -344,7 +488,6 @@ Query: `python tools/coding-agent-kit/indexer/lookup.py "middleware filtering in
 - `implementation` / `csharp` — [Built In Function Execution Middleware](../../../dotnet/src/Microsoft.Agents.AI.Hosting.AzureFunctions/Middlewares/BuiltInFunctionExecutionMiddleware.cs) (`dotnet/src/Microsoft.Agents.AI.Hosting.AzureFunctions/Middlewares/BuiltInFunctionExecutionMiddleware.cs`)
 - `test` / `python` — [test middleware](../../../python/packages/core/tests/core/test_middleware.py) (`python/packages/core/tests/core/test_middleware.py`)
 - `test` / `python` — [test middleware context result](../../../python/packages/core/tests/core/test_middleware_context_result.py) (`python/packages/core/tests/core/test_middleware_context_result.py`)
-- `test` / `csharp` — [Filtering Agent Skills Source Tests](../../../dotnet/tests/Microsoft.Agents.AI.UnitTests/AgentSkills/FilteringAgentSkillsSourceTests.cs) (`dotnet/tests/Microsoft.Agents.AI.UnitTests/AgentSkills/FilteringAgentSkillsSourceTests.cs`)
 - `test` / `csharp` — [Futures.Agent Response Output Filtering And Tagging Tests](../../../dotnet/tests/Microsoft.Agents.AI.Workflows.UnitTests/Futures/Futures.AgentResponseOutputFilteringAndTaggingTests.cs) (`dotnet/tests/Microsoft.Agents.AI.Workflows.UnitTests/Futures/Futures.AgentResponseOutputFilteringAndTaggingTests.cs`)
 
 ## Model and agent providers
@@ -380,11 +523,11 @@ Query: `python tools/coding-agent-kit/indexer/lookup.py "provider foundry azure 
 | Role | Language | Files |
 | --- | --- | ---: |
 | design | language-neutral | 5 |
-| implementation | csharp | 71 |
-| implementation | python | 79 |
-| sample | csharp | 166 |
+| implementation | csharp | 60 |
+| implementation | python | 78 |
+| sample | csharp | 160 |
 | sample | python | 108 |
-| test | csharp | 115 |
+| test | csharp | 109 |
 | test | python | 40 |
 
 ### Additional high-signal files
@@ -589,9 +732,9 @@ Query: `python tools/coding-agent-kit/indexer/lookup.py "approval human in the l
 | Role | Language | Files |
 | --- | --- | ---: |
 | design | language-neutral | 1 |
-| implementation | csharp | 14 |
+| implementation | csharp | 13 |
 | implementation | python | 3 |
-| sample | csharp | 41 |
+| sample | csharp | 38 |
 | sample | python | 41 |
 | test | csharp | 12 |
 | test | python | 13 |
@@ -641,16 +784,16 @@ Query: `python tools/coding-agent-kit/indexer/lookup.py "observability opentelem
 | design | language-neutral | 1 |
 | implementation | csharp | 16 |
 | implementation | python | 2 |
-| sample | csharp | 12 |
-| sample | python | 11 |
+| sample | csharp | 10 |
+| sample | python | 10 |
 | test | csharp | 4 |
 | test | python | 3 |
 
 ### Additional high-signal files
 
 - `design` / `language-neutral` — [Agent OpenTelemetry Instrumentation](../../../docs/decisions/0003-agent-opentelemetry-instrumentation.md) (`docs/decisions/0003-agent-opentelemetry-instrumentation.md`)
-- `sample` / `python` — [valuation metrics](../../../python/samples/02-agents/harness/build_your_own_claw/skills/valuation/scripts/valuation_metrics.py) (`python/samples/02-agents/harness/build_your_own_claw/skills/valuation/scripts/valuation_metrics.py`)
 - `sample` / `python` — [Agent Framework Observability](../../../python/samples/02-agents/observability/README.md) (`python/samples/02-agents/observability/README.md`)
+- `sample` / `python` — [advanced manual setup console output](../../../python/samples/02-agents/observability/advanced_manual_setup_console_output.py) (`python/samples/02-agents/observability/advanced_manual_setup_console_output.py`)
 - `sample` / `csharp` — [Agent Open Telemetry](../../../dotnet/samples/02-agents/AgentOpenTelemetry/AgentOpenTelemetry.csproj) (`dotnet/samples/02-agents/AgentOpenTelemetry/AgentOpenTelemetry.csproj`)
 - `sample` / `csharp` — [Program](../../../dotnet/samples/02-agents/AgentOpenTelemetry/Program.cs) (`dotnet/samples/02-agents/AgentOpenTelemetry/Program.cs`)
 - `implementation` / `python` — [telemetry](../../../python/packages/core/agent_framework/_telemetry.py) (`python/packages/core/agent_framework/_telemetry.py`)
@@ -688,11 +831,11 @@ Query: `python tools/coding-agent-kit/indexer/lookup.py "evaluation eval grader"
 | Role | Language | Files |
 | --- | --- | ---: |
 | design | language-neutral | 1 |
-| implementation | csharp | 34 |
+| implementation | csharp | 24 |
 | implementation | python | 2 |
 | sample | csharp | 30 |
 | sample | python | 21 |
-| test | csharp | 17 |
+| test | csharp | 12 |
 | test | python | 2 |
 
 ### Additional high-signal files
@@ -741,7 +884,7 @@ Query: `python tools/coding-agent-kit/indexer/lookup.py "hosting deployment azur
 | design | language-neutral | 3 |
 | implementation | csharp | 182 |
 | implementation | python | 19 |
-| sample | csharp | 253 |
+| sample | csharp | 246 |
 | sample | python | 187 |
 | test | csharp | 190 |
 | test | python | 10 |
@@ -797,11 +940,11 @@ Query: `python tools/coding-agent-kit/indexer/lookup.py "mcp model context proto
 | Role | Language | Files |
 | --- | --- | ---: |
 | design | language-neutral | 2 |
-| implementation | csharp | 44 |
+| implementation | csharp | 41 |
 | implementation | python | 67 |
 | sample | csharp | 171 |
-| sample | python | 62 |
-| test | csharp | 32 |
+| sample | python | 61 |
+| test | csharp | 30 |
 | test | python | 52 |
 
 ### Additional high-signal files
@@ -904,17 +1047,16 @@ Query: `python tools/coding-agent-kit/indexer/lookup.py "security prompt injecti
 
 | Role | Language | Files |
 | --- | --- | ---: |
-| design | language-neutral | 2 |
-| implementation | csharp | 107 |
-| implementation | python | 19 |
-| sample | csharp | 32 |
+| design | language-neutral | 1 |
+| implementation | csharp | 90 |
+| implementation | python | 18 |
+| sample | csharp | 27 |
 | sample | python | 17 |
-| test | csharp | 21 |
-| test | python | 15 |
+| test | csharp | 13 |
+| test | python | 13 |
 
 ### Additional high-signal files
 
-- `design` / `language-neutral` — [CodeAct integration through backend-specific context providers and an `execute_code` tool](../../../docs/decisions/0024-codeact-integration.md) (`docs/decisions/0024-codeact-integration.md`)
 - `design` / `language-neutral` — [FIDES - Deterministic Prompt Injection Defense [Costa et al., 2025]](../../../docs/decisions/0024-prompt-injection-defense.md) (`docs/decisions/0024-prompt-injection-defense.md`)
 - `sample` / `python` — [FIDES: Deterministic Prompt Injection Defense System ([Costa et al., 2025](https://arxiv.org/abs/2505.23643))](../../../python/samples/02-agents/security/FIDES_DEVELOPER_GUIDE.md) (`python/samples/02-agents/security/FIDES_DEVELOPER_GUIDE.md`)
 - `sample` / `python` — [FIDES security samples](../../../python/samples/02-agents/security/README.md) (`python/samples/02-agents/security/README.md`)

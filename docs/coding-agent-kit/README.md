@@ -27,7 +27,8 @@ python tools/coding-agent-kit/indexer/lookup.py "A2A hosting" --topic protocols
 
 ### Work inside this fork
 
-Open this repository as the workspace. Codex discovers `.agents/skills/maf-expert`, and `AGENTS.md` routes MAF-specific tasks to it. No project `.codex/config.toml` is required.
+Open this repository as the workspace. Codex discovers `.agents/skills/maf-expert` for MAF development and
+`.agents/skills/maf-kit-maintainer` for version-aware kit maintenance. No project `.codex/config.toml` is required.
 
 ### Use as a reference for another MAF project
 
@@ -46,7 +47,9 @@ You can override the recorded path later with `MAF_REFERENCE_REPO`. The Skill ke
 
 ### Install as a Codex plugin
 
-The repository root contains `.codex-plugin/plugin.json` and `.mcp.json`. Plugin installation exposes the Skill and an optional Microsoft Learn MCP fallback. The plugin does not change the user's model, permission, sandbox, web-search, or feature settings.
+The repository root contains `.codex-plugin/plugin.json` and `.mcp.json`. Plugin installation exposes both
+Skills and an optional Microsoft Learn MCP fallback. The plugin does not change the user's model, permission,
+sandbox, web-search, or feature settings.
 
 ## Catalog model
 
@@ -58,6 +61,10 @@ The repository root contains `.codex-plugin/plugin.json` and `.mcp.json`. Plugin
   redistributable documents to provenance-tracked Markdown.
 - `tools/coding-agent-kit/knowledge/maintenance.py` reports link, archive, version, license, and API drift
   without silently changing review or collection state.
+- `tools/coding-agent-kit/knowledge/discovery.py` discovers new official and high-signal community candidates
+  without promoting unreviewed content.
+- `docs/coding-agent-kit/knowledge/collection/archive.json` preserves retired active routes while excluding
+  them from normal lookup.
 - `docs/coding-agent-kit/knowledge/collection/KNOWLEDGE_INDEX.md` is the generated external knowledge route.
 - Generated files under `docs/coding-agent-kit/catalog` are not hand-edited.
 

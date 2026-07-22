@@ -1,0 +1,5 @@
+{
+  "schema_version": 1,
+  "description": "Historical ledger for sources retired from active collection. Archived items are excluded from lookup results.",
+  "items": []
+}

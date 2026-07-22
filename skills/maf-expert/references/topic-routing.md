@@ -6,6 +6,9 @@ Use the narrowest matching topic ID. Query the generated catalog for exact entri
 | --- | --- |
 | `getting-started` | basic agent construction, installation, first tool/session/workflow |
 | `agents` | agent lifecycle, invocation, responses, structured output, composition |
+| `agent-skills` | file/code/class/MCP skills, progressive disclosure, scripts, resources, filtering and approvals |
+| `agent-harness` | autonomous harnesses, planning/loops, files, memory, background agents and modes |
+| `codeact` | local, Monty or Hyperlight CodeAct, sandboxing, mounts, limits and execution approvals |
 | `tools` | function tools, MCP tools, dynamic tools, schemas, side effects |
 | `sessions-context` | sessions, conversations, context providers, history, compaction |
 | `memory-rag` | memory providers, vector/graph retrieval, RAG, embeddings |

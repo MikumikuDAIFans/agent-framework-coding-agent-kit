@@ -1,6 +1,9 @@
 name: Coding Agent Kit
 
 on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 1 * * 1"
   pull_request:
     paths:
       - ".agents/**"
@@ -12,6 +15,7 @@ on:
       - ".github/workflows/coding-agent-kit.yml"
   push:
     branches:
+      - "main"
       - "codex/agent-framework-coding-agent-kit"
     paths:
       - ".agents/**"
@@ -36,3 +40,42 @@ jobs:
           python-version: "3.12"
       - name: Validate generated catalogs and kit structure
         run: python tools/coding-agent-kit/validate.py
+
+  maintenance-observe:
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Observe external source drift
+        id: drift
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: >-
+          python tools/coding-agent-kit/knowledge/maintenance.py
+          --network --all --timeout 20 --output maintenance-report.json
+      - name: Discover new MAF sources
+        id: discovery
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: >-
+          python tools/coding-agent-kit/knowledge/discovery.py
+          --network --timeout 20 --output discovery-report.json
+      - name: Upload maintenance evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: coding-agent-kit-maintenance-${{ github.run_id }}
+          path: |
+            maintenance-report.json
+            discovery-report.json
+          if-no-files-found: error
+          retention-days: 30
+      - name: Preserve drift or failure status
+        if: steps.drift.outcome == 'failure' || steps.discovery.outcome == 'failure'
+        run: exit 1

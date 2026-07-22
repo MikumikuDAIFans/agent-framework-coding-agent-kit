@@ -40,6 +40,7 @@
       "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/agents/code_act?accept=text%2Fmarkdown",
       "doc_path": "agents/code_act.md",
       "topics": [
+        "codeact",
         "security"
       ]
     },
@@ -1721,6 +1722,7 @@
       "markdown_url": "https://learn.microsoft.com/zh-cn/agent-framework/integrations/hyperlight?accept=text%2Fmarkdown",
       "doc_path": "integrations/hyperlight.md",
       "topics": [
+        "codeact",
         "security"
       ]
     },

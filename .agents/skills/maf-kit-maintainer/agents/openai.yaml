@@ -1,0 +1,4 @@
+interface:
+  display_name: "MAF Kit Maintainer"
+  short_description: "Refresh and stabilize the MAF coding-agent kit"
+  default_prompt: "Use $maf-kit-maintainer to run a version-aware maintenance cycle for this Agent Framework Coding Agent Kit."

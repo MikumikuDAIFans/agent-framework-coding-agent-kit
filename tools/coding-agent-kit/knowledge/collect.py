@@ -548,7 +548,14 @@ def check(root: Path) -> list[str]:
     if actual_index != expected_index:
         failures.append("Collected knowledge index is out of date.")
 
-    allowed_root_files = {"README.md", "project-routes.json", "link-references.json", "documents.json", "KNOWLEDGE_INDEX.md"}
+    allowed_root_files = {
+        "README.md",
+        "project-routes.json",
+        "link-references.json",
+        "documents.json",
+        "archive.json",
+        "KNOWLEDGE_INDEX.md",
+    }
     for path in collection_root.rglob("*"):
         if not path.is_file():
             continue

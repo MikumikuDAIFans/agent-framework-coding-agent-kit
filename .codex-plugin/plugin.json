@@ -1,7 +1,7 @@
 {
   "name": "agent-framework-coding-agent-kit",
-  "version": "0.1.0",
-  "description": "A coding-agent development kit built on microsoft/agent-framework with indexed docs, designs, samples, source, and tests for C# and Python agent systems.",
+  "version": "0.2.0",
+  "description": "A maintained coding-agent development kit built on microsoft/agent-framework with indexed docs, designs, samples, source, tests, drift discovery, and archival controls.",
   "author": {
     "name": "Agent Framework Coding Agent Kit contributors"
   },
@@ -12,21 +12,23 @@
     "agents",
     "workflows",
     "csharp",
-    "python"
+    "python",
+    "maintenance"
   ],
   "skills": "./skills/",
   "mcpServers": "./.mcp.json",
   "interface": {
     "displayName": "Agent Framework Coding Agent Kit",
     "shortDescription": "Indexed MAF engineering references for coding agents",
-    "longDescription": "Build, debug, review, migrate, evaluate, and operate Microsoft Agent Framework systems using an indexed upstream corpus of documentation, designs, samples, implementation, and tests.",
+    "longDescription": "Build, debug, review, migrate, evaluate, and operate Microsoft Agent Framework systems using an indexed upstream corpus of documentation, designs, samples, implementation, and tests, plus a scheduled maintenance workflow for freshness and stability.",
     "developerName": "Agent Framework Coding Agent Kit contributors",
     "category": "Developer Tools",
     "capabilities": ["Read", "Write"],
     "defaultPrompt": [
       "Use the MAF expert to find the best reference implementation for this agent feature.",
       "Use the MAF expert to design and verify this workflow across Python and .NET.",
-      "Use the MAF expert to debug this Agent Framework behavior from docs, source, and tests."
+      "Use the MAF expert to debug this Agent Framework behavior from docs, source, and tests.",
+      "Use the MAF kit maintainer to discover upstream drift, refresh evidence, and archive superseded references."
     ]
   }
 }

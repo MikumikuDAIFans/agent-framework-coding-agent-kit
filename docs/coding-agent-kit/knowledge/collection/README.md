@@ -8,6 +8,8 @@ This directory contains only reviewed, adopted external knowledge.
   redistribution permission has not been verified. It never stores the source body.
 - `documents.json` is the manifest for locally retained documents.
 - `documents/` contains normalized Markdown only when redistribution terms permit it.
+- `archive.json` preserves the last active coordinates and retirement reason for adopted sources removed
+  from active lookup; it is history, not a fourth searchable manifest.
 - `KNOWLEDGE_INDEX.md` is generated from all three manifests and is the entry point used by coding agents.
 
 Candidate discovery and reviews remain under `../external-sources`. An item must be `adopted` there before

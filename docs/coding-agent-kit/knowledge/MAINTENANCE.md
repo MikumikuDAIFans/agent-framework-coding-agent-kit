@@ -5,6 +5,28 @@ repository, version, license, archive, and API re-review signals. It never chang
 review files, or collection manifests. A coding agent or maintainer evaluates the report and applies the
 approved review policy explicitly.
 
+Use the repository Skill at `.agents/skills/maf-kit-maintainer` for the complete operating cycle: upstream
+comparison, technology discovery, topic-coverage review, source re-review, retirement, validation, and
+publication. The machine check remains deliberately read-only.
+
+The active collection manifests are accompanied by `collection/archive.json`. When an adopted source is
+retired, preserve its last active version, review, collection kind, retirement date, reason, and replacement
+there before removing it from active lookup. A temporary outage or age threshold is only a re-review signal.
+
+## Read-only discovery
+
+`discovery.py` compares bounded Microsoft Learn, MAF developer-blog, and GitHub search observations with the
+formal external registry and Learn index. It emits `known` and `new` candidates but never promotes them.
+
+```powershell
+python tools/coding-agent-kit/knowledge/discovery.py
+python tools/coding-agent-kit/knowledge/discovery.py --network --timeout 20 --output <discovery-report.json>
+```
+
+Offline mode reports `not-run`. Network-surface failures remain `failed` and return nonzero. Treat all new
+candidates as untrusted discovery evidence; resolve them to original sources and complete the approved review
+before editing `sources.json` or collection manifests.
+
 ## Offline check
 
 The default mode performs registry and collection-state checks without opening the network. Network-only

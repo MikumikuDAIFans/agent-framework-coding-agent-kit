@@ -1,6 +1,6 @@
 ---
 name: maf-expert
-description: "Use only for Microsoft Agent Framework (microsoft/agent-framework) development: C#/.NET or Python APIs, agents, tools, sessions, context, memory, middleware, providers, workflows, orchestration, checkpointing, approvals, evaluation, DevUI, MCP, A2A, AG-UI, declarative agents, hosting, migration, debugging, review, or deployment. Do not trigger for generic AI, other agent frameworks, unrelated Microsoft SDKs, or ordinary non-MAF coding."
+description: "Use only for Microsoft Agent Framework (microsoft/agent-framework) development: C#/.NET or Python APIs, agents, Agent Skills, Agent Harness, CodeAct, tools, sessions, context, memory, middleware, providers, workflows, orchestration, checkpointing, approvals, evaluation, DevUI, MCP, A2A, AG-UI, declarative agents, hosting, migration, debugging, review, or deployment. Do not trigger for generic AI, other agent frameworks, unrelated Microsoft SDKs, or ordinary non-MAF coding."
 ---
 
 # Microsoft Agent Framework Expert

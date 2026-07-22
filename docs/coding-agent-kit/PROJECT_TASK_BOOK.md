@@ -247,3 +247,13 @@ agent 的 Microsoft Agent Framework 开发知识系统。对于每个具体开�
 ## 下一步动作
 
 无；计划已完成。后续维护从 `knowledge/MAINTENANCE.md` 的离线、fixture 或受控网络入口开始。
+
+## 维护扩展记录（2026-07-22）
+
+- 状态：`done`
+- 目标：把 Phase 9 的漂移检查扩展为可定期执行的发现、更新、归档、验证和发布闭环。
+- 交付：新增 `$maf-kit-maintainer`、只读 `discovery.py`、每周 GitHub Actions 观察任务、历史归档账本和维护系统审计。
+- 检索改进：新增 `agent-skills`、`agent-harness`、`codeact` 三个主题，目录保持 4,582 个仓库文件和 133 个 Learn 页面，主题数更新为 22。
+- 联网发现：受控 smoke 成功，53 个去重候选中 18 个已知、35 个新候选；高优先级包括官方 Go 实现、Agent Skills/Harness 官方文章、GitHub Copilot SDK 集成和活跃的 .NET 社区工具包。
+- 边界：自动任务只生成发现与漂移证据，不自动删除、降级或收录来源；状态变更继续执行 `REVIEW_POLICY.md` v1.1。
+- 验证：Skill 校验、catalog check、8 个 indexer 测试、29 个 knowledge 测试、3 个 installer 测试、collection check、离线 maintenance/discovery、代表性 lookup 和总 validator 均通过。

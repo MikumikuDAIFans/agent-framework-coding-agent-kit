@@ -39,6 +39,54 @@
       ]
     },
     {
+      "id": "agent-skills",
+      "title": "Agent Skills",
+      "description": "File, code, class, and MCP-backed skills; progressive disclosure; scripts, resources, filtering, caching, and approvals.",
+      "keywords": ["agent skill", "agent skills", "skill.md", "file skill", "code skill", "class skill", "mcp skill", "skill script", "progressive disclosure"],
+      "path_patterns": ["docs/decisions/*agent-skills*", "*/skills/*", "*/Skills/*", "*AgentSkill*", "*McpSkills*"],
+      "curated": [
+        {"path": "docs/decisions/0021-agent-skills-design.md", "role": "design", "language": "any", "why": "Multi-source Agent Skills architecture and trust boundaries."},
+        {"path": "python/packages/core/agent_framework/_skills.py", "role": "implementation", "language": "python", "why": "Python Agent Skills contracts, loaders, and providers."},
+        {"path": "python/samples/02-agents/skills", "role": "sample", "language": "python", "why": "File, code, class, mixed, MCP, filtering, and approval examples."},
+        {"path": "dotnet/src/Microsoft.Agents.AI/Skills", "role": "implementation", "language": "csharp", "why": ".NET skill sources, loaders, decorators, scripts, and resources."},
+        {"path": "dotnet/samples/02-agents/AgentSkills", "role": "sample", "language": "csharp", "why": ".NET Agent Skills composition and execution examples."},
+        {"path": "python/packages/core/tests/core/test_skills.py", "role": "test", "language": "python", "why": "Python skill behavior and validation contracts."},
+        {"path": "dotnet/tests/Microsoft.Agents.AI.UnitTests/AgentSkills", "role": "test", "language": "csharp", "why": ".NET skill loading, filtering, caching, and script contracts."}
+      ]
+    },
+    {
+      "id": "agent-harness",
+      "title": "Agent Harness and autonomous loops",
+      "description": "Harness agents, planning and loops, file access and memory, background agents, modes, approvals, and long-running coding-agent patterns.",
+      "keywords": ["agent harness", "harness agent", "harnessagent", "agent loop", "background agent", "file access", "file memory", "todo provider", "agent mode", "claw"],
+      "path_patterns": ["*/_harness/*", "*/Harness/*", "*/harness/*", "*HarnessAgent*", "*LoopAgent*", "*BackgroundAgent*"],
+      "curated": [
+        {"path": "python/packages/core/agent_framework/_harness", "role": "implementation", "language": "python", "why": "Python harness composition, memory, file access, planning, approvals, and loops."},
+        {"path": "python/samples/02-agents/harness", "role": "sample", "language": "python", "why": "Progressive Python harness and build-your-own-claw examples."},
+        {"path": "python/packages/core/tests/core/test_harness_agent.py", "role": "test", "language": "python", "why": "Python harness composition and run contracts."},
+        {"path": "dotnet/src/Microsoft.Agents.AI.Harness", "role": "implementation", "language": "csharp", "why": ".NET high-level HarnessAgent implementation."},
+        {"path": "dotnet/src/Microsoft.Agents.AI/Harness", "role": "implementation", "language": "csharp", "why": ".NET harness providers for files, memory, modes, loops, approvals, and background agents."},
+        {"path": "dotnet/samples/02-agents/Harness", "role": "sample", "language": "csharp", "why": "Progressive .NET harness and build-your-own-claw examples."},
+        {"path": "dotnet/tests/Microsoft.Agents.AI.Harness.UnitTests", "role": "test", "language": "csharp", "why": ".NET HarnessAgent option and behavior contracts."}
+      ]
+    },
+    {
+      "id": "codeact",
+      "title": "CodeAct and sandboxed code execution",
+      "description": "CodeAct providers, local and Hyperlight/Monty execution, validation, mounts, resource limits, approvals, isolation, and hosted execution.",
+      "keywords": ["codeact", "code act", "localcodeact", "hyperlight", "monty", "execute code", "sandboxed code", "code execution provider"],
+      "path_patterns": ["docs/decisions/*codeact*", "*CodeAct*", "*LocalCodeAct*", "*Hyperlight*", "*/monty/*", "*execute_code*"],
+      "curated": [
+        {"path": "docs/decisions/0024-codeact-integration.md", "role": "design", "language": "any", "why": "Backend-specific CodeAct provider design and execution-tool boundary."},
+        {"path": "python/packages/monty", "role": "implementation", "language": "python", "why": "Python Monty CodeAct provider and sandbox bridge."},
+        {"path": "python/packages/monty/tests/monty", "role": "test", "language": "python", "why": "Python CodeAct unit and integration behavior."},
+        {"path": "dotnet/src/Microsoft.Agents.AI.LocalCodeAct", "role": "implementation", "language": "csharp", "why": ".NET local CodeAct validation and process execution."},
+        {"path": "dotnet/src/Microsoft.Agents.AI.Hyperlight", "role": "implementation", "language": "csharp", "why": ".NET Hyperlight-isolated CodeAct provider."},
+        {"path": "dotnet/samples/02-agents/AgentWithCodeAct", "role": "sample", "language": "csharp", "why": "Progressive CodeAct composition, tool, and manual wiring examples."},
+        {"path": "dotnet/tests/Microsoft.Agents.AI.LocalCodeAct.UnitTests", "role": "test", "language": "csharp", "why": "Validation, mounts, limits, and execution contracts."}
+      ]
+    },
+    {
       "id": "tools",
       "title": "Tools and side effects",
       "description": "Function tools, MCP tools, dynamic tools, schemas, approval, validation, and safe side effects.",

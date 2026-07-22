@@ -81,6 +81,9 @@ def main() -> int:
         ".agents/skills/maf-expert/SKILL.md",
         "skills/maf-expert/SKILL.md",
         ".agents/skills/maf-expert/agents/openai.yaml",
+        ".agents/skills/maf-kit-maintainer/SKILL.md",
+        "skills/maf-kit-maintainer/SKILL.md",
+        ".agents/skills/maf-kit-maintainer/agents/openai.yaml",
         "docs/coding-agent-kit/README.md",
         "docs/coding-agent-kit/catalog/catalog.json",
         "docs/coding-agent-kit/catalog/learn-index.json",
@@ -94,6 +97,7 @@ def main() -> int:
         "docs/coding-agent-kit/knowledge/collection/project-routes.json",
         "docs/coding-agent-kit/knowledge/collection/link-references.json",
         "docs/coding-agent-kit/knowledge/collection/documents.json",
+        "docs/coding-agent-kit/knowledge/collection/archive.json",
         "docs/coding-agent-kit/knowledge/collection/documents/README.md",
         "docs/coding-agent-kit/knowledge/collection/KNOWLEDGE_INDEX.md",
         "tools/coding-agent-kit/indexer/topics.json",
@@ -102,6 +106,7 @@ def main() -> int:
         "tools/coding-agent-kit/indexer/lookup.py",
         "tools/coding-agent-kit/knowledge/collect.py",
         "tools/coding-agent-kit/knowledge/maintenance.py",
+        "tools/coding-agent-kit/knowledge/discovery.py",
         "tools/coding-agent-kit/install.py",
     ]
     paths = {path: require(path) for path in required}
@@ -130,6 +135,13 @@ def main() -> int:
     if ".codex/config.toml" not in skill:
         FAILURES.append("Skill must explicitly state that project Codex config is not required.")
 
+    maintainer_skill = paths[".agents/skills/maf-kit-maintainer/SKILL.md"].read_text(encoding="utf-8")
+    if not re.search(r"(?m)^name: maf-kit-maintainer$", maintainer_skill):
+        FAILURES.append("Maintenance Skill name frontmatter is missing.")
+    for required_phrase in ("docs/coding-agent-kit", "Never push to it", "not-run", "archive"):
+        if required_phrase not in maintainer_skill:
+            FAILURES.append(f"Maintenance Skill is missing required boundary: {required_phrase}.")
+
     catalog = load_json(paths["docs/coding-agent-kit/catalog/catalog.json"])
     entry_count = int(catalog.get("entry_count", 0))
     classified_count = int(catalog.get("classified_entry_count", 0))
@@ -149,6 +161,22 @@ def main() -> int:
     learn = load_json(paths["docs/coding-agent-kit/catalog/learn-index.json"])
     if int(learn.get("page_count", 0)) < 100:
         FAILURES.append(f"Microsoft Learn metadata coverage unexpectedly low: {learn.get('page_count', 0)} pages.")
+
+    archive = load_json(paths["docs/coding-agent-kit/knowledge/collection/archive.json"])
+    if archive.get("schema_version") != 1 or not isinstance(archive.get("items"), list):
+        FAILURES.append("Collection archive must use schema_version 1 and an items array.")
+    archive_ids: set[str] = set()
+    for item in archive.get("items", []):
+        required_archive_fields = {
+            "source_id", "retired_at", "reason", "previous_status", "previous_version", "review", "collection_kind"
+        }
+        missing = required_archive_fields - item.keys()
+        source_id = item.get("source_id", "<missing-id>")
+        if missing:
+            FAILURES.append(f"Archive item {source_id} is missing fields: {', '.join(sorted(missing))}.")
+        if source_id in archive_ids:
+            FAILURES.append(f"Duplicate collection archive source id: {source_id}.")
+        archive_ids.add(source_id)
 
     external = load_json(paths["docs/coding-agent-kit/knowledge/external-sources/sources.json"])
     validate_review_policy(paths["docs/coding-agent-kit/knowledge/external-sources/REVIEW_POLICY.md"])
@@ -320,6 +348,7 @@ def main() -> int:
     run([sys.executable, "-m", "unittest", "discover", "tools/coding-agent-kit/tests"])
     run([sys.executable, "tools/coding-agent-kit/knowledge/collect.py", "check"])
     run([sys.executable, "tools/coding-agent-kit/knowledge/maintenance.py"])
+    run([sys.executable, "tools/coding-agent-kit/knowledge/discovery.py"])
     run([sys.executable, "tools/coding-agent-kit/install.py", "--scope", "user", "--dry-run"])
 
     if FAILURES:

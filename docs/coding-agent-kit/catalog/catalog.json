@@ -3,7 +3,7 @@
   "upstream_repository": "https://github.com/microsoft/agent-framework",
   "upstream_commit": "5ab8877ba55b4778d778cf51450eafe483194708",
   "entry_count": 4582,
-  "classified_entry_count": 4474,
+  "classified_entry_count": 4476,
   "topics": [
     {
       "id": "getting-started",
@@ -101,37 +101,311 @@
         {
           "role": "design",
           "language": "language-neutral",
-          "count": 7
+          "count": 6
         },
         {
           "role": "implementation",
           "language": "csharp",
-          "count": 366
+          "count": 295
         },
         {
           "role": "implementation",
           "language": "python",
-          "count": 129
+          "count": 114
         },
         {
           "role": "sample",
           "language": "csharp",
-          "count": 258
+          "count": 141
         },
         {
           "role": "sample",
           "language": "python",
-          "count": 102
+          "count": 34
         },
         {
           "role": "test",
           "language": "csharp",
-          "count": 470
+          "count": 432
         },
         {
           "role": "test",
           "language": "python",
           "count": 18
+        }
+      ]
+    },
+    {
+      "id": "agent-skills",
+      "title": "Agent Skills",
+      "description": "File, code, class, and MCP-backed skills; progressive disclosure; scripts, resources, filtering, caching, and approvals.",
+      "keywords": [
+        "agent skill",
+        "agent skills",
+        "skill.md",
+        "file skill",
+        "code skill",
+        "class skill",
+        "mcp skill",
+        "skill script",
+        "progressive disclosure"
+      ],
+      "curated": [
+        {
+          "path": "docs/decisions/0021-agent-skills-design.md",
+          "role": "design",
+          "language": "any",
+          "why": "Multi-source Agent Skills architecture and trust boundaries."
+        },
+        {
+          "path": "python/packages/core/agent_framework/_skills.py",
+          "role": "implementation",
+          "language": "python",
+          "why": "Python Agent Skills contracts, loaders, and providers."
+        },
+        {
+          "path": "python/samples/02-agents/skills",
+          "role": "sample",
+          "language": "python",
+          "why": "File, code, class, mixed, MCP, filtering, and approval examples."
+        },
+        {
+          "path": "dotnet/src/Microsoft.Agents.AI/Skills",
+          "role": "implementation",
+          "language": "csharp",
+          "why": ".NET skill sources, loaders, decorators, scripts, and resources."
+        },
+        {
+          "path": "dotnet/samples/02-agents/AgentSkills",
+          "role": "sample",
+          "language": "csharp",
+          "why": ".NET Agent Skills composition and execution examples."
+        },
+        {
+          "path": "python/packages/core/tests/core/test_skills.py",
+          "role": "test",
+          "language": "python",
+          "why": "Python skill behavior and validation contracts."
+        },
+        {
+          "path": "dotnet/tests/Microsoft.Agents.AI.UnitTests/AgentSkills",
+          "role": "test",
+          "language": "csharp",
+          "why": ".NET skill loading, filtering, caching, and script contracts."
+        }
+      ],
+      "learn_page_count": 0,
+      "entry_counts": [
+        {
+          "role": "design",
+          "language": "language-neutral",
+          "count": 1
+        },
+        {
+          "role": "implementation",
+          "language": "csharp",
+          "count": 42
+        },
+        {
+          "role": "sample",
+          "language": "csharp",
+          "count": 55
+        },
+        {
+          "role": "sample",
+          "language": "python",
+          "count": 38
+        },
+        {
+          "role": "test",
+          "language": "csharp",
+          "count": 28
+        }
+      ]
+    },
+    {
+      "id": "agent-harness",
+      "title": "Agent Harness and autonomous loops",
+      "description": "Harness agents, planning and loops, file access and memory, background agents, modes, approvals, and long-running coding-agent patterns.",
+      "keywords": [
+        "agent harness",
+        "harness agent",
+        "harnessagent",
+        "agent loop",
+        "background agent",
+        "file access",
+        "file memory",
+        "todo provider",
+        "agent mode",
+        "claw"
+      ],
+      "curated": [
+        {
+          "path": "python/packages/core/agent_framework/_harness",
+          "role": "implementation",
+          "language": "python",
+          "why": "Python harness composition, memory, file access, planning, approvals, and loops."
+        },
+        {
+          "path": "python/samples/02-agents/harness",
+          "role": "sample",
+          "language": "python",
+          "why": "Progressive Python harness and build-your-own-claw examples."
+        },
+        {
+          "path": "python/packages/core/tests/core/test_harness_agent.py",
+          "role": "test",
+          "language": "python",
+          "why": "Python harness composition and run contracts."
+        },
+        {
+          "path": "dotnet/src/Microsoft.Agents.AI.Harness",
+          "role": "implementation",
+          "language": "csharp",
+          "why": ".NET high-level HarnessAgent implementation."
+        },
+        {
+          "path": "dotnet/src/Microsoft.Agents.AI/Harness",
+          "role": "implementation",
+          "language": "csharp",
+          "why": ".NET harness providers for files, memory, modes, loops, approvals, and background agents."
+        },
+        {
+          "path": "dotnet/samples/02-agents/Harness",
+          "role": "sample",
+          "language": "csharp",
+          "why": "Progressive .NET harness and build-your-own-claw examples."
+        },
+        {
+          "path": "dotnet/tests/Microsoft.Agents.AI.Harness.UnitTests",
+          "role": "test",
+          "language": "csharp",
+          "why": ".NET HarnessAgent option and behavior contracts."
+        }
+      ],
+      "learn_page_count": 0,
+      "entry_counts": [
+        {
+          "role": "implementation",
+          "language": "csharp",
+          "count": 56
+        },
+        {
+          "role": "implementation",
+          "language": "python",
+          "count": 11
+        },
+        {
+          "role": "sample",
+          "language": "csharp",
+          "count": 96
+        },
+        {
+          "role": "sample",
+          "language": "python",
+          "count": 47
+        },
+        {
+          "role": "test",
+          "language": "csharp",
+          "count": 24
+        }
+      ]
+    },
+    {
+      "id": "codeact",
+      "title": "CodeAct and sandboxed code execution",
+      "description": "CodeAct providers, local and Hyperlight/Monty execution, validation, mounts, resource limits, approvals, isolation, and hosted execution.",
+      "keywords": [
+        "codeact",
+        "code act",
+        "localcodeact",
+        "hyperlight",
+        "monty",
+        "execute code",
+        "sandboxed code",
+        "code execution provider"
+      ],
+      "curated": [
+        {
+          "path": "docs/decisions/0024-codeact-integration.md",
+          "role": "design",
+          "language": "any",
+          "why": "Backend-specific CodeAct provider design and execution-tool boundary."
+        },
+        {
+          "path": "python/packages/monty",
+          "role": "implementation",
+          "language": "python",
+          "why": "Python Monty CodeAct provider and sandbox bridge."
+        },
+        {
+          "path": "python/packages/monty/tests/monty",
+          "role": "test",
+          "language": "python",
+          "why": "Python CodeAct unit and integration behavior."
+        },
+        {
+          "path": "dotnet/src/Microsoft.Agents.AI.LocalCodeAct",
+          "role": "implementation",
+          "language": "csharp",
+          "why": ".NET local CodeAct validation and process execution."
+        },
+        {
+          "path": "dotnet/src/Microsoft.Agents.AI.Hyperlight",
+          "role": "implementation",
+          "language": "csharp",
+          "why": ".NET Hyperlight-isolated CodeAct provider."
+        },
+        {
+          "path": "dotnet/samples/02-agents/AgentWithCodeAct",
+          "role": "sample",
+          "language": "csharp",
+          "why": "Progressive CodeAct composition, tool, and manual wiring examples."
+        },
+        {
+          "path": "dotnet/tests/Microsoft.Agents.AI.LocalCodeAct.UnitTests",
+          "role": "test",
+          "language": "csharp",
+          "why": "Validation, mounts, limits, and execution contracts."
+        }
+      ],
+      "learn_page_count": 2,
+      "entry_counts": [
+        {
+          "role": "design",
+          "language": "language-neutral",
+          "count": 1
+        },
+        {
+          "role": "implementation",
+          "language": "csharp",
+          "count": 30
+        },
+        {
+          "role": "implementation",
+          "language": "python",
+          "count": 17
+        },
+        {
+          "role": "sample",
+          "language": "csharp",
+          "count": 15
+        },
+        {
+          "role": "sample",
+          "language": "python",
+          "count": 11
+        },
+        {
+          "role": "test",
+          "language": "csharp",
+          "count": 17
+        },
+        {
+          "role": "test",
+          "language": "python",
+          "count": 4
         }
       ]
     },
@@ -195,17 +469,17 @@
         {
           "role": "implementation",
           "language": "python",
-          "count": 18
+          "count": 17
         },
         {
           "role": "sample",
           "language": "csharp",
-          "count": 39
+          "count": 24
         },
         {
           "role": "sample",
           "language": "python",
-          "count": 28
+          "count": 27
         },
         {
           "role": "test",
@@ -282,13 +556,8 @@
         },
         {
           "role": "sample",
-          "language": "csharp",
-          "count": 1
-        },
-        {
-          "role": "sample",
           "language": "python",
-          "count": 35
+          "count": 34
         },
         {
           "role": "test",
@@ -441,7 +710,7 @@
         {
           "role": "implementation",
           "language": "csharp",
-          "count": 3
+          "count": 2
         },
         {
           "role": "implementation",
@@ -456,12 +725,12 @@
         {
           "role": "sample",
           "language": "python",
-          "count": 26
+          "count": 20
         },
         {
           "role": "test",
           "language": "csharp",
-          "count": 2
+          "count": 1
         },
         {
           "role": "test",
@@ -527,17 +796,17 @@
         {
           "role": "implementation",
           "language": "csharp",
-          "count": 71
+          "count": 60
         },
         {
           "role": "implementation",
           "language": "python",
-          "count": 79
+          "count": 78
         },
         {
           "role": "sample",
           "language": "csharp",
-          "count": 166
+          "count": 160
         },
         {
           "role": "sample",
@@ -547,7 +816,7 @@
         {
           "role": "test",
           "language": "csharp",
-          "count": 115
+          "count": 109
         },
         {
           "role": "test",
@@ -853,7 +1122,7 @@
         {
           "role": "implementation",
           "language": "csharp",
-          "count": 14
+          "count": 13
         },
         {
           "role": "implementation",
@@ -863,7 +1132,7 @@
         {
           "role": "sample",
           "language": "csharp",
-          "count": 41
+          "count": 38
         },
         {
           "role": "sample",
@@ -947,12 +1216,12 @@
         {
           "role": "sample",
           "language": "csharp",
-          "count": 12
+          "count": 10
         },
         {
           "role": "sample",
           "language": "python",
-          "count": 11
+          "count": 10
         },
         {
           "role": "test",
@@ -1021,7 +1290,7 @@
         {
           "role": "implementation",
           "language": "csharp",
-          "count": 34
+          "count": 24
         },
         {
           "role": "implementation",
@@ -1041,7 +1310,7 @@
         {
           "role": "test",
           "language": "csharp",
-          "count": 17
+          "count": 12
         },
         {
           "role": "test",
@@ -1115,7 +1384,7 @@
         {
           "role": "sample",
           "language": "csharp",
-          "count": 253
+          "count": 246
         },
         {
           "role": "sample",
@@ -1196,7 +1465,7 @@
         {
           "role": "implementation",
           "language": "csharp",
-          "count": 44
+          "count": 41
         },
         {
           "role": "implementation",
@@ -1211,12 +1480,12 @@
         {
           "role": "sample",
           "language": "python",
-          "count": 62
+          "count": 61
         },
         {
           "role": "test",
           "language": "csharp",
-          "count": 32
+          "count": 30
         },
         {
           "role": "test",
@@ -1364,22 +1633,22 @@
         {
           "role": "design",
           "language": "language-neutral",
-          "count": 2
+          "count": 1
         },
         {
           "role": "implementation",
           "language": "csharp",
-          "count": 107
+          "count": 90
         },
         {
           "role": "implementation",
           "language": "python",
-          "count": 19
+          "count": 18
         },
         {
           "role": "sample",
           "language": "csharp",
-          "count": 32
+          "count": 27
         },
         {
           "role": "sample",
@@ -1389,12 +1658,12 @@
         {
           "role": "test",
           "language": "csharp",
-          "count": 21
+          "count": 13
         },
         {
           "role": "test",
           "language": "python",
-          "count": 15
+          "count": 13
         }
       ]
     },
@@ -1920,7 +2189,7 @@
       "role": "design",
       "language": "language-neutral",
       "topics": [
-        "agents"
+        "agent-skills"
       ],
       "symbols": []
     },
@@ -1960,7 +2229,7 @@
       "role": "design",
       "language": "language-neutral",
       "topics": [
-        "security"
+        "codeact"
       ],
       "symbols": []
     },
@@ -3675,7 +3944,8 @@
       "language": "csharp",
       "topics": [
         "providers",
-        "protocols"
+        "protocols",
+        "agent-skills"
       ],
       "symbols": []
     },
@@ -3686,7 +3956,8 @@
       "language": "csharp",
       "topics": [
         "providers",
-        "protocols"
+        "protocols",
+        "agent-skills"
       ],
       "symbols": []
     },
@@ -3697,7 +3968,8 @@
       "language": "csharp",
       "topics": [
         "providers",
-        "protocols"
+        "protocols",
+        "agent-skills"
       ],
       "symbols": []
     },
@@ -4698,7 +4970,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-skills"
       ],
       "symbols": []
     },
@@ -4708,7 +4980,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-skills"
       ],
       "symbols": []
     },
@@ -4718,7 +4990,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-skills"
       ],
       "symbols": []
     },
@@ -4728,7 +5000,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-skills"
       ],
       "symbols": []
     },
@@ -4738,7 +5010,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-skills"
       ],
       "symbols": [
         "convert"
@@ -4750,7 +5022,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-skills"
       ],
       "symbols": []
     },
@@ -4760,7 +5032,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-skills"
       ],
       "symbols": []
     },
@@ -4770,7 +5042,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-skills"
       ],
       "symbols": []
     },
@@ -4780,7 +5052,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-skills"
       ],
       "symbols": []
     },
@@ -4790,7 +5062,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-skills"
       ],
       "symbols": []
     },
@@ -4800,7 +5072,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-skills"
       ],
       "symbols": []
     },
@@ -4810,7 +5082,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-skills"
       ],
       "symbols": []
     },
@@ -4820,7 +5092,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-skills"
       ],
       "symbols": []
     },
@@ -4830,7 +5102,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-skills"
       ],
       "symbols": []
     },
@@ -4840,7 +5112,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-skills"
       ],
       "symbols": []
     },
@@ -4850,7 +5122,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-skills"
       ],
       "symbols": []
     },
@@ -4860,7 +5132,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-skills"
       ],
       "symbols": [
         "convert-units"
@@ -4872,7 +5144,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-skills"
       ],
       "symbols": []
     },
@@ -4882,7 +5154,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-skills"
       ],
       "symbols": []
     },
@@ -4892,7 +5164,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-skills"
       ],
       "symbols": []
     },
@@ -4902,7 +5174,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-skills"
       ],
       "symbols": []
     },
@@ -4912,7 +5184,8 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "protocols"
+        "protocols",
+        "agent-skills"
       ],
       "symbols": []
     },
@@ -4922,7 +5195,8 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "protocols"
+        "protocols",
+        "agent-skills"
       ],
       "symbols": []
     },
@@ -4932,7 +5206,8 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "protocols"
+        "protocols",
+        "agent-skills"
       ],
       "symbols": []
     },
@@ -4942,7 +5217,8 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "approvals-hitl"
+        "approvals-hitl",
+        "agent-skills"
       ],
       "symbols": []
     },
@@ -4952,7 +5228,8 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "approvals-hitl"
+        "approvals-hitl",
+        "agent-skills"
       ],
       "symbols": []
     },
@@ -4962,7 +5239,8 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "approvals-hitl"
+        "approvals-hitl",
+        "agent-skills"
       ],
       "symbols": []
     },
@@ -4972,7 +5250,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "approvals-hitl"
+        "agent-skills"
       ],
       "symbols": []
     },
@@ -4982,7 +5260,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "approvals-hitl"
+        "agent-skills"
       ],
       "symbols": [
         "convert"
@@ -4994,7 +5272,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "approvals-hitl"
+        "agent-skills"
       ],
       "symbols": []
     },
@@ -5004,7 +5282,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-skills"
       ],
       "symbols": []
     },
@@ -5014,7 +5292,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-skills"
       ],
       "symbols": [
         "SubprocessScriptRunner"
@@ -5026,6 +5304,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
+        "codeact",
         "security"
       ],
       "symbols": []
@@ -5036,6 +5315,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
+        "codeact",
         "security"
       ],
       "symbols": []
@@ -5046,6 +5326,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
+        "codeact",
         "security"
       ],
       "symbols": []
@@ -5056,6 +5337,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
+        "codeact",
         "security"
       ],
       "symbols": []
@@ -5066,6 +5348,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
+        "codeact",
         "security"
       ],
       "symbols": []
@@ -5076,6 +5359,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
+        "codeact",
         "security"
       ],
       "symbols": []
@@ -5086,6 +5370,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
+        "codeact",
         "security"
       ],
       "symbols": []
@@ -5096,6 +5381,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
+        "codeact",
         "security"
       ],
       "symbols": []
@@ -5106,6 +5392,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
+        "codeact",
         "security"
       ],
       "symbols": []
@@ -5116,6 +5403,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
+        "codeact",
         "security"
       ],
       "symbols": []
@@ -6176,7 +6464,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": []
     },
@@ -6186,7 +6474,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": []
     },
@@ -6196,7 +6484,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": []
     },
@@ -6206,8 +6494,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents",
-        "tools"
+        "agent-harness"
       ],
       "symbols": [
         "StockTools"
@@ -6219,7 +6506,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": []
     },
@@ -6229,7 +6516,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": []
     },
@@ -6239,7 +6526,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": []
     },
@@ -6249,8 +6536,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents",
-        "tools"
+        "agent-harness"
       ],
       "symbols": [
         "StockTools"
@@ -6262,8 +6548,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents",
-        "tools"
+        "agent-harness"
       ],
       "symbols": [
         "TradingTools"
@@ -6275,7 +6560,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": []
     },
@@ -6285,8 +6570,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents",
-        "providers"
+        "agent-harness"
       ],
       "symbols": [
         "FoundrySkills"
@@ -6298,7 +6582,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": []
     },
@@ -6308,7 +6592,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": []
     },
@@ -6318,7 +6602,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "ResearchAgent"
@@ -6330,7 +6614,8 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness",
+        "agent-skills"
       ],
       "symbols": []
     },
@@ -6340,7 +6625,8 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness",
+        "agent-skills"
       ],
       "symbols": [
         "risk_score"
@@ -6352,7 +6638,8 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness",
+        "agent-skills"
       ],
       "symbols": []
     },
@@ -6362,7 +6649,8 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness",
+        "agent-skills"
       ],
       "symbols": []
     },
@@ -6372,8 +6660,8 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents",
-        "observability"
+        "agent-harness",
+        "agent-skills"
       ],
       "symbols": [
         "valuation_metrics"
@@ -6385,7 +6673,8 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness",
+        "agent-skills"
       ],
       "symbols": []
     },
@@ -6395,8 +6684,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents",
-        "tools"
+        "agent-harness"
       ],
       "symbols": [
         "StockTools"
@@ -6408,7 +6696,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "SubprocessScriptRunner"
@@ -6420,8 +6708,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents",
-        "tools"
+        "agent-harness"
       ],
       "symbols": [
         "TradingTools"
@@ -6433,7 +6720,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "AnsiEscapes"
@@ -6445,7 +6732,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": []
     },
@@ -6455,7 +6742,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "ListSelection"
@@ -6467,7 +6754,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "TextInput"
@@ -6479,7 +6766,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "TextPanel"
@@ -6491,7 +6778,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "TextScrollPanel"
@@ -6503,7 +6790,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "TopBottomRule"
@@ -6515,7 +6802,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "ConsoleReactiveComponent"
@@ -6527,7 +6814,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": []
     },
@@ -6537,7 +6824,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "ConsoleReactiveMemo"
@@ -6549,7 +6836,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "ConsoleResizeListener"
@@ -6561,7 +6848,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "KeyEventListener"
@@ -6573,7 +6860,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "CommandHandler"
@@ -6585,7 +6872,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "ExitCommandHandler"
@@ -6597,7 +6884,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "ModeCommandHandler"
@@ -6609,8 +6896,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents",
-        "sessions-context"
+        "agent-harness"
       ],
       "symbols": [
         "SessionCommandHandler"
@@ -6622,7 +6908,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "TodoCommandHandler"
@@ -6634,7 +6920,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "AgentModeAndHelp"
@@ -6646,7 +6932,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "AgentStatus"
@@ -6658,7 +6944,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "FileSpanExporter"
@@ -6670,7 +6956,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "FollowUpAction"
@@ -6682,7 +6968,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": []
     },
@@ -6692,7 +6978,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "HarnessAgentRunner"
@@ -6704,7 +6990,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "HarnessAppComponent"
@@ -6716,7 +7002,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "HarnessAppComponentState"
@@ -6728,7 +7014,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "HarnessConsole"
@@ -6740,7 +7026,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "HarnessConsoleOptions"
@@ -6752,7 +7038,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "HarnessConsoleUXStateDriver"
@@ -6764,8 +7050,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents",
-        "observability"
+        "agent-harness"
       ],
       "symbols": [
         "HarnessTracing"
@@ -6777,7 +7062,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "IUXStateDriver"
@@ -6789,7 +7074,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "ModeColors"
@@ -6801,7 +7086,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "ConsoleObserver"
@@ -6813,7 +7098,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "ErrorDisplayObserver"
@@ -6825,7 +7110,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "PlanningOutputObserver"
@@ -6837,7 +7122,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "PlanningResponse"
@@ -6849,7 +7134,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "PlanningResponseType"
@@ -6861,7 +7146,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "ReasoningDisplayObserver"
@@ -6873,7 +7158,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "TextOutputObserver"
@@ -6885,6 +7170,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
+        "agent-harness",
         "approvals-hitl"
       ],
       "symbols": [
@@ -6897,8 +7183,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "tools",
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "ToolCallDisplayObserver"
@@ -6910,7 +7195,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "UsageDisplayObserver"
@@ -6922,7 +7207,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "OutputEntry"
@@ -6934,8 +7219,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents",
-        "tools"
+        "agent-harness"
       ],
       "symbols": [
         "BackgroundAgentToolFormatter"
@@ -6947,8 +7231,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents",
-        "tools"
+        "agent-harness"
       ],
       "symbols": [
         "FallbackToolFormatter"
@@ -6960,6 +7243,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
+        "agent-harness",
         "memory-rag"
       ],
       "symbols": [
@@ -6972,8 +7256,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents",
-        "tools"
+        "agent-harness"
       ],
       "symbols": [
         "ModeToolFormatter"
@@ -6985,8 +7268,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents",
-        "tools"
+        "agent-harness"
       ],
       "symbols": [
         "TodoToolFormatter"
@@ -6998,8 +7280,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "tools",
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "ToolCallFormatter"
@@ -7011,8 +7292,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents",
-        "tools"
+        "agent-harness"
       ],
       "symbols": [
         "WebSearchToolFormatter"
@@ -7024,8 +7304,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents",
-        "providers"
+        "agent-harness"
       ],
       "symbols": []
     },
@@ -7035,8 +7314,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents",
-        "providers"
+        "agent-harness"
       ],
       "symbols": [
         "OpenAIResponsesErrorObserver"
@@ -7048,8 +7326,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents",
-        "providers"
+        "agent-harness"
       ],
       "symbols": [
         "OpenAIResponsesWebSearchDisplayObserver"
@@ -7061,8 +7338,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents",
-        "tools"
+        "agent-harness"
       ],
       "symbols": [
         "DownloadUriToolFormatter"
@@ -7074,7 +7350,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": []
     },
@@ -7084,7 +7360,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": []
     },
@@ -7094,8 +7370,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents",
-        "providers"
+        "agent-harness"
       ],
       "symbols": []
     },
@@ -7105,8 +7380,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents",
-        "tools"
+        "agent-harness"
       ],
       "symbols": [
         "WebBrowsingTool"
@@ -7118,8 +7392,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents",
-        "tools"
+        "agent-harness"
       ],
       "symbols": [
         "WebBrowsingToolOptions"
@@ -7131,7 +7404,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": []
     },
@@ -7141,7 +7414,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": []
     },
@@ -7151,7 +7424,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": []
     },
@@ -7161,7 +7434,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": []
     },
@@ -7171,7 +7444,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": []
     },
@@ -7181,8 +7454,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents",
-        "providers"
+        "agent-harness"
       ],
       "symbols": []
     },
@@ -7192,7 +7464,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": []
     },
@@ -7202,7 +7474,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": []
     },
@@ -7212,7 +7484,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": []
     },
@@ -7222,7 +7494,8 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness",
+        "agent-skills"
       ],
       "symbols": []
     },
@@ -7232,7 +7505,8 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-skills",
+        "agent-harness"
       ],
       "symbols": []
     },
@@ -7242,7 +7516,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": []
     },
@@ -7252,7 +7526,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": []
     },
@@ -7262,7 +7536,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": []
     },
@@ -7272,7 +7546,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": []
     },
@@ -10444,7 +10718,8 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "hosting"
+        "hosting",
+        "agent-skills"
       ],
       "symbols": []
     },
@@ -10454,7 +10729,8 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "hosting"
+        "hosting",
+        "agent-skills"
       ],
       "symbols": []
     },
@@ -10464,7 +10740,8 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "hosting"
+        "hosting",
+        "agent-skills"
       ],
       "symbols": []
     },
@@ -10474,7 +10751,8 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "hosting"
+        "hosting",
+        "agent-skills"
       ],
       "symbols": []
     },
@@ -10484,7 +10762,8 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "hosting"
+        "hosting",
+        "agent-skills"
       ],
       "symbols": []
     },
@@ -10494,7 +10773,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "hosting"
+        "agent-skills"
       ],
       "symbols": []
     },
@@ -10504,7 +10783,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "hosting"
+        "agent-skills"
       ],
       "symbols": []
     },
@@ -10719,8 +10998,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "hosting",
-        "security"
+        "codeact"
       ],
       "symbols": []
     },
@@ -10730,8 +11008,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "hosting",
-        "security"
+        "codeact"
       ],
       "symbols": []
     },
@@ -10741,8 +11018,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "hosting",
-        "security"
+        "codeact"
       ],
       "symbols": []
     },
@@ -10752,8 +11028,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "hosting",
-        "security"
+        "codeact"
       ],
       "symbols": []
     },
@@ -10763,8 +11038,7 @@
       "role": "sample",
       "language": "csharp",
       "topics": [
-        "hosting",
-        "security"
+        "codeact"
       ],
       "symbols": []
     },
@@ -11140,7 +11414,8 @@
       "language": "csharp",
       "topics": [
         "hosting",
-        "protocols"
+        "protocols",
+        "agent-skills"
       ],
       "symbols": []
     },
@@ -11151,7 +11426,8 @@
       "language": "csharp",
       "topics": [
         "hosting",
-        "protocols"
+        "protocols",
+        "agent-skills"
       ],
       "symbols": []
     },
@@ -11162,7 +11438,8 @@
       "language": "csharp",
       "topics": [
         "hosting",
-        "protocols"
+        "protocols",
+        "agent-skills"
       ],
       "symbols": []
     },
@@ -11173,7 +11450,8 @@
       "language": "csharp",
       "topics": [
         "hosting",
-        "protocols"
+        "protocols",
+        "agent-skills"
       ],
       "symbols": []
     },
@@ -11184,7 +11462,8 @@
       "language": "csharp",
       "topics": [
         "hosting",
-        "protocols"
+        "protocols",
+        "agent-skills"
       ],
       "symbols": []
     },
@@ -16325,7 +16604,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "HarnessAgent"
@@ -16337,7 +16616,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "HarnessAgentOptions"
@@ -18213,6 +18492,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
+        "codeact",
         "security"
       ],
       "symbols": [
@@ -18225,8 +18505,8 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "security",
-        "approvals-hitl"
+        "codeact",
+        "security"
       ],
       "symbols": [
         "CodeActApprovalMode"
@@ -18238,6 +18518,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
+        "codeact",
         "security"
       ],
       "symbols": [
@@ -18250,6 +18531,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
+        "codeact",
         "security"
       ],
       "symbols": [
@@ -18262,6 +18544,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
+        "codeact",
         "security"
       ],
       "symbols": [
@@ -18274,6 +18557,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
+        "codeact",
         "security"
       ],
       "symbols": [
@@ -18286,6 +18570,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
+        "codeact",
         "security"
       ],
       "symbols": [
@@ -18298,6 +18583,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
+        "codeact",
         "security"
       ],
       "symbols": [
@@ -18310,6 +18596,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
+        "codeact",
         "security"
       ],
       "symbols": [
@@ -18322,6 +18609,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
+        "codeact",
         "security"
       ],
       "symbols": [
@@ -18334,6 +18622,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
+        "codeact",
         "security"
       ],
       "symbols": [
@@ -18346,6 +18635,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
+        "codeact",
         "security"
       ],
       "symbols": []
@@ -18356,6 +18646,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
+        "codeact",
         "security"
       ],
       "symbols": []
@@ -18366,7 +18657,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "security"
+        "codeact"
       ],
       "symbols": [
         "CodeValidationException"
@@ -18378,7 +18669,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "security"
+        "codeact"
       ],
       "symbols": [
         "FileMount"
@@ -18390,7 +18681,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "security"
+        "codeact"
       ],
       "symbols": [
         "CodeExecutor"
@@ -18402,7 +18693,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "security"
+        "codeact"
       ],
       "symbols": [
         "CodeValidator"
@@ -18414,7 +18705,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "security"
+        "codeact"
       ],
       "symbols": [
         "EmbeddedScripts"
@@ -18426,7 +18717,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "security"
+        "codeact"
       ],
       "symbols": [
         "ExecuteCodeFunction"
@@ -18438,7 +18729,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "security"
+        "codeact"
       ],
       "symbols": [
         "FileMountHelper"
@@ -18450,7 +18741,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "security"
+        "codeact"
       ],
       "symbols": [
         "InstructionBuilder"
@@ -18462,7 +18753,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "security"
+        "codeact"
       ],
       "symbols": [
         "ProcessBridge"
@@ -18474,7 +18765,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "security"
+        "codeact"
       ],
       "symbols": [
         "LocalCodeActProvider"
@@ -18486,7 +18777,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "security"
+        "codeact"
       ],
       "symbols": [
         "LocalCodeActProviderOptions"
@@ -18498,7 +18789,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "security"
+        "codeact"
       ],
       "symbols": [
         "LocalExecuteCodeFunction"
@@ -18510,7 +18801,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "security"
+        "codeact"
       ],
       "symbols": []
     },
@@ -18520,7 +18811,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "security"
+        "codeact"
       ],
       "symbols": [
         "ProcessExecutionLimits"
@@ -18532,7 +18823,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "security"
+        "codeact"
       ],
       "symbols": []
     },
@@ -18542,7 +18833,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "security"
+        "codeact"
       ],
       "symbols": [
         "runner"
@@ -18554,7 +18845,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "security"
+        "codeact"
       ],
       "symbols": [
         "validator"
@@ -18600,6 +18891,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
+        "agent-skills",
         "protocols"
       ],
       "symbols": [
@@ -18612,6 +18904,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
+        "agent-skills",
         "protocols"
       ],
       "symbols": [
@@ -18624,7 +18917,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "protocols"
+        "agent-skills"
       ],
       "symbols": [
         "AgentMcpSkillsSource"
@@ -18636,7 +18929,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "protocols"
+        "agent-skills"
       ],
       "symbols": [
         "AgentMcpSkillsSourceOptions"
@@ -18648,7 +18941,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "protocols"
+        "agent-skills"
       ],
       "symbols": [
         "AgentSkillsProviderBuilderMcpExtensions"
@@ -18660,6 +18953,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
+        "agent-skills",
         "protocols"
       ],
       "symbols": [
@@ -18672,6 +18966,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
+        "agent-skills",
         "protocols"
       ],
       "symbols": [
@@ -18684,6 +18979,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
+        "agent-skills",
         "protocols"
       ],
       "symbols": [
@@ -18696,6 +18992,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
+        "agent-skills",
         "protocols"
       ],
       "symbols": [
@@ -18708,6 +19005,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
+        "agent-skills",
         "protocols"
       ],
       "symbols": [
@@ -18720,6 +19018,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
+        "agent-skills",
         "protocols"
       ],
       "symbols": [
@@ -18732,6 +19031,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
+        "agent-skills",
         "protocols"
       ],
       "symbols": [
@@ -25027,8 +25327,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "agents",
-        "providers"
+        "agent-harness"
       ],
       "symbols": [
         "AgentModeProvider"
@@ -25040,8 +25339,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "agents",
-        "providers"
+        "agent-harness"
       ],
       "symbols": [
         "AgentModeProviderOptions"
@@ -25053,7 +25351,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "AgentModeState"
@@ -25065,7 +25363,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "BackgroundAgentRuntimeState"
@@ -25077,8 +25375,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "agents",
-        "providers"
+        "agent-harness"
       ],
       "symbols": [
         "BackgroundAgentsProvider"
@@ -25090,8 +25387,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "agents",
-        "providers"
+        "agent-harness"
       ],
       "symbols": [
         "BackgroundAgentsProviderOptions"
@@ -25103,7 +25399,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "BackgroundAgentState"
@@ -25115,7 +25411,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "BackgroundTaskInfo"
@@ -25127,7 +25423,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "BackgroundTaskStatus"
@@ -25139,8 +25435,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "agents",
-        "providers"
+        "agent-harness"
       ],
       "symbols": [
         "FileAccessProvider"
@@ -25152,8 +25447,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "agents",
-        "providers"
+        "agent-harness"
       ],
       "symbols": [
         "FileAccessProviderOptions"
@@ -25165,6 +25459,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
+        "agent-harness",
         "memory-rag"
       ],
       "symbols": [
@@ -25177,6 +25472,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
+        "agent-harness",
         "memory-rag"
       ],
       "symbols": [
@@ -25189,6 +25485,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
+        "agent-harness",
         "memory-rag"
       ],
       "symbols": [
@@ -25201,6 +25498,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
+        "agent-harness",
         "memory-rag"
       ],
       "symbols": [
@@ -25213,7 +25511,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "AgentFileStore"
@@ -25225,7 +25523,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "FileEditor"
@@ -25237,7 +25535,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "FileLineEdit"
@@ -25249,7 +25547,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "FileSearchMatch"
@@ -25261,7 +25559,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "FileSearchResult"
@@ -25273,7 +25571,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "FileStoreEntry"
@@ -25285,7 +25583,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "FileSystemAgentFileStore"
@@ -25297,6 +25595,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
+        "agent-harness",
         "memory-rag"
       ],
       "symbols": [
@@ -25309,7 +25608,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "StorePaths"
@@ -25321,8 +25620,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "agents",
-        "evaluation"
+        "agent-harness"
       ],
       "symbols": [
         "AIJudgeLoopEvaluator"
@@ -25334,8 +25632,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "agents",
-        "evaluation"
+        "agent-harness"
       ],
       "symbols": [
         "AIJudgeLoopEvaluatorOptions"
@@ -25347,8 +25644,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "agents",
-        "evaluation"
+        "agent-harness"
       ],
       "symbols": [
         "BackgroundTaskCompletionLoopEvaluator"
@@ -25360,8 +25656,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "agents",
-        "evaluation"
+        "agent-harness"
       ],
       "symbols": [
         "BackgroundTaskCompletionLoopEvaluatorOptions"
@@ -25373,8 +25668,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "agents",
-        "evaluation"
+        "agent-harness"
       ],
       "symbols": [
         "CompletionMarkerLoopEvaluator"
@@ -25386,8 +25680,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "agents",
-        "evaluation"
+        "agent-harness"
       ],
       "symbols": [
         "CompletionMarkerLoopEvaluatorOptions"
@@ -25399,8 +25692,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "agents",
-        "evaluation"
+        "agent-harness"
       ],
       "symbols": [
         "DelegateLoopEvaluator"
@@ -25412,7 +25704,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "JudgeVerdict"
@@ -25424,7 +25716,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "LoopAgent"
@@ -25436,7 +25728,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "LoopAgentOptions"
@@ -25448,7 +25740,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "LoopContext"
@@ -25460,6 +25752,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
+        "agent-harness",
         "evaluation"
       ],
       "symbols": [
@@ -25472,8 +25765,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "agents",
-        "evaluation"
+        "agent-harness"
       ],
       "symbols": [
         "LoopEvaluator"
@@ -25485,7 +25777,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "LoopJsonContext"
@@ -25497,8 +25789,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "agents",
-        "evaluation"
+        "agent-harness"
       ],
       "symbols": [
         "TodoCompletionLoopEvaluator"
@@ -25510,8 +25801,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "agents",
-        "evaluation"
+        "agent-harness"
       ],
       "symbols": [
         "TodoCompletionLoopEvaluatorOptions"
@@ -25523,7 +25813,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "TodoCompleteInput"
@@ -25535,7 +25825,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "TodoItem"
@@ -25547,7 +25837,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "TodoItemInput"
@@ -25559,8 +25849,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "agents",
-        "providers"
+        "agent-harness"
       ],
       "symbols": [
         "TodoProvider"
@@ -25572,8 +25861,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "agents",
-        "providers"
+        "agent-harness"
       ],
       "symbols": [
         "TodoProviderOptions"
@@ -25585,7 +25873,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "TodoState"
@@ -25597,6 +25885,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
+        "agent-harness",
         "approvals-hitl"
       ],
       "symbols": [
@@ -25609,6 +25898,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
+        "agent-harness",
         "approvals-hitl"
       ],
       "symbols": [
@@ -25621,6 +25911,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
+        "agent-harness",
         "approvals-hitl"
       ],
       "symbols": [
@@ -25633,6 +25924,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
+        "agent-harness",
         "approvals-hitl"
       ],
       "symbols": [
@@ -25645,6 +25937,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
+        "agent-harness",
         "approvals-hitl"
       ],
       "symbols": [
@@ -25657,6 +25950,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
+        "agent-harness",
         "approvals-hitl"
       ],
       "symbols": [
@@ -25669,6 +25963,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
+        "agent-harness",
         "approvals-hitl"
       ],
       "symbols": [
@@ -25681,6 +25976,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
+        "agent-harness",
         "approvals-hitl"
       ],
       "symbols": [
@@ -25799,6 +26095,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
+        "agent-skills",
         "memory-rag"
       ],
       "symbols": [
@@ -25811,7 +26108,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-skills"
       ],
       "symbols": [
         "AgentSkill"
@@ -25823,7 +26120,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-skills"
       ],
       "symbols": [
         "AgentSkillFrontmatter"
@@ -25835,7 +26132,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-skills"
       ],
       "symbols": [
         "AgentSkillResource"
@@ -25847,7 +26144,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-skills"
       ],
       "symbols": [
         "AgentSkillScript"
@@ -25859,8 +26156,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "agents",
-        "providers"
+        "agent-skills"
       ],
       "symbols": [
         "AgentSkillsProvider"
@@ -25872,8 +26168,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "agents",
-        "providers"
+        "agent-skills"
       ],
       "symbols": [
         "AgentSkillsProviderBuilder"
@@ -25885,8 +26180,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "agents",
-        "providers"
+        "agent-skills"
       ],
       "symbols": [
         "AgentSkillsProviderOptions"
@@ -25898,7 +26192,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-skills"
       ],
       "symbols": [
         "AgentSkillsSource"
@@ -25910,7 +26204,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-skills"
       ],
       "symbols": [
         "AgentSkillsSourceContext"
@@ -25922,7 +26216,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-skills"
       ],
       "symbols": [
         "AggregatingAgentSkillsSource"
@@ -25934,7 +26228,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-skills"
       ],
       "symbols": [
         "CachingAgentSkillsSource"
@@ -25946,7 +26240,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-skills"
       ],
       "symbols": [
         "CachingAgentSkillsSourceOptions"
@@ -25958,7 +26252,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-skills"
       ],
       "symbols": [
         "DeduplicatingAgentSkillsSource"
@@ -25970,7 +26264,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-skills"
       ],
       "symbols": [
         "DelegatingAgentSkillsSource"
@@ -25982,8 +26276,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "agents",
-        "middleware"
+        "agent-skills"
       ],
       "symbols": [
         "FilteringAgentSkillsSource"
@@ -25995,7 +26288,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-skills"
       ],
       "symbols": [
         "AgentFileSkill"
@@ -26007,7 +26300,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-skills"
       ],
       "symbols": [
         "AgentFileSkillFilterContext"
@@ -26019,7 +26312,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-skills"
       ],
       "symbols": [
         "AgentFileSkillResource"
@@ -26031,7 +26324,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-skills"
       ],
       "symbols": [
         "AgentFileSkillScript"
@@ -26043,7 +26336,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-skills"
       ],
       "symbols": [
         "AgentFileSkillScriptRunner"
@@ -26055,7 +26348,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-skills"
       ],
       "symbols": [
         "AgentFileSkillsSource"
@@ -26067,7 +26360,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-skills"
       ],
       "symbols": [
         "AgentFileSkillsSourceOptions"
@@ -26079,7 +26372,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-skills"
       ],
       "symbols": [
         "AgentClassSkill"
@@ -26091,7 +26384,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-skills"
       ],
       "symbols": [
         "AgentInlineSkill"
@@ -26103,7 +26396,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-skills"
       ],
       "symbols": [
         "AgentInlineSkillContentBuilder"
@@ -26115,7 +26408,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-skills"
       ],
       "symbols": [
         "AgentInlineSkillResource"
@@ -26127,7 +26420,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-skills"
       ],
       "symbols": [
         "AgentInlineSkillScript"
@@ -26139,7 +26432,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-skills"
       ],
       "symbols": [
         "AgentSkillResourceAttribute"
@@ -26151,7 +26444,7 @@
       "role": "implementation",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-skills"
       ],
       "symbols": [
         "AgentSkillScriptAttribute"
@@ -26966,7 +27259,8 @@
       "role": "test",
       "language": "csharp",
       "topics": [
-        "hosting"
+        "hosting",
+        "agent-skills"
       ],
       "symbols": [
         "AgentSkillsHostedAgentTests"
@@ -27004,7 +27298,8 @@
       "role": "test",
       "language": "csharp",
       "topics": [
-        "hosting"
+        "hosting",
+        "agent-skills"
       ],
       "symbols": [
         "AgentSkillsHostedAgentFixture"
@@ -29285,7 +29580,7 @@
       "role": "test",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "HarnessAgentOptionsTests"
@@ -29297,7 +29592,7 @@
       "role": "test",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "HarnessAgentTests"
@@ -30834,6 +31129,7 @@
       "role": "test",
       "language": "csharp",
       "topics": [
+        "codeact",
         "security"
       ],
       "symbols": [
@@ -30846,6 +31142,7 @@
       "role": "test",
       "language": "csharp",
       "topics": [
+        "codeact",
         "security"
       ],
       "symbols": []
@@ -30857,6 +31154,7 @@
       "language": "csharp",
       "topics": [
         "approvals-hitl",
+        "codeact",
         "security"
       ],
       "symbols": [
@@ -30869,6 +31167,7 @@
       "role": "test",
       "language": "csharp",
       "topics": [
+        "codeact",
         "security"
       ],
       "symbols": [
@@ -30881,6 +31180,7 @@
       "role": "test",
       "language": "csharp",
       "topics": [
+        "codeact",
         "security"
       ],
       "symbols": [
@@ -30893,6 +31193,7 @@
       "role": "test",
       "language": "csharp",
       "topics": [
+        "codeact",
         "security"
       ],
       "symbols": []
@@ -30903,6 +31204,7 @@
       "role": "test",
       "language": "csharp",
       "topics": [
+        "codeact",
         "security"
       ],
       "symbols": [
@@ -30915,6 +31217,7 @@
       "role": "test",
       "language": "csharp",
       "topics": [
+        "codeact",
         "security"
       ],
       "symbols": [
@@ -30927,6 +31230,7 @@
       "role": "test",
       "language": "csharp",
       "topics": [
+        "codeact",
         "security"
       ],
       "symbols": [
@@ -30939,7 +31243,7 @@
       "role": "test",
       "language": "csharp",
       "topics": [
-        "security"
+        "codeact"
       ],
       "symbols": [
         "FileMountHelperTests"
@@ -30951,7 +31255,7 @@
       "role": "test",
       "language": "csharp",
       "topics": [
-        "security"
+        "codeact"
       ],
       "symbols": [
         "FileMountTests"
@@ -30963,7 +31267,7 @@
       "role": "test",
       "language": "csharp",
       "topics": [
-        "security"
+        "codeact"
       ],
       "symbols": [
         "InstructionBuilderTests"
@@ -30975,7 +31279,7 @@
       "role": "test",
       "language": "csharp",
       "topics": [
-        "security"
+        "codeact"
       ],
       "symbols": [
         "LocalCodeActProviderOptionsTests"
@@ -30987,7 +31291,7 @@
       "role": "test",
       "language": "csharp",
       "topics": [
-        "security"
+        "codeact"
       ],
       "symbols": [
         "LocalCodeActProviderTests"
@@ -30999,7 +31303,7 @@
       "role": "test",
       "language": "csharp",
       "topics": [
-        "security"
+        "codeact"
       ],
       "symbols": [
         "LocalExecuteCodeFunctionIntegrationTests"
@@ -31011,7 +31315,7 @@
       "role": "test",
       "language": "csharp",
       "topics": [
-        "security"
+        "codeact"
       ],
       "symbols": []
     },
@@ -31021,7 +31325,7 @@
       "role": "test",
       "language": "csharp",
       "topics": [
-        "security"
+        "codeact"
       ],
       "symbols": [
         "ProcessExecutionLimitsTests"
@@ -31092,7 +31396,7 @@
       "role": "test",
       "language": "csharp",
       "topics": [
-        "protocols"
+        "agent-skills"
       ],
       "symbols": [
         "AgentMcpSkillsSourceArchiveTests"
@@ -31104,7 +31408,7 @@
       "role": "test",
       "language": "csharp",
       "topics": [
-        "protocols"
+        "agent-skills"
       ],
       "symbols": [
         "AgentMcpSkillsSourceTests"
@@ -31116,6 +31420,7 @@
       "role": "test",
       "language": "csharp",
       "topics": [
+        "agent-skills",
         "memory-rag",
         "protocols"
       ],
@@ -31141,6 +31446,7 @@
       "role": "test",
       "language": "csharp",
       "topics": [
+        "agent-skills",
         "protocols"
       ],
       "symbols": [
@@ -31517,7 +31823,7 @@
       "role": "test",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-skills"
       ],
       "symbols": [
         "AgentClassSkillTests"
@@ -31529,7 +31835,7 @@
       "role": "test",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-skills"
       ],
       "symbols": [
         "AgentFileSkillScriptTests"
@@ -31541,7 +31847,7 @@
       "role": "test",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-skills"
       ],
       "symbols": [
         "AgentFileSkillsSourceScriptTests"
@@ -31553,7 +31859,7 @@
       "role": "test",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-skills"
       ],
       "symbols": [
         "AgentInlineSkillContentBuilderTests"
@@ -31565,7 +31871,7 @@
       "role": "test",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-skills"
       ],
       "symbols": [
         "AgentInlineSkillResourceTests"
@@ -31577,7 +31883,7 @@
       "role": "test",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-skills"
       ],
       "symbols": [
         "AgentInlineSkillScriptTests"
@@ -31589,7 +31895,7 @@
       "role": "test",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-skills"
       ],
       "symbols": [
         "AgentInlineSkillTests"
@@ -31601,7 +31907,8 @@
       "role": "test",
       "language": "csharp",
       "topics": [
-        "memory-rag"
+        "memory-rag",
+        "agent-skills"
       ],
       "symbols": [
         "AgentInMemorySkillsSourceTests"
@@ -31613,7 +31920,7 @@
       "role": "test",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-skills"
       ],
       "symbols": [
         "AgentSkillFrontmatterValidatorTests"
@@ -31625,7 +31932,7 @@
       "role": "test",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-skills"
       ],
       "symbols": [
         "AgentSkillResourceAttributeTests"
@@ -31637,7 +31944,7 @@
       "role": "test",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-skills"
       ],
       "symbols": [
         "AgentSkillScriptAttributeTests"
@@ -31649,8 +31956,7 @@
       "role": "test",
       "language": "csharp",
       "topics": [
-        "agents",
-        "providers"
+        "agent-skills"
       ],
       "symbols": [
         "AgentSkillsProviderBuilderTests"
@@ -31662,8 +31968,7 @@
       "role": "test",
       "language": "csharp",
       "topics": [
-        "agents",
-        "providers"
+        "agent-skills"
       ],
       "symbols": [
         "AgentSkillsProviderTests"
@@ -31675,7 +31980,7 @@
       "role": "test",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-skills"
       ],
       "symbols": [
         "AgentSkillTestExtensions"
@@ -31687,7 +31992,7 @@
       "role": "test",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-skills"
       ],
       "symbols": [
         "CachingAgentSkillsSourceTests"
@@ -31699,7 +32004,7 @@
       "role": "test",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-skills"
       ],
       "symbols": [
         "DeduplicatingAgentSkillsSourceTests"
@@ -31711,7 +32016,7 @@
       "role": "test",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-skills"
       ],
       "symbols": [
         "FileAgentSkillLoaderTests"
@@ -31723,8 +32028,7 @@
       "role": "test",
       "language": "csharp",
       "topics": [
-        "agents",
-        "middleware"
+        "agent-skills"
       ],
       "symbols": [
         "FilteringAgentSkillsSourceTests"
@@ -31736,7 +32040,7 @@
       "role": "test",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-skills"
       ],
       "symbols": [
         "HostedAgentSkillsPatternTests"
@@ -31748,7 +32052,7 @@
       "role": "test",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-skills"
       ],
       "symbols": [
         "SkillScriptArgumentMarshalerTests"
@@ -31760,7 +32064,7 @@
       "role": "test",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-skills"
       ],
       "symbols": [
         "TestSkillTypes"
@@ -32273,8 +32577,7 @@
       "role": "test",
       "language": "csharp",
       "topics": [
-        "agents",
-        "providers"
+        "agent-harness"
       ],
       "symbols": [
         "AgentModeProviderTests"
@@ -32286,8 +32589,7 @@
       "role": "test",
       "language": "csharp",
       "topics": [
-        "agents",
-        "providers"
+        "agent-harness"
       ],
       "symbols": [
         "BackgroundAgentsProviderTests"
@@ -32299,8 +32601,7 @@
       "role": "test",
       "language": "csharp",
       "topics": [
-        "agents",
-        "providers"
+        "agent-harness"
       ],
       "symbols": [
         "FileAccessProviderTests"
@@ -32312,6 +32613,7 @@
       "role": "test",
       "language": "csharp",
       "topics": [
+        "agent-harness",
         "memory-rag"
       ],
       "symbols": [
@@ -32324,7 +32626,7 @@
       "role": "test",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "FileEditorTests"
@@ -32336,7 +32638,7 @@
       "role": "test",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "FileSystemAgentFileStoreTests"
@@ -32348,6 +32650,7 @@
       "role": "test",
       "language": "csharp",
       "topics": [
+        "agent-harness",
         "memory-rag"
       ],
       "symbols": [
@@ -32360,7 +32663,7 @@
       "role": "test",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "StorePathsTests"
@@ -32372,8 +32675,7 @@
       "role": "test",
       "language": "csharp",
       "topics": [
-        "agents",
-        "evaluation"
+        "agent-harness"
       ],
       "symbols": [
         "AIJudgeLoopEvaluatorTests"
@@ -32385,8 +32687,7 @@
       "role": "test",
       "language": "csharp",
       "topics": [
-        "agents",
-        "evaluation"
+        "agent-harness"
       ],
       "symbols": [
         "BackgroundTaskCompletionLoopEvaluatorTests"
@@ -32398,8 +32699,7 @@
       "role": "test",
       "language": "csharp",
       "topics": [
-        "agents",
-        "evaluation"
+        "agent-harness"
       ],
       "symbols": [
         "CompletionMarkerLoopEvaluatorTests"
@@ -32411,8 +32711,7 @@
       "role": "test",
       "language": "csharp",
       "topics": [
-        "agents",
-        "evaluation"
+        "agent-harness"
       ],
       "symbols": [
         "DelegateLoopEvaluatorTests"
@@ -32424,7 +32723,7 @@
       "role": "test",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "LoopAgentTests"
@@ -32436,7 +32735,7 @@
       "role": "test",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "LoopContextTests"
@@ -32448,6 +32747,7 @@
       "role": "test",
       "language": "csharp",
       "topics": [
+        "agent-harness",
         "evaluation"
       ],
       "symbols": [
@@ -32460,7 +32760,7 @@
       "role": "test",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "LoopTestHelpers"
@@ -32472,8 +32772,7 @@
       "role": "test",
       "language": "csharp",
       "topics": [
-        "agents",
-        "evaluation"
+        "agent-harness"
       ],
       "symbols": [
         "TodoCompletionLoopEvaluatorTests"
@@ -32485,8 +32784,7 @@
       "role": "test",
       "language": "csharp",
       "topics": [
-        "agents",
-        "providers"
+        "agent-harness"
       ],
       "symbols": [
         "TodoProviderTests"
@@ -32498,6 +32796,7 @@
       "role": "test",
       "language": "csharp",
       "topics": [
+        "agent-harness",
         "approvals-hitl"
       ],
       "symbols": [
@@ -32510,6 +32809,7 @@
       "role": "test",
       "language": "csharp",
       "topics": [
+        "agent-harness",
         "approvals-hitl"
       ],
       "symbols": [
@@ -32522,6 +32822,7 @@
       "role": "test",
       "language": "csharp",
       "topics": [
+        "agent-harness",
         "approvals-hitl"
       ],
       "symbols": [
@@ -32534,6 +32835,7 @@
       "role": "test",
       "language": "csharp",
       "topics": [
+        "agent-harness",
         "approvals-hitl"
       ],
       "symbols": [
@@ -32640,7 +32942,7 @@
       "role": "test",
       "language": "csharp",
       "topics": [
-        "agents"
+        "agent-skills"
       ],
       "symbols": [
         "TestAgentSkillsSourceContextFactory"
@@ -39138,7 +39440,7 @@
       "role": "implementation",
       "language": "python",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": []
     },
@@ -39148,7 +39450,7 @@
       "role": "implementation",
       "language": "python",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "_agent"
@@ -39160,7 +39462,7 @@
       "role": "implementation",
       "language": "python",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "_agent"
@@ -39172,7 +39474,7 @@
       "role": "implementation",
       "language": "python",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "_background_agents"
@@ -39184,7 +39486,7 @@
       "role": "implementation",
       "language": "python",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "_file_access"
@@ -39196,7 +39498,8 @@
       "role": "implementation",
       "language": "python",
       "topics": [
-        "memory-rag"
+        "memory-rag",
+        "agent-harness"
       ],
       "symbols": [
         "_file_memory"
@@ -39208,7 +39511,7 @@
       "role": "implementation",
       "language": "python",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "_loop"
@@ -39220,7 +39523,8 @@
       "role": "implementation",
       "language": "python",
       "topics": [
-        "memory-rag"
+        "memory-rag",
+        "agent-harness"
       ],
       "symbols": [
         "_memory"
@@ -39232,7 +39536,7 @@
       "role": "implementation",
       "language": "python",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "_mode"
@@ -39244,7 +39548,7 @@
       "role": "implementation",
       "language": "python",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "_todo"
@@ -39256,7 +39560,8 @@
       "role": "implementation",
       "language": "python",
       "topics": [
-        "approvals-hitl"
+        "approvals-hitl",
+        "agent-harness"
       ],
       "symbols": [
         "_tool_approval"
@@ -39939,6 +40244,7 @@
       "role": "implementation",
       "language": "python",
       "topics": [
+        "codeact",
         "security"
       ],
       "symbols": []
@@ -40398,6 +40704,7 @@
       "role": "test",
       "language": "python",
       "topics": [
+        "codeact",
         "security"
       ],
       "symbols": [
@@ -44434,6 +44741,7 @@
       "role": "implementation",
       "language": "python",
       "topics": [
+        "codeact",
         "security"
       ],
       "symbols": []
@@ -44444,7 +44752,7 @@
       "role": "implementation",
       "language": "python",
       "topics": [
-        "security"
+        "codeact"
       ],
       "symbols": [
         "_execute_code_tool"
@@ -44456,6 +44764,7 @@
       "role": "implementation",
       "language": "python",
       "topics": [
+        "codeact",
         "security"
       ],
       "symbols": [
@@ -44468,6 +44777,7 @@
       "role": "implementation",
       "language": "python",
       "topics": [
+        "codeact",
         "security"
       ],
       "symbols": [
@@ -44480,6 +44790,7 @@
       "role": "implementation",
       "language": "python",
       "topics": [
+        "codeact",
         "security"
       ],
       "symbols": [
@@ -44492,6 +44803,7 @@
       "role": "implementation",
       "language": "python",
       "topics": [
+        "codeact",
         "security"
       ],
       "symbols": []
@@ -44502,6 +44814,7 @@
       "role": "implementation",
       "language": "python",
       "topics": [
+        "codeact",
         "security"
       ],
       "symbols": []
@@ -44512,6 +44825,7 @@
       "role": "test",
       "language": "python",
       "topics": [
+        "codeact",
         "security"
       ],
       "symbols": [
@@ -45000,7 +45314,7 @@
       "role": "implementation",
       "language": "python",
       "topics": [
-        "agents"
+        "codeact"
       ],
       "symbols": []
     },
@@ -45010,8 +45324,7 @@
       "role": "implementation",
       "language": "python",
       "topics": [
-        "agents",
-        "tools"
+        "codeact"
       ],
       "symbols": [
         "_execute_code_tool"
@@ -45023,7 +45336,7 @@
       "role": "implementation",
       "language": "python",
       "topics": [
-        "agents"
+        "codeact"
       ],
       "symbols": [
         "_instructions"
@@ -45035,7 +45348,7 @@
       "role": "implementation",
       "language": "python",
       "topics": [
-        "agents"
+        "codeact"
       ],
       "symbols": [
         "_monty_bridge"
@@ -45047,8 +45360,7 @@
       "role": "implementation",
       "language": "python",
       "topics": [
-        "agents",
-        "providers"
+        "codeact"
       ],
       "symbols": [
         "_provider"
@@ -45060,7 +45372,7 @@
       "role": "implementation",
       "language": "python",
       "topics": [
-        "agents"
+        "codeact"
       ],
       "symbols": [
         "_types"
@@ -45072,7 +45384,7 @@
       "role": "implementation",
       "language": "python",
       "topics": [
-        "agents"
+        "codeact"
       ],
       "symbols": []
     },
@@ -45081,7 +45393,9 @@
       "title": "pyproject",
       "role": "implementation",
       "language": "python",
-      "topics": [],
+      "topics": [
+        "codeact"
+      ],
       "symbols": []
     },
     {
@@ -45089,7 +45403,9 @@
       "title": "agent-framework-monty",
       "role": "implementation",
       "language": "python",
-      "topics": [],
+      "topics": [
+        "codeact"
+      ],
       "symbols": []
     },
     {
@@ -45098,7 +45414,7 @@
       "role": "test",
       "language": "python",
       "topics": [
-        "security"
+        "codeact"
       ],
       "symbols": [
         "test_monty_codeact"
@@ -45110,7 +45426,7 @@
       "role": "test",
       "language": "python",
       "topics": [
-        "security"
+        "codeact"
       ],
       "symbols": [
         "test_monty_codeact_integration"
@@ -46691,7 +47007,8 @@
       "language": "python",
       "topics": [
         "memory-rag",
-        "sessions-context"
+        "sessions-context",
+        "codeact"
       ],
       "symbols": [
         "monty_code_act"
@@ -47372,7 +47689,7 @@
       "role": "sample",
       "language": "python",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "claw_step01_meet_your_claw"
@@ -47384,7 +47701,7 @@
       "role": "sample",
       "language": "python",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "claw_step02_working_with_data"
@@ -47396,7 +47713,7 @@
       "role": "sample",
       "language": "python",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "claw_step03_scaling_capabilities"
@@ -47408,7 +47725,7 @@
       "role": "sample",
       "language": "python",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": []
     },
@@ -47418,7 +47735,8 @@
       "role": "sample",
       "language": "python",
       "topics": [
-        "agents"
+        "agent-harness",
+        "agent-skills"
       ],
       "symbols": []
     },
@@ -47428,7 +47746,8 @@
       "role": "sample",
       "language": "python",
       "topics": [
-        "agents"
+        "agent-harness",
+        "agent-skills"
       ],
       "symbols": [
         "risk_score"
@@ -47440,7 +47759,8 @@
       "role": "sample",
       "language": "python",
       "topics": [
-        "agents"
+        "agent-harness",
+        "agent-skills"
       ],
       "symbols": []
     },
@@ -47450,7 +47770,8 @@
       "role": "sample",
       "language": "python",
       "topics": [
-        "agents"
+        "agent-harness",
+        "agent-skills"
       ],
       "symbols": []
     },
@@ -47460,8 +47781,8 @@
       "role": "sample",
       "language": "python",
       "topics": [
-        "agents",
-        "observability"
+        "agent-harness",
+        "agent-skills"
       ],
       "symbols": [
         "valuation_metrics"
@@ -47473,7 +47794,8 @@
       "role": "sample",
       "language": "python",
       "topics": [
-        "agents"
+        "agent-harness",
+        "agent-skills"
       ],
       "symbols": []
     },
@@ -47483,7 +47805,7 @@
       "role": "sample",
       "language": "python",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "subprocess_script_runner"
@@ -47495,7 +47817,7 @@
       "role": "sample",
       "language": "python",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": []
     },
@@ -47505,7 +47827,7 @@
       "role": "sample",
       "language": "python",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "agent_runner"
@@ -47517,7 +47839,7 @@
       "role": "sample",
       "language": "python",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "app"
@@ -47529,7 +47851,7 @@
       "role": "sample",
       "language": "python",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "app_state"
@@ -47541,7 +47863,7 @@
       "role": "sample",
       "language": "python",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": []
     },
@@ -47551,7 +47873,7 @@
       "role": "sample",
       "language": "python",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "base"
@@ -47563,7 +47885,7 @@
       "role": "sample",
       "language": "python",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "exit_handler"
@@ -47575,7 +47897,7 @@
       "role": "sample",
       "language": "python",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "mode_handler"
@@ -47587,8 +47909,7 @@
       "role": "sample",
       "language": "python",
       "topics": [
-        "agents",
-        "sessions-context"
+        "agent-harness"
       ],
       "symbols": [
         "session_handler"
@@ -47600,7 +47921,7 @@
       "role": "sample",
       "language": "python",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "todo_handler"
@@ -47612,7 +47933,7 @@
       "role": "sample",
       "language": "python",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": []
     },
@@ -47622,7 +47943,7 @@
       "role": "sample",
       "language": "python",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "agent_status"
@@ -47634,7 +47955,7 @@
       "role": "sample",
       "language": "python",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "list_selection"
@@ -47646,7 +47967,7 @@
       "role": "sample",
       "language": "python",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "mode_help"
@@ -47658,7 +47979,7 @@
       "role": "sample",
       "language": "python",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "prompt_rule"
@@ -47670,7 +47991,7 @@
       "role": "sample",
       "language": "python",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "scroll_panel"
@@ -47682,7 +48003,7 @@
       "role": "sample",
       "language": "python",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "text_input"
@@ -47694,7 +48015,7 @@
       "role": "sample",
       "language": "python",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "formatters"
@@ -47706,7 +48027,7 @@
       "role": "sample",
       "language": "python",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "harness_console"
@@ -47718,7 +48039,7 @@
       "role": "sample",
       "language": "python",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": []
     },
@@ -47728,7 +48049,7 @@
       "role": "sample",
       "language": "python",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "base"
@@ -47740,7 +48061,7 @@
       "role": "sample",
       "language": "python",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "error_display"
@@ -47752,7 +48073,7 @@
       "role": "sample",
       "language": "python",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "planning_models"
@@ -47764,7 +48085,7 @@
       "role": "sample",
       "language": "python",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "planning_output"
@@ -47776,7 +48097,7 @@
       "role": "sample",
       "language": "python",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "reasoning_display"
@@ -47788,7 +48109,7 @@
       "role": "sample",
       "language": "python",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "text_output"
@@ -47800,6 +48121,7 @@
       "role": "sample",
       "language": "python",
       "topics": [
+        "agent-harness",
         "approvals-hitl"
       ],
       "symbols": [
@@ -47812,8 +48134,7 @@
       "role": "sample",
       "language": "python",
       "topics": [
-        "tools",
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "tool_call_display"
@@ -47825,7 +48146,7 @@
       "role": "sample",
       "language": "python",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "usage_display"
@@ -47837,7 +48158,7 @@
       "role": "sample",
       "language": "python",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "web_search_display"
@@ -47849,7 +48170,7 @@
       "role": "sample",
       "language": "python",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": []
     },
@@ -47859,7 +48180,7 @@
       "role": "sample",
       "language": "python",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "state_driver"
@@ -47871,7 +48192,7 @@
       "role": "sample",
       "language": "python",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "textual_state_driver"
@@ -47883,7 +48204,7 @@
       "role": "sample",
       "language": "python",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "harness_data_processing"
@@ -47895,7 +48216,7 @@
       "role": "sample",
       "language": "python",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": [
         "harness_research"
@@ -47907,7 +48228,7 @@
       "role": "sample",
       "language": "python",
       "topics": [
-        "agents"
+        "agent-harness"
       ],
       "symbols": []
     },
@@ -49577,7 +49898,7 @@
       "role": "sample",
       "language": "python",
       "topics": [
-        "agents"
+        "agent-skills"
       ],
       "symbols": [
         "class_based_skill"
@@ -49589,7 +49910,7 @@
       "role": "sample",
       "language": "python",
       "topics": [
-        "agents"
+        "agent-skills"
       ],
       "symbols": []
     },
@@ -49599,7 +49920,7 @@
       "role": "sample",
       "language": "python",
       "topics": [
-        "agents"
+        "agent-skills"
       ],
       "symbols": [
         "code_defined_skill"
@@ -49611,7 +49932,7 @@
       "role": "sample",
       "language": "python",
       "topics": [
-        "agents"
+        "agent-skills"
       ],
       "symbols": []
     },
@@ -49621,7 +49942,7 @@
       "role": "sample",
       "language": "python",
       "topics": [
-        "agents"
+        "agent-skills"
       ],
       "symbols": [
         "file_based_skill"
@@ -49633,7 +49954,7 @@
       "role": "sample",
       "language": "python",
       "topics": [
-        "agents"
+        "agent-skills"
       ],
       "symbols": []
     },
@@ -49643,7 +49964,7 @@
       "role": "sample",
       "language": "python",
       "topics": [
-        "agents"
+        "agent-skills"
       ],
       "symbols": []
     },
@@ -49653,7 +49974,7 @@
       "role": "sample",
       "language": "python",
       "topics": [
-        "agents"
+        "agent-skills"
       ],
       "symbols": [
         "convert"
@@ -49665,7 +49986,7 @@
       "role": "sample",
       "language": "python",
       "topics": [
-        "agents"
+        "agent-skills"
       ],
       "symbols": []
     },
@@ -49675,6 +49996,7 @@
       "role": "sample",
       "language": "python",
       "topics": [
+        "agent-skills",
         "protocols"
       ],
       "symbols": [
@@ -49687,7 +50009,7 @@
       "role": "sample",
       "language": "python",
       "topics": [
-        "protocols"
+        "agent-skills"
       ],
       "symbols": []
     },
@@ -49697,7 +50019,7 @@
       "role": "sample",
       "language": "python",
       "topics": [
-        "agents"
+        "agent-skills"
       ],
       "symbols": [
         "mixed_skills"
@@ -49709,7 +50031,7 @@
       "role": "sample",
       "language": "python",
       "topics": [
-        "agents"
+        "agent-skills"
       ],
       "symbols": []
     },
@@ -49719,7 +50041,7 @@
       "role": "sample",
       "language": "python",
       "topics": [
-        "agents"
+        "agent-skills"
       ],
       "symbols": []
     },
@@ -49729,7 +50051,7 @@
       "role": "sample",
       "language": "python",
       "topics": [
-        "agents"
+        "agent-skills"
       ],
       "symbols": [
         "convert"
@@ -49741,7 +50063,7 @@
       "role": "sample",
       "language": "python",
       "topics": [
-        "agents"
+        "agent-skills"
       ],
       "symbols": []
     },
@@ -49751,7 +50073,7 @@
       "role": "sample",
       "language": "python",
       "topics": [
-        "agents"
+        "agent-skills"
       ],
       "symbols": []
     },
@@ -49761,6 +50083,7 @@
       "role": "sample",
       "language": "python",
       "topics": [
+        "agent-skills",
         "approvals-hitl"
       ],
       "symbols": []
@@ -49771,6 +50094,7 @@
       "role": "sample",
       "language": "python",
       "topics": [
+        "agent-skills",
         "approvals-hitl"
       ],
       "symbols": [
@@ -49783,8 +50107,7 @@
       "role": "sample",
       "language": "python",
       "topics": [
-        "agents",
-        "middleware"
+        "agent-skills"
       ],
       "symbols": []
     },
@@ -49794,8 +50117,7 @@
       "role": "sample",
       "language": "python",
       "topics": [
-        "agents",
-        "middleware"
+        "agent-skills"
       ],
       "symbols": [
         "skill_filtering"
@@ -49807,8 +50129,7 @@
       "role": "sample",
       "language": "python",
       "topics": [
-        "agents",
-        "middleware"
+        "agent-skills"
       ],
       "symbols": [
         "convert"
@@ -49820,8 +50141,7 @@
       "role": "sample",
       "language": "python",
       "topics": [
-        "agents",
-        "middleware"
+        "agent-skills"
       ],
       "symbols": []
     },
@@ -49831,8 +50151,7 @@
       "role": "sample",
       "language": "python",
       "topics": [
-        "agents",
-        "middleware"
+        "agent-skills"
       ],
       "symbols": [
         "convert"
@@ -49844,8 +50163,7 @@
       "role": "sample",
       "language": "python",
       "topics": [
-        "agents",
-        "middleware"
+        "agent-skills"
       ],
       "symbols": []
     },
@@ -49855,6 +50173,7 @@
       "role": "sample",
       "language": "python",
       "topics": [
+        "agent-skills",
         "approvals-hitl"
       ],
       "symbols": []
@@ -49865,6 +50184,7 @@
       "role": "sample",
       "language": "python",
       "topics": [
+        "agent-skills",
         "approvals-hitl"
       ],
       "symbols": [
@@ -49877,7 +50197,7 @@
       "role": "sample",
       "language": "python",
       "topics": [
-        "agents"
+        "agent-skills"
       ],
       "symbols": [
         "subprocess_script_runner"
@@ -52321,6 +52641,7 @@
       "role": "sample",
       "language": "python",
       "topics": [
+        "codeact",
         "security",
         "hosting"
       ],
@@ -52332,6 +52653,7 @@
       "role": "sample",
       "language": "python",
       "topics": [
+        "codeact",
         "security",
         "hosting"
       ],
@@ -52343,6 +52665,7 @@
       "role": "sample",
       "language": "python",
       "topics": [
+        "codeact",
         "security",
         "hosting"
       ],
@@ -52356,6 +52679,7 @@
       "role": "sample",
       "language": "python",
       "topics": [
+        "codeact",
         "security",
         "hosting"
       ],
@@ -52369,6 +52693,7 @@
       "role": "sample",
       "language": "python",
       "topics": [
+        "codeact",
         "security",
         "hosting"
       ],
@@ -53477,6 +53802,7 @@
       "role": "sample",
       "language": "python",
       "topics": [
+        "agent-skills",
         "hosting"
       ],
       "symbols": []
@@ -53487,6 +53813,7 @@
       "role": "sample",
       "language": "python",
       "topics": [
+        "agent-skills",
         "hosting"
       ],
       "symbols": []
@@ -53556,6 +53883,7 @@
       "role": "sample",
       "language": "python",
       "topics": [
+        "codeact",
         "hosting",
         "security"
       ],
@@ -53567,6 +53895,7 @@
       "role": "sample",
       "language": "python",
       "topics": [
+        "codeact",
         "hosting",
         "security"
       ],
@@ -53578,6 +53907,7 @@
       "role": "sample",
       "language": "python",
       "topics": [
+        "codeact",
         "hosting",
         "security"
       ],
@@ -53591,6 +53921,7 @@
       "role": "sample",
       "language": "python",
       "topics": [
+        "codeact",
         "hosting",
         "security"
       ],
@@ -53602,6 +53933,7 @@
       "role": "sample",
       "language": "python",
       "topics": [
+        "codeact",
         "hosting",
         "security"
       ],
@@ -53659,6 +53991,7 @@
       "role": "sample",
       "language": "python",
       "topics": [
+        "agent-skills",
         "hosting",
         "protocols"
       ],
@@ -53670,6 +54003,7 @@
       "role": "sample",
       "language": "python",
       "topics": [
+        "agent-skills",
         "hosting",
         "protocols"
       ],
