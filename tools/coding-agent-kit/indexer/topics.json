@@ -195,7 +195,7 @@
         {"path": "docs/decisions/0009-support-long-running-operations.md", "role": "design", "language": "any", "why": "Long-running operation decision."},
         {"path": "python/samples/03-workflows/checkpoint", "role": "sample", "language": "python", "why": "Checkpoint and resume samples."},
         {"path": "dotnet/src/Microsoft.Agents.AI.Workflows/CheckpointManager.cs", "role": "implementation", "language": "csharp", "why": ".NET checkpoint management seam."},
-        {"path": "python/packages/durabletask", "role": "implementation", "language": "python", "why": "Python Durable Task integration."}
+        {"path": "python/packages/core/agent_framework/_workflows/_checkpoint.py", "role": "implementation", "language": "python", "why": "Python workflow checkpoint and replay contracts retained in core after Durable Task extraction."}
       ]
     },
     {
@@ -277,7 +277,7 @@
       "path_patterns": ["declarative-agents/*", "schemas/*", "*/packages/declarative/*", "*/Declarative/*", "*/samples/*/declarative/*"],
       "curated": [
         {"path": "declarative-agents", "role": "sample", "language": "declarative", "why": "Standalone declarative definitions and examples."},
-        {"path": "schemas/durable-agent-entity-state.json", "role": "schema", "language": "declarative", "why": "Machine-readable durable agent state schema."},
+        {"path": "python/packages/declarative/tests/test_declarative_models.py", "role": "test", "language": "python", "why": "Declarative model parsing and validation contracts after removal of the durable entity schema."},
         {"path": "python/packages/declarative", "role": "implementation", "language": "python", "why": "Python declarative implementation."},
         {"path": "dotnet/src/Microsoft.Agents.AI.Declarative", "role": "implementation", "language": "csharp", "why": ".NET declarative agent implementation."},
         {"path": "python/samples/03-workflows/declarative", "role": "sample", "language": "python", "why": "Declarative workflow patterns."}
