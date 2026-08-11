@@ -42,7 +42,9 @@ from opentelemetry import metrics, trace
 from typing_extensions import Sentinel
 
 from . import __version__ as version_info
-from ._serialization import SerializationProtocol
+from ._serialization import (
+    _is_serialization_protocol,  # pyright: ignore[reportPrivateUsage]
+)
 from ._settings import load_settings
 
 if sys.version_info >= (3, 13):
@@ -124,6 +126,29 @@ INNER_USAGE_CAPTURED_FIELD: Final[str] = "usage"
 INNER_ACCUMULATED_USAGE: Final[contextvars.ContextVar[UsageDetails | None]] = contextvars.ContextVar(
     "inner_accumulated_usage", default=None
 )
+
+# Allows protocol adapters to supply an application-managed conversation identity for one execution
+# without putting that value into a service-owned continuation field.
+_TELEMETRY_CONVERSATION_ID: Final[contextvars.ContextVar[str | None]] = contextvars.ContextVar(
+    "telemetry_conversation_id", default=None
+)
+
+
+@contextlib.contextmanager
+def _use_telemetry_conversation_id(  # pyright: ignore[reportUnusedFunction]
+    conversation_id: str | None,
+) -> Generator[None]:
+    """Set an application-managed OTel conversation id for the current execution."""
+    if conversation_id is None:
+        yield
+        return
+
+    token = _TELEMETRY_CONVERSATION_ID.set(conversation_id)
+    try:
+        yield
+    finally:
+        _TELEMETRY_CONVERSATION_ID.reset(token)
+
 
 OTEL_METRICS: Final[str] = "__otel_metrics__"
 TOKEN_USAGE_BUCKET_BOUNDARIES: Final[tuple[float, ...]] = (
@@ -238,7 +263,7 @@ class OtelAttr(str, Enum):
     T_TYPE_OUTPUT = "output"
     DURATION_UNIT = "s"
     LLM_OPERATION_DURATION = "gen_ai.client.operation.duration"
-    LLM_TOKEN_USAGE = "gen_ai.client.token.usage"  # nosec B105 # noqa: S105 - OpenTelemetry metric name, not a secret.
+    LLM_TOKEN_USAGE = "gen_ai.client.token.usage"  # nosec B105 # ruff:ignore[hardcoded-password-string] - OpenTelemetry metric name, not a secret.
 
     # Agent attributes
     AGENT_NAME = "gen_ai.agent.name"
@@ -352,7 +377,9 @@ USAGE_DETAIL_TO_OTEL_ATTR: Final[tuple[tuple[str, OtelAttr], ...]] = (
     ("anthropic.cache_creation_input_tokens", OtelAttr.CACHE_CREATION_INPUT_TOKENS),
     ("anthropic.cache_read_input_tokens", OtelAttr.CACHE_READ_INPUT_TOKENS),
     ("openai.cached_input_tokens", OtelAttr.CACHE_READ_INPUT_TOKENS),
+    ("openai.cache_write_tokens", OtelAttr.CACHE_CREATION_INPUT_TOKENS),
     ("prompt/cached_tokens", OtelAttr.CACHE_READ_INPUT_TOKENS),
+    ("prompt/cache_write_tokens", OtelAttr.CACHE_CREATION_INPUT_TOKENS),
     ("openai.reasoning_tokens", OtelAttr.REASONING_OUTPUT_TOKENS),
     ("completion/reasoning_tokens", OtelAttr.REASONING_OUTPUT_TOKENS),
     ("reasoning_tokens", OtelAttr.REASONING_OUTPUT_TOKENS),
@@ -1524,6 +1551,10 @@ class ChatTelemetryLayer(Generic[OptionsCoT]):
             service_url=service_url,
             **merged_client_kwargs,
         )
+        if (telemetry_conversation_id := _TELEMETRY_CONVERSATION_ID.get()) is not None:
+            # Keep application-managed telemetry correlation separate from the
+            # provider-owned conversation_id forwarded through chat options.
+            attributes[OtelAttr.CONVERSATION_ID] = telemetry_conversation_id
 
         if stream:
             agent_span = trace.get_current_span()
@@ -1614,11 +1645,15 @@ class ChatTelemetryLayer(Generic[OptionsCoT]):
                         and response.messages
                         and span.is_recording()
                     ):
+                        finish_reason = cast(
+                            "FinishReason | None",
+                            response.finish_reason if response.finish_reason in FINISH_REASON_MAP else None,
+                        )
                         _capture_messages(
                             span=span,
                             provider_name=provider_name,
                             messages=response.messages,
-                            finish_reason=response.finish_reason,  # type: ignore[arg-type]
+                            finish_reason=finish_reason,
                             output=True,
                         )
                 except Exception as exception:
@@ -1816,11 +1851,13 @@ class AgentTelemetryLayer:
             "Callable[[AgentSession | None], str | None] | None",
             getattr(self, "_get_otel_conversation_id", None),
         )
-        conversation_id = (
-            get_otel_conversation_id(session)
-            if callable(get_otel_conversation_id)
-            else (session.service_session_id if (session and isinstance(session.service_session_id, str)) else None)
-        )
+        conversation_id = _TELEMETRY_CONVERSATION_ID.get()
+        if conversation_id is None:
+            conversation_id = (
+                get_otel_conversation_id(session)
+                if callable(get_otel_conversation_id)
+                else (session.service_session_id if (session and isinstance(session.service_session_id, str)) else None)
+            )
         attributes = _get_span_attributes(
             operation_name=OtelAttr.AGENT_INVOKE_OPERATION,
             provider_name=provider_name,
@@ -2042,7 +2079,7 @@ class AgentTelemetryLayer:
         *,
         stream: Literal[False] = ...,
         session: AgentSession | None = None,
-        middleware: Sequence[MiddlewareTypes] | None = None,
+        middleware: MiddlewareTypes | Sequence[MiddlewareTypes] | None = None,
         tools: ToolTypes | Callable[..., Any] | Sequence[ToolTypes | Callable[..., Any]] | None = None,
         options: ChatOptions[ResponseModelBoundT],
         compaction_strategy: CompactionStrategy | None = None,
@@ -2058,7 +2095,7 @@ class AgentTelemetryLayer:
         *,
         stream: Literal[False] = ...,
         session: AgentSession | None = None,
-        middleware: Sequence[MiddlewareTypes] | None = None,
+        middleware: MiddlewareTypes | Sequence[MiddlewareTypes] | None = None,
         tools: ToolTypes | Callable[..., Any] | Sequence[ToolTypes | Callable[..., Any]] | None = None,
         options: ChatOptions[None] | None = None,
         compaction_strategy: CompactionStrategy | None = None,
@@ -2074,7 +2111,7 @@ class AgentTelemetryLayer:
         *,
         stream: Literal[True],
         session: AgentSession | None = None,
-        middleware: Sequence[MiddlewareTypes] | None = None,
+        middleware: MiddlewareTypes | Sequence[MiddlewareTypes] | None = None,
         tools: ToolTypes | Callable[..., Any] | Sequence[ToolTypes | Callable[..., Any]] | None = None,
         options: ChatOptions[Any] | None = None,
         compaction_strategy: CompactionStrategy | None = None,
@@ -2089,7 +2126,7 @@ class AgentTelemetryLayer:
         *,
         stream: bool = False,
         session: AgentSession | None = None,
-        middleware: Sequence[MiddlewareTypes] | None = None,
+        middleware: MiddlewareTypes | Sequence[MiddlewareTypes] | None = None,
         tools: ToolTypes | Callable[..., Any] | Sequence[ToolTypes | Callable[..., Any]] | None = None,
         options: ChatOptions[Any] | None = None,
         compaction_strategy: CompactionStrategy | None = None,
@@ -2423,7 +2460,6 @@ def _build_tool_otel_definition(tool_item: Any) -> dict[str, Any] | None:
     from pydantic import BaseModel
 
     from ._mcp import MCPTool
-    from ._serialization import SerializationMixin
     from ._tools import FunctionTool
 
     if isinstance(tool_item, FunctionTool):
@@ -2444,7 +2480,7 @@ def _build_tool_otel_definition(tool_item: Any) -> dict[str, Any] | None:
     raw: Mapping[str, Any] | None = None
     if isinstance(tool_item, BaseModel):
         raw = tool_item.model_dump(exclude_none=True)
-    elif isinstance(tool_item, (SerializationMixin, SerializationProtocol)):
+    elif _is_serialization_protocol(tool_item):
         raw = tool_item.to_dict()
     elif isinstance(tool_item, Mapping):
         mapping_item = cast("Mapping[str, Any]", tool_item)
@@ -2896,7 +2932,11 @@ def create_workflow_span(
     kind: trace.SpanKind = trace.SpanKind.INTERNAL,
 ) -> _AgnosticContextManager[trace.Span]:
     """Create a generic workflow span."""
-    return workflow_tracer().start_as_current_span(name, kind=kind, attributes=attributes)
+    span_attributes = dict(attributes) if attributes is not None else {}
+    conversation_id = _TELEMETRY_CONVERSATION_ID.get()
+    if name == OtelAttr.WORKFLOW_RUN_SPAN and conversation_id is not None:
+        span_attributes.setdefault(OtelAttr.CONVERSATION_ID, conversation_id)
+    return workflow_tracer().start_as_current_span(name, kind=kind, attributes=span_attributes or None)
 
 
 def create_processing_span(

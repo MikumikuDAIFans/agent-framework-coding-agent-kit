@@ -24,6 +24,7 @@ from agent_framework import (
     ChatResponse,
     ChatResponseUpdate,
     Content,
+    FinishReason,
     FunctionInvocationConfiguration,
     FunctionInvocationLayer,
     FunctionTool,
@@ -32,6 +33,7 @@ from agent_framework import (
     UsageDetails,
 )
 from agent_framework._settings import load_settings
+from agent_framework._telemetry import mark_feature_used
 from agent_framework.exceptions import (
     ChatClientException,
     ChatClientInvalidRequestException,
@@ -43,6 +45,8 @@ from ollama import AsyncClient
 from ollama._types import ChatResponse as OllamaChatResponse
 from ollama._types import Message as OllamaMessage
 from pydantic import BaseModel
+
+from ._feature_usage import FeatureIndex
 
 if sys.version_info >= (3, 13):
     from typing import TypeVar  # pragma: no cover
@@ -357,6 +361,7 @@ class OllamaChatClient(
             async def _stream() -> AsyncIterable[ChatResponseUpdate]:
                 validated_options = await self._validate_options(options)
                 options_dict = self._prepare_options(messages, validated_options)
+                mark_feature_used(FeatureIndex.OLLAMA)
                 try:
                     response_object: AsyncIterable[OllamaChatResponse] = await self.client.chat(  # type: ignore[misc]
                         stream=True,
@@ -375,6 +380,7 @@ class OllamaChatClient(
         async def _get_response() -> ChatResponse:
             validated_options = await self._validate_options(options)
             options_dict = self._prepare_options(messages, validated_options)
+            mark_feature_used(FeatureIndex.OLLAMA)
             try:
                 response: OllamaChatResponse = await self.client.chat(  # type: ignore[misc]
                     stream=False,
@@ -542,6 +548,11 @@ class OllamaChatClient(
             contents.extend(tool_calls)
         return contents
 
+    def _get_finish_reason_from_ollama(self, response: OllamaChatResponse) -> FinishReason | None:
+        if response.message.tool_calls:
+            return FinishReason("tool_calls")
+        return FinishReason(response.done_reason) if response.done_reason else None
+
     def _parse_streaming_response_from_ollama(self, response: OllamaChatResponse) -> ChatResponseUpdate:
         contents = self._parse_contents_from_ollama(response)
         finish_reason = None
@@ -561,7 +572,7 @@ class OllamaChatClient(
             )
             if usage_details:
                 contents.append(Content.from_usage(usage_details, raw_representation=response))
-            finish_reason = response.done_reason if response.done_reason in ("stop", "length") else None
+            finish_reason = self._get_finish_reason_from_ollama(response)
         return ChatResponseUpdate(
             contents=contents,
             role="assistant",
@@ -590,7 +601,7 @@ class OllamaChatClient(
                 if isinstance(value, int)
             }
         )
-        finish_reason = response.done_reason if response.done_reason in ("stop", "length") else None
+        finish_reason = self._get_finish_reason_from_ollama(response)
 
         return ChatResponse(
             messages=[Message(role="assistant", contents=contents)],
