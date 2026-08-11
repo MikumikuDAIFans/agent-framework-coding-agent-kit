@@ -50,3 +50,10 @@ The safe model is two-stage:
 
 This keeps routine observation automatic while preserving the approved review policy and preventing transient network failures from deleting knowledge.
 
+## Weekly cycle 2026-08-11
+
+- Upstream baseline advanced to `d0a4165f170193ba1d026a259af40d35bb7eaefe`; the catalog routes 4,329 repository files, 133 Learn pages, and 22 topics.
+- The official Go implementation and Durable extension moved from discovery candidates to adopted immutable project routes.
+- `rwjdk/AgentFrameworkToolkit` and `temporal-community/temporal-dotnet-agents` were adopted as version-bounded community routes after full scoring.
+- `microsoft/skills` remains context-only; Azure Functions Agents Runtime, `sokolaidev/maf-extensions`, and Agent Assembly remain quarantined; Legacy Modernization Agents was rejected by the direct-MAF hard gate.
+- The two Tech Community HTTP 400/403 observations remain active URL-only evidence because current indexing still resolves their canonical titles and dates; no temporary access signal was converted into retirement.

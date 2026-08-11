@@ -55,3 +55,9 @@
 - Collection action: `link and annotation only`
 - Re-review trigger: 12 months, link/package drift, or linked repository review finds incompatible APIs.
 - Residual risk: a moving linked repository may no longer reproduce the recorded sessions.
+
+## Re-review 2026-08-11
+
+- The direct Tech Community request returned HTTP 403, but current search indexing still exposes the canonical title, author, publication date, six-session scope, and original URL.
+- The local target is now `microsoft/agent-framework@d0a4165f170193ba1d026a259af40d35bb7eaefe`; the learning route remains useful, while linked demos remain independently versioned and `not-run`.
+- Decision unchanged: keep `adopted` as URL-only learning evidence. A temporary access-control response is not permanent retirement evidence.

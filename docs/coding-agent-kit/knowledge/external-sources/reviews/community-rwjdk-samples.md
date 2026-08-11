@@ -62,3 +62,10 @@
 - Collection action: `link and annotation only`
 - Re-review trigger: upstream MAF major/API change, source revision/license change, or new compatibility tests.
 - Residual risk: Packages align closely with target revision's 1.13 line; preview provider/hosting surfaces must be rechecked per sample.
+
+## Re-review 2026-08-11
+
+- New reviewed commit: `a9dc5aa4f06b6eebc3728e8267546642c807177f` (2026-08-06T13:22:16Z).
+- The 12-commit delta advances sample dependencies through MAF 1.14, 1.15, 1.16, and 1.17 and adds DIY calling, vector-data, and CORS-related work.
+- The repository still lacks the broad isolated regression depth required for adoption; provider-backed samples remain `not-run`.
+- Decision unchanged: `context-only`, score 66, no active collection route.

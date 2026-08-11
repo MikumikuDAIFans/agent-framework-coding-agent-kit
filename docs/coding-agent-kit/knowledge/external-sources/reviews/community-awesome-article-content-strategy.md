@@ -61,3 +61,9 @@
 - Collection action: `link and annotation only`
 - Re-review trigger: MAF session/provider API change, article/demo revision, license declaration, or demonstrated evaluator calibration.
 - Residual risk: article and demo are not redistributable into the kit under verified terms; provider calls and behavioral quality remain not-run.
+
+## Re-review 2026-08-11
+
+- The direct Tech Community request returned HTTP 403, while current search indexing still exposes the canonical article, author, publication date, tutorial content, and original URL.
+- The immutable demo coordinate remains unchanged; model and live-trend execution remain `not-run` because they require credentials/network behavior.
+- Decision unchanged: `adopted` as a URL-only design reference. The 403 is an access signal, not evidence of permanent removal.

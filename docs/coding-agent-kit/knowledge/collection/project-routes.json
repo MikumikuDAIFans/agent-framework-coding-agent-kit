@@ -36,10 +36,10 @@
         "csharp"
       ],
       "collected_at": "2026-07-20T00:00:00Z",
-      "version": "404ee133c7ba7e1c6b7f3460f52efc40c7ebde83",
+      "version": "3d1643f39c69bbfefb58a555e2e048261ae8bc99",
       "route": "Version-bounded design and code-navigation reference.",
       "design": "Deep reusable evaluation abstractions, adapters, reports, datasets and benchmark composition.",
-      "limitations": "Do not copy/vendor source; do not infer current API compatibility; do not run credentialed or costly paths without authorization. Pins the same 1.13 generation as target revision and documents breaking-change checks; preview Foundry/Harness remain sample-only."
+      "limitations": "Do not copy/vendor source; do not infer current API compatibility; do not run credentialed or costly paths without authorization. The source's prior 1.13-generation evidence now trails target 1.17; preview Foundry/Harness remain sample-only."
     },
     {
       "id": "community-conference-assistant",
@@ -77,10 +77,10 @@
         "typescript"
       ],
       "collected_at": "2026-07-20T00:00:00Z",
-      "version": "2940a6eb5e90447d57273883330c48b05ab8dfdd",
+      "version": "a71a441a017bb3b8d1a0064afbdf22a3ad9d5383",
       "route": "Version-bounded design and code-navigation reference.",
       "design": "Large real application showing repository ingestion, retrieval and multi-provider boundaries.",
-      "limitations": "Do not copy/vendor source; do not infer current API compatibility; do not run credentialed or costly paths without authorization. Stable core 1.7 patterns are near-current but target is 1.13; Anthropic/AzureAI previews require separate checks."
+      "limitations": "Do not copy/vendor source; do not infer current API compatibility; do not run credentialed or costly paths without authorization. Stable core 1.7 patterns trail target 1.17; Anthropic/AzureAI previews require separate checks."
     },
     {
       "id": "community-opik",
@@ -97,7 +97,7 @@
         "typescript"
       ],
       "collected_at": "2026-07-20T00:00:00Z",
-      "version": "9e207b4693948fd276e659098195155f490a3785",
+      "version": "bcbbf44ed5062023ecd3da0068178f4bca5147c1",
       "route": "Version-bounded design and code-navigation reference.",
       "design": "Production observability platform and a low-coupling OTLP export pattern.",
       "limitations": "Do not copy/vendor source; do not infer current API compatibility; do not run credentialed or costly paths without authorization. MAF route relies on standard OpenTelemetry rather than a pinned MAF adapter; docs currently show Agent/OpenAIChatClient and .NET ChatClientAgent, which must be checked at target revision."
@@ -136,10 +136,10 @@
         "python"
       ],
       "collected_at": "2026-07-20T00:00:00Z",
-      "version": "175dd66e0254085ef6347b5763addb19e777611f",
+      "version": "ba4fc3cc5b00cda7dde63833007467ffd6cba3a8",
       "route": "Version-bounded design and code-navigation reference.",
       "design": "Focused adapter with explicit identity/state ownership, graceful-degradation semantics and parameter exposure controls.",
-      "limitations": "Do not copy/vendor source; do not infer current API compatibility; do not run credentialed or costly paths without authorization. Targets >=1.8.1 and explicitly audits framework session/state limitations; verify target 1.13 provider hooks before reuse."
+      "limitations": "Do not copy/vendor source; do not infer current API compatibility; do not run credentialed or costly paths without authorization. Targets >=1.8.1 and explicitly audits framework session/state limitations; verify target 1.17 provider hooks before reuse."
     },
     {
       "id": "repo-azure-interview-coach",
@@ -199,7 +199,7 @@
         "declarative"
       ],
       "collected_at": "2026-07-20T00:00:00Z",
-      "version": "5ab8877ba55b4778d778cf51450eafe483194708",
+      "version": "d0a4165f170193ba1d026a259af40d35bb7eaefe",
       "route": "exact-revision implementation, design, samples and tests through catalog routes.",
       "design": "source, tests, decisions and samples permit a four-way evidence bundle for exact symbols.",
       "limitations": "assuming all features are GA or samples are production defaults. live main and published packages can diverge from this source snapshot."
@@ -220,7 +220,7 @@
         "csharp"
       ],
       "collected_at": "2026-07-20T00:00:00Z",
-      "version": "d00ccdbf31258db917495ca65fa2ecd9e64461b9",
+      "version": "81955d48025c6b11deb3fc9dabf89f74f4145775",
       "route": "route MAF middleware/governance/security design to the immutable .NET integration and its tests, then verify target package compatibility and deployment policy semantics.",
       "design": "a thin adapter maps MAF run/tool surfaces into a framework-neutral policy kernel; deny decisions fail closed before inner execution; audit events are emitted; extension methods avoid application-specific middleware duplication.",
       "limitations": "do not copy external code; do not claim the toolkit alone provides compliance; do not use example identity/policy/audit defaults without threat modeling and tests. broad governance claims can be over-applied without verifying enforcement coverage and fail-closed behavior in the target host."
@@ -241,9 +241,98 @@
       ],
       "collected_at": "2026-07-20T00:00:00Z",
       "version": "f40268fa5573ce42a6403eb0edb48997eb24532a",
-      "route": "route workflow/HITL/tool/CI/deployment questions to the immutable commit, then map APIs against target `5ab8877...` and local tests.",
+      "route": "route workflow/HITL/tool/CI/deployment questions to the immutable commit, then map APIs against target `d0a4165...` and local tests.",
       "design": "specs describe the intended workflow; implementation uses typed executors and bidirectional coordinator edges; HITL is an explicit protocol; external capabilities are separated into tools; tests cover both workflow behavior and tool contracts.",
       "limitations": "do not copy external code; do not silently upgrade beta syntax; do not treat mocked tests as live-provider proof. deployment completeness may obscure missing tenant, eval, retry, and rollback decisions."
+    },
+    {
+      "id": "repo-microsoft-agent-framework-go",
+      "source_id": "repo-microsoft-agent-framework-go",
+      "title": "microsoft/agent-framework-go",
+      "url": "https://github.com/microsoft/agent-framework-go",
+      "review": "docs/coding-agent-kit/knowledge/external-sources/reviews/repo-microsoft-agent-framework-go.md",
+      "topics": [
+        "agents",
+        "workflows",
+        "agent-harness",
+        "protocols",
+        "durability",
+        "observability"
+      ],
+      "languages": [
+        "go"
+      ],
+      "collected_at": "2026-08-11T00:00:00Z",
+      "version": "206863eab447fe89787a9be123c19967b3066a09",
+      "route": "Use immutable Go implementation, tests, and samples only for Go-specific MAF questions.",
+      "design": "Official Go agents, harness, workflows, checkpointing, protocols, providers, and observability with dedicated tests and API-consistency automation.",
+      "limitations": "Public preview; do not mix Go symbols into .NET or Python answers, and do not assume declarative agents, RAG, CodeAct, functional workflows, or handoff exist."
+    },
+    {
+      "id": "repo-microsoft-agent-framework-durable-extension",
+      "source_id": "repo-microsoft-agent-framework-durable-extension",
+      "title": "microsoft/agent-framework-durable-extension",
+      "url": "https://github.com/microsoft/agent-framework-durable-extension",
+      "review": "docs/coding-agent-kit/knowledge/external-sources/reviews/repo-microsoft-agent-framework-durable-extension.md",
+      "topics": [
+        "durability",
+        "hosting",
+        "workflows",
+        "approvals-hitl"
+      ],
+      "languages": [
+        "csharp",
+        "python"
+      ],
+      "collected_at": "2026-08-11T00:00:00Z",
+      "version": "ad941eff53617840c0a046498be36d0b3871329b",
+      "route": "Canonical external route for Durable Task and Azure Functions content extracted from the main MAF repository.",
+      "design": "Independent extension owns durable agents/workflows, serialization, replay, HITL, streaming, hosting, tests, and samples removed from the monorepo.",
+      "limitations": "Beta packages and independently released core/extension versions must be pinned together; cloud, emulator, storage, and provider paths are not locally reproduced."
+    },
+    {
+      "id": "community-rwjdk-agent-framework-toolkit",
+      "source_id": "community-rwjdk-agent-framework-toolkit",
+      "title": "rwjdk/AgentFrameworkToolkit",
+      "url": "https://github.com/rwjdk/AgentFrameworkToolkit",
+      "review": "docs/coding-agent-kit/knowledge/external-sources/reviews/community-rwjdk-agent-framework-toolkit.md",
+      "topics": [
+        "agents",
+        "providers",
+        "tools",
+        "agent-skills",
+        "workflows"
+      ],
+      "languages": [
+        "csharp"
+      ],
+      "collected_at": "2026-08-11T00:00:00Z",
+      "version": "9cc6f1bfd3e78b93e2ab8d98006ec0184fbd26dd",
+      "route": "Version-bounded .NET toolkit and sample-navigation reference at the MAF 1.17 generation.",
+      "design": "Provider adapters, tool and skill factories, approvals, workflow helpers, confinement tests, and a broad sample matrix.",
+      "limitations": "Do not copy external code or substitute wrapper APIs for native MAF contracts; paid/provider-backed tests were not run."
+    },
+    {
+      "id": "community-temporal-dotnet-agents",
+      "source_id": "community-temporal-dotnet-agents",
+      "title": "temporal-community/temporal-dotnet-agents",
+      "url": "https://github.com/temporal-community/temporal-dotnet-agents",
+      "review": "docs/coding-agent-kit/knowledge/external-sources/reviews/community-temporal-dotnet-agents.md",
+      "topics": [
+        "durability",
+        "workflows",
+        "sessions-context",
+        "approvals-hitl",
+        "observability"
+      ],
+      "languages": [
+        "csharp"
+      ],
+      "collected_at": "2026-08-11T00:00:00Z",
+      "version": "4a98f2b14eccccaf3cc2c96a64ea178050d536b9",
+      "route": "Version-bounded Temporal/MAF durability, replay, compatibility, and testing reference.",
+      "design": "Durable turns, sessions, middleware, approvals, tools, context, skills, routing, observability, replay histories, and compatibility tests.",
+      "limitations": "Temporal semantics are not official Durable Task behavior; live Temporal service and provider integrations were not run."
     }
   ]
 }

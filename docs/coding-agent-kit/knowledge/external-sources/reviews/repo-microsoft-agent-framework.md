@@ -59,3 +59,10 @@
 - Collection action: `project route`
 - Re-review trigger: upstream baseline changes from `5ab8877...`.
 - Residual risk: live main and published packages can diverge from this source snapshot.
+
+## Re-review 2026-08-11
+
+- New reviewed commit: `d0a4165f170193ba1d026a259af40d35bb7eaefe` (2026-08-10T05:51:59Z), superseding the earlier snapshot coordinate while preserving this history.
+- The 156-commit delta changes 1,528 files and includes .NET 1.17, Python 1.13-era follow-ons, Durable/Azure Functions extraction, Agent Skills and Harness stabilization, approval/replay fixes, declarative hardening, and Python FHA migration to Responses 2.0 beta.
+- Local catalog generation and the complete kit gate are required against this exact coordinate; cloud integration and model-backed examples remain `not-run`.
+- Decision unchanged: `adopted` as canonical source-observed authority, with maturity checked per package and feature.

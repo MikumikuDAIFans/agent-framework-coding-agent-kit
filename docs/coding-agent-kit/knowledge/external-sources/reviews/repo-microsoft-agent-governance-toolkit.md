@@ -68,3 +68,10 @@
 - Collection action: `project route`
 - Re-review trigger: companion package leaves preview, MAF middleware signatures change, security advisory, policy schema/release change, or license change.
 - Residual risk: broad governance claims can be over-applied without verifying enforcement coverage and fail-closed behavior in the target host.
+
+## Re-review 2026-08-11
+
+- New reviewed commit: `81955d48025c6b11deb3fc9dabf89f74f4145775` (2026-08-07T09:06:06Z).
+- The 169-commit delta adds Python governance E2E scenarios, network-egress and human-approval coverage, accumulated-context governance tests, sender/ack authentication checks, deterministic trust-root enforcement, and fail-closed fixes.
+- The .NET companion now pins `Microsoft.Agents.AI` 1.17.0, matching the local target generation; preview status and deployment-policy semantics remain explicit limits.
+- Decision unchanged: `adopted`, score 96, URL-only project route at the new immutable coordinate.

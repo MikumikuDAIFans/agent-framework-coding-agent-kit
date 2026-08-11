@@ -68,3 +68,9 @@
 - Collection action: `link and annotation only`
 - Re-review trigger: stable MAF packages, focused proxy/thread tests, or official canonicalization of this integration.
 - Residual risk: the large multi-framework repository can cause unrelated samples to be attributed to MAF.
+
+## Re-review 2026-08-11
+
+- New reviewed commit: `7913e8753f423f1f39539ae676f985d66b7b9e41` (2026-07-24T02:30:51Z).
+- The one-commit delta only removes an SPFx sample from repository configuration; it does not change the reviewed MAF proxy/thread example or its preview boundaries.
+- Decision unchanged: `context-only`, score 76, excluded from active collection by policy.

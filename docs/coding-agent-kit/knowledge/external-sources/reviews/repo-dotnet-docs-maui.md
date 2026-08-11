@@ -68,3 +68,9 @@
 - Collection action: `none`
 - Re-review trigger: reclassify/audit the published official documentation page or independently audit the linked executable sample.
 - Residual risk: official prose can be mistaken for target-revision executable evidence.
+
+## Re-review 2026-08-11
+
+- New repository coordinate: `193868ac9559ce4a06f81fa2f82f03dcee61b4bd` (2026-08-10T08:46:12Z).
+- The 15-commit delta is MAUI documentation and workflow maintenance; no MAF package, implementation, or test evidence changed.
+- Decision unchanged: `rejected`, score 47. The source still fails the direct-MAF hard gate for this kit.

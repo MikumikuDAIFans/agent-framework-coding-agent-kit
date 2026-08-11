@@ -62,3 +62,9 @@
 - Collection action: `project route`
 - Re-review trigger: upstream MAF major/API change, source revision/license change, or new compatibility tests.
 - Residual risk: Stable core 1.7 patterns are near-current but target is 1.13; Anthropic/AzureAI previews require separate checks.
+
+## Re-review 2026-08-11
+
+- New reviewed commit: `a71a441a017bb3b8d1a0064afbdf22a3ad9d5383` (2026-08-07T10:31:08Z).
+- The 10-commit delta concerns site URL configuration, environment parsing, wiki-model bindings, localization, and sitemap generation; no MAF-specific file changed.
+- Decision unchanged: `adopted`, score 93, as a version-bounded architecture route; exact MAF compatibility remains unclaimed.

@@ -68,3 +68,9 @@
 - Collection action: `none`
 - Re-review trigger: repository adds direct, pinned MAF implementation and tests.
 - Residual risk: product naming and adjacent Azure agent SDKs can cause framework misattribution.
+
+## Re-review 2026-08-11
+
+- The repository remains at `5327acd85e0b65e013ec470bef1f367ae18a459a` and now reports `archived: true`; MIT metadata is unchanged.
+- No direct MAF import or API call appeared, so the original hard-gate failure still applies. Cloud and credential paths remain `not-run`.
+- Decision unchanged: `rejected`. There was no active collection route to archive; the historical review is retained as the retirement record.

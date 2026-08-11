@@ -62,3 +62,9 @@
 - Collection action: `project route`
 - Re-review trigger: upstream MAF major/API change, source revision/license change, or new compatibility tests.
 - Residual risk: MAF route relies on standard OpenTelemetry rather than a pinned MAF adapter; docs currently show Agent/OpenAIChatClient and .NET ChatClientAgent, which must be checked at target revision.
+
+## Re-review 2026-08-11
+
+- New reviewed commit: `bcbbf44ed5062023ecd3da0068178f4bca5147c1` (2026-08-10T12:56:59Z).
+- The 252-commit delta is mainly Opik product, SDK, evaluation, trace-storage, security, CI, and release work; no returned file is a MAF adapter or pinned MAF dependency.
+- Decision unchanged: `adopted`, score 86, only as a version-bounded observability/evaluation route. Standard OTLP interoperation is not MAF API compatibility evidence.

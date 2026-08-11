@@ -56,3 +56,10 @@
 - Collection action: `none`
 - Re-review trigger: dedicated MAF lesson gains tested, exact-version engineering artifacts.
 - Residual risk: large translation/curriculum surface can lag package changes unevenly.
+
+## Re-review 2026-08-11
+
+- New reviewed commit: `15ad10ca60577b75199c1ba828887ab7e66bac87` (2026-07-29T17:36:13Z).
+- Most of the 116-commit delta is translation churn. Material MAF changes repair the .NET concurrent workflow sample and replace the Python meta-package with `agent-framework-core==1.10.0` while retaining 1.10 provider packages.
+- The source still trails target `d0a4165f170193ba1d026a259af40d35bb7eaefe` and remains educational rather than an API or production authority.
+- Decision unchanged: `context-only`, score 66, no collection route.

@@ -62,3 +62,10 @@
 - Collection action: `project route`
 - Re-review trigger: upstream MAF major/API change, source revision/license change, or new compatibility tests.
 - Residual risk: Pins the same 1.13 generation as target revision and documents breaking-change checks; preview Foundry/Harness remain sample-only.
+
+## Re-review 2026-08-11
+
+- New reviewed commit: `3d1643f39c69bbfefb58a555e2e048261ae8bc99` (2026-08-07T17:04:18Z).
+- The 49-commit delta substantially expands Gatekeeper, Agent Skills drift enforcement, calibrated judges, fleet correlation, replay fixtures, security reviews, and fail-open/fabrication remediation; 258 returned files carry test/security/evaluation signals.
+- No changed file directly rewrites the MAF adapter surface, so this remains design and evaluation evidence rather than current API proof.
+- Decision unchanged: `adopted`, score 100, at the new immutable coordinate.

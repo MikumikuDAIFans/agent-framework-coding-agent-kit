@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "snapshot_date": "2026-07-15",
+  "snapshot_date": "2026-08-11",
   "policy": "REVIEW_POLICY.md",
   "items": [
     {
@@ -616,7 +616,7 @@
       "priority": "P1",
       "why": "Microsoft developer-community six-part Python learning series.",
       "review": "reviews/official-community-python-series.md",
-      "reviewed_at": "2026-07-17",
+      "reviewed_at": "2026-08-11",
       "collection_action": "link and annotation only",
       "review_score": 95
     },
@@ -638,9 +638,9 @@
       "priority": "P0",
       "why": "Canonical source, tests, designs, samples, schemas, issues, and release history.",
       "review": "reviews/repo-microsoft-agent-framework.md",
-      "reviewed_at": "2026-07-17",
+      "reviewed_at": "2026-08-11",
       "collection_action": "project route",
-      "reviewed_commit": "5ab8877ba55b4778d778cf51450eafe483194708",
+      "reviewed_commit": "d0a4165f170193ba1d026a259af40d35bb7eaefe",
       "review_score": 100
     },
     {
@@ -689,9 +689,9 @@
       "priority": "P1",
       "why": "Large beginner curriculum containing a dedicated Microsoft Agent Framework lesson and samples.",
       "review": "reviews/repo-microsoft-ai-agents-beginners.md",
-      "reviewed_at": "2026-07-17",
+      "reviewed_at": "2026-08-11",
       "collection_action": "none",
-      "reviewed_commit": "ad068048e785ecc3f05d663e7c4ba18a55e72972",
+      "reviewed_commit": "15ad10ca60577b75199c1ba828887ab7e66bac87",
       "review_score": 66
     },
     {
@@ -832,7 +832,7 @@
       "priority": "P1",
       "why": "Insurance claims workflow, MCP, and human review scenario.",
       "review": "reviews/repo-microsoft-claims-processing.md",
-      "reviewed_at": "2026-07-17",
+      "reviewed_at": "2026-08-11",
       "collection_action": "none",
       "reviewed_commit": "5327acd85e0b65e013ec470bef1f367ae18a459a",
       "review_score": 52
@@ -879,9 +879,9 @@
       "priority": "P1",
       "why": "Governance, zero-trust, sandboxing, and reliability integration material that references MAF.",
       "review": "reviews/repo-microsoft-agent-governance-toolkit.md",
-      "reviewed_at": "2026-07-17",
+      "reviewed_at": "2026-08-11",
       "collection_action": "project route",
-      "reviewed_commit": "d00ccdbf31258db917495ca65fa2ecd9e64461b9",
+      "reviewed_commit": "81955d48025c6b11deb3fc9dabf89f74f4145775",
       "review_score": 96
     },
     {
@@ -901,9 +901,9 @@
       "priority": "P2",
       "why": "Official .NET MAUI documentation page using Agent Framework; narrow client-app scope.",
       "review": "reviews/repo-dotnet-docs-maui.md",
-      "reviewed_at": "2026-07-17",
+      "reviewed_at": "2026-08-11",
       "collection_action": "none",
-      "reviewed_commit": "e75fa6a805d14c89b18a8a51199e05a007082b41",
+      "reviewed_commit": "193868ac9559ce4a06f81fa2f82f03dcee61b4bd",
       "review_score": 47
     },
     {
@@ -924,9 +924,9 @@
       "priority": "P2",
       "why": "Microsoft 365 proxy-agent and interoperability samples; not all projects use MAF.",
       "review": "reviews/repo-office-m365-agent-samples.md",
-      "reviewed_at": "2026-07-17",
+      "reviewed_at": "2026-08-11",
       "collection_action": "link and annotation only",
-      "reviewed_commit": "31201f60982d6acf6fc4afa411eecccc6abae717",
+      "reviewed_commit": "7913e8753f423f1f39539ae676f985d66b7b9e41",
       "review_score": 76
     },
     {
@@ -987,9 +987,9 @@
       "priority": "P0",
       "why": "Actively maintained C# sample collection with substantial direct MAF code.",
       "review": "reviews/community-rwjdk-samples.md",
-      "reviewed_at": "2026-07-17",
+      "reviewed_at": "2026-08-11",
       "collection_action": "link and annotation only",
-      "reviewed_commit": "b6f2234323ebd714248c71bd82b0380a4db4f241",
+      "reviewed_commit": "a9dc5aa4f06b6eebc3728e8267546642c807177f",
       "review_score": 66
     },
     {
@@ -1104,9 +1104,9 @@
       "priority": "P1",
       "why": "Large production-style C# application that directly references Microsoft.Agents.AI.",
       "review": "reviews/community-opendeepwiki.md",
-      "reviewed_at": "2026-07-17",
+      "reviewed_at": "2026-08-11",
       "collection_action": "project route",
-      "reviewed_commit": "2940a6eb5e90447d57273883330c48b05ab8dfdd",
+      "reviewed_commit": "a71a441a017bb3b8d1a0064afbdf22a3ad9d5383",
       "review_score": 93
     },
     {
@@ -1127,9 +1127,9 @@
       "priority": "P1",
       "why": "Evaluation platform with documented Microsoft Agent Framework integration.",
       "review": "reviews/community-agenteval.md",
-      "reviewed_at": "2026-07-17",
+      "reviewed_at": "2026-08-11",
       "collection_action": "project route",
-      "reviewed_commit": "404ee133c7ba7e1c6b7f3460f52efc40c7ebde83",
+      "reviewed_commit": "3d1643f39c69bbfefb58a555e2e048261ae8bc99",
       "review_score": 100
     },
     {
@@ -1150,9 +1150,9 @@
       "priority": "P1",
       "why": "Mature observability/evaluation project surfaced by direct MAF references; integration depth must be isolated.",
       "review": "reviews/community-opik.md",
-      "reviewed_at": "2026-07-17",
+      "reviewed_at": "2026-08-11",
       "collection_action": "project route",
-      "reviewed_commit": "9e207b4693948fd276e659098195155f490a3785",
+      "reviewed_commit": "bcbbf44ed5062023ecd3da0068178f4bca5147c1",
       "review_score": 86
     },
     {
@@ -1171,9 +1171,9 @@
       "priority": "P1",
       "why": "Memory integration examples discovered through MAF package/import search.",
       "review": "reviews/community-zep.md",
-      "reviewed_at": "2026-07-17",
+      "reviewed_at": "2026-08-11",
       "collection_action": "project route",
-      "reviewed_commit": "175dd66e0254085ef6347b5763addb19e777611f",
+      "reviewed_commit": "ba4fc3cc5b00cda7dde63833007467ffd6cba3a8",
       "review_score": 100
     },
     {
@@ -1420,9 +1420,229 @@
       "priority": "P1",
       "why": "Detailed multi-agent roles, external tool use, refinement loop, and rubric-driven evaluation tutorial.",
       "review": "reviews/community-awesome-article-content-strategy.md",
-      "reviewed_at": "2026-07-17",
+      "reviewed_at": "2026-08-11",
       "collection_action": "link and annotation only",
       "review_score": 92
+    },
+    {
+      "id": "repo-microsoft-agent-framework-go",
+      "name": "microsoft/agent-framework-go",
+      "url": "https://github.com/microsoft/agent-framework-go",
+      "source_class": "official-repository",
+      "authority": "microsoft",
+      "topics": [
+        "agents",
+        "workflows",
+        "agent-harness",
+        "protocols",
+        "durability",
+        "observability"
+      ],
+      "languages": [
+        "go"
+      ],
+      "review_status": "adopted",
+      "priority": "P0",
+      "why": "Official public-preview Go implementation with tests, workflows, protocols, and providers.",
+      "review": "reviews/repo-microsoft-agent-framework-go.md",
+      "reviewed_at": "2026-08-11",
+      "collection_action": "project route",
+      "reviewed_commit": "206863eab447fe89787a9be123c19967b3066a09",
+      "review_score": 100
+    },
+    {
+      "id": "repo-microsoft-agent-framework-durable-extension",
+      "name": "microsoft/agent-framework-durable-extension",
+      "url": "https://github.com/microsoft/agent-framework-durable-extension",
+      "source_class": "official-repository",
+      "authority": "microsoft",
+      "topics": [
+        "durability",
+        "hosting",
+        "workflows",
+        "approvals-hitl"
+      ],
+      "languages": [
+        "csharp",
+        "python"
+      ],
+      "review_status": "adopted",
+      "priority": "P0",
+      "why": "Official Durable Task and Azure Functions extension extracted from the canonical monorepo.",
+      "review": "reviews/repo-microsoft-agent-framework-durable-extension.md",
+      "reviewed_at": "2026-08-11",
+      "collection_action": "project route",
+      "reviewed_commit": "ad941eff53617840c0a046498be36d0b3871329b",
+      "review_score": 100
+    },
+    {
+      "id": "repo-microsoft-skills",
+      "name": "microsoft/skills",
+      "url": "https://github.com/microsoft/skills",
+      "source_class": "official-repository",
+      "authority": "microsoft",
+      "topics": [
+        "agent-skills",
+        "providers",
+        "tools"
+      ],
+      "languages": [
+        "python",
+        "markdown"
+      ],
+      "review_status": "context-only",
+      "priority": "P1",
+      "why": "Official coding-agent skill and evaluation repository with MAF Azure AI guidance.",
+      "review": "reviews/repo-microsoft-skills.md",
+      "reviewed_at": "2026-08-11",
+      "collection_action": "none",
+      "reviewed_commit": "849ffefb22c133c1e8c6a282a3ded018cb9c4ad7",
+      "review_score": 78
+    },
+    {
+      "id": "repo-azure-functions-agents-runtime",
+      "name": "Azure/azure-functions-agents-runtime",
+      "url": "https://github.com/Azure/azure-functions-agents-runtime",
+      "source_class": "official-repository",
+      "authority": "microsoft",
+      "topics": [
+        "hosting",
+        "durability",
+        "agent-harness",
+        "protocols"
+      ],
+      "languages": [
+        "python"
+      ],
+      "review_status": "quarantined",
+      "priority": "P1",
+      "why": "Preview Azure Functions agent runtime with strong tests but old MAF 1.3 pins.",
+      "review": "reviews/repo-azure-functions-agents-runtime.md",
+      "reviewed_at": "2026-08-11",
+      "collection_action": "none",
+      "reviewed_commit": "cc5e14ccda96bfd8ebc3197d33a5730b6cc89762",
+      "review_score": 84
+    },
+    {
+      "id": "repo-azure-legacy-modernization-agents",
+      "name": "Azure-Samples/Legacy-Modernization-Agents",
+      "url": "https://github.com/Azure-Samples/Legacy-Modernization-Agents",
+      "source_class": "official-repository",
+      "authority": "microsoft",
+      "topics": [
+        "orchestration",
+        "tools",
+        "memory-rag"
+      ],
+      "languages": [
+        "csharp",
+        "python"
+      ],
+      "review_status": "rejected",
+      "priority": "P1",
+      "why": "Modernization pipeline claims MAF but current manifests lack a verifiable direct MAF package.",
+      "review": "reviews/repo-azure-legacy-modernization-agents.md",
+      "reviewed_at": "2026-08-11",
+      "collection_action": "none",
+      "reviewed_commit": "3511138b890cb5b385ef417b2092018cb82263aa",
+      "review_score": 65
+    },
+    {
+      "id": "community-rwjdk-agent-framework-toolkit",
+      "name": "rwjdk/AgentFrameworkToolkit",
+      "url": "https://github.com/rwjdk/AgentFrameworkToolkit",
+      "source_class": "community-repository",
+      "authority": "community",
+      "topics": [
+        "agents",
+        "providers",
+        "tools",
+        "agent-skills",
+        "workflows"
+      ],
+      "languages": [
+        "csharp"
+      ],
+      "review_status": "adopted",
+      "priority": "P1",
+      "why": "Opinionated .NET toolkit pinned to MAF 1.17 with provider, tool, skill, workflow, and confinement tests.",
+      "review": "reviews/community-rwjdk-agent-framework-toolkit.md",
+      "reviewed_at": "2026-08-11",
+      "collection_action": "project route",
+      "reviewed_commit": "9cc6f1bfd3e78b93e2ab8d98006ec0184fbd26dd",
+      "review_score": 89
+    },
+    {
+      "id": "community-temporal-dotnet-agents",
+      "name": "temporal-community/temporal-dotnet-agents",
+      "url": "https://github.com/temporal-community/temporal-dotnet-agents",
+      "source_class": "community-repository",
+      "authority": "community",
+      "topics": [
+        "durability",
+        "workflows",
+        "sessions-context",
+        "approvals-hitl",
+        "observability"
+      ],
+      "languages": [
+        "csharp"
+      ],
+      "review_status": "adopted",
+      "priority": "P1",
+      "why": "Temporal integration pinned to MAF 1.17 with extensive replay, compatibility, unit, and integration tests.",
+      "review": "reviews/community-temporal-dotnet-agents.md",
+      "reviewed_at": "2026-08-11",
+      "collection_action": "project route",
+      "reviewed_commit": "4a98f2b14eccccaf3cc2c96a64ea178050d536b9",
+      "review_score": 98
+    },
+    {
+      "id": "community-sokolaidev-maf-extensions",
+      "name": "sokolaidev/maf-extensions",
+      "url": "https://github.com/sokolaidev/maf-extensions",
+      "source_class": "community-repository",
+      "authority": "community",
+      "topics": [
+        "security",
+        "tools",
+        "codeact"
+      ],
+      "languages": [
+        "python"
+      ],
+      "review_status": "quarantined",
+      "priority": "P2",
+      "why": "New sandbox abstraction with direct MAF glue and boundary tests but limited operational history.",
+      "review": "reviews/community-sokolaidev-maf-extensions.md",
+      "reviewed_at": "2026-08-11",
+      "collection_action": "none",
+      "reviewed_commit": "e328dafe513047e6d68de9542754562dff9e3601",
+      "review_score": 76
+    },
+    {
+      "id": "community-agent-assembly-python-sdk",
+      "name": "ai-agent-assembly/python-sdk",
+      "url": "https://github.com/ai-agent-assembly/python-sdk",
+      "source_class": "community-repository",
+      "authority": "community",
+      "topics": [
+        "security",
+        "tools",
+        "observability",
+        "evaluation"
+      ],
+      "languages": [
+        "python"
+      ],
+      "review_status": "quarantined",
+      "priority": "P2",
+      "why": "Prerelease governance SDK with a direct MAF adapter and extensive tests, but little independent maturity evidence.",
+      "review": "reviews/community-agent-assembly-python-sdk.md",
+      "reviewed_at": "2026-08-11",
+      "collection_action": "none",
+      "reviewed_commit": "72a9d7d30b1724438968ff5c1399e90124d0701a",
+      "review_score": 81
     }
   ]
 }

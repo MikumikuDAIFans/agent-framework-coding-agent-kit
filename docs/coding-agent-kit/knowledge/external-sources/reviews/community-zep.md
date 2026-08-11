@@ -62,3 +62,9 @@
 - Collection action: `project route`
 - Re-review trigger: upstream MAF major/API change, source revision/license change, or new compatibility tests.
 - Residual risk: Targets >=1.8.1 and explicitly audits framework session/state limitations; verify target 1.13 provider hooks before reuse.
+
+## Re-review 2026-08-11
+
+- New reviewed commit: `ba4fc3cc5b00cda7dde63833007467ffd6cba3a8` (2026-08-08T01:01:18Z).
+- The focused MAF integration moves to `zep-ms-agent-framework` 0.2.1, retains `agent-framework-core>=1.8.1`, adds PEP 561 typing metadata, and makes only small basic-test adjustments.
+- Decision unchanged: `adopted`, score 100, with the open lower-bound and current 1.17 provider-hook comparison retained as explicit limits.
